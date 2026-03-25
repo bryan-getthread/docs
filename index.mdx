@@ -42,36 +42,36 @@ mode: "custom"
           <span style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>Ask AI</span>
         </div>
         {[
-          "How do I connect my PSA?",
-          "How do I configure Magic Agents?",
-          "How do I deploy the Teams app?",
-        ].map((q) => (
-          <button key={q} onClick={() => {
-            const ai = document.querySelector('[aria-label="Ask AI"]');
-            if (ai) { ai.click(); setTimeout(() => { const inp = document.querySelector('textarea, input[type="text"]'); if (inp) { inp.value = q; inp.dispatchEvent(new Event('input', { bubbles: true })); }}, 300); }
-          }} style={{
+          ["How do I connect my PSA?", "/get-started/admin/connect-your-psa"],
+          ["How do I configure Magic Agents?", "/ai/magic-agents/configure"],
+          ["How do I deploy the Teams app?", "/channels/teams/deploy"],
+        ].map(([q, href]) => (
+          <a key={q} href={href} style={{
             display: "flex", alignItems: "center", justifyContent: "space-between",
             width: "100%", background: "var(--color-background-tertiary)",
             border: "1px solid var(--color-border-tertiary)", borderRadius: "8px",
             padding: "10px 12px", marginBottom: "8px",
             fontSize: "12px", fontWeight: "500", color: "var(--color-text-secondary)",
-            textAlign: "left", cursor: "pointer", fontFamily: "'Montserrat', sans-serif",
+            textDecoration: "none",
           }}>
             {q}
             <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0, marginLeft: "8px" }}>
               <path d="M2.5 6h7M6 2.5L9.5 6 6 9.5" stroke="#00BB99" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-          </button>
+          </a>
         ))}
         <div style={{ position: "relative", marginTop: "12px" }}>
           <input
             type="text"
-            placeholder="Ask anything about Thread..."
+            placeholder="Search Thread docs..."
             onKeyDown={(e) => {
               if (e.key === "Enter" && e.target.value.trim()) {
-                const ai = document.querySelector('[aria-label="Ask AI"]');
-                if (ai) ai.click();
+                window.location.href = `?search=${encodeURIComponent(e.target.value.trim())}`;
               }
+            }}
+            onClick={() => {
+              const kbd = document.querySelector('button[aria-label="Search"]') || document.querySelector('[class*="SearchButton"]');
+              if (kbd) kbd.click();
             }}
             style={{
               width: "100%",
@@ -82,6 +82,7 @@ mode: "custom"
               fontSize: "12.5px", color: "var(--color-text-primary)",
               outline: "none", boxSizing: "border-box",
               fontFamily: "'Montserrat', sans-serif",
+              cursor: "text",
             }}
           />
           <div style={{ position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", opacity: 0.5 }}>
@@ -90,6 +91,7 @@ mode: "custom"
             </svg>
           </div>
         </div>
+        <p style={{ fontSize: "10px", color: "var(--color-text-tertiary)", margin: "8px 0 0", textAlign: "center" }}>Press ⌘K anywhere to search</p>
       </div>
 
     </div>
