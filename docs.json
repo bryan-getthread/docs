@@ -7,23 +7,21 @@
     "light": "#00BB99",
     "dark": "#00BB99"
   },
+  "favicon": "/favicon.svg",
   "search": {
     "prompt": "Search Thread docs..."
   },
-  "ai": {
-    "chatbot": true
+  "appearance": {
+    "default": "dark"
   },
-  "custom": {
-    "css": "/custom.css"
+  "logo": {
+    "light": "/logo/thread-logo-dark.png",
+    "dark": "https://www.getthread.com/hubfs/Thread_Logo_White.svg",
+    "href": "https://www.getthread.com"
   },
   "banner": {
     "content": "Looking for our legacy Help Center? Visit [docs.getthread.com](https://docs.getthread.com) ↗",
     "dismissible": true
-  },
-  "logo": {
-    "light": "https://www.getthread.com/hubfs/Thread_Logo_White.svg",
-    "dark": "https://www.getthread.com/hubfs/Thread_Logo_White.svg",
-    "href": "https://www.getthread.com"
   },
   "navbar": {
     "links": [
@@ -53,27 +51,27 @@
         "tab": "Get Started",
         "groups": [
           {
-            "group": "Welcome to Thread",
+            "group": "Welcome",
             "pages": [
               "index",
               "get-started/what-is-thread"
             ]
           },
           {
-            "group": "For Admins — Setup Guide",
+            "group": "Admin",
             "pages": [
               "get-started/admin/quickstart",
-              "get-started/admin/first-launch-checklist",
-              "get-started/admin/workspace-setup",
               "get-started/admin/connect-your-psa",
               "get-started/admin/configure-magic-agents",
               "get-started/admin/deploy-channels",
-              "get-started/admin/rollout-customers"
+              "get-started/admin/rollout-customers",
+              "get-started/admin/workspace-setup"
             ]
           },
           {
-            "group": "For Technicians — Day One",
+            "group": "Technician",
             "pages": [
+              "get-started/technician/overview",
               "get-started/technician/inbox-overview",
               "get-started/technician/first-views",
               "get-started/technician/handling-threads",
@@ -82,7 +80,28 @@
             ]
           },
           {
-            "group": "Rollout Resources",
+            "group": "Dispatcher",
+            "pages": [
+              "get-started/dispatcher/overview",
+              "get-started/dispatcher/triage-workflow",
+              "get-started/dispatcher/views-for-dispatchers",
+              "get-started/dispatcher/ai-assisted-routing",
+              "get-started/dispatcher/magic-agents-for-dispatchers"
+            ]
+          },
+          {
+            "group": "Service Manager",
+            "pages": [
+              "get-started/service-manager/overview",
+              "get-started/service-manager/team-setup",
+              "get-started/service-manager/flows-and-automations",
+              "get-started/service-manager/ai-accuracy-review",
+              "get-started/service-manager/client-intelligence",
+              "get-started/service-manager/reporting"
+            ]
+          },
+          {
+            "group": "Resources",
             "pages": [
               "get-started/resources/team-announcement-template",
               "get-started/resources/customer-rollout-campaign",
