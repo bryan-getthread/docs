@@ -1,122 +1,398 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Thread Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#00BB99",
+    "light": "#00BB99",
+    "dark": "#00BB99"
   },
-  "favicon": "/favicon.svg",
+  "search": {
+    "prompt": "Search Thread docs..."
+  },
+  "ai": {
+    "chatbot": true
+  },
+  "custom": {
+    "css": "/custom.css"
+  },
+  "banner": {
+    "content": "Looking for our legacy Help Center? Visit [docs.getthread.com](https://docs.getthread.com) ↗",
+    "dismissible": true
+  },
+  "logo": {
+    "light": "https://www.getthread.com/hubfs/Thread_Logo_White.svg",
+    "dark": "https://www.getthread.com/hubfs/Thread_Logo_White.svg",
+    "href": "https://www.getthread.com"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Help Center",
+        "href": "https://docs.getthread.com"
+      },
+      {
+        "label": "Main Site",
+        "href": "https://www.getthread.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Login",
+      "href": "https://admin.getthread.com"
+    },
+    "secondary": {
+      "type": "button",
+      "label": "Thread Inbox",
+      "href": "https://inbox.getthread.com"
+    }
+  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Get Started",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Welcome to Thread",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "get-started/what-is-thread"
             ]
           },
           {
-            "group": "Customization",
+            "group": "For Admins — Setup Guide",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "get-started/admin/quickstart",
+              "get-started/admin/first-launch-checklist",
+              "get-started/admin/workspace-setup",
+              "get-started/admin/connect-your-psa",
+              "get-started/admin/configure-magic-agents",
+              "get-started/admin/deploy-channels",
+              "get-started/admin/rollout-customers"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "For Technicians — Day One",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "get-started/technician/inbox-overview",
+              "get-started/technician/first-views",
+              "get-started/technician/handling-threads",
+              "get-started/technician/shortcuts-tips",
+              "get-started/technician/ai-tools-overview"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Rollout Resources",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "get-started/resources/team-announcement-template",
+              "get-started/resources/customer-rollout-campaign",
+              "get-started/resources/training-webinars"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Inbox",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Getting Started",
             "pages": [
-              "api-reference/introduction"
+              "inbox/overview",
+              "inbox/create-views",
+              "inbox/views-and-insights",
+              "inbox/sso"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Working in Inbox",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "inbox/navigating-inbox",
+              "inbox/inside-views",
+              "inbox/navigating-a-thread",
+              "inbox/control-panel",
+              "inbox/shortcuts",
+              "inbox/snippets",
+              "inbox/time-tracking",
+              "inbox/attachments"
+            ]
+          },
+          {
+            "group": "Approvals",
+            "pages": [
+              "inbox/approvals",
+              "inbox/approvals-autotask-udfs"
+            ]
+          },
+          {
+            "group": "Flows & Automation",
+            "pages": [
+              "inbox/flows",
+              "inbox/status-automations",
+              "inbox/on-call-assignment",
+              "inbox/out-of-office-flow",
+              "inbox/csat-smileback"
+            ]
+          },
+          {
+            "group": "Planner",
+            "pages": [
+              "inbox/planner",
+              "inbox/planner-outlook-calendar"
+            ]
+          },
+          {
+            "group": "Admin",
+            "pages": [
+              "inbox/workspace",
+              "inbox/members",
+              "inbox/teams",
+              "inbox/clients",
+              "inbox/plans-licenses"
+            ]
+          },
+          {
+            "group": "Notifications",
+            "pages": [
+              "inbox/notifications-team",
+              "inbox/notifications-customers"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "AI",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "ai/overview"
+            ]
+          },
+          {
+            "group": "Assistive AI",
+            "pages": [
+              "ai/assistive/overview",
+              "ai/assistive/auto-prioritization",
+              "ai/assistive/auto-categorization",
+              "ai/assistive/ticket-type-categorization",
+              "ai/assistive/magic-title",
+              "ai/assistive/magic-title-rules",
+              "ai/assistive/magic-recap",
+              "ai/assistive/recap-template-library",
+              "ai/assistive/sentiment-analysis",
+              "ai/assistive/sentiment-flows-views"
+            ]
+          },
+          {
+            "group": "Magic Agents",
+            "pages": [
+              "ai/magic-agents/overview",
+              "ai/magic-agents/configure",
+              "ai/magic-agents/service-catalog",
+              "ai/magic-agents/create-intents",
+              "ai/magic-agents/intent-creation-assistance",
+              "ai/magic-agents/automation-triggers",
+              "ai/magic-agents/approvals",
+              "ai/magic-agents/email-support",
+              "ai/magic-agents/listening-mode",
+              "ai/magic-agents/track-activity-workflow"
+            ]
+          },
+          {
+            "group": "Voice AI",
+            "pages": [
+              "ai/voice/overview",
+              "ai/voice/setup",
+              "ai/voice/contact-mapping",
+              "ai/voice/pronunciation-guide",
+              "ai/voice/faq"
+            ]
+          },
+          {
+            "group": "Reminder Agent",
+            "pages": [
+              "ai/reminder-agent/overview",
+              "ai/reminder-agent/configure"
+            ]
+          },
+          {
+            "group": "Client Intelligence",
+            "pages": [
+              "ai/intelligence/overview",
+              "ai/intelligence/manager-guide",
+              "ai/intelligence/tech-guide",
+              "ai/intelligence/contact-intelligence",
+              "ai/intelligence/contact-intelligence-faq"
+            ]
+          },
+          {
+            "group": "Trust & Accuracy",
+            "pages": [
+              "ai/trust/testing-validation",
+              "ai/trust/accuracy-tuning",
+              "ai/trust/ai-privacy-security"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Channels",
+        "groups": [
+          {
+            "group": "Messenger",
+            "pages": [
+              "channels/messenger/overview",
+              "channels/messenger/configure-branding",
+              "channels/messenger/deploy",
+              "channels/messenger/custom-app",
+              "channels/messenger/deploy-custom-app",
+              "channels/messenger/business-hours",
+              "channels/messenger/override-per-client",
+              "channels/messenger/disable-client-access",
+              "channels/messenger/new-contact-chats",
+              "channels/messenger/configurations",
+              "channels/messenger/internationalization",
+              "channels/messenger/standard-vs-sla-chat",
+              "channels/messenger/find-app-id",
+              "channels/messenger/add-chat-now-button"
+            ]
+          },
+          {
+            "group": "Microsoft Teams App",
+            "pages": [
+              "channels/teams/what-is-teams-app",
+              "channels/teams/design-custom-app",
+              "channels/teams/deploy",
+              "channels/teams/rollout-specific-users",
+              "channels/teams/embed-cloudradial",
+              "channels/teams/upload-banner",
+              "channels/teams/upgrade-legacy-app",
+              "channels/teams/clone-legacy-app",
+              "channels/teams/uninstall",
+              "channels/teams/faq"
+            ]
+          },
+          {
+            "group": "Slack App",
+            "pages": [
+              "channels/slack/deploy",
+              "channels/slack/sandbox-testing"
+            ]
+          },
+          {
+            "group": "Desktop App",
+            "pages": [
+              "channels/desktop/overview",
+              "channels/desktop/deploy-windows",
+              "channels/desktop/deploy-mac",
+              "channels/desktop/deploy-sso",
+              "channels/desktop/kiosk-mode"
+            ]
+          },
+          {
+            "group": "Web App",
+            "pages": [
+              "channels/web/embed-chat-bubble",
+              "channels/web/embed-landing-page",
+              "channels/web/auto-authentication"
+            ]
+          },
+          {
+            "group": "Companion Apps (Internal)",
+            "pages": [
+              "channels/companion/teams-install",
+              "channels/companion/teams-troubleshooting",
+              "channels/companion/slack-install",
+              "channels/companion/slack-usage"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Integrations",
+        "groups": [
+          {
+            "group": "PSA",
+            "pages": [
+              "integrations/connectwise/setup",
+              "integrations/connectwise/pod-configuration",
+              "integrations/connectwise/using-pods",
+              "integrations/connectwise/permissions",
+              "integrations/autotask/setup",
+              "integrations/autotask/chat-timepad-insights",
+              "integrations/autotask/email-workflow",
+              "integrations/halopsa/setup",
+              "integrations/halopsa/action-mapping",
+              "integrations/halopsa/response-options",
+              "integrations/halopsa/faq",
+              "integrations/psa-member-sync"
+            ]
+          },
+          {
+            "group": "Documentation & IT",
+            "pages": [
+              "integrations/it-glue",
+              "integrations/auvik",
+              "integrations/connectwise-automate"
+            ]
+          },
+          {
+            "group": "Scheduling & Portals",
+            "pages": [
+              "integrations/timezest",
+              "integrations/cloudradial"
+            ]
+          },
+          {
+            "group": "Automation",
+            "pages": [
+              "integrations/microsoft-365"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Security",
+        "groups": [
+          {
+            "group": "Security",
+            "pages": [
+              "security/overview",
+              "security/ai-privacy",
+              "security/data-encryption",
+              "security/ip-domain-restrictions",
+              "security/subprocessors",
+              "security/teams-app-permissions",
+              "security/slack-permissions"
+            ]
+          },
+          {
+            "group": "Billing",
+            "pages": [
+              "security/billing"
             ]
           }
         ]
       }
     ],
     "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "anchors": []
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "linkedin": "https://www.linkedin.com/company/thread-magic"
     }
   }
 }

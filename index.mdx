@@ -1,97 +1,212 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "Thread Documentation"
+description: "Everything you need to set up, deploy, and master Thread."
+mode: "custom"
 ---
 
-## Setting up
+<div style={{ fontFamily: "'Montserrat', sans-serif", minHeight: "100vh", background: "#080f0e", color: "#fff", padding: "0 0 80px" }}>
 
-Get your documentation site up and running in minutes.
+  {/* ── Hero ── */}
+  <div style={{
+    position: "relative", overflow: "hidden",
+    padding: "88px 10% 88px",
+    borderBottom: "1px solid rgba(255,255,255,0.06)",
+    background: "linear-gradient(160deg, #0d2420 0%, #080f0e 40%, #071a16 70%, #0a2018 100%)",
+  }}>
+    <div style={{
+      position: "absolute", inset: 0,
+      background: "radial-gradient(ellipse 60% 80% at 20% 50%, rgba(0,187,153,0.12) 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 80% 20%, rgba(0,187,153,0.07) 0%, transparent 55%)",
+      pointerEvents: "none",
+    }} />
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
+    <div style={{ position: "relative", zIndex: 1, maxWidth: "680px" }}>
+      {/* Badge + Ask AI row */}
+      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "36px", flexWrap: "wrap" }}>
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: "8px",
+          background: "rgba(0,187,153,0.1)", border: "1px solid rgba(0,187,153,0.25)",
+          borderRadius: "100px", padding: "5px 14px 5px 8px",
+          fontSize: "11px", fontWeight: "600", color: "#00BB99",
+        }}>
+          <span style={{ background: "#00BB99", color: "#000", borderRadius: "100px", padding: "2px 8px", fontSize: "10px", fontWeight: "700" }}>NEW</span>
+          Voice AI + Client Intelligence now available
+        </div>
 
-## Make it yours
+        <button
+          onClick={() => {
+            const btn = document.querySelector('[aria-label="Ask AI"], [data-testid="ask-ai-button"], button[class*="AskAI"], button[class*="askAi"]');
+            if (btn) btn.click();
+            else {
+              const kbd = document.querySelector('[aria-label="Search"], input[placeholder*="Search"]');
+              if (kbd) kbd.focus();
+            }
+          }}
+          style={{
+            display: "inline-flex", alignItems: "center", gap: "7px",
+            background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)",
+            borderRadius: "100px", padding: "5px 14px 5px 10px",
+            fontSize: "11px", fontWeight: "600", color: "rgba(255,255,255,0.6)",
+            cursor: "pointer",
+          }}>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 1C3.24 1 1 3.24 1 6s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm.5 7.5h-1v-4h1v4zm0-5h-1V2.5h1V3.5z" fill="rgba(255,255,255,0.5)"/>
+          </svg>
+          Ask AI
+        </button>
+      </div>
 
-Design a docs site that looks great and empowers your users.
+      <h1 style={{ fontSize: "clamp(36px, 5vw, 58px)", fontWeight: "800", lineHeight: "1.05", margin: "0 0 28px", color: "#fff", letterSpacing: "-0.03em" }}>
+        Service magic starts<br />
+        <span style={{ color: "#00BB99" }}>right here.</span>
+      </h1>
 
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
-  </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+      <p style={{ fontSize: "17px", lineHeight: "1.8", color: "rgba(255,255,255,0.45)", margin: "0 0 44px", maxWidth: "480px" }}>
+        Everything you need to deploy Thread, configure AI, and deliver intelligent service — for admins and technicians alike.
+      </p>
 
-## Create beautiful pages
+      <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
+        <a href="/get-started/admin/quickstart" style={{ background: "#00BB99", color: "#000", fontWeight: "700", fontSize: "14px", padding: "13px 26px", borderRadius: "10px", textDecoration: "none", letterSpacing: "-0.01em" }}>Admin Setup →</a>
+        <a href="/get-started/technician/inbox-overview" style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.8)", fontWeight: "600", fontSize: "14px", padding: "13px 26px", borderRadius: "10px", textDecoration: "none" }}>I'm a Technician →</a>
+      </div>
+    </div>
 
-Everything you need to create world-class documentation.
+    {/* Scroll nudge */}
+    <div style={{ position: "absolute", bottom: "28px", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
+      <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(0,187,153,0.5)" }}>Explore</span>
+      <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ animation: "threadBounce 2s ease-in-out infinite" }}>
+        <rect x="1" y="1" width="14" height="22" rx="7" stroke="rgba(0,187,153,0.4)" strokeWidth="1.5"/>
+        <rect x="7" y="5" width="2" height="5" rx="1" fill="#00BB99" style={{ animation: "threadScroll 2s ease-in-out infinite" }}/>
+      </svg>
+      <style>{`
+        @keyframes threadBounce {
+          0%, 100% { transform: translateY(0); opacity: 0.7; }
+          50% { transform: translateY(4px); opacity: 1; }
+        }
+        @keyframes threadScroll {
+          0% { transform: translateY(0); opacity: 1; }
+          60% { transform: translateY(6px); opacity: 0; }
+          61% { transform: translateY(0); opacity: 0; }
+          100% { transform: translateY(0); opacity: 1; }
+        }
+      `}</style>
+    </div>
+  </div>
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+  {/* ── Persona strip ── */}
+  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+    {[
+      {
+        role: "Admin",
+        tag: "Setting up Thread",
+        desc: "Connect your PSA, configure AI, and deploy channels to your customers.",
+        color: "#00BB99",
+        border: "rgba(0,187,153,0.12)",
+        links: [
+          ["Connect your PSA", "/get-started/admin/connect-your-psa"],
+          ["Configure Magic Agents", "/ai/magic-agents/configure"],
+          ["Deploy Teams App", "/channels/teams/deploy"],
+          ["Roll out to customers", "/get-started/admin/rollout-customers"],
+          ["AI Privacy & Security", "/security/ai-privacy"],
+        ],
+      },
+      {
+        role: "Technician",
+        tag: "Working in Thread",
+        desc: "Master the Inbox, manage threads, and use AI tools to work faster every day.",
+        color: "rgba(255,255,255,0.55)",
+        border: "rgba(255,255,255,0.05)",
+        links: [
+          ["Getting started with Inbox", "/get-started/technician/inbox-overview"],
+          ["Create your first Views", "/inbox/create-views"],
+          ["Navigating a Thread", "/inbox/navigating-a-thread"],
+          ["Shortcuts & tips", "/get-started/technician/shortcuts-tips"],
+          ["AI tools in Inbox", "/get-started/technician/ai-tools-overview"],
+        ],
+      },
+    ].map(({ role, tag, desc, color, border, links }, i) => (
+      <div key={role} style={{
+        padding: "48px 10%",
+        borderRight: i === 0 ? "1px solid rgba(255,255,255,0.06)" : "none",
+        borderTop: `2px solid ${i === 0 ? "#00BB99" : "rgba(255,255,255,0.1)"}`,
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
+          <span style={{ fontSize: "13px", fontWeight: "800", color, letterSpacing: "-0.01em" }}>{role}</span>
+          <span style={{ fontSize: "10px", fontWeight: "600", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", paddingLeft: "10px", borderLeft: "1px solid rgba(255,255,255,0.1)" }}>{tag}</span>
+        </div>
+        <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.38)", margin: "0 0 28px", lineHeight: "1.75", maxWidth: "320px" }}>{desc}</p>
+        {links.map(([label, href]) => (
+          <a key={href} href={href} style={{
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+            fontSize: "13.5px", fontWeight: "500", color: "rgba(255,255,255,0.72)",
+            textDecoration: "none", padding: "13px 0",
+            borderBottom: `1px solid ${border}`,
+          }}>
+            <span>{label}</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
+        ))}
+      </div>
+    ))}
+  </div>
 
-## Need inspiration?
+  {/* ── Product grid ── */}
+  <div style={{ padding: "64px 10% 0" }}>
+    <p style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.16em", textTransform: "uppercase", color: "#00BB99", margin: "0 0 24px" }}>The Platform</p>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", background: "rgba(255,255,255,0.06)", borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.06)" }}>
+      {[
+        ["M4 3h12v2H4V3zm0 4h12v2H4V7zm0 4h8v2H4v-2z", "Inbox", "Unified workspace for every conversation and ticket.", "/inbox/overview"],
+        ["M12 2a2 2 0 012 2v1a2 2 0 01-2 2H4a2 2 0 01-2-2V4a2 2 0 012-2h8zm0 9a2 2 0 012 2v1a2 2 0 01-2 2H4a2 2 0 01-2-2v-1a2 2 0 012-2h8z", "Magic Agents", "Agentic AI that triages, routes, and resolves end to end.", "/ai/magic-agents/overview"],
+        ["M9.663 17h-5.326A2 2 0 012.5 14.5v-11A2 2 0 014.5 1.5h7l4 4v9a2 2 0 01-2 2h-1.5M9 12l2 2 4-4", "Assistive AI", "Auto-titles, priorities, categories, and sentiment.", "/ai/assistive/overview"],
+        ["M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z", "Voice AI", "Answers calls, transcribes, and creates tickets.", "/ai/voice/overview"],
+        ["M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z", "Client Intelligence", "Health scores, issue trends, and QBR insights.", "/ai/intelligence/overview"],
+        ["M13 10V3L4 14h7v7l9-11h-7z", "Channels", "Teams, Slack, Desktop, Web, or Messenger.", "/channels/messenger/overview"],
+      ].map(([path, title, desc, href]) => (
+        <a key={href} href={href} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", background: "#0d1a18", padding: "28px 28px 24px", textDecoration: "none", minHeight: "160px" }}>
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00BB99" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <path d={path} />
+              </svg>
+              <p style={{ fontSize: "14px", fontWeight: "700", color: "#fff", margin: 0 }}>{title}</p>
+            </div>
+            <p style={{ fontSize: "12.5px", color: "rgba(255,255,255,0.35)", margin: 0, lineHeight: "1.65" }}>{desc}</p>
+          </div>
+          <span style={{ fontSize: "11px", fontWeight: "600", color: "#00BB99", marginTop: "20px", display: "block" }}>Learn more →</span>
+        </a>
+      ))}
+    </div>
+  </div>
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+  {/* ── Setup steps ── */}
+  <div style={{ padding: "64px 10% 0" }}>
+    <p style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.16em", textTransform: "uppercase", color: "#00BB99", margin: "0 0 24px" }}>New to Thread? Do this first.</p>
+    {[
+      ["Connect your PSA", "Link ConnectWise, Autotask, or HaloPSA.", "/get-started/admin/connect-your-psa"],
+      ["Enable Assistive AI", "Auto-title, priority, category, and sentiment from day one.", "/ai/assistive/overview"],
+      ["Configure Magic Agents", "Build your service catalog, intents, and routing rules.", "/ai/magic-agents/configure"],
+      ["Deploy your channel", "Messenger, Teams, Slack, or Desktop to your first customers.", "/channels/messenger/deploy"],
+      ["Train your technicians", "Get the team comfortable in Inbox before go-live.", "/get-started/technician/inbox-overview"],
+      ["Roll out to customers", "Launch Wave 1 and monitor AI accuracy in the first 48 hours.", "/get-started/admin/rollout-customers"],
+    ].map(([title, desc, href], i) => (
+      <a key={href} href={href} style={{ display: "grid", gridTemplateColumns: "52px 1fr 24px", alignItems: "center", gap: "20px", padding: "22px 0", borderBottom: "1px solid rgba(255,255,255,0.05)", textDecoration: "none", color: "inherit" }}>
+        <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(0,187,153,0.1)", border: "1px solid rgba(0,187,153,0.25)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "800", color: "#00BB99", flexShrink: 0 }}>{i + 1}</div>
+        <div>
+          <p style={{ fontSize: "14px", fontWeight: "600", color: "#fff", margin: "0 0 4px" }}>{title}</p>
+          <p style={{ fontSize: "12.5px", color: "rgba(255,255,255,0.35)", margin: 0, lineHeight: "1.6" }}>{desc}</p>
+        </div>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </a>
+    ))}
+  </div>
+
+  {/* ── Footer ── */}
+  <div style={{ margin: "64px 10% 0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+    <a href="https://docs.getthread.com" style={{ padding: "16px 20px", borderRadius: "10px", border: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.02)", textDecoration: "none", color: "rgba(255,255,255,0.45)", fontSize: "13px", fontWeight: "500", display: "flex", justifyContent: "space-between", alignItems: "center" }}>Legacy Help Center <span>↗</span></a>
+    <a href="mailto:support@getthread.com" style={{ padding: "16px 20px", borderRadius: "10px", border: "1px solid rgba(0,187,153,0.2)", background: "rgba(0,187,153,0.04)", textDecoration: "none", color: "#00BB99", fontSize: "13px", fontWeight: "600", display: "flex", justifyContent: "space-between", alignItems: "center" }}>Contact Support <span>↗</span></a>
+  </div>
+
+</div>
