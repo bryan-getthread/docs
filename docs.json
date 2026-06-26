@@ -31,371 +31,400 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "Get Started",
-        "pages": [
-          "get-started/status-mapping-in-thread",
-          "get-started/status-mapping-in-thread-bcy",
-          "get-started/quick-setup-guide",
-          "get-started/talking-to-customers-about-ai-powered-support-thread-customer-value-messaging",
-          "get-started/thread-product-overview-your-guide-to-the-ai-powered-msp-service-desk",
-          "get-started/thread-partner-change-management-guide",
-          "get-started/webhooks-apis-how-thread-talks-to-your-psa",
-          "get-started/what-is-thread-an-overview"
+        "tab": "Get Started",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "get-started/what-is-thread-an-overview",
+              "get-started/thread-product-overview-your-guide-to-the-ai-powered-msp-service-desk",
+              "get-started/quick-setup-guide",
+              "get-started/status-mapping-in-thread",
+              "get-started/thread-partner-change-management-guide",
+              "get-started/talking-to-customers-about-ai-powered-support-thread-customer-value-messaging"
+            ]
+          }
         ]
       },
       {
-        "group": "Thread Inbox",
-        "pages": [
-          "inbox/adding-removing-contacts-in-inbox-halo-psa-jake-version",
-          "inbox/channels-deprecation-in-inbox",
-          "inbox/holidays-and-custom-closures",
-          "inbox/inbox-teams",
-          "inbox/team-admin-role",
+        "tab": "Products",
+        "groups": [
           {
-            "group": "Application Overview & Behavior",
+            "group": "Thread Inbox",
             "pages": [
-              "inbox/default-work-role-type-logic",
-              "inbox/1-the-channel-viewer",
-              "inbox/2-inside-the-channel",
-              "inbox/3-the-thread-itself",
-              "inbox/notifications",
-              "inbox/4-the-control-panel"
+              "inbox/service-team-structure",
+              "inbox/inbox-teams",
+              "inbox/team-admin-role",
+              "inbox/holidays-and-custom-closures",
+              "inbox/channels-deprecation-in-inbox",
+              "inbox/adding-removing-contacts-in-inbox-halo-psa-jake-version",
+              {
+                "group": "Getting Started with Inbox",
+                "pages": [
+                  "inbox/avatars",
+                  "inbox/how-to-setup-single-sign-on-sso",
+                  "inbox/views-and-insights"
+                ]
+              },
+              {
+                "group": "Application Overview & Behavior",
+                "pages": [
+                  "inbox/default-work-role-type-logic",
+                  "inbox/1-the-channel-viewer",
+                  "inbox/2-inside-the-channel",
+                  "inbox/3-the-thread-itself",
+                  "inbox/notifications",
+                  "inbox/4-the-control-panel"
+                ]
+              },
+              {
+                "group": "Thread Planner",
+                "pages": [
+                  "inbox/planner-outlook-calendar-integration",
+                  "inbox/using-planner"
+                ]
+              },
+              {
+                "group": "Snippets",
+                "pages": [
+                  "inbox/how-to-create-an-email-signature-using-snippets"
+                ]
+              },
+              {
+                "group": "Flows",
+                "pages": [
+                  "inbox/how-to-setup-a-csat-survey"
+                ]
+              },
+              {
+                "group": "Approvals",
+                "pages": [
+                  "inbox/approvals-in-inbox",
+                  "inbox/autotask-approval-configuration"
+                ]
+              },
+              {
+                "group": "Thread Admin Panel",
+                "pages": [
+                  "inbox/3-clients",
+                  "inbox/flows",
+                  "inbox/5-members",
+                  "inbox/messenger",
+                  "inbox/plans-licenses",
+                  "inbox/status-automations",
+                  "inbox/workspace"
+                ]
+              },
+              {
+                "group": "Helpful Tips & Tricks",
+                "pages": [
+                  "inbox/members-management"
+                ]
+              }
             ]
           },
           {
-            "group": "Getting Started with Inbox",
+            "group": "Magic AI",
             "pages": [
-              "inbox/avatars",
-              "inbox/how-to-setup-single-sign-on-sso",
-              "inbox/views-and-insights"
+              "assistive-ai/proactive-suggestions-in-ask-magic-partner-guide",
+              {
+                "group": "Auto Prioritization",
+                "pages": [
+                  "assistive-ai/how-to-set-up-auto-prioritization"
+                ]
+              },
+              {
+                "group": "Auto Categorization",
+                "pages": [
+                  "assistive-ai/getting-started-with-auto-categorization",
+                  "assistive-ai/configuring-ticket-type-categorization"
+                ]
+              },
+              {
+                "group": "Auto Title",
+                "pages": [
+                  "assistive-ai/setting-up-magic-title",
+                  "assistive-ai/magic-title-rule-creation-guide"
+                ]
+              },
+              {
+                "group": "Recap Templates",
+                "pages": [
+                  "assistive-ai/magic-recap",
+                  "assistive-ai/magic-recap-template-library"
+                ]
+              },
+              {
+                "group": "Sentiment Analysis",
+                "pages": [
+                  "assistive-ai/configure-sentiment",
+                  "assistive-ai/configure-automatic-escalations-and-recap-templates-for-sentiment-analysis"
+                ]
+              },
+              "assistive-ai/variables",
+              "assistive-ai/prompt-best-practices"
             ]
           },
           {
-            "group": "Flows",
+            "group": "Magic Agents",
             "pages": [
-              "inbox/how-to-setup-a-csat-survey"
-            ]
-          },
-          {
-            "group": "Thread Planner",
-            "pages": [
-              "inbox/planner-outlook-calendar-integration",
-              "inbox/using-planner"
-            ]
-          },
-          {
-            "group": "Snippets",
-            "pages": [
-              "inbox/how-to-create-an-email-signature-using-snippets"
-            ]
-          },
-          {
-            "group": "Helpful Tips & Tricks",
-            "pages": [
-              "inbox/members-management"
-            ]
-          },
-          {
-            "group": "Thread Admin Panel",
-            "pages": [
-              "inbox/3-clients",
-              "inbox/flows",
-              "inbox/5-members",
-              "inbox/messenger",
-              "inbox/plans-licenses",
-              "inbox/status-automations",
-              "inbox/workspace"
-            ]
-          },
-          {
-            "group": "Approvals",
-            "pages": [
-              "inbox/approvals-in-inbox",
-              "inbox/autotask-approval-configuration"
-            ]
-          },
-          "inbox/service-team-structure"
-        ]
-      },
-      {
-        "group": "Assistive AI",
-        "pages": [
-          "assistive-ai/proactive-suggestions-in-ask-magic-partner-guide",
-          {
-            "group": "Auto Prioritization",
-            "pages": [
-              "assistive-ai/how-to-set-up-auto-prioritization"
-            ]
-          },
-          {
-            "group": "Auto Categorization",
-            "pages": [
-              "assistive-ai/getting-started-with-auto-categorization",
-              "assistive-ai/configuring-ticket-type-categorization"
-            ]
-          },
-          {
-            "group": "Auto Title",
-            "pages": [
-              "assistive-ai/setting-up-magic-title",
-              "assistive-ai/magic-title-rule-creation-guide"
-            ]
-          },
-          {
-            "group": "Recap Templates",
-            "pages": [
-              "assistive-ai/magic-recap",
-              "assistive-ai/magic-recap-template-library"
-            ]
-          },
-          {
-            "group": "Sentiment Analysis",
-            "pages": [
-              "assistive-ai/configure-sentiment",
-              "assistive-ai/configure-automatic-escalations-and-recap-templates-for-sentiment-analysis"
-            ]
-          },
-          "assistive-ai/variables",
-          "assistive-ai/prompt-best-practices"
-        ]
-      },
-      {
-        "group": "AI Agents",
-        "pages": [
-          "ai-agents/contact-intelligence-faq",
-          "ai-agents/contact-intelligence",
-          "ai-agents/reminder-agent-nqhl",
-          "ai-agents/getting-started-with-knowledge",
-          "ai-agents/super-magic",
-          "ai-agents/knowledge-intellegence-service-tech-guide",
-          {
-            "group": "Triage Agent",
-            "pages": [
-              "ai-agents/approvals",
-              "ai-agents/create-your-first-intents",
-              "ai-agents/creating-a-workflow-to-track-magic-agent-activity",
-              "ai-agents/getting-started-with-triage-agent",
-              "ai-agents/intent-creation-assistance-intent",
-              "ai-agents/building-your-magic-agents-service-catalog",
-              "ai-agents/listening-mode-for-triage-agents",
-              "ai-agents/custom-rules-beta-partner-guide",
-              "ai-agents/setting-up-email-support-for-magic-agents",
               "ai-agents/getting-started-with-magic-agents",
-              "ai-agents/setting-up-your-triage-agent-user-guide",
-              "ai-agents/magic-agents-automation-url"
+              "ai-agents/agent-driven-resolutions",
+              "ai-agents/magic-agents-automation-url",
+              {
+                "group": "Triage Agent",
+                "pages": [
+                  "ai-agents/getting-started-with-triage-agent",
+                  "ai-agents/setting-up-your-triage-agent-user-guide",
+                  "ai-agents/building-your-magic-agents-service-catalog",
+                  "ai-agents/create-your-first-intents",
+                  "ai-agents/intent-creation-assistance-intent",
+                  "ai-agents/custom-rules-beta-partner-guide",
+                  "ai-agents/listening-mode-for-triage-agents",
+                  "ai-agents/approvals",
+                  "ai-agents/setting-up-email-support-for-magic-agents",
+                  "ai-agents/creating-a-workflow-to-track-magic-agent-activity"
+                ]
+              },
+              {
+                "group": "Reminder Agent",
+                "pages": [
+                  "ai-agents/reminder-agent",
+                  "ai-agents/reminder-agent-nqhl"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Super Magic",
+            "pages": [
+              "super-magic/meet-super-magic-your-ai-assistant-in-the-inbox",
+              "ai-agents/super-magic",
+              "super-magic/super-magic-admin-guide-setup-access-safety",
+              "super-magic/connect-it-glue-hudu-time-zest-knowledge-sources-to-super-magic",
+              {
+                "group": "Super Magic Tools",
+                "pages": [
+                  "super-magic/super-magic-tool-reference",
+                  "super-magic/add-external-tools-to-super-magic-with-connectors-super-mcp",
+                  "super-magic/connecting-ninja-one-to-super-magic",
+                  "super-magic/use-hudu-with-super-magic",
+                  "super-magic/use-it-glue-with-super-magic",
+                  "super-magic/use-linear-with-super-magic",
+                  "super-magic/use-liongard-with-super-magic",
+                  "super-magic/use-notion-with-super-magic",
+                  "super-magic/use-time-zest-with-super-magic",
+                  "super-magic/use-zapier-with-super-magic"
+                ]
+              }
             ]
           },
           {
             "group": "Voice AI",
             "pages": [
-              "ai-agents/contact-mapping",
-              "ai-agents/microsoft-teams-pay-as-you-go-resource-account-calling",
-              "ai-agents/outbound-calling-lite",
-              "ai-agents/voice-ai-faq",
-              "ai-agents/voice-ai-pronunciation-guide",
               "ai-agents/voice-ai-setup-phase-1-initial-configuration",
               "ai-agents/voice-ai-setup-phase-2-overflow-after-hours",
-              "ai-agents/voice-ai-setup-phase-3-the-auto-attendant-walk-run"
+              "ai-agents/voice-ai-setup-phase-3-the-auto-attendant-walk-run",
+              "ai-agents/contact-mapping",
+              "ai-agents/voice-ai-pronunciation-guide",
+              "ai-agents/voice-ai-faq",
+              "ai-agents/outbound-calling-lite",
+              "ai-agents/microsoft-teams-pay-as-you-go-resource-account-calling",
+              {
+                "group": "Legacy",
+                "pages": [
+                  "ai-agents/voice-ai-outbound-calling"
+                ]
+              }
             ]
           },
           {
-            "group": "Voice AI (legacy)",
+            "group": "Service Intelligence",
             "pages": [
-              "ai-agents/voice-ai-outbound-calling"
+              "ai-agents/getting-started-with-knowledge",
+              "ai-agents/contact-intelligence",
+              "ai-agents/contact-intelligence-faq",
+              "ai-agents/knowledge-intellegence-service-tech-guide"
             ]
           },
           {
-            "group": "Reminder Agent",
+            "group": "Automagically",
             "pages": [
-              "ai-agents/reminder-agent"
+              "automagically/automagically-getting-started",
+              "automagically/automagically-running-runbooks"
             ]
           },
-          "ai-agents/agent-driven-resolutions"
-        ]
-      },
-      {
-        "group": "Super Magic",
-        "pages": [
-          "super-magic/connect-it-glue-hudu-time-zest-knowledge-sources-to-super-magic",
-          "super-magic/meet-super-magic-your-ai-assistant-in-the-inbox",
-          "super-magic/super-magic-admin-guide-setup-access-safety",
-          "super-magic/thread-mcp-server-developer-guide",
           {
-            "group": "Super Magic Tools",
+            "group": "Magic Analytics",
             "pages": [
-              "super-magic/add-external-tools-to-super-magic-with-connectors-super-mcp",
-              "super-magic/connecting-ninja-one-to-super-magic",
-              "super-magic/super-magic-tool-reference",
-              "super-magic/use-hudu-with-super-magic",
-              "super-magic/use-it-glue-with-super-magic",
-              "super-magic/use-linear-with-super-magic",
-              "super-magic/use-liongard-with-super-magic",
-              "super-magic/use-notion-with-super-magic",
-              "super-magic/use-time-zest-with-super-magic",
-              "super-magic/use-zapier-with-super-magic"
+              "analytics/getting-started-with-magic-analytics",
+              "analytics/topics-you-can-explore",
+              "analytics/dashboard-agent",
+              "analytics/downloading-alerts-scheduling",
+              "analytics/things-to-know-and-gotchas",
+              "analytics/faqs"
             ]
           }
         ]
       },
       {
-        "group": "Magic Analytics",
-        "pages": [
-          "analytics/dashboard-agent",
-          "analytics/downloading-alerts-scheduling",
-          "analytics/faqs",
-          "analytics/getting-started-with-magic-analytics",
-          "analytics/things-to-know-and-gotchas",
-          "analytics/topics-you-can-explore"
-        ]
-      },
-      {
-        "group": "Automagically",
-        "pages": [
-          "automagically/automagically-getting-started",
-          "automagically/automagically-running-runbooks"
-        ]
-      },
-      {
-        "group": "Messenger",
-        "pages": [
-          "messenger/add-chat-now-button-email",
-          "messenger/show-all-tickets-in-chat-and-excluded-board-source",
+        "tab": "Apps & Integrations",
+        "groups": [
           {
-            "group": "Teams Service App for your Customers",
+            "group": "Messenger",
             "pages": [
-              "messenger/cloning-a-legacy-teams-app",
-              "messenger/create-teams-app",
-              "messenger/enterprise-teamssupport",
-              "messenger/how-to-roll-out-the-teams-service-app-to-specific-users",
-              "messenger/how-to-uninstall-the-microsoft-teams-thread-service-app",
-              "messenger/how-to-upgrade-your-legacy-teams-app",
-              "messenger/microsoft-teams-2-0-faqs"
+              "messenger/add-chat-now-button-email",
+              "messenger/show-all-tickets-in-chat-and-excluded-board-source",
+              {
+                "group": "Teams Service App",
+                "pages": [
+                  "messenger/create-teams-app",
+                  "messenger/how-to-roll-out-the-teams-service-app-to-specific-users",
+                  "messenger/enterprise-teamssupport",
+                  "messenger/cloning-a-legacy-teams-app",
+                  "messenger/how-to-upgrade-your-legacy-teams-app",
+                  "messenger/how-to-uninstall-the-microsoft-teams-thread-service-app",
+                  "messenger/microsoft-teams-2-0-faqs"
+                ]
+              },
+              {
+                "group": "Desktop Service App",
+                "pages": [
+                  "messenger/deploying-messenger-to-mac",
+                  "messenger/how-to-deploy-desktop-messenger-with-sso",
+                  "messenger/kiosk-mode"
+                ]
+              },
+              {
+                "group": "Web Service App",
+                "pages": [
+                  "messenger/embedding-messenger-on-landing-page",
+                  "messenger/messenger-identity-verification"
+                ]
+              },
+              {
+                "group": "Messenger FAQ",
+                "pages": [
+                  "messenger/configurations-in-messenger"
+                ]
+              }
             ]
           },
           {
-            "group": "Desktop Service App",
+            "group": "Companion Apps",
             "pages": [
-              "messenger/deploying-messenger-to-mac",
-              "messenger/how-to-deploy-desktop-messenger-with-sso",
-              "messenger/kiosk-mode"
+              {
+                "group": "Slack Companion App for Service Teams",
+                "pages": [
+                  "companion-apps/how-to-use-the-slack-companion-app-for-service-teams"
+                ]
+              }
             ]
           },
           {
-            "group": "Web Service App",
+            "group": "Integrations",
             "pages": [
-              "messenger/embedding-messenger-on-landing-page",
-              "messenger/messenger-identity-verification"
+              "integrations/hudu-integration",
+              "integrations/it-glue-ask-magic",
+              "integrations/thread-rewst-integration",
+              "integrations/microsoft-bookings-integration-for-psa-scheduling",
+              "integrations/pia-integration",
+              {
+                "group": "ConnectWise PSA",
+                "pages": [
+                  "integrations/connectwise-permissions-overview",
+                  "integrations/creating-a-connect-wise-manage-api-user",
+                  "integrations/how-to-use-thread-pods-in-manage",
+                  "integrations/how-to-enable-a-pod"
+                ]
+              },
+              {
+                "group": "Autotask PSA",
+                "pages": [
+                  "integrations/how-to-enable-chat-and-timepad-insights-in-autotask",
+                  "integrations/creating-a-autotask-api-user",
+                  "integrations/setting-up-an-email-communication-workflow-in-autotask"
+                ]
+              },
+              {
+                "group": "Halo PSA",
+                "pages": [
+                  "integrations/how-to-setup-halo-psa-integration",
+                  "integrations/action-mapping-configuration-with-thread",
+                  "integrations/halo-response-options",
+                  "integrations/halo-faq"
+                ]
+              },
+              {
+                "group": "PSA Settings",
+                "pages": [
+                  "integrations/keep-members-in-sync-with-psa-toggle",
+                  "integrations/managing-board-visibility-in-thread-board-exclusion"
+                ]
+              },
+              {
+                "group": "Other Integrations",
+                "pages": [
+                  "integrations/auvik-integration",
+                  "integrations/how-to-integrate-cloud-radial",
+                  "integrations/how-do-i-set-up-connectwise-automate",
+                  "integrations/setting-up-it-glue",
+                  "integrations/integrating-time-zest-with-thread"
+                ]
+              }
             ]
           },
           {
-            "group": "Messenger FAQ",
+            "group": "Developers",
             "pages": [
-              "messenger/configurations-in-messenger"
+              "get-started/webhooks-apis-how-thread-talks-to-your-psa",
+              "super-magic/thread-mcp-server-developer-guide"
             ]
           }
         ]
       },
       {
-        "group": "Companion Apps",
-        "pages": [
+        "tab": "Account",
+        "groups": [
           {
-            "group": "Slack Companion App for Service Teams",
+            "group": "Security & Billing",
             "pages": [
-              "companion-apps/how-to-use-the-slack-companion-app-for-service-teams"
+              "security-billing/data-encryption",
+              "security-billing/data-encryption-cub",
+              "security-billing/list-of-sub-processors",
+              "security-billing/what-if-my-organization-has-ip-restrictions",
+              "security-billing/microsoft-teams-app-permissions",
+              "security-billing/slack-permissions-guide",
+              "security-billing/how-to-access-your-thread-billing-portal",
+              "security-billing/plans-licenses"
+            ]
+          },
+          {
+            "group": "Notifications",
+            "pages": [
+              {
+                "group": "For your Team",
+                "pages": [
+                  "notifications/how-will-notifications-work-internally",
+                  "notifications/managing-your-inbox-notifications"
+                ]
+              },
+              {
+                "group": "For your Customers",
+                "pages": [
+                  "notifications/how-notifications-work-externally"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Adoption",
+            "pages": [
+              "adoption/craft-your-white-labeled-thread-customer-rollout-campaign"
             ]
           }
-        ]
-      },
-      {
-        "group": "Integrations",
-        "pages": [
-          "integrations/hudu-integration",
-          "integrations/it-glue-ask-magic",
-          "integrations/thread-rewst-integration",
-          {
-            "group": "PSA Integrations",
-            "pages": [
-              "integrations/keep-members-in-sync-with-psa-toggle",
-              "integrations/managing-board-visibility-in-thread-board-exclusion"
-            ]
-          },
-          {
-            "group": "ConnectWise PSA",
-            "pages": [
-              "integrations/connectwise-permissions-overview",
-              "integrations/creating-a-connect-wise-manage-api-user",
-              "integrations/how-to-use-thread-pods-in-manage",
-              "integrations/how-to-enable-a-pod"
-            ]
-          },
-          {
-            "group": "Autotask PSA",
-            "pages": [
-              "integrations/how-to-enable-chat-and-timepad-insights-in-autotask",
-              "integrations/creating-a-autotask-api-user",
-              "integrations/setting-up-an-email-communication-workflow-in-autotask"
-            ]
-          },
-          {
-            "group": "Halo PSA",
-            "pages": [
-              "integrations/action-mapping-configuration-with-thread",
-              "integrations/halo-response-options",
-              "integrations/halo-faq",
-              "integrations/how-to-setup-halo-psa-integration"
-            ]
-          },
-          {
-            "group": "Other Integrations",
-            "pages": [
-              "integrations/auvik-integration",
-              "integrations/how-to-integrate-cloud-radial",
-              "integrations/how-do-i-set-up-connectwise-automate",
-              "integrations/setting-up-it-glue",
-              "integrations/integrating-time-zest-with-thread"
-            ]
-          },
-          "integrations/microsoft-bookings-integration-for-psa-scheduling",
-          "integrations/pia-integration"
-        ]
-      },
-      {
-        "group": "Notifications",
-        "pages": [
-          {
-            "group": "Notifications for your Customers",
-            "pages": [
-              "notifications/how-notifications-work-externally"
-            ]
-          },
-          {
-            "group": "Notifications for your Team",
-            "pages": [
-              "notifications/how-will-notifications-work-internally",
-              "notifications/managing-your-inbox-notifications"
-            ]
-          }
-        ]
-      },
-      {
-        "group": "Security & Billing",
-        "pages": [
-          "security-billing/data-encryption-cub",
-          "security-billing/how-to-access-your-thread-billing-portal",
-          "security-billing/data-encryption",
-          "security-billing/list-of-sub-processors",
-          "security-billing/microsoft-teams-app-permissions",
-          "security-billing/plans-licenses",
-          "security-billing/slack-permissions-guide",
-          "security-billing/what-if-my-organization-has-ip-restrictions"
-        ]
-      },
-      {
-        "group": "Adoption",
-        "pages": [
-          "adoption/craft-your-white-labeled-thread-customer-rollout-campaign"
         ]
       }
     ]
@@ -417,5 +446,21 @@
     "socials": {
       "website": "https://www.getthread.com"
     }
-  }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "assistant",
+      "claude",
+      "chatgpt",
+      "mcp"
+    ]
+  },
+  "redirects": [
+    {
+      "source": "/get-started/status-mapping-in-thread-bcy",
+      "destination": "/get-started/status-mapping-in-thread"
+    }
+  ]
 }

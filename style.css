@@ -13,3 +13,121 @@
 #topbar-cta-button a svg {
   color: #99ee99 !important;
 }
+
+/* ============================================================
+   Landing page hero (mode: "custom") — mint/green gradient glow
+   ============================================================ */
+.thread-hero {
+  position: relative;
+  margin: -1.5rem -1.5rem 0;
+  padding: 7rem 1.5rem 5rem;
+  text-align: center;
+  overflow: hidden;
+  background-color: #000;
+  background-image:
+    radial-gradient(60rem 32rem at 50% -8rem, rgba(0, 187, 153, 0.28), transparent 60%),
+    radial-gradient(42rem 28rem at 18% 12%, rgba(153, 238, 153, 0.20), transparent 55%),
+    radial-gradient(46rem 30rem at 88% 4%, rgba(0, 187, 153, 0.16), transparent 55%);
+}
+/* soft fade into the page background at the bottom of the hero */
+.thread-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8rem;
+  background: linear-gradient(to bottom, transparent, var(--background, #000));
+  pointer-events: none;
+}
+:root .thread-hero { --background: #fff; }
+.dark .thread-hero { --background: #000; }
+
+.thread-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+.thread-eyebrow {
+  font-family: Poppins, sans-serif;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #99ee99;
+  margin: 0 0 1rem;
+}
+.thread-hero-title {
+  font-family: Poppins, sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.05;
+  font-weight: 700;
+  margin: 0 0 1.25rem;
+  background: linear-gradient(180deg, #ffffff 0%, #b9f5c9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.thread-hero-sub {
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 auto 2.25rem;
+  max-width: 36rem;
+}
+.light .thread-hero-sub { color: rgba(0, 0, 0, 0.6); }
+
+/* Ask AI search-style bar */
+.thread-ask {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 0.95rem 1.1rem;
+  border-radius: 0.9rem;
+  cursor: pointer;
+  background: rgba(153, 238, 153, 0.08);
+  border: 1px solid rgba(153, 238, 153, 0.35);
+  box-shadow: 0 0 0 0 rgba(153, 238, 153, 0.0);
+  transition: background 0.15s ease, box-shadow 0.2s ease, border-color 0.15s ease;
+}
+.thread-ask:hover {
+  background: rgba(153, 238, 153, 0.14);
+  border-color: rgba(153, 238, 153, 0.6);
+  box-shadow: 0 0 2.5rem -0.5rem rgba(0, 187, 153, 0.55);
+}
+.thread-ask-icon { color: #99ee99; font-size: 1.1rem; }
+.thread-ask-text {
+  flex: 1;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+}
+.light .thread-ask-text { color: rgba(0, 0, 0, 0.7); }
+.thread-ask-kbd {
+  font-size: 0.75rem;
+  color: #99ee99;
+  border: 1px solid rgba(153, 238, 153, 0.4);
+  border-radius: 0.4rem;
+  padding: 0.15rem 0.45rem;
+}
+.thread-ask-hint {
+  margin: 1.1rem auto 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 30rem;
+}
+.light .thread-ask-hint { color: rgba(0, 0, 0, 0.5); }
+.thread-ask-hint strong { color: #99ee99; font-weight: 600; }
+
+/* Card sections below the hero */
+.thread-section { max-width: 64rem; margin: 3.5rem auto 0; padding: 0 0.5rem; }
+.thread-section:last-of-type { margin-bottom: 2rem; }
+.thread-section-title {
+  font-family: Poppins, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+}

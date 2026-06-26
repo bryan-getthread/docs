@@ -1,0 +1,100 @@
+---
+title: "Thread Documentation"
+description: "Guides, references, and answers for Thread — the AI-powered service desk for MSPs."
+mode: "custom"
+---
+
+<div className="thread-hero">
+  <div className="thread-hero-inner">
+    <p className="thread-eyebrow">THREAD DOCUMENTATION</p>
+    <h1 className="thread-hero-title">How can we help?</h1>
+    <p className="thread-hero-sub">
+      Everything you need to set up, run, and scale your AI-powered service desk —
+      Magic AI, Magic Agents, Super Magic, Voice AI, and more.
+    </p>
+
+    <button id="thread-ask-ai" className="thread-ask" type="button">
+      <span className="thread-ask-icon">✦</span>
+      <span className="thread-ask-text">Ask AI anything about Thread…</span>
+      <span className="thread-ask-kbd">⌘K</span>
+    </button>
+
+    <p className="thread-ask-hint">
+      Powered by the docs assistant — or open any page in <strong>Claude</strong> or
+      ChatGPT from the menu at the top of each article.
+    </p>
+  </div>
+</div>
+
+<div className="thread-section">
+  <h2 className="thread-section-title">Start here</h2>
+  <Columns cols={3}>
+    <Card title="What is Thread?" icon="circle-info" href="/get-started/what-is-thread-an-overview">
+      A quick overview of the platform and how the pieces fit together.
+    </Card>
+    <Card title="Quick setup guide" icon="rocket" href="/get-started/quick-setup-guide">
+      Connect your PSA and get your workspace live in minutes.
+    </Card>
+    <Card title="Product overview" icon="compass" href="/get-started/thread-product-overview-your-guide-to-the-ai-powered-msp-service-desk">
+      Your guide to the AI-powered MSP service desk.
+    </Card>
+  </Columns>
+</div>
+
+<div className="thread-section">
+  <h2 className="thread-section-title">Explore by product</h2>
+  <Columns cols={3}>
+    <Card title="Thread Inbox" icon="inbox" href="/inbox/service-team-structure">
+      The unified workspace where your team works every ticket.
+    </Card>
+    <Card title="Magic AI" icon="wand-magic-sparkles" href="/assistive-ai/proactive-suggestions-in-ask-magic-partner-guide">
+      Assistive AI — prioritize, categorize, title, recap, and sentiment.
+    </Card>
+    <Card title="Magic Agents" icon="robot" href="/ai-agents/getting-started-with-magic-agents">
+      Triage and Reminder agents that take action on tickets.
+    </Card>
+    <Card title="Super Magic" icon="sparkles" href="/super-magic/meet-super-magic-your-ai-assistant-in-the-inbox">
+      Your AI assistant in the Inbox, with connectors and tools.
+    </Card>
+    <Card title="Voice AI" icon="phone" href="/ai-agents/voice-ai-setup-phase-1-initial-configuration">
+      An AI voice agent for inbound and outbound calls.
+    </Card>
+    <Card title="Service Intelligence" icon="brain" href="/ai-agents/getting-started-with-knowledge">
+      Client memory and knowledge that ground better answers.
+    </Card>
+    <Card title="Magic Analytics" icon="chart-line" href="/analytics/getting-started-with-magic-analytics">
+      Explore your service desk data, dashboards, and alerts.
+    </Card>
+    <Card title="Messenger" icon="comments" href="/messenger/add-chat-now-button-email">
+      Branded chat and service apps for your customers.
+    </Card>
+    <Card title="Integrations" icon="plug" href="/integrations/hudu-integration">
+      Connect ConnectWise, Autotask, Halo, and the tools you use.
+    </Card>
+  </Columns>
+</div>
+
+<script
+  dangerouslySetInnerHTML={{
+    __html: `
+      (function () {
+        function openAssistant() {
+          var ev = new KeyboardEvent('keydown', {
+            key: 'k', code: 'KeyK', keyCode: 75, which: 75,
+            metaKey: true, ctrlKey: true, bubbles: true
+          });
+          document.dispatchEvent(ev);
+        }
+        function bind() {
+          var btn = document.getElementById('thread-ask-ai');
+          if (btn && !btn.dataset.bound) {
+            btn.dataset.bound = '1';
+            btn.addEventListener('click', openAssistant);
+          }
+        }
+        bind();
+        document.addEventListener('DOMContentLoaded', bind);
+      })();
+    `,
+  }}
+/>
