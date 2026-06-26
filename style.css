@@ -114,13 +114,13 @@
   padding: 0.15rem 0.45rem;
 }
 .thread-ask-hint {
-  margin: 1.1rem auto 0;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.5);
-  max-width: 30rem;
+  margin: 0.9rem auto 0;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.4);
+  max-width: 28rem;
 }
-.light .thread-ask-hint { color: rgba(0, 0, 0, 0.5); }
-.thread-ask-hint strong { color: #99ee99; font-weight: 600; }
+.light .thread-ask-hint { color: rgba(0, 0, 0, 0.45); }
 
 /* Card sections below the hero */
 .thread-section { max-width: 64rem; margin: 3.5rem auto 0; padding: 0 0.5rem; }
