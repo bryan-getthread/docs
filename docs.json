@@ -3,9 +3,31 @@
   "theme": "mint",
   "name": "Thread",
   "colors": {
-    "primary": "#6C5CE7",
-    "light": "#A29BFE",
-    "dark": "#4B3FB0"
+    "primary": "#99EE99",
+    "light": "#99EE99",
+    "dark": "#99EE99"
+  },
+  "background": {
+    "color": {
+      "light": "#FFFFFF",
+      "dark": "#000000"
+    }
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "fonts": {
+    "heading": {
+      "family": "Poppins",
+      "weight": 600
+    },
+    "body": {
+      "family": "Work Sans"
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
   },
   "favicon": "/favicon.svg",
   "navigation": {

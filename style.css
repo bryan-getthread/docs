@@ -1,0 +1,15 @@
+/* "Go to Thread" / Inbox CTA — match the active sidebar item:
+   translucent mint background + mint text (instead of a solid pill). */
+#topbar-cta-button a > span:first-child {
+  background-color: rgba(153, 238, 153, 0.12) !important;
+  border: 1px solid rgba(153, 238, 153, 0.30);
+  background-image: none !important;
+}
+#topbar-cta-button a:hover > span:first-child {
+  background-color: rgba(153, 238, 153, 0.20) !important;
+  opacity: 1 !important;
+}
+#topbar-cta-button a span.z-10,
+#topbar-cta-button a svg {
+  color: #99ee99 !important;
+}
