@@ -68,11 +68,16 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-/* Hero sits on a dark gradient in BOTH themes, so its text is always light. */
+/* Hero sits on a dark gradient in BOTH themes, so its text is always light.
+   Force the color on inner elements too — Mintlify applies a dark prose color
+   to the wrapping <span> in light mode that would otherwise win. */
+.thread-hero-sub,
+.thread-hero-sub * {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
 .thread-hero-sub {
   font-size: 1.12rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.72);
   margin: 0 auto 2.25rem;
   max-width: 36rem;
 }
@@ -99,10 +104,11 @@
   box-shadow: 0 0 2.5rem -0.5rem rgba(0, 187, 153, 0.55);
 }
 .thread-ask-icon { color: #99ee99; font-size: 1.1rem; }
-.thread-ask-text {
+.thread-ask-text,
+.thread-ask-text * {
   flex: 1;
   text-align: left;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.85) !important;
   font-size: 1rem;
 }
 .thread-ask-kbd {
@@ -112,11 +118,14 @@
   border-radius: 0.4rem;
   padding: 0.15rem 0.45rem;
 }
+.thread-ask-hint,
+.thread-ask-hint * {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
 .thread-ask-hint {
   margin: 0.9rem auto 0;
   font-size: 0.72rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.45);
   max-width: 28rem;
 }
 

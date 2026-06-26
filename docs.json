@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "Thread",
   "colors": {
-    "primary": "#99EE99",
+    "primary": "#0C8C5E",
     "light": "#99EE99",
-    "dark": "#99EE99"
+    "dark": "#0C8C5E"
   },
   "background": {
     "color": {
