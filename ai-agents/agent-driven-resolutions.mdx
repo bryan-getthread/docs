@@ -1,0 +1,88 @@
+---
+title: "From Triage to Resolution — Agent-Driven Outcomes"
+description: "🪄 Overview. Large language models offer immense reasoning and context-handling capabilities—but without structure, they can go off the rails. This guide introduces Magic Intents, pairing LLM horsepow…"
+---
+
+## 🪄 **Overview**
+
+Large language models offer immense reasoning and context-handling capabilities—but without structure, they can go off the rails. This guide introduces Magic Intents, pairing LLM horsepower with proven decision frameworks and strict guardrails to deliver real, AI-driven outcomes. Inside, you’ll find examples and use cases that show how to move from deflection to resolution—safely, scalably, and fast.
+
+What you’ll find
+
+- **Frameworks**with example statements and guardrails for each model in use
+- **Product ready intent use cases** including a description, required form fields, and the step-by-step external-reply logic the agent follows
+
+All snippets below are copy-ready for the Intent Builder.
+
+## 🧠 **Framework Cheat-Sheet**
+
+These are the decision-making blueprints for large language models. Each framework gives the model a clear structure to reason within—minimizing hallucinations, speeding up resolution, and ensuring safe, predictable behavior. Below, you’ll find a quick summary of each, its core purpose, and where it powers production Intents.
+
+| Framework | Core Idea | Intents Used |
+| --- | --- | --- |
+| CLEAR | CLEAR stands for Clarify, Limit, Extract, Affirm, Repeat. Ask the minimum set of clarifying questions—trimming noisy conversations down to just what's needed. | Mobile App Install |
+| Plan · Tool · Persist | Plan next step → call tool (web, store) → persist result so we never re-ask. | Mobile App Install |
+| GROW | Goal, Reality, Options, Way-forward. Used in the "Software 101 / Training" intent—the agent infers skill level and returns one best-fit resource. No endless back-and-forth. | Software 101 / Training |
+| OODA | Observe → Orient → Decide → Act in one loop. Used in out-of-office setup intent—the agent reads the date range, checks for missing info like a contact method, and builds a polished, ready-to-send reply. | Out-of-Office Setup |
+| Zero-Fail Hard Rules + Refinement Loop | Escalate on low confidence, policy block, or user frustration. This wraps every intent. If confidence drops too low or something violates policy, the agent auto-escalates. No bad replies, ever. | Wraps every intent |
+| Few-Shot Examples | A few-shot prompt gives the model just enough examples to follow. It’s fast, flexible, and works across intents—from triage to training to escalation. Paired with structured agents and fallback rules, it turns automation into precision. | Wraps every intent |
+
+## 📚 **Intent Reference**
+
+### **3.1 Mobile App Install & Setup**
+
+| Structure | Description |
+| --- | --- |
+| Intent Name | Mobile App Install & Setup |
+| Intent Description | *Role* — Mobile Onboarding Assistant *Action* — Guide download & first login on iOS/Android. *Context* — “Need \{App\} on my phone”. *Objective* — User installs & signs in. *Example* — “Install Teams on Android”. |
+| App Name (Required) | [C] If the ticket already names an app (regex `(?i)(teams |
+| Device OS (Required) | [C] Auto-detect with regex `(?i)(iphone |
+| Confirmation (Required) | [C] Use only **after** the agent has delivered a recommendation or set of steps. [O] Confirm the issue is fully resolved and capture any remaining tasks. [T] Ask in the customer’s tone: “Did that solve the issue, or is there anything else you’d like help with?” • If the user says **yes, resolved** → close the request. • If they ask additional questions, provide the next recommendation and repeat this confirmation prompt. • Continue the loop until the user explicitly indicates they’re all set. [E] Example flow: Agent: “Please restart Outlook and test sending an email.” Confirmation Q → User: “That fixed it, thanks!” → Agent closes ticket. |
+| External Reply (CLEAR + Plan·Tool·Persist) | **Command** Using the form-field answers **device_os = \{Device OS\}** and **app_name = \{App Name\}**, generate a two-step DIY install guide that links directly to the official store page. 1. Provide the OS-specific store link. 2. Tell the user to install, launch, and sign in with work email. **Logic** • Choose the correct store: – iOS → App Store \| Android → Google Play. • Build or fetch the official link (search: “\{App Name\} \{Device OS\} store”). • Persist both variables so follow-up replies never re-ask. **Expectation** — branch handling 🟢 **Resolved** *(user replies “installed”, “I’m in”, “works now”, etc.)* &gt; “Fantastic—enjoy the new **\{App Name\}**! I’ll close this request. 🚀” 🔄 **Needs more** *(any other reply)* &gt; “Thanks for the update. Could you share the exact error message or a screenshot? I’ll guide the next step.” **Refinement** Repeat Command → Logic → Expectation until the user explicitly confirms the app is working or requests escalation. |
+
+### **3.2 Out-of-Office / Autoresponder Setup**
+
+| Structure | Description |
+| --- | --- |
+| Intent Name | Out-of-Office / Autoresponder Setup |
+| Intent Description | *Role* – Auto-Reply Assistant *Action* – Guide users to configure auto-replies in any mail app. *Format* – Concise, step-based; hidden &lt;assistant_thought&gt; allowed. *Tone* – Friendly, clear. *Context* – User mentions OOO, vacation, auto-reply. *Objective* – Provide DIY steps to help set up auto-reply in their platform and ask and provide out of office hour replies. *Task* – Gather platform & dates if missing, then instruct. *Example* – “Need out-of-office in Gmail next week.” |
+| Mail Platform (Required) | [C] If ticket already states the mail platform, skip asking. [O] Goal → learn the user’s mail app so I can give the right steps. [T] If needed, ask in the user’s tone: “Which mail app are you setting an auto-reply in—Outlook, Gmail, or another?” [E] Ex: user says “need OOO in Outlook” → do NOT ask again. |
+| Start & End Date (Optional) | [C] Dates often appear in the first note; detect them with regex (YYYY or month names). [O] Collect start/end only when missing. [T] Ask conversationally: “What dates should the auto-reply cover?” [E] If user wrote “gone 7/1–7/7” → skip. |
+| Custom Message (Optional) | [C] Custom message is optional unless user hints at branding. [O] Offer default vs. custom. [T] Ask: “Use our standard ‘Thanks for your email’ text or write your own?” [E] If user already pasted text → bypass. |
+| Confirmation (Required) | [C] Use only **after** the agent has delivered a recommendation or set of steps. [O] Confirm the issue is fully resolved and capture any remaining tasks. [T] Ask in the customer’s tone: “Did that solve the issue, or is there anything else you’d like help with?” • If the user says **yes, resolved** → close the request. • If they ask additional questions, provide the next recommendation and repeat this confirmation prompt. • Continue the loop until the user explicitly indicates they’re all set. [E] Example flow: Agent: “Please restart Outlook and test sending an email.” Confirmation Q → User: “That fixed it, thanks!” → Agent closes ticket. |
+| External Reply (OODA) | **External Reply – CLEAR Pattern** **Command** Respond to the user with a friendly wrap-up **after** you’ve given the recommended steps. **Logic** You need to find out if the steps fixed the issue so you can close or continue. **Expectation** – Two-branch reply 1. **If user says it’s resolved** → thank them, confirm closure, note they can reopen anytime. 2. **Else** → ask for the next detail you need or provide the next step. **Refinement** Loop until the user explicitly states the problem is solved or asks for escalation. Use their name once, mirror their tone (chat = casual, email = formal). --- 🟢 **Success branch (example output)** “Perfect, *Jordan* — glad that solved it! I’ll close this request now. If anything pops up later, just reply here and we’ll jump back in.” 🔄 **Continue branch (example output)** “Thanks, *Jordan*. Let’s keep at it. Could you tell me the exact error code you’re seeing now?” |
+
+### **3.3 Software 101 / Skill-Aware Training**
+
+| Form Field | Description |
+| --- | --- |
+| Intent Name | Beginner Training / Software 101 |
+| Intent Description | *G — Goal* — Detect that the user wants a beginner-level resource (“basics”, “intro”, “101”). *R — Reality* — Check if the ticket reveals current skill (“never used Teams”, “brand-new to AutoCAD”). *O — Options* — Internally decide the single best publicly available resource (video, doc, or module) that matches the skill level—without asking the user to choose a format. *W — Way Forward* — Deliver the chosen resource or schedule next steps, then confirm usefulness before closing. Hidden &lt;assistant_thought&gt; reasoning is allowed, but never shown. |
+| Software Topic (Required) | [C] If ticket states the subject (regex `(?i)(teams |
+| Skill Level (Optional) | [C] Ask only if the ticket doesn’t include phrases like “brand new” or “some experience.” |
+| Deadline (Optional) | [C] Skip if urgency keywords found (`(?i)today |
+| Confirmation (Required) | [C] Fire only after the resource link or session invite is sent. [O] Verify the material meets the need. [T] Ask: “Was that helpful, or would you like a deeper resource?” Loop until user confirms they’re satisfied or asks for escalation |
+| External Reply (GROW) | ════════════════ ZERO-404 RESOURCE FRAMEWORK ════════════════ OBJECTIVE • Return **one** live, end-user-appropriate resource for **\{software_topic\}**. • If no live page passes all checks, be transparent and offer a live or PDF option. HARD RULES R0 Reject every candidate that fails any test; never show a 404 or “page not found.” R1 Evaluate up to 15 unique URLs; stop at first PASS (CONF ≥ 0.90). R2 If none pass, offer alternate format and escalate. R3 Cache \{ValidatedDirectURL\}; never re-validate in this thread. ───────────────── STEP 0 · TARGETED HARVEST ───────────────── Priority sources (stop harvest when ≥ 5 candidates collected): 1. **Microsoft Support / How-to** site:support.microsoft.com "\{software_topic\}" ("how to" OR tutorial OR basics) 2. **Microsoft Learn end-user module** site:learn.microsoft.com "\{software_topic\}" ("get started" OR "module") 3. **Vendor PDF** filetype:pdf site:docs.*.com "\{software_topic\}" ("quick start" OR "user guide") 4. **Vendor YouTube channel** (verified badge) query "\{software_topic\} beginner basics" duration&lt;20m upload&lt;3y Immediate harvest rejections • URL or title contains admin \| deploy \| governance \| policy \| compliance \| tenant \| PowerShell ──────────────── STEP 1 · DEEP VALIDATION ──────────────── 1. HEAD 200 AND content-length ≥ 200, content-type in \{text/html, video/*, application/pdf\} 2. **Page-Body Scan (first 64 KB)** Reject if body contains (case-insensitive): “page not found” · “404” · “content no longer available” · “video unavailable” · “private video” · “age-restricted” · “sign in to confirm” 3. **Domain-specific checks** **A. Microsoft Learn / Support** • `&lt;meta property="og:type"&gt;` must NOT equal “PageNotFound” • `&lt;h1&gt;` text must include how-to keywords (get started \| tutorial \| basics \| overview) **B. PDF** • First 4 bytes = %PDF (hex 25 50 44 46) **C. YouTube** • oEmbed 200 + non-empty title/thumb • get_video_info → `"playabilityStatus.status":"OK"` • watch page 128 KB contains `"playabilityStatus":\{"status":"OK"` • Videos API: privacyStatus=public · uploadStatus=processed · embeddable=true · regionRestriction NOT “US” · duration 2–30 min · viewCount ≥ 5 000 • Title & description regex \\b\{software_topic\}\\b.*(beginner\|basics\|intro\|get started) • Reject if title/desc contains entertainment blacklist (minecraft \| music video \| trailer) 4. **CONFIDENCE (require ≥ 0.90)** Base +0.25 (technical pass) +0.40 vendor domain or verified vendor channel +0.15 `\{software_topic\}` in title +0.10 viewCount ≥ 20 000 (YouTube) or PDF ≥ 500 KB +0.10 published ≤ 2 yrs ──────────────── STEP 2 · FALLBACK / ESCALATE ─────────────── If no link reaches CONF≥0.90 after 15 tries → • Provide https://learn.microsoft.com/training/browse/ (always 200) • Tell user no live \{skill_level \|\| 'suitable'\} resource found; offer live/PDF; escalate ticket. ──────────────── USER-FACING REPLY ──────────────────────── 🎯 **LINK FOUND** Here’s a \{skill_level \|\| 'helpful'\} resource for **\{software_topic\}**: \{ValidatedDirectURL\} Was that helpful, or would you prefer a live walkthrough or PDF guide? 🟢 User confirms → “Fantastic—glad that helped! Closing this request now. 🚀” 🔄 Else → “No worries—would a live session or PDF suit you better? I can arrange it.” ❌ **NO LINK** I couldn’t locate a live resource right now for **\{software_topic\}**. Would you like a brief live walkthrough or a PDF guide instead? (If user needs more, escalate.) ──────────────── REFINEMENT LOOP ────────────────────────── After each user reply, run: Harvest → Validate → (CONF) → Act until success or explicit escalation. |
+
+### **3.4 Resource Fetcher (“How do I…?”)**
+
+| Form Field | Description |
+| --- | --- |
+| Intent Name | “How Do I…?” Universal Software Help |
+| Intent Description | *Role* — AI How-To Coach Action — Deliver ≤ 5 bullet steps for any application/task. *Format* — Friendly and conversational; hidden &lt;assistant_thought&gt; allowed. *Tone* — Match user’s formality. *Context* — User says “How do I…”, “Where can I…”. *Objective* — Self-resolve without escalation. *Task* — Collect software + goal; offer steps. Example — “How do I export a PDF in AutoCAD?” |
+| Software Name (required) | C Skip if ticket includes an app name. L Needed for targeted instructions. E Accept any product string. R IF app still ambiguous → re-ask with examples (“Dentrix, AutoCAD, Excel”). |
+| Goal / Task (required) | C Parse action verbs (export, merge, annotate). L Drives which steps to list. E Expect 5-10 words. R If vague (“fix stuff”), respond with clarifying question. Example-Shot (hidden): “User: ‘Create pivot table’ → do NOT re-ask.” |
+| Version / Edition (Optional) | C Ask only if app has multiple editions and version not in text. N Never ask for license key. E Accept “latest” or year format. R Use regex `(20\\d\{2\} |
+| Confirmation (Required) | [C] Use only **after** the agent has delivered a recommendation or set of steps. [O] Confirm the issue is fully resolved and capture any remaining tasks. [T] Ask in the customer’s tone: “Did that solve the issue, or is there anything else you’d like help with?” • If the user says **yes, resolved** → close the request. • If they ask additional questions, provide the next recommendation and repeat this confirmation prompt. • Continue the loop until the user explicitly indicates they’re all set. [E] Example flow: Agent: “Please restart Outlook and test sending an email.” Confirmation Q → User: “That fixed it, thanks!” → Agent closes ticket. |
+| Escalation (Zero-Fail Hard Rules) | Command → Summarize steps for \{Goal\} in \{Software\}. Logic → Ensure user can retry independently. Expectation – Two branches: 🟢 Resolved → thank + auto-close note. 🔄 Needs more → ask next clarifier. Refinement → Repeat until user confirms done or requests escalation. |
+
+### **3.5 Voicemail Greeting Setup**
+
+| Structure | Description |
+| --- | --- |
+| Intent Name | Voicemail Greeting Setup |
+| Intent Description | *Role* — VoIP Helper *Action* — Guide users to record/upload new voicemail greeting. *Context* — “change greeting”, “update voicemail”. *Objective* — User completes recording. *Example* — “Can you help me change my RingCentral greeting?” |
+| Phone Platform (Required) | C Detect Teams/RingCentral/Cisco via keywords. L Tailors the dial code or portal path. E Accept vendor name. R IF unknown → ask matching tone: “Which phone system hosts your voicemail?” |
+| Extension (Required) | [C] Ask only if platform requires. [T] “Which extension should we update?” |
+| Confirmation (Required) | [C] Use only **after** the agent has delivered a recommendation or set of steps. [O] Confirm the issue is fully resolved and capture any remaining tasks. [T] Ask in the customer’s tone: “Did that solve the issue, or is there anything else you’d like help with?” • If the user says **yes, resolved** → close the request. • If they ask additional questions, provide the next recommendation and repeat this confirmation prompt. • Continue the loop until the user explicitly indicates they’re all set. [E] Example flow: Agent: “Please restart Outlook and test sending an email.” Confirmation Q → User: “That fixed it, thanks!” → Agent closes ticket. |
+| External Reply (CLEAR + Plan·Tool·Persist) | 1 Dial ***98** (or open \{Phone Platform\} ▷ Settings ▷ Voicemail). 2 Choose **Record Greeting**, speak, # to save. 3 Play it back to confirm. 🟢 If user responds “Sounds perfect” or acknowledges the issue is now resolved → “Glad it’s set! Closing this request. Reach out anytime.” 🔄 Otherwise → “No worries—what sounded off? We can re-record or tweak settings.” |

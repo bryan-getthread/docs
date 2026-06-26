@@ -1,0 +1,93 @@
+---
+title: "Thread Planner: How-To Guides and FAQs"
+description: "Overview. Planner is a request tracking and planning tool within Inbox that lets MSPs plan when work can be accomplished. With Planner, you can plan which day a thread should be tackled and set a tim…"
+---
+
+## **Overview**
+
+Planner is a request tracking and planning tool within Inbox that lets MSPs plan when work can be accomplished. With Planner, you can plan which day a thread should be tackled and set a time for down-to-the-minute scheduling. Planner supports Partners whose workflows prioritize "scheduling" tickets to live on a technician's calendar and is a solution that targets this workflow head-on.
+
+Here's an overview of how to use Planner, tips and tricks, and frequently asked questions.
+
+![](/images/d82aa817-simplified-planner.gif)
+
+### Getting started
+
+Open Inbox and select the Planner option in the left navigation menu of Inbox. Once in Planner, you'll see all active threads for your workspace organized into columns or "swimlanes" similar to other to-do apps. Here's a little more about Planner:
+
+#### Separate swimlanes for unassigned and assigned
+
+![](/images/64b68453-image-35.png)
+
+1. **The Triage swimlane:** Triage shows all **unassigned** active threads for your workspace. Triage works best when it's used to find the right owner and create a plan for completion - by dragging and dropping or toggling those options from the card.
+
+1. **Member-specific swimlanes:** To the right of Triage, member-specific swimlanes show all active threads **assigned to those members**. Threads are organized further into spaces within the swimlane based on plans set for those threads.
+
+#### Spaces within each swimlane to organize by plan
+
+![](/images/2199f773-image-36.png)
+
+1. **Overdue**: This space shows assigned threads that have plans earlier than today. Overdue works best as an area used to review threads that might already be completed or to change plans.
+
+1. **Backlog**: This space shows all assigned threads that have no plans. Threads that are assigned but haven't had a plan created for them will show up in the Backlog by default.
+
+1. **Day**: This space shows all assigned threads with a plan for that day (ex: Today, May 1st, 2024). By default, Planner shows a space for Today and the next two days in the week.
+
+### Adding and editing plans
+
+Drag a thread from the Triage swimlane into a member's swimlane to assign that thread.
+
+To set a plan for that thread, drag it into a **day space** within a member's swimlane. This creates a plan for the specified day and assigns that member as owner if it was previously unassigned.
+
+Dragging from one day space to another space edits the plan's day value, and dragging from one member's swimlane into another removes the prior plan and assignment and creates a new plan and assignment.
+
+You can learn more about how to use Planner by watching the following video:
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/3a7aa9b521b3405fbb715d9ea2305b4f" width="100%" height="400" allowfullscreen></iframe>
+</Frame>
+
+### Best practices
+
+- Drag and drop threads from one swimlane into another to change assignments and set new plans.
+- Set specific beginning and end times for a plan by selecting the calendar icon ( ) and by inputting in the available start date, start time, end date, and end time fields.
+- Change assignments and set plans directly from the thread card by hovering over and selecting the calendar icon.
+
+### TimeZest Integration
+
+Great news! As part of our general availability (GA) release for Planner, users can now use TimeZest to book appointments directly from Thread, with bidirectional syncing to your PSA.
+
+If you have a TimeZest account, navigate to the Integrations page in Admin and click on "TimeZest" to add the integration to your workspace. Once configured, Thread users can trigger TimeZest via the "Actions" tab in the composer or by using the slash command "/timezest." You will then be prompted with a few questions, and a link will be generated for you to send to your customer. Once the customer selects a time based on your calendar's availability, their appointment will be represented in both Thread's Inbox and your PSA.
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/398a916228ff47d2837de2c3d4aa2646" width="100%" height="400" allowfullscreen></iframe>
+</Frame>
+
+For more info on the TimeZest Integration setup, please see [this doc](/integrations/integrating-time-zest-with-thread)
+
+## **Frequently Asked Questions**
+
+#### **Q: "Does Planner support the ability to specify times?"**
+
+A: Yes! You can set exact times to ensure owners are accountable to threads at the right time.
+
+- **From Planner**: Hover over and click the calendar icon ( ) for a thread card, then specify a beginning time (and end time if necessary)
+- **From the thread view**: In the right sidebar, navigate to the Planner card and click the `+` icon. Select a member and then specify a beginning date and beginning time values.
+
+#### **Q: "Is Planner available for all Thread-supported PSAs (including Autotask?)"**
+
+A: Today, Thread Planner is available to ConnectWise Manage and Autotask, and automatically syncs to and from your PSA to keep your organization updated.
+
+#### **Q: "Does Planner sync with my PSA?"**
+
+A: Yes! Planner automatically syncs with your PSA to keep your organization updated in real-time or near-real-time to make transitions seamless across tools.
+
+| ConnectWise integration Partners | Plans created in either Thread or the ConnectWise PSA are updated to the other system in real-time. |
+| --- | --- |
+| Autotask integration Partners | From Thread : Plans created for Autotask PSA integration users from Thread are synced with the PSA in real-time. From the PSA : Plans created in the PSA are updated within Thread every five minutes. Users can force a PSA-to-Thread sync by clicking the sync icon in the top-right corner of Planner. |
+
+#### **Q: "I'm an Autotask Partner. How does a plan without a time sync with my PSA?"**
+
+A: Unlike ConnectWise PSA, Autotask does not support scheduling tickets without specifying beginning and end time values.
+
+Within Planner, it's common for a Partner to plan a thread for a day without a time. When a user plans a thread for a day without a specified time, Thread automatically sets the starting time value in Autotask to 12:00 am for the selected day.

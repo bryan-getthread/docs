@@ -1,0 +1,55 @@
+---
+title: "ITGlue"
+description: "What is ITGlue? ITGlue is a documentation platform that allows for efficient storage and retrieval of all the documentation you need to help your MSP run better. With ITGlue, you have a way to take t…"
+---
+
+#### What is ITGlue?
+
+ITGlue is a documentation platform that allows for efficient storage and retrieval of all the documentation you need to help your MSP run better. With ITGlue, you have a way to take the information that may be cluttering up other systems and structure it properly inside ITGlue, to provide a more effective organization of information to your team. You can think of ITGlue like adding a flexible shelving system to a cluttered home office. By organizing and labeling the shelves in a logical way, you're improving efficiency. The ITGlue integration lets you get information of the configuration and attachments in the chat [platform](https://www.itglue.com/).
+
+![IT Glue Action](/images/4a1f1e95-it-20-glue-20-action.gif)
+
+#### How do I set up the ITGlue integration?
+
+Open Thread Admin Panel. Tap on Integrations sections and click on ITGlue option to configure it.![](/images/67ecfb32-screenshot-874.png)
+
+Admin Panel
+
+You’ll need 2 things to configure ITGlue:
+
+**1. Base URL:** If you are a partner with an account in Europe data center the base URL is [https://api.eu.itglue.com/](https://api.eu.itglue.com/) If you are a partner with an account in Australia data center the base URL would be [https://api.au.itglue.com/](https://api.au.itglue.com/).  Otherwise, it is [https://api.itglue.com/](https://api.itglue.com/).
+
+**2. API Key:** This is the code generated in ITGlue. See next section for details. Once you’ve filled out these fields, click connect.
+
+![](/images/4f147168-screenshot-881.png)
+
+#### How do I get an API key?
+
+In IT Glue, click Account -&gt; Settings -&gt; API Keys. There you can generate a custom APi key.![](/images/3357bae3-it-glue-generate-api-key.png)
+
+<Note>
+  You must have
+  
+  Administrator
+  
+  user credentials for IT Glue account.
+</Note>
+
+Once set up, you'll now be able to get configuration info in Teams or Slack.
+
+### What if I enabled IP restriction?
+
+If you have IP restriction feature enabled you will need to add IP addresses:
+
+```
+52.70.34.233
+3.221.147.202
+54.152.112.100
+34.226.184.103
+52.23.25.207
+3.220.225.111
+```
+
+How to make ITGlue work with Thread?
+
+In order to be able to fetch configuration information for the tickets in ConnectWise make sure that the **company id** *on the ticket in ConnectWise* is similar with the **organization's** *short name in ITGlue*. Additional condition to make the integration work properly is the **serial number**of a configuration in both ConnectWise and ITGlue.

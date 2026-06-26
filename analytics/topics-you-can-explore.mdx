@@ -1,0 +1,89 @@
+---
+title: "Topics You Can Explore"
+description: "Beyond the pre-built dashboards, Magic Analytics lets you explore your data by topic. A topic is a curated, governed view of related metrics and fields that the Dashboard Agent can safely analyze for…"
+---
+
+Beyond the pre-built dashboards, Magic Analytics lets you explore your data by **topic**. A topic is a curated, governed view of related metrics and fields that the **Dashboard Agent** can safely analyze for you.
+
+Topics help keep exploration consistent: the numbers you find through a topic match the numbers shown in your dashboards. You will only see data from your own organization.
+
+<Note>
+  Note:
+  
+  Dashboard Agent topic exploration requires an AI Pro plan.
+</Note>
+
+## Aggregate vs. detailed topics
+
+Each topic has a **grain** — the level of detail it holds. It's worth knowing which kind you're working with:
+
+- **Aggregate** topics are rolled up in advance (for example, *one row per partner* or *per technician per month*). They're fast and great for scorecards, trends, and rollups — but they **don't drill down to an individual ticket, call, or session**.
+- **Detailed** topics keep **one row per record** (a ticket, a call, a session). Use these when you need to drill into specifics.
+
+The grain is listed for every topic below.
+
+## Available topics
+
+### 🤖 Magic Agent
+
+| Topic | Grain | What you can explore |
+| --- | --- | --- |
+| Magic Agent Rollup | Aggregate — one row per partner | Partner-level summary of Triage Agent and Reminder Agent performance. Best for scorecards, leaderboards, and adoption health checks (zero-touch rates, session counts, retention). |
+| Triage Agent | Detailed — one row per session | Session-level detail for every Triage Agent interaction. Use to analyze how individual sessions resolved (AI-resolved, tech handoff, intervention, etc.), response-time benchmarks, and technician feedback. |
+| Triage Agent Funnel | Detailed — one row per ticket × funnel stage | Full ticket-population funnel, including tickets that never had a triage session. Best for sankey / funnel visualizations showing the complete flow from ticket intake to outcome. |
+| Reminder Agent | Detailed — one row per ticket | Ticket-level lifecycle for Reminder Agent. Use for completion rates, scheduling patterns, and partner enablement audits. |
+
+### ✨ Magic AI & Accuracy
+
+| Topic | Grain | What you can explore |
+| --- | --- | --- |
+| AI Accuracy | Aggregate — one row per partner × board × month | Monthly categorization and prioritization acceptance rates. Use to monitor model quality and identify where technicians are overriding AI suggestions. |
+
+### 📊 Performance & ROI
+
+| Topic | Grain | What you can explore |
+| --- | --- | --- |
+| Value Realization | Aggregate — one row per partner × board × feature × month | Partner ROI, time savings, and AI adoption metrics. The go-to topic for QBR prep and proving value delivered — covers dollar savings, FTE equivalents, ROI multiples, and service quality. |
+
+### 📞 Voice AI
+
+| Topic | Grain | What you can explore |
+| --- | --- | --- |
+| Voice AI | Detailed — one row per call | Call-level analysis for inbound and outbound calls. Covers routing (Attendant vs. Overflow), call volume, duration, CSAT, after-hours coverage, and transcript analysis. |
+
+### 💬 Messenger
+
+| Topic | Grain | What you can explore |
+| --- | --- | --- |
+| Messenger | Aggregate — one row per customer × platform | Chat deployment and adoption across Teams, Slack, Desktop, and Web. Use to track rollout progress, identify inactive deployments, and compare chat vs. email response times. |
+
+### 🎫 Tickets & Service Desk
+
+| Topic | Grain | What you can explore |
+| --- | --- | --- |
+| Threads | Detailed — one row per ticket | The most granular topic — covers volume, resolution time, priority, status, AI feature usage per ticket, sentiment, time entries, and voice calls. |
+| Service Performance Review | Detailed — one row per support request | Client-facing QBR dataset designed for sharing with end customers. Uses business-friendly language — support requests, satisfaction scores, channel mix, and recurring issues. |
+
+### 👥 Team & Member Analytics
+
+| Topic | Grain | What you can explore |
+| --- | --- | --- |
+| Service Team Performance | Aggregate — one row per technician × time window | Per-technician metrics: throughput, response speed, sentiment trends, backlog, and AI leverage. Built for manager leaderboards and team rollups. Covers 8 pre-built time windows (last 7d, 30d, 90d, etc.). |
+| Magic Member Usage | Aggregate — one row per technician | Per-technician Ask Magic and Time Entry AI usage totals. Use to see which technicians are adopting AI features most. |
+
+### 📥 Inbox & Planner
+
+| Topic | Grain | What you can explore |
+| --- | --- | --- |
+| Inbox | Aggregate — one row per partner | Inbox / Pods activation, adoption, team collaboration, and PSA migration opportunity analysis at the partner level. |
+| Planner | Aggregate — one row per company × day | Daily and monthly technician engagement with Thread Planner. Tracks scheduling activity, DAU/MAU stickiness, and prospective vs. retrospective scheduling behavior. |
+
+## How topics relate to dashboards
+
+Every dashboard is built on these same governed topics, so exploring a topic gives you numbers consistent with the dashboards. For example, the ROI Value Realization dashboard draws on the **Value Realization** topic, and the Assistive AI Accuracy dashboard draws on **AI Accuracy**.
+
+## Using topics with the Dashboard Agent
+
+When you ask the Dashboard Agent a question, it draws on these topics to answer. Naming the area and a time frame helps it answer faster and more precisely — for example *"Triage Agent session outcomes last month"* or *"Value Realization ROI this quarter."*
+
+See *Dashboard Agent*.

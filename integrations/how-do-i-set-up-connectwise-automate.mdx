@@ -1,0 +1,68 @@
+---
+title: "ConnectWise Automate"
+description: "The chatgenie integration lets you seamlessly push data from ConnectWise Automate as messages to your chat platform. Step 1: Creating the User Class for the API User. This section of the guide requir…"
+---
+
+The chatgenie integration lets you seamlessly push data from ConnectWise Automate as messages to your chat platform.
+
+### Step 1: Creating the User Class for the API User
+
+<Tip>
+  This section of the guide requires you to use ConnectWise Automate Control Center and an Automate account that has permissions to create Users and User Classes.
+</Tip>
+
+1. Open Automate Control Center and log in as an Administrator.
+2. Navigate to **System** &gt; **Users and Contacts** &gt; **User Class Manager**
+3. The **User Class Manager screen** will pop up, click the **+** icon at the bottom left corner of this window
+  ![](/images/611fac27-2022-10-21-16-47-32.png)
+4. The **Add User Class** window will pop up, enter whatever you like for class name, we recommend "Chatgenie API User", click **OK**
+  ![](/images/b8fb1b55-2022-10-21-16-51-07.png)
+5. Back on the **User Class Manager** window, click on the class you just created to edit it. Stay on the **Core** tab for now.
+  ![](/images/a5cafcd6-2022-10-21-16-54-26.png)
+6. On the **Core** tab set the appropriate permissions based on the screenshots below. Click **Save** once you are done checking the appropriate permissions.
+  ![](/images/38f1ad0c-2022-10-21-17-14-25.png)
+  ![](/images/72bb7b66-2022-10-21-17-15-10.png)
+7. Next, click on the Plugin tab. **Set top-level permissions** to the **ConnectWise Control Plugin** and click **Save**.
+  ![](/images/3bead56c-2022-10-21-17-17-01.png)
+8. Thats it! You are now ready to assign this User Class to the API User you created.
+
+### Step 2: Configuring the Automate API User
+
+<Tip>
+  This step can be performed from the Automate web portal or Control Center application.
+</Tip>
+
+1. Open Automate Control Center and log in as an Administrator.
+2. Navigate to **System** &gt; **Users and Contacts** &gt; **Users**
+3. From the Users screen, click **+ Add** to add a new user.
+  ![](/images/6f9809b4-2022-10-21-17-28-41.png)
+4. The **Add a New User** window will pop up. Configure the following on the **General** tab:
+  1. **Enter Username** - save this to your Password vault for later
+  2. **Enter Password** & **Confirm Password** - save this to your Password vault for later
+  3. **Email Address**
+  4. Check the **Integrator** checkboxFailure to check the Integrator checkbox will result in the integration failing.
+    ![](/images/5e341ffb-2022-10-21-17-32-02.png)
+5. Next, from the **Add a New User** window, navigate to the **Permissions** tab.
+6. **Right-click** on **User Classes** box and **select the User Class** you created back in Step 1. We named the user class "Chatgenie API User", so we selected that for this step.
+  ![](/images/465e6b80-2022-10-21-17-38-36.png)
+7. Once you have granted the new user the appropriate user class permissions, click **Add New**.
+  ![](/images/b6f90e4a-2022-10-21-17-44-41.png)
+
+### Step 3: Set up the Integration in the Admin Panel
+
+1. Your Chatgenie admin panel navigation has a section named Integrations (as shown below).
+
+![](/images/c6b8bdbb-image.png)
+
+1. In the integrations list you’ll find the Automate option, click on it to configure it.
+
+![](/images/1b28f07e-image.png)
+
+1. You’ll need 2 things to configure Automate:
+  1. **Base URL**: Fill in your base URL (e.g. **https://mycomany.hostedrmm.com**) for CW Automate followed by '/cwa/api/v1/', so it looks like **https://mycompany.hostedrmm.com/cwa/api/v1**
+  2. **Username and Password**: These are the credentials you use to log into your CW Automate dashboard.
+
+![](/images/7a94cc8c-2022-10-21-17-48-54.png)
+
+1. Enter in the credentials from the API user account you created in Step 2. And click **Connect**.
+2. Once the integration has connected successfully, make sure the integration is **toggled on** and click **Save**.

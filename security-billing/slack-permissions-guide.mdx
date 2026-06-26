@@ -1,0 +1,76 @@
+---
+title: "Slack Permissions Guide"
+description: "Thread’s Slack app uses a defined set of permissions that allow it to read messages, identify users, react to events, and send updates inside Slack. Permissions are grouped according to Slack’s nativ…"
+---
+
+Thread’s Slack app uses a defined set of permissions that allow it to read messages, identify users, react to events, and send updates inside Slack.
+
+Permissions are grouped according to Slack’s native scope types.
+
+## 🔹 Summary: Why Thread Requires Slack Permissions
+
+Thread’s Slack integration is designed to bring ticket updates, notifications, and automated workflows directly into Slack. To do this securely and reliably, the app needs permission to read messages, identify participants, respond to events, and send updates.
+
+Thread **does not** access or store Slack data that is not directly required for message syncing or ticket actions.
+
+### What the permissions enable
+
+- **Message syncing** – Reads channel and DM messages where the app is present to align Slack conversations with tickets in Thread.
+- **User identification** – Retrieves names, emails, and profile basics to map Slack users to the correct contacts.
+- **Workflow automation** – Listens for message events, reactions, and commands that trigger automated ticket actions.
+- **Posting updates & replies** – Sends ticket updates, confirmations, and automated responses back into Slack channels and DMs.
+- **File handling** – Reads files attached to Slack messages and uploads files needed for ticket workflows.
+
+### What Thread does *not* do
+
+- Does **not** retain Slack data beyond what’s required for ticket context
+- Does **not** use permissions for analytics or workspace-wide monitoring
+- Does **not** access private content outside allowed scopes
+
+### Why User + Bot scopes
+
+Slack separates “user access” and “bot access,” even when the capability overlaps.
+
+Thread uses both because:
+
+- User scopes allow user-initiated actions (like DMs or thread replies)
+- Bot scopes allow consistent automated behavior (like posting updates or receiving events)
+
+This is why some permissions appear twice.
+
+## 🔹 User Scopes
+
+These scopes allow Thread to perform actions or read information on behalf of the authenticated Slack user.
+
+| Permission | Why It’s Needed |
+| --- | --- |
+| channels:history | Allows Thread to read channel messages when operating with user-granted permissions. |
+| channels:read | Enables Thread to fetch the list of channels available to the authenticated user. |
+| groups:read | Allows Thread to identify private groups the user is part of for message routing. |
+| reactions:read | Lets Thread detect emoji reactions tied to user actions or automations. |
+| mpim:read | Enables access to multi-person DMs where the user is participating. |
+
+## 🔹 Bot Scopes
+
+These scopes allow the Thread bot to read messages, respond to events, and send updates within Slack channels and DMs.
+
+| Permission | Why It’s Needed |
+| --- | --- |
+| channels:history | Allows the bot to read messages in channels where it is present. |
+| channels:manage | Enables the bot to manage channel properties where permitted by workspace settings. |
+| channels:read | Allows the bot to discover channels it can access or join. |
+| chat:write | Allows the bot to send messages, including ticket updates and confirmations. |
+| chat:write.customize | Enables sending messages with customized sender names or appearances. |
+| chat:write.public | Allows posting messages to public channels the bot hasn’t been explicitly added to (when allowed). |
+| commands | Enables Slack slash-command interactions with Thread. |
+| files:read | Allows the bot to download files from Slack to attach to tickets or read attachments. |
+| files:write | Enables uploading files into Slack from Thread. |
+| groups:read | Allows Thread bot to see private groups it has access to. |
+| im:history | Lets the bot read direct messages sent to it for ticket creation and updates. |
+| im:read | Identifies direct messages available to the bot. |
+| mpim:history | Allows reading messages in group DMs. |
+| users:read | Fetches Slack user profiles used for contact matching. |
+| channels:join | Allows the bot to automatically join channels when required. |
+| users:read.email | Enables Thread to match Slack users by email address. |
+| message.im | Receives events for direct messages sent to the bot. |
+| message.mpim | Receives events for multi-person DM messages involving the bot. |

@@ -1,0 +1,64 @@
+---
+title: "How to Setup HaloPSA Ticketing Integration"
+description: "This guide explains how to set up the HaloPSA Integration in Thread. Step 1: Prepare Your Workspace. If this is your first time setting up your workspace, refer to our Quick Setup Guide for detailed…"
+---
+
+This guide explains how to set up the HaloPSA Integration in Thread.
+
+### Step 1: Prepare Your Workspace
+
+If this is your first time setting up your workspace, refer to our [Quick Setup Guide](/get-started/quick-setup-guide) for detailed instructions.
+
+1. When you initially set up your workspace in Thread, you will be prompted to configure your ticketing system. If you select HaloPSA, you will be directed to a screen where you must enter your API credentials. Keep this screen open; we will return to it later.
+  ![](/images/915dd8d9-image.png)
+2. Open a new browser tab or window to proceed to the next step: **Creating an API-Only Agent**.
+
+### Step 2: Creating an API-Only Agent
+
+1. Login to Halo.
+2. Navigate to the **Configuration** section.
+3. Go to **Team & Agents** → **Agents**.
+4. Click **New** in the top-right corner to create a new agent.
+5. Give it a username (e.g., **Thread API Agent**).
+6. Set the **Is an API-only Agent** checkbox to selected. API-only agents do not take up a license.
+7. Select ***No Default Team*** under the **Default Team** dropdown.
+8. Select **Default Working Hours** from the dropdown and click save.
+9. Click the **Permissions** tab and ensure to the following permissions have been selected and click **Save**.**Permissions****Access**Tickets Access LevelRead and ModifyCustomers Access LevelRead and ModifyUser Access LevelRead and ModifyCRM Access LevelRead and ModifyAssets Access LevelRead and ModifyCalendars and Appointments Access LevelReady and ModifyCustomer Agreements Access LevelRead OnlyTimesheets Access LevelRead and Modify (All)Can add new TicketsYesCan edit closed TicketsYesCan view Unassigned TicketsYesCan view Tickets that are assigned to other AgentsYesCan change a Ticket's Ticket TypeYesCan Configure Webhooks Access ControlYesCan Re-assign TicketsYesCan Edit Advanced Ticket DetailsYesCan assign to Agents in Teams the Agent is not a member ofYesCan Edit Tickets Which Are Not Assigned To ThemYesCan override maximum priority escalation at ticket type levelYesCan always update Ticket Statuses and re-assign Tickets outside of actionsYes
+10. Click **Save** to save the newly created API-only Agent.
+
+### Step 3: Creating an Integrator Application
+
+1. Navigate to the **Configuration** section.
+2. Go to **Integrations → HaloPSA API**.
+3. Click **View Applications**.
+4. Click **New** in the top-right corner to create a new application.
+5. Enter an application name (e.g., Thread API Application).
+6. For Authentication Method select **Client ID and Client Secret (Services)**.
+7. Make sure to keep the **Client ID** and **Client Secret** in a safe place for later.
+8. **Login Type** should be selected as **Agent**.
+9. Select the **API-only Agent** previously created under **Agent to log in as**.
+  ![](/images/c991d0de-image.png)
+10. Click the **Permissions** tab and ensure to the following permissions have been selected and click **Save**.**Permissions****Details**all:standardThis gives access to everything the Agent has access to excluding admin privileges.all:teamsThis gives access to all Teams regardless of Agents permissions.**Important**: A new API application permission was introduced in HaloPSA version v2.148.1, granting API access to all Teams/Departments. If you do not have this permission, it's recommended to upgrade to v2.148 or newer.  If upgrading is not possible, edit the API-only agent created earlier. Click the "**Teams & Departments**" tab and grant access to all Teams/Departments.admin:webhooksRemove/Update/Add Webhooks
+11. Click **Save** to save the newly created application.
+
+### Step 4: Create Actions for Key Events
+
+To ensure seamless integration between Thread and HaloPSA, you need to map three specific actions in the subsequent steps for the following events:
+
+1. Action for sending customer-facing notes
+2. Action for sending internal notes
+3. Action for emailing contacts
+
+<Warning>
+  For detailed instructions on configuring actions, please refer to the guide by clicking the button below. Ensure you have created and mapped these custom actions before proceeding to the next step.
+</Warning>
+
+Action Mapping Configuration with Thread
+
+### Step 5: Continue Your Workspace Setup
+
+1. Head back to your other tab from **Step 1: Prepare Your Workspace**.
+2. Enter your **HaloPSA API Base URL**. (e.g., https://threadsandbox.halopsa.com).**Important**: To ensure full functionality, ensure no trailing '/', subdirectory, or parameter is appended to the url.
+3. Copy and paste the **Client ID** and **Client Secret** retrieve from **Step 2: Creation an API-Only Agent**.
+4. Click **Continue**.⏩ Next: Design your Customer Experience[Design your Customer Experience](/get-started/quick-setup-guide#3_design_your_customer_chat_experience)
+  ![](/images/792c1155-image.png)

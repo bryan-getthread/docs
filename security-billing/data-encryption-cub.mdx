@@ -1,0 +1,55 @@
+---
+title: "AI Privacy & Security Overview"
+description: "Data. Thread limits the information it stores to only the items it needs to maintain connections between ConnectWise and Slack or Teams.Below are the data sets that we store : ConnectWise API Keys…"
+---
+
+## Artificial Intelligence (AI) Privacy & Security Overview
+
+Thread Magic is the first AI assistant purpose-built for MSP technicians and service teams.
+
+#### AI, Data Types & Security
+
+We understand the importance of privacy and security—especially when it comes to early use of emerging technology such as large language models (LLM), generative artificial intelligence (AI) and generative interfaces. Any AI-enabled features from Thread will begin with the following foundational controls and principles.
+
+It's also why Magic AI was built with an integration to Microsoft Azure OpenAI Service:
+
+Our MSP partners benefit from the [enterprise-grade and highly-secure Azure cloud](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy).
+
+#### **1. No partner or customer data is stored in Azure, nor is it used for training or re-processing.**
+
+- No partner or customer data is stored in Microsoft Azure OpenAI Service.
+- Data required for prompt execution (documented below) exists only in memory; it is not stored.
+
+#### **2**. **Data sent to Azure OpenAI Service for prompt execution is limited to the following:**
+
+- Contact First Name
+- Contact Last Name
+- Contact Type (as defined in the PSA)
+- Date the Magic Action was called
+- Issue-Specific Summary
+- Issue-Specific Initial Description
+- Issue-Specific Conversation Transcript
+
+#### **3. A****ccess to Thread infrastructure and hosted services (AWS infrastructure, Azure OpenAI Service instance, Microsoft Azure portal, and underlying Microsoft services) is limited using the principle of least authority.**
+
+- Violations of Thread's internal Acceptable Use Policy will result in disciplinary action, up to and including termination.
+
+### Azure OpenAI Service & Thread Reference Architecture
+
+When using Azure OpenAI Service, there are a number of security features built in to help protect your data and AI models.
+
+![Reference architecture for Service CoPilot](/images/de692786-image.png)
+
+*Magic AI**reference architecture.*
+
+#### **These features include but are not limited to:**
+
+- **Isolation:** Thread’s Azure OpenAI Service instance is isolated from every other customer and partner on the platform, ensuring that there is no risk of unauthorized access to your data or models.
+- **Content** **Filtering:** When data is submitted to the service, it is processed through Microsoft’s content filters as well as those built in to the specified OpenAI model. The content filtering models are run on both the prompt inputs as well as the generated completions. No prompts or completions are stored in the model during these operations, and prompts and completions are not used to train, retrain or improve the models.
+- **Control:** Microsoft hosts the OpenAI models within the Azure infrastructure, and all customer data sent to Azure OpenAI Service is encrypted and remains within Azure OpenAI Service. Microsoft does not use customer data to train, retrain or improve the models in the Azure OpenAI Service, and neither does Thread.
+- **Data protection:** Your data is not used to train or enrich the foundation AI model that is used by others. Nor is any data shared by Microsoft to OpenAI for improvement of their models. This means that you can be confident that your data is only being used for your own purposes and that you have complete control over how it is used.
+
+![Microsoft Azure OpenAI Service compliance.](/images/7490c9a4-screenshot-2023-12-20-at-1-18-18-pm.png)
+
+- **Compliance and security:** The Azure OpenAI Service is protected by the most comprehensive enterprise compliance and security controls in the industry. This means that your data and AI models are protected at every step, from storage to processing to destruction.
+  - [Azure - Compliance Offerings (October 2023).pdf](https://files.helpdocs.io/pplv67kiu4/other/1703096440687/azure-compliance-offerings-october-2023.pdf)

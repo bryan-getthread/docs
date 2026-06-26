@@ -1,0 +1,117 @@
+---
+title: "Voice AI Setup – Phase 2: Overflow & After Hours"
+description: "Phase 1: Initial Configuration (Foundation) Phase 2: Overflow & After Hours.. Concept Replacing your static, passive voicemail box with an active AI agent that answers calls, takes intelligent messag…"
+---
+
+Phase 1: Initial Configuration (Foundation)
+
+## Phase 2: Overflow & After Hours
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/2b88559d82ae46ddb2901d624a2364d7" width="100%" height="400" allowfullscreen></iframe>
+</Frame>
+
+![](/images/29410872-overflow.png)
+
+**Concept**
+
+Replacing your static, passive voicemail box with an active AI agent that answers calls, takes intelligent messages, and creates tickets when your team is unavailable.
+
+**Value**
+
+This eliminates "phone tag" and ensures you never miss a revenue opportunity or urgent issue. You get 24/7 coverage without additional staffing costs, and clients feel heard rather than ignored.
+
+**Use Cases**
+
+- **After Hours Coverage:** Forward your calls to the Overflow number after work hours and on holidays (controlled by Microsoft hours).
+- **Front Desk Overflow:** Use overflow as a front desk where technicians take no calls; they simply call back based on the ticket. This allows you to understand and prioritize responses at your own pace, saving dispatchers and techs time.
+
+### **How to Get a Number**
+
+1. Go to the **Overflow** tab.
+2. Click **Request Number**, select your country, and confirm.
+
+![](/images/e1e7e6bc-cfimages)
+
+### Customize the Agent
+
+#### Greeting
+
+Customize your greeting so that your callers **understand what to expect.** We have found a key reason that callers might get frustrated is a lack of understanding of how this agent fits into your process.
+
+![](/images/efdebce9-greeti.png)
+
+<Note>
+  ⚠️
+  
+  Important:
+  
+  Do not ask what the issue is in the greeting, the agent does that by itself. Putting it here will double the question.
+</Note>
+
+#### Note Escalation Requests
+
+Overflow doesn't escalate calls, but it can note escalation words in the ticket. **This does not automatically change ticket priority.**
+
+#### Additional Questions
+
+The voice agent will automatically ask the caller what their issue is, but you can customize any additional questions you want to ask. We don't recommend adding more than 2-3 questions as the call can get quite lengthy and callers can get frustrated.
+
+#### Choose a Default Board and Source
+
+Set your default board and source. Ideally, you have created a unique **Source** in your PSA called **"Voice AI"** (or similar) as covered in Phase 1.
+
+Click **Save**!
+
+### Set Up After Hours (Optional)
+
+1. Go to the **After Hours** tab.
+2. This syncs with your **Messenger Hours**.
+3. Provide a custom greeting for when your business is closed. The agent will then use the Overflow agent settings for handling the call.
+
+![](/images/725848a4-cfimages)
+
+### Test Your Agent
+
+#### Before connecting to your phone system, thoroughly test your agent:
+
+1. Call the agent phone number provided.
+2. Complete approximately 5 test calls to ensure the agent is working properly.
+3. Review each call's transcript and ticket creation.
+4. Note any unexpected behavior to review with your CSM.
+5. When you are confident in your agent's performance, you can proceed to set up the number within your phone system.
+
+### Expected Call Flow:
+
+1. Caller dials the Overflow number.
+2. AI greets the caller with your custom greeting.
+3. AI asks what they need help with.
+4. AI asks any additional custom questions you configured.
+5. AI confirms the information and thanks the caller.
+6. Call ends and ticket is automatically created in your PSA.
+
+### How To Configure Your VoIP/PBX
+
+This step determines when the AI picks up the phone. Configure your phone system to forward calls to the Thread Overflow number you received above.
+
+#### Common Setup:
+
+1. Log into your VoIP provider.
+2. Locate your **Main Ring Group** or **Call Queue**.
+3. Find the settings for **"If no answer," "Busy,"** or **"Max wait time reached."**
+4. Set the destination to the **Thread Overflow Number** (obtained in the "Get a Number" step).
+5. Ensure your **"After Hours"** logic also points to this number.
+
+<Note>
+  📌
+  
+  Note:
+  
+  For phone-system-specific forwarding instructions (RingCentral, 8x8, Microsoft Teams, Cisco, Mitel, BVoIP/3CX), see the separate
+  
+  Phone System Forwarding Instructions
+  
+  document.
+</Note>
+
+Phase 3: The Auto-Attendant (Walk → Run)

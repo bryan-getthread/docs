@@ -1,0 +1,91 @@
+---
+title: "Setting up an Email Communication Workflow in Autotask"
+description: "This guide will walk you through setting up an email communication workflow in Autotask and Thread. We recommend using workflows in Autotask to keep in touch with your customers to offer consistent c…"
+---
+
+This guide will walk you through setting up an email communication workflow in Autotask and Thread. We recommend using workflows in Autotask to keep in touch with your customers to offer consistent communication across your customers' service experience.
+
+<Note>
+  This is a
+  
+  Best Practice guide
+  
+  for ensure communication is consistent across chat and email.
+</Note>
+
+### Who is this guide for?
+
+If you use **Quick Notification (Notify via "TO") on Notes** in Autotask to email ticket contacts, this guide is for you.
+
+Autotask does not permit vendors like Thread from toggling these fields on your replies. If you use this toggle today to send emails to customers and you want your customers to get notified when you reply to a thread in Inbox, then this guide is for you.
+
+![](/images/bc3142ca-2023-07-28-16-21-36.png)
+
+If you already use workflow rules to consistently send closed loop emails to your Customers whenever you add a discussion note to a ticket, then this guide could still be helpful! We will show you how to use UDFs and automation to take more control of your email notifications.
+
+## How-To Guide
+
+### 1. Setting up an Email Suppress User-Defined Field (UDF)
+
+We are setting up a workflow to enable closed loop email notifications to your customers on all replies to a ticket. However, we are also using a UDF to enable us to toggle these email notifications off when desired.
+
+<Note>
+  This way, emails will be off by default for incoming customer chats but can be turned on quickly for all replies by toggling the UDF.
+</Note>
+
+The following UDF should be created to support the use case.
+
+1. Open Autotask as an Administrator
+2. Navigate to **Admin** -&gt; **Features & Settings** -&gt; **Application-Wide (Shared) Features** -&gt; and click on **User-Defined Fields**
+3. Navigate to the **Tickets** tab
+4. Click **New** and enter the following information:
+  1. **UDF Type:** Ticket
+  2. **Field Type:** Single Select
+  3. **Name:** EmailSuppress (True/False)
+    ![](/images/3c68bb6e-2023-07-28-17-13-47.png)
+5. Click **Save & Close**
+
+### 2. Create a workflow rule to send email notifications
+
+In this step, we set up a workflow rule to enable email notifications to Ticket contacts on reply. We are leveraging the UDF we created in the previous step to only send email when the Email Suppress UDF is NOT checked. This way, email will be sent by default except when the Email Suppress box is checked.
+
+1. Open Autotask as an Administrator
+2. Navigate to **Admin** -&gt; **Automation** -&gt; **Workflow Rules** -&gt; open **Workflow Rules** page
+3. Create a **New** workflow ruleIf you already have a workflow rule to send email to your customers, you can edit it to incorporate the UDF logic.
+4. Enter in the following information:
+  1. Workflow Rule Name: Email Notification on Note Added by Resource
+  2. Events -&gt; Activity/Accessories -&gt; check the box for **Note Added By** -&gt; Select **Autotask Resource** from the drop-down menu
+    ![](/images/2e41f53c-2023-09-05-13-18-20.png)
+  3. Add the following **Condition**: (CHANGE TO NOT EQUAL TO TRUE)
+    ![](/images/ee96a598-2023-09-05-13-18-58.png)
+  4. Navigate to the **Notification** tab at the top of the window.
+  5. Select the user types you'd like to receive email notifications. We recommend selecting **Ticket Contact** and **Additional Contacts**.
+    ![](/images/3a610bcc-2023-07-28-17-20-41.png)
+  6. Select the email address you'd like the email to come from
+    ![](/images/bcbf4a55-2023-07-28-17-21-49.png)
+  7. Select the email notification you'd like to use for the emails.If you'd like to customize or build your own notification templates, you can follow this [guide](https://ww2.autotask.net/help/content/4_Admin/3Automation/EmailSurvey/EMAILS/NotificationTemplates/AddNotificationTemplate.htm) from Autotask.
+    ![](/images/4aa31e83-2023-07-28-17-23-39.png)
+  8. Click **Save & Close**
+
+### 3. Create a workflow rule to suppress email notifications (UDF) on chats by default
+
+In this step, we set up a workflow rule to suppress customer email notifications by default for chats. This toggles the EmailSuppress UDF on for incoming chats - this ensures email is turned off for chats. Because users are chatting with you, they will receive your replies in the context of their chat - emails might be redundant for them.
+
+<Note>
+  This workflow rule is optional. Only use this if you want to suppress email notifications by default for incoming chats.
+</Note>
+
+1. Open Autotask as an Administrator
+2. Navigate to **Admin** -&gt; **Automation** -&gt; **Workflow Rules** -&gt; open **Workflow Rules** page
+3. Create a **New** workflow rule
+4. Enter in the following information:
+  1. Workflow Rule Name: UDF Email Suppression for New Chats
+  2. Events -&gt; Created / Edited -&gt; check the box for **Created By** -&gt; Select **Anyone** from the drop-down menu.
+    ![](/images/5efec9e3-2023-07-28-17-29-38.png)
+  3. Add the following **Condition**:
+    ![](/images/ecb3b0e4-2023-07-28-17-31-24.png)
+  4. Under **Updates**, add the following settings:
+    ![](/images/e0be1f06-2023-09-05-13-27-56.png)
+  5. Click **Save & Close**
+
+**🎉Congrats!** You now have a consistent method for controlling communication with your customers across chat and email. Your customers will never miss an important update again!

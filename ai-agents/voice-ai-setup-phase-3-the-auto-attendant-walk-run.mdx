@@ -1,0 +1,246 @@
+---
+title: "Voice AI Setup – Phase 3: The Auto-Attendant (Walk → Run)"
+description: "Phase 2: Overflow & After Hours Concept Deploying the main phone line AI in a staged approach. You begin with a 'silent' mode to test connectivity and infrastructure before allowing the AI to speak a…"
+---
+
+Phase 2: Overflow & After Hours
+
+**Concept**
+
+Deploying the main phone line AI in a staged approach. You begin with a "silent" mode to test connectivity and infrastructure before allowing the AI to speak and route calls.
+
+**Value**
+
+This "Walk, then Run" strategy mitigates risk. It allows you to verify that audio recording, transcription, and routing are working perfectly without disrupting the client experience. Once verified, you can switch to full AI with confidence.
+
+**Use Cases**
+
+**Minimal Attendant:**
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/90021eb07fae47b3bdbb3f61467a9de3" width="100%" height="400" allowfullscreen></iframe>
+</Frame>
+
+- Send calls directly to technicians and have tickets automatically created and calls transcribed (contact mapping through phone number only)
+- Add Overflow: If no one is available, you can turn on send to overflow to record the issue in the ticket for a warmer call back
+
+**Advanced Attendant:**
+
+<Frame>
+  <iframe src="https://www.loom.com/embed/4c03ae6f5c5b4d7583d694e0b95cf72f" width="100%" height="400" allowfullscreen></iframe>
+</Frame>
+
+- Map the contact by name and company as well as phone number, create a ticket, understand the issue, and forward to the technician for a warm hand off (IVR options available)
+- Add Overflow: If no one is available, you can turn on send to overflow to record the issue in the ticket for a warmer call back
+
+#### How to Get a Number
+
+- Go to the **Attendant** tab
+- Click **Request Number**, select your country, and confirm
+- Your new phone number will be displayed in the settings
+
+#### Mode Comparison Table
+
+| Feature | Minimal AI Mode (Option A) | Advanced AI Mode (Option B) |
+| --- | --- | --- |
+| Concept | The "Walk" Phase (Silent Mode) | The "Run" Phase (Active Agent) |
+| Does the AI Speak? | No. The AI remains silent. | Yes. The AI greets and guides the caller. |
+| Caller Experience | Caller hears hold music while being connected to your technician line or queue. | Caller interacts with an AI receptionist, selects menu options (optional), and is asked to describe their issue before being forwarded to the technician line. |
+| Routing | Static. Calls go to one pre-set destination. | Call routes based on settings and IVR menu selections. |
+| Ticket Creation | Yes. Records, transcribes, and creates tickets in the background. | Yes. Records, transcribes, and creates tickets based on the interaction. |
+| Contact Mapping | Phone number only | Phone number, name, and company (AI caller ID) |
+| Overflow Routing | Optional - can route to Overflow if no answer | Optional - can route to Overflow if no answer |
+| Setup Complexity | Low. Requires only a transfer number and timeout setting. | Medium. Requires configuring menus, prompts, and greetings. |
+| Best Used When... | You want AI data but are not ready for an AI voice to answer yet. | You are ready to fully automate call routing and replace a traditional phone menu. |
+
+### Option A: Minimal AI Mode (Silent / Passthrough)
+
+Tip Start here. This allows you to 'Walk' before you 'Run'. This is the option most partners start with to get familiar with the workflow and achieve the fastest value.
+
+#### Configuration Steps
+
+1. In the Attendant tab, select **Minimal AI Mode**
+2. **Behavior**: The AI stays silent. It simply passes the call through to your team while recording and transcribing the audio in the background
+3. **Call Queue Extension**: Enter your ring group/technician line number so the AI knows where to send the call
+4. **Call Timeout**: Edit how much time we attempt to reach a technician before letting the caller know that no one is available (minimum recommended time 120 seconds)
+
+#### Attendant Minimal to Overflow (Optional - Recommended)
+
+You can set up your Attendant to route to Overflow to take a message if no technician picks up the call after the timeout duration.
+
+**To enable:**
+
+1. Enable the **Use Overflow when no one is available** toggle
+2. Set up a custom greeting for this use case for a more seamless transfer between the agents
+
+Suggested greeting:
+
+<Tip>
+  "Let caller know that all team members are currently busy and that you will be collecting more information about their issue to create a support ticket. Let them know they will receive a call back from the team."
+</Tip>
+
+#### Select Default Board and Source
+
+Set your default board and source. Ideally you have created a unique **Source** in your PSA called **"Voice AI"** (or similar) as recommended in Phase 1.
+
+Click **Save**!
+
+**Test Your Agent**
+
+<Note>
+  Warning: Testing is mandatory before connecting to your phone system
+</Note>
+
+**Testing Steps:**
+
+1. Call the agent phone number directly
+2. Do approximately 5 test calls to verify the agent is working
+3. Review each call transcript and ticket creation
+4. Note any unexpected behavior to review with your CSM
+5. When you are confident in your agent, proceed to connect it to your phone system
+
+**Expected Call Flow:**
+
+- Caller dials the number
+- Caller hears hold music
+- Call is transferred to your technician line/queue
+- Ticket is created in the background with call recording and transcript
+- If no answer within timeout period and Overflow is enabled: caller is transferred to Overflow agent
+
+### Option B: Advanced AI Mode (Full IVR)
+
+<Tip>
+  Tip: Move to this only after testing Minimal Mode. Our most successful partners configure Full AI Mode to achieve full value.
+</Tip>
+
+#### Features
+
+**AI Caller ID**: Agent can ask for name and company if the phone number doesn't match the contact in the PSA for better contact mapping (Average mapping success increase of 50%)
+
+**IVR Menus**: Set up "Press 1 for Support, Press 2 for Billing" style menus
+
+**Transfers**: Configure the AI to transfer calls to specific technicians or queues, transfer to overflow, or direct transfer to a number without ticket creation or recording
+
+**Custom Greeting**: Customize your greeting so that your callers **understand what to expect**. We have found a key reason that callers might get frustrated is lack of understanding of how this agent fits into your process. **Do not ask what the issue is in the greeting, the agent does that by itself. Putting it here will double the question.**
+
+**Call Timeout**: Edit how much time we attempt to reach a technician before letting the caller know that no one is available (minimum recommended time 75 seconds)
+
+**Custom Farewell Message** :Partners can now customize what their voice agent says to sign off at the end of a call, instead of the default goodbye.
+
+- Custom farewell field: set your own closing message per voice agent
+- Works across flows: applies consistently to Attendant, Overflow, and Attendant → Overflow handoffs
+- Reset to default: revert to the standard farewell anytime with one click
+  ![](/images/4fb3dbf2-image.png)
+
+#### Attendant Advanced to Overflow (Optional - Recommended)
+
+You can set up your Attendant to route to Overflow to ask more questions and take a message if no technician picks up the call after the timeout duration.
+
+**To enable:**
+
+Set up a custom greeting for this use case for a more seamless transfer between the agents.
+
+Suggested greeting:
+
+<Tip>
+  "Let caller know that all team members are currently busy and that you will be collecting more information about their issue to create a support ticket. Let them know they will receive a call back from the team."
+</Tip>
+
+#### Select Default Board and Source
+
+Set your default board and source. Ideally you have created a unique **Source** in your PSA called **"Voice AI"** (or similar) as recommended in Phase 1.
+
+Click **Save**!
+
+**Test Your Agent**
+
+<Note>
+  Warning: Testing is mandatory before connecting to your phone system
+</Note>
+
+**Testing Steps:**
+
+1. Call the agent phone number directly
+2. Do approximately 5-10 test calls to verify the agent is working
+3. Test different IVR menu options if configured
+4. Review each call transcript and ticket creation
+5. Verify contact mapping is working correctly
+6. Note any unexpected behavior to review with your CSM
+7. When you are confident in your agent, proceed to connect it to your phone system
+
+**Expected Call Flow:**
+
+- Caller dials the number
+- AI agent greets the caller with your custom greeting
+- If IVR menus are configured: caller selects an option
+- AI agent asks for caller information if not found in PSA (name, company)
+- AI agent asks the caller to describe their issue
+- Call is transferred to appropriate technician/queue based on routing
+- Ticket is created with all collected information, call recording, and transcript
+- If no answer within timeout period and Overflow is enabled: caller is transferred to Overflow agent
+
+### Connect to Your Phone System
+
+Once you have tested your agent thoroughly and are confident it's working correctly, you can connect it to your phone system.
+
+<Tip>
+  For phone-system-specific forwarding instructions (RingCentral, 8x8, Microsoft Teams, Cisco, Mitel, BVoIP/3CX), see the separate Phone System Forwarding Instructions document.
+</Tip>
+
+**General Setup Instructions**
+
+**The "Attendant" (Front Desk) Configuration**
+
+**Best for:** Teams using the AI to triage, screen calls, or route to appropriate staff.
+
+**Logic:** Incoming Call → **Thread Agent Answers Immediately** → Agent Transfers Calls → Your Team/Queue
+
+**VoIP Configuration:**
+
+1. Log into your VoIP provider
+2. Point your **Main Phone Number (DID)** to forward **immediately** to the **Thread Attendant Number**
+
+<Warning>
+  Critical Loop Warning ⚠️ When using this mode, you must ensure the Thread Agent transfers calls to a specific Ring Group Extension or Technician Queue, NOT back to the Main Phone Number. Forwarding back to the Main Number will cause an infinite loop.
+</Warning>
+
+### AI Call Summary
+
+Voice AI generates a structured, AI-powered call recap after every call. The recap is sent as an internal note to both Thread Inbox and your PSA. ConnectWise, Autotask, and Halo are all supported.
+
+![](/images/13ff2710-image.png)
+
+![](/images/d4f41231-image.png)
+
+**What's in a call recap -**After each call, Thread's AI reads the full transcript and produces a concise summary:
+
+- **Caller identity** — name, company, phone number, and verification status
+- **Call metadata** — date, time, duration, and technician (if applicable)
+- **Issue** — a clear description of the caller's problem with specifics like application names, error messages, and number of affected users
+- **Actions** — what happened during the call: ticket created, call transferred, details captured
+- **Resolution** — if a technician was on the call, any diagnostic steps taken and how the issue was resolved
+- **Outcome** — how the call ended: callback requested, issue resolved, caller hung up
+- **Full transcript link** — one click to the complete transcript and audio recording in Thread
+
+The recap is designed to be scannable. Technicians get the full picture in seconds, right where they already work.
+
+**How it works**
+
+- Enabled **by default** on all voice agents (existing and new)
+  ![](/images/5d034e99-image.png)
+- Works with all agent types: **Overflow**, **Attendant (Advanced AI)**, and **Attendant (Minimal AI)**
+- Toggle it per agent under **Voice → Agent → General tab → Send AI call recap**
+- Recaps are always **internal** — end users never see them
+- One recap per call, no duplicates
+- Audio recordings and full transcripts remain in Thread Inbox; the recap links back
+- Changes only apply to future tickets
+
+### Technician Handoff
+
+![](/images/51d428e8-image.png)
+
+When Toggled on - Before connecting, technicians hear the caller and issue, then say their name to claim the ticket.
+
+<Note>
+  You must disable "Technician Briefing" If you are routing calls to another IVR as it will break the call flow and disconnect the call. This applies to Minimal and Advanced mode with "Don't use menu options"
+</Note>

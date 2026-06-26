@@ -1,0 +1,162 @@
+---
+title: "Super Magic"
+description: "Concept. Super Magic is Thread's AI assistant for MSP technicians — an AI that doesn't just tell you how to do the work, but does the work with you. It lives inside Thread Inbox and in a dedicated Su…"
+---
+
+### Concept
+
+Super Magic is Thread's AI assistant for MSP technicians — an AI that doesn't just tell you *how* to do the work, but **does the work with you**. It lives inside Thread Inbox and in a dedicated Super Magic workspace, already understands your tickets, clients, KB, and stack, and can take real action across your PSA and connected tools with one-tap confirmation on every write.
+
+### Value
+
+Super Magic replaces the old "search and answer" assistant with one that **knows your workspace and executes** — collapsing the PSA, IT Glue, Hudu, your runbooks, and your AI tabs into a single ask. Reads happen automatically; every write pauses for a one-tap confirm.
+
+- **Sees your world** — searches Thread docs, your knowledge base, IT Glue, Hudu, clients, contacts (with Contact Intelligence), tickets (with exact counts), and the live web, all scoped to the ticket in front of the tech.
+- **Takes action in your PSA** — creates and updates tickets, posts internal/external notes, logs time entries (and marks them as the resolution), runs assistive AI (recap, auto-priority, title, contact-type), sends approvals, and schedules technicians.
+- **Connects beyond Thread** — native integrations for IT Glue, Hudu, and TimeZest, plus Super MCP for live, vendor-defined connectors like Notion, Zapier, Liongard, and Linear, each tech authorized via their own OAuth.
+- **Helps admins build automation** — admins can have Super Magic build and manage Flows and Intents, turning recurring asks into reusable automations.
+- **Chains many tools in one prompt** — the real payoff isn't a single tool call, it's the end-to-end workflow: pull docs, cross-reference past resolutions, route to the right tech, log time, and close out — all from one ask, with every write confirmed step by step.
+
+### How To
+
+Before you start
+
+| Requirement | Details |
+| --- | --- |
+| Thread Inbox access | Super Magic runs inside Thread Inbox and in the dedicated Super Magic workspace. |
+| PSA connection | Required for ticket reads/writes, time entries, and scheduling. |
+| Optional integrations | IT Glue, Hudu, TimeZest, and Super MCP connectors (Notion, Zapier, Liongard, Linear) light up additional capabilities. Each is gated on the customer having it configured. |
+| Per-tech OAuth (for MCP connectors) | Admins choose which MCP connectors are enabled; each technician authorizes their own access so Super Magic acts as that technician. |
+| Admin rights (for Flows/Intents) | Building or modifying Flows and Intents requires admin role plus write permission. |
+
+#### Step 1 — Open Super Magic
+
+Super Magic is available in two places:
+
+- **Inside a ticket** in Thread Inbox — opens with the ticket's context already loaded, so the tech can ask things like "look this up in IT Glue and route it to the right board."
+- **The dedicated Super Magic workspace** — for running the whole day from Thread the way a tech might run it from Claude or ChatGPT, with workspace, PSA, KB, and MCP context built in.
+
+Super Magic also accepts **voice input**, so techs can dictate longer multi-step asks instead of typing.
+
+#### Step 2 — Understand reads vs writes
+
+Two rules govern how Super Magic behaves:
+
+- **Reads run automatically.** Searching docs, pulling clients/contacts, counting tickets, looking up the web — all of this happens in the background without prompting the tech.
+- **Every write pauses for one-tap confirmation.** Creating a ticket, posting a note, logging time, reassigning, scheduling, sending an approval, triggering an MCP action — Super Magic shows what it's about to do and waits for the tech to confirm.
+
+This is the core safety model: the tech stays in control of anything that changes data in the PSA or external systems.
+
+#### Step 3 — Use what Super Magic *sees* (reads)
+
+These run automatically as part of any prompt where they're relevant:
+
+| Capability | What it returns | Example ask |
+| --- | --- | --- |
+| Thread how-to | Official Thread platform docs | "How do I set up a Flow for after-hours routing?" |
+| Internal knowledge | Previously resolved tickets + KB: root cause, resolution steps, scripts, related threads | "Have we fixed this Exchange error before?" |
+| IT Glue docs | IT Glue procedures and documents with URLs (if connected) | "What's the documented onboarding procedure for this client?" |
+| Hudu docs | Hudu KB articles with URLs (if connected) | "Pull the network diagram for this client from Hudu." |
+| Clients | Client companies, with optional manual Company Summary | "Pull Riverside Dental's Company Summary before their QBR." |
+| Contacts | People at a client, filtered by role or contact type, with aggregated Contact Intelligence | "Who's the approver at Acme, and what do we know about them?" |
+| Tickets | Filter by client, state, date, priority, contact, assignee, sentiment. Exact counts in count_only mode, or up to 500 newest in list mode | "How many open P1s do we have right now?" / "Show me Acme's negative-sentiment tickets this week." |
+| Staff | Active MSP agents by name, used to resolve an assignee | "Who on the team can I assign this to?" |
+| Web | Current web info | "Look up this Dell error code / the latest CVE for this version." |
+
+#### Step 4 — Use what Super Magic *does* (actions)
+
+Each of these pauses for a one-tap confirm before it commits:
+
+| Capability | What it can do in one call | Example ask |
+| --- | --- | --- |
+| Update a ticket | Title, status (including close), priority, board, assignee (or unassign) | "Bump this to High, move it to Escalations, and assign whoever has the fewest open tickets." |
+| Create a ticket | New PSA ticket: title, board, description, client, contact, assignee | "Open a ticket on the Network board to investigate a recurring VPN pattern." |
+| Add a note | Internal or external note on a ticket | "Post an internal handoff note summarizing everything done so far." |
+| Log time | Creates the PSA time entry + internal note, can mark it the resolution , accepts hours or a start/end window | "Log 45 minutes on this for the firewall reconfig and mark it as the resolution." |
+| Run assistive AI | Any combination in one call: auto-priority, auto contact-type/category, recap/summary note, title | "Recap this ticket, set a proper title, and suggest a priority." |
+| Send for approval | Approval request to specific contacts or by contact type | "Send this quote to the client's approver for sign-off." |
+| Schedule a tech | Assigns a tech to a date/time block on a ticket — lands on the Planner lane in Thread Inbox and the PSA dispatch calendar | "Book Sarah for the on-site Thursday 1–3pm." |
+| Reschedule | Reschedule, reassign, mark done, or delete a schedule entry | "Move tomorrow's on-site to Friday and reassign to Mike." |
+| TimeZest scheduling | Sends the end user a TimeZest scheduling link | "Send the client a link to book their own install." |
+
+#### Step 5 — Connect external tools with Super MCP
+
+Super Magic's reach extends beyond Thread through native integrations and **Super MCP**, where Thread acts as an MCP client and the catalog is vendor-defined and fetched live.
+
+**Native integrations** (gated on customer configuration):
+
+- **Hudu** — KB search
+- **IT Glue** — docs and procedures search
+- **TimeZest** — end-user scheduling links
+
+**Super MCP connectors:**
+
+| Connector | What it does for MSPs |
+| --- | --- |
+| Notion | Read/write Notion docs, databases, and pages. Best for teams keeping SOPs, runbooks, or client docs in Notion. |
+| Zapier | Acts on anything the tech has wired up in Zapier — the catch-all for tools Thread doesn't integrate natively. |
+| Liongard | Query live infrastructure and asset intelligence: environments, systems, assets, metrics, alerts, detections. (Native, feature-flagged.) |
+| Linear | Manage issues, projects, and cycles. |
+
+**How MCP access works:** Admins choose which connectors are enabled. Each technician then authorizes their own access via OAuth, so Super Magic acts as *that* technician inside the connected tool. The MCP catalog grows over time as new vendors publish servers.
+
+#### Step 6 — Build automation (admin only)
+
+With admin rights, Super Magic can help configure automation, not just run it:
+
+| Capability | Example ask |
+| --- | --- |
+| Build/inspect Flows | "Create a Flow that routes after-hours P1s from Acme to the on-call board." |
+| Build/manage Intents | "I keep seeing this same password-reset request — turn it into a reusable intent the team can trigger." |
+
+For true hands-off bulk work at scale, **a Flow is the better tool** than an ad-hoc Super Magic mass action.
+
+#### Step 7 — Chain it all together (end-to-end workflows)
+
+The real value of Super Magic is chaining many tools in **one ask**. A few representative workflows:
+
+**The multi-step dispatcher** *"Look into this VPN issue. Check the client's setup in IT Glue and Liongard, find any related tickets we've already resolved, post an internal note with the doc links and resolved threads, route it to the Network board and the tech with the lightest queue. This keeps happening — turn it into an intent, and open a separate ticket for Marcus to investigate the pattern."* → IT Glue + Liongard + KB + contacts/clients (read) → note, board move, intent, follow-up ticket (each confirmed).
+
+**Refresh and escalate a stale ticket** *"This ticket has blown up. Re-summarize it, re-check the priority, post an internal escalation note with what's been tried, and move it to Escalations with Marcus."* → Pulls thread → runs `recap` + `auto_priority` again → internal note → board move + assignee change.
+
+**Close out a job** *"Close out #4821. Run the recap, log my time with a summary, write up every troubleshooting step I did plus these I didn't note: rebooted the firewall twice, swapped the WAN cable, confirmed the ISP handoff. Send the client a thank-you note and close it."* → Time entry (marked resolution) → internal troubleshooting note → recap → external thank-you note → status to closed.
+
+**Book an on-site** *"Schedule Sarah for the on-site at Acme Thursday 1–3pm, send the client a TimeZest link for their follow-up, and add an internal note that we'll need a 4x4 — the antenna is up the hill in the park."* → Schedule (lands on Planner + PSA dispatch) → internal access note → TimeZest link.
+
+**Hand an at-risk client to the account manager (Zapier MCP)** *"Acme has had a rough week. Trigger our 'At-Risk Client' Zap to alert the CSM channel and tag Jake to reach out."* → Negative-sentiment ticket search → client lookup → Zapier MCP fires the MSP's own Zap with the client/ticket context.
+
+**Document a fix into Notion (Notion MCP)** *"We just cracked the fix for this recurring Mimecast issue. Write it up as a new page in our 'Runbooks' Notion database, then post the Notion link as an internal note on this ticket."* → Pulls ticket → Notion MCP creates the runbook page → internal note links it back.
+
+**Mass action on an outage** *"Find the open tickets about this outage, move them to the Outage board, and post an internal note that root cause is identified and a fix is in progress. Close them all when it's resolved."* → Ticket search → board move across them → internal note across them → later, status to closed across them.
+
+#### Notes and limitations
+
+| Note | Detail |
+| --- | --- |
+| Reads vs writes | Reads run automatically. Every write pauses for one-tap confirmation. |
+| Mass actions are bounded | The agent loop runs up to ~30 steps per run, and ticket lists are capped at the 500 newest matching. For true hands-off bulk work at scale, use a Flow . |
+| Scheduling target | schedule_ticket lands on the tech's Planner lane in Thread Inbox and creates a matching service call on the PSA dispatch calendar . If your PSA syncs to Outlook, it can surface there too. Thread reads Outlook into the Planner; it does not write to Outlook. |
+| Board ≠ team | Ticket updates reassign to a board (a queue), not a named "team." |
+| MCP availability | MCP connectors are gated on the admin enabling them and each tech completing OAuth. Available actions are defined by each vendor's MCP server, fetched live. |
+| Admin-only tools | Flow and Intent creation/management require admin role + write permission. |
+| Roadmap — named recap templates | Naming a specific recap template (e.g., "Detailed Resolution") is not supported today. run_assistive_ai runs the company's default recap. Tracked in MAGIC-1905. |
+
+#### FAQ
+
+**How is Super Magic different from Ask Magic?** Ask Magic was a search box: it found answers. Super Magic **takes action** — it can update tickets, post notes, log time, schedule techs, send approvals, build Flows and Intents, and act through MCP connectors like Notion and Zapier. Reads run automatically; every write requires one-tap confirmation.
+
+**Will Super Magic ever change something without me approving it?** No. Reads happen automatically, but **every write — ticket changes, notes, time entries, scheduling, approvals, MCP actions — pauses for one-tap confirmation** before it commits.
+
+**Do I have to enable every MCP connector?** No. Admins choose which connectors are enabled for the workspace, and individual techs authorize their own access via OAuth. Super Magic only acts as the technician who's signed in.
+
+**Can Super Magic act across multiple tickets at once?** Yes — it can apply updates and notes across the matching ticket set in a single ask (e.g., during an outage). Mass actions are bounded by the agent loop (~30 steps) and a 500-newest list cap, and each batch of writes still pauses for confirmation. For ongoing, hands-off bulk work, build a **Flow** instead.
+
+**Can I use Super Magic by voice?** Yes. Super Magic accepts voice input, which is especially useful for long multi-step asks where typing would be slow.
+
+**Does the customer ever see Super Magic's output directly?** Only when the tech confirms an **external** note or an approval/scheduling request that's customer-facing. Internal notes, time entries, recaps, and board/assignee changes stay inside Thread/your PSA.
+
+**What about sensitive client data inside MCP connectors?** Each MCP connector runs under the technician's own OAuth, so access is scoped to what that tech can already see in the connected tool. Admins control which connectors are enabled at the workspace level.
+
+**When should I use a Flow instead of Super Magic?** Use **Super Magic** for ad-hoc, tech-driven work — one ask, many tools, confirmed step by step. Use a **Flow** for recurring, hands-off automation that should run the same way every time without a tech in the loop.
+
+Questions? Reach out to your Thread CSM or email **help@getthread.com**.

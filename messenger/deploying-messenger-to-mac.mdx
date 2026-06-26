@@ -1,0 +1,442 @@
+---
+title: "Deploying Messenger to Mac"
+description: "Messenger is available as a dmg for Mac for easy deployment via shell script or for mass deployment via your favorite RMM, MDM, or other deployment solution. Before proceeding, make sure you have com…"
+---
+
+Messenger is available as a dmg for Mac for easy deployment via shell script or for mass deployment via your favorite RMM, MDM, or other deployment solution.
+
+<Warning>
+  Before proceeding, make sure you have completed the following:
+  
+  1. Finished
+  
+  setting up messenger
+  
+  .
+  
+  2.
+  
+  Understand the difference between Partner-level and Customer-level deployments
+  
+  .
+</Warning>
+
+### About Messenger for Mac
+
+Messenger lives in the tray and by default will auto start with your Mac. To open the app, find the icon in your tray and open it. It will inherit the tray icon that you define in your Messenger settings.
+
+## Deploying via Shell
+
+### Retrieving your App ID
+
+You will need an App ID to deploy Messenger for your customers - this tells messenger to inherit your branding.
+
+You can retrieve your partner-level App ID from the **Thread Admin Panel -&gt; Messenger -&gt;** [**Installation**](https://admin.getthread.com/dashboard/messenger/settings/installation).
+
+### Recommended Shell Script
+
+Save as a .sh script.
+
+<Note>
+  You will need to run the following script as a super user.
+</Note>
+
+<Tip>
+  If you are not a Mac or Linux user and you're creating this script in a popular notepad editor like Visual Studio Code, make sure your End of Line settings are set to LF (\\n). This allows Terminal to interpret the script file properly on Mac.
+</Tip>
+
+```
+#!/bin/bash
+
+# Exit the script on any command failure
+set -e
+set -o pipefail
+
+# Log file
+LOG_PATH="/tmp/messenger_install.log"
+
+# Fetch the current console user correctly
+CURRENT_USER=$(scutil <<< "show State:/Users/ConsoleUser" | awk '/Name :/ && ! /loginwindow/ { print $3 }')
+
+# macOS username
+if [ -n "$SUDO_USER" ]; then
+    USERNAME="$CURRENT_USER"
+else
+    USERNAME="$CURRENT_USER"
+fi
+
+MESSENGER_CONFIG="/Users/$USERNAME/Library/Application Support/Messenger"
+
+# Function to log messages
+log() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" | tee -a "$LOG_PATH"
+}
+
+log "username: $USERNAME"
+
+# Variables
+DOWNLOAD_URL="https://assets.getthread.com/messenger/downloads/desktop/messenger.dmg"
+DMG_PATH="/tmp/messenger.dmg"
+MOUNT_PATH="/tmp/messenger_mount"
+APP_ID="YOUR_APP_ID_HERE"
+
+log "Starting installation of Messenger app..."
+
+# Uninstall existing Messenger apps
+rm -rf /Applications/Messenger.app && rm -rf /Applications/Chatgenie\ Messenger.app
+
+# Download the DMG file
+log "Downloading DMG from $DOWNLOAD_URL..."
+curl -o "$DMG_PATH" "$DOWNLOAD_URL"
+log "DMG downloaded to $DMG_PATH."
+
+# Function to unmount the DMG
+function unmount_dmg {
+    log "Unmounting DMG from $MOUNT_PATH..."
+    hdiutil detach "$MOUNT_PATH" || true
+    log "DMG unmounted."
+}
+
+# Mount the DMG
+log "Mounting DMG..."
+hdiutil attach "$DMG_PATH" -mountpoint "$MOUNT_PATH"
+log "DMG mounted at $MOUNT_PATH."
+
+# Trap any error and ensure that the DMG gets unmounted even if there's an error
+trap unmount_dmg EXIT
+
+# Install the app
+log "Installing Messenger app to /Applications..."
+cp -R "$MOUNT_PATH"/*.app /Applications/
+log "Installation complete."
+
+# Unmount the DMG
+unmount_dmg
+
+# Remove the downloaded DMG to clean up
+log "Removing downloaded DMG..."
+rm "$DMG_PATH"
+log "DMG removed."
+
+# Close any running instances of the app
+log "Closing any running instances of the Messenger app..."
+pkill -f "Messenger.app/Contents/MacOS/Messenger" || true
+log "Instances closed."
+
+# Allow a brief moment for configuration to complete
+sleep 2
+
+# Run the nohup command to configure the app
+# nohup MAY NOT work in some RMM tools (Addigy), in this case just remove the nohup part
+log "Running the nohup command"
+nohup /Applications/Messenger.app/Contents/MacOS/Messenger APP_ID="$APP_ID" FLOW=customer &
+
+sleep 2
+
+# Launching the app, creates the config.json file, see MESSENGER_CONFIG
+log "Launching the Messenger app..."
+open -a Messenger
+log "Messenger app launched."
+
+sleep 5
+
+# Close any running instances of the app
+log "Closing any running instances of the Messenger app..."
+pkill -f "Messenger.app/Contents/MacOS/Messenger" || true
+log "Instances closed."
+
+# Modify the value of APP_ID in config.json, see MESSENGER_CONFIG
+if [ -d "$MESSENGER_CONFIG" ]; then
+    log "Messenger config folder exists for user $USERNAME."
+    echo '{ "APP_ID": "'"$APP_ID"'" }' > "$MESSENGER_CONFIG/config.json"
+    log "Configured Messenger app ID in $MESSENGER_CONFIG/config.json."
+else
+    log "Messenger config folder not found for user $USERNAME."
+fi
+
+sleep 5
+
+# Configuration is complete, app is ready to use, launch it
+log "Launching the Messenger app..."
+open -a Messenger
+log "Messenger app installation and configuration complete! Script v9"
+```
+
+### Executing the Shell Script
+
+To execute the above script on a Mac, first download your script as a .sh file (see above). Then open terminal and run the following commands:
+
+```
+cd ~/Downloads
+chmod +x messenger_mac.sh
+./messenger_mac.sh
+```
+
+<Tip>
+  In the above example, we assume you named your script messenger_mac.sh and downloaded it to the downloads directory.
+</Tip>
+
+### Running the app from commandline (nohup)
+
+```
+nohup /Applications/Messenger.app/Contents/MacOS/Messenger APP_ID=YOUR_APP_ID_HERE FLOW=customer
+```
+
+### Uninstalling the app
+
+```
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# -----------------------------
+# Config
+# -----------------------------
+APP_MESSENGER="/Applications/Messenger.app"
+APP_CHATGENIE_MESSENGER="/Applications/Chatgenie Messenger.app"
+
+# Remove from all users:
+# /Users/<user>/Library/Application Support/Messenger
+SUPPORT_FOLDER_NAME="Messenger"
+
+# Optional: set DRY_RUN=1 to preview actions without deleting anything
+DRY_RUN="${DRY_RUN:-0}"
+
+# -----------------------------
+# Helpers
+# -----------------------------
+log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*"; }
+
+run() {
+  if [[ "$DRY_RUN" == "1" ]]; then
+    log "DRY_RUN: $*"
+  else
+    eval "$@"
+  fi
+}
+
+need_root() {
+  if [[ "$(id -u)" != "0" ]]; then
+    echo "This script must be run as root (use sudo)"
+    exit 1
+  fi
+}
+
+console_user() {
+  local u
+  u="$(stat -f%Su /dev/console 2>/dev/null || true)"
+  [[ "$u" == "root" ]] && u=""
+  echo "$u"
+}
+
+# -----------------------------
+# User data cleanup
+# -----------------------------
+remove_messenger_support_all_users() {
+  log "Removing ~/Library/Application Support/$SUPPORT_FOLDER_NAME for all users under /Users ..."
+
+  for home in /Users/*; do
+    [[ -d "$home" ]] || continue
+
+    local user
+    user="$(basename "$home")"
+
+    # Skip Shared (and anything else you consider non-user)
+    [[ "$user" == "Shared" ]] && continue
+
+    local target="$home/Library/Application Support/$SUPPORT_FOLDER_NAME"
+    if [[ -d "$target" ]]; then
+      log "Deleting: $target"
+      run "rm -rf \"$target\""
+    fi
+  done
+}
+
+# -----------------------------
+# Process handling
+# -----------------------------
+quit_app_gracefully() {
+  local app_path="$1"
+  local app_name
+  app_name="$(basename "$app_path" .app)"
+
+  local u
+  u="$(console_user)"
+
+  if [[ -n "$u" ]] && command -v osascript >/dev/null 2>&1; then
+    log "Attempting graceful quit for \"$app_name\" (as user: $u)..."
+    run "sudo -u \"$u\" osascript -e 'tell application \"$app_name\" to quit' >/dev/null 2>&1 || true"
+    run "sudo -u \"$u\" osascript -e 'tell application id (id of application \"$app_path\") to quit' >/dev/null 2>&1 || true"
+  else
+    log "Skipping AppleScript quit (no console user or osascript unavailable)."
+  fi
+}
+
+kill_app_processes() {
+  local app_path="$1"
+  local app_name
+  app_name="$(basename "$app_path" .app)"
+  local macos_dir="$app_path/Contents/MacOS"
+
+  log "Stopping processes for \"$app_name\"..."
+
+  # Match anything with the .app path or Contents/MacOS in its command line (covers helpers)
+  local pids pids2 all_pids
+  pids="$(pgrep -f "$app_path" 2>/dev/null || true)"
+  pids2="$(pgrep -f "$macos_dir" 2>/dev/null || true)"
+  all_pids="$(printf "%s\n%s\n" "$pids" "$pids2" | awk 'NF{print}' | sort -u || true)"
+
+  if [[ -n "$all_pids" ]]; then
+    log "Sending SIGTERM to PIDs: $all_pids"
+    run "kill -TERM $all_pids >/dev/null 2>&1 || true"
+    sleep 2
+  fi
+
+  # Recheck and SIGKILL if needed
+  local still
+  still="$(pgrep -f "$app_path" 2>/dev/null || true)"
+  if [[ -n "$still" ]]; then
+    log "Processes still running; sending SIGKILL to PIDs: $still"
+    run "kill -KILL $still >/dev/null 2>&1 || true"
+  fi
+
+  log "Process stop attempt complete."
+}
+
+kill_by_executable_location() {
+  local app_path="$1"
+  local macos_dir="$app_path/Contents/MacOS"
+  [[ -d "$macos_dir" ]] || return 0
+
+  local exes
+  exes="$(find "$macos_dir" -maxdepth 1 -type f -perm -111 2>/dev/null || true)"
+  [[ -n "$exes" ]] || return 0
+
+  log "Killing processes by executable location inside: $macos_dir"
+
+  # SIGTERM
+  while IFS= read -r exe; do
+    [[ -n "$exe" ]] || continue
+    local p
+    p="$(pgrep -f "$exe" 2>/dev/null || true)"
+    if [[ -n "$p" ]]; then
+      log "SIGTERM for \"$exe\" (PIDs: $p)"
+      run "kill -TERM $p >/dev/null 2>&1 || true"
+    fi
+  done <<< "$exes"
+
+  sleep 2
+
+  # SIGKILL if still running
+  while IFS= read -r exe; do
+    [[ -n "$exe" ]] || continue
+    local p
+    p="$(pgrep -f "$exe" 2>/dev/null || true)"
+    if [[ -n "$p" ]]; then
+      log "SIGKILL for \"$exe\" (PIDs: $p)"
+      run "kill -KILL $p >/dev/null 2>&1 || true"
+    fi
+  done <<< "$exes"
+}
+
+# -----------------------------
+# LaunchAgents / Daemons cleanup
+# -----------------------------
+unload_and_remove_plists_referencing() {
+  local app_path="$1"
+  local app_name
+  app_name="$(basename "$app_path" .app)"
+
+  local plist_dirs=(
+    "/Library/LaunchAgents"
+    "/Library/LaunchDaemons"
+  )
+
+  # Include per-user LaunchAgents
+  for d in /Users/*/Library/LaunchAgents; do
+    [[ -d "$d" ]] && plist_dirs+=("$d")
+  done
+
+  log "Searching LaunchAgents/Daemons for references to \"$app_name\" or \"$app_path\"..."
+
+  local found_any=0
+
+  for dir in "${plist_dirs[@]}"; do
+    [[ -d "$dir" ]] || continue
+
+    while IFS= read -r plist; do
+      [[ -f "$plist" ]] || continue
+
+      # Only act on plists that reference the app name or exact path
+      if /usr/bin/grep -Fq "$app_path" "$plist" 2>/dev/null || /usr/bin/grep -Fq "$app_name" "$plist" 2>/dev/null; then
+        found_any=1
+        log "Found related plist: $plist"
+
+        # Try system domain bootout (works for LaunchDaemons and some agents)
+        run "launchctl bootout system \"$plist\" >/dev/null 2>&1 || true"
+
+        # If it's in a user domain, boot it out there too
+        if [[ "$plist" == /Users/*/Library/LaunchAgents/* ]]; then
+          local u uid
+          u="$(echo "$plist" | awk -F/ '{print $3}')"
+          uid="$(id -u "$u" 2>/dev/null || true)"
+          if [[ -n "$uid" ]]; then
+            run "launchctl bootout gui/$uid \"$plist\" >/dev/null 2>&1 || true"
+          fi
+        fi
+
+        log "Removing plist: $plist"
+        run "rm -f \"$plist\""
+      fi
+    done < <(find "$dir" -maxdepth 1 -name "*.plist" -type f 2>/dev/null || true)
+  done
+
+  if [[ "$found_any" -eq 0 ]]; then
+    log "No related LaunchAgents/Daemons found."
+  fi
+}
+
+# -----------------------------
+# Uninstall
+# -----------------------------
+uninstall_app_bundle() {
+  local app_path="$1"
+  local app_name
+  app_name="$(basename "$app_path" .app)"
+
+  # Prevent respawn mechanisms first
+  unload_and_remove_plists_referencing "$app_path"
+
+  # Stop app + processes
+  quit_app_gracefully "$app_path"
+  kill_app_processes "$app_path"
+  kill_by_executable_location "$app_path"
+
+  # Remove app bundle
+  if [[ -e "$app_path" ]]; then
+    log "Uninstalling $app_path..."
+    run "rm -rf \"$app_path\""
+    log "\"$app_name\" removed."
+  else
+    log "\"$app_name\" is not installed (bundle not found)."
+  fi
+}
+
+# -----------------------------
+# Main
+# -----------------------------
+need_root
+
+log "Starting uninstall..."
+log "DRY_RUN=$DRY_RUN"
+
+# Remove support folder from all users
+remove_messenger_support_all_users
+
+# Uninstall apps
+uninstall_app_bundle "$APP_MESSENGER"
+uninstall_app_bundle "$APP_CHATGENIE_MESSENGER"
+
+log "Done."
+exit 0
+```

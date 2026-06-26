@@ -1,0 +1,68 @@
+---
+title: "Messenger Portal Auto Authentication"
+description: "Messenger Portal Auto Authentication. For some of our larger partners who have a custom built portal or third party vendors looking to provide the web version of Messenger in their platform, we now o…"
+---
+
+## Messenger Portal Auto Authentication
+
+For some of our larger partners who have a custom built portal or third party vendors looking to provide the web version of Messenger in their platform, we now offer a way to automatically authenticate Messenger with your portal.
+
+Our web based Messenger is a javascript plugin that leverages passwordless authentication by default - this means that the end customer has to type their email and receive a 6 digit pin to authenticate to raise a service request. If you have a portal that already requires authentication, you do not want the end customer to re-authenticate. In order to facilitate this, we are now providing a way to encrypt the email address on your server side and pass it into the javascript plugin. We also have the key on our side, so we can decrypt it and validate that the end user is who they say they are. This prevents a bad actor from hijacking the chat client and pretending to be someone else.
+
+<Note>
+  If you are looking to get access to this, please email us to request a portal authentication secret.
+  
+  Request Portal Authentication Secret
+  
+  .
+</Note>
+
+<Warning>
+  Please store this secret securely on the server side and not in the javascript side. If you do this on the client side, the secret becomes invalid, as anyone can now use it.
+</Warning>
+
+Once you receive the secret from Thread, these are the steps you will need to take:
+
+1. Store the secret securely on your server side
+2. Securely generated hash with the secret provided by Thread Hash must be generated from the following format `hash_hmac('sha256', <email>, <secret>)`
+3. Insert the javascript plugin into your web client, and in the connectionKey, insert the hash that is generated. Ensure that you are also passing the connectoinEmail to match it , and that your connectionType is set the right way.
+
+```
+<script>
+  var chatgenieParams = {
+    appId: "5b2f5498-e578-42a9-8119-98e01e642626",
+    connectionType: "messenger_auth",
+    conenctionEmail: "foo@bar.com",
+    connectionKey: "XXXXXXXX"
+  };
+  function run(ch){ch.default.messenger().initialize(chatgenieParams);}!function(){var e=window.chatgenie;if(e)run(e);else{function t(){var t=document.createElement("script");t.type="text/javascript",t.async=true,t.readyState?t.onreadystatechange=function(){"loaded"!==t.readyState&&"complete"!==t.readyState||(t.onreadystatechange=null,window.chatgenie&&(e=window.chatgenie,run(e)))}:t.onload=function(){window.chatgenie&&(e=window.chatgenie,run(e))},t.src="https://messenger.chatgenie.io/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)}window.attachEvent?window.attachEvent("onload",t):window.addEventListener("load",t,!1)}}();
+</script>
+```
+
+| appId | App ID of your workspace |
+| --- | --- |
+| connectionType | Only messenger_auth is supported today |
+| connectionEmail | Email of the user who is trying to access Messenger |
+| connectionKey | Securely generated hash with the secret provided by Thread Hash must be generated from the following format hash_hmac('sha256', &lt;email&gt;, &lt;secret&gt;) |
+
+## Managing Messenger instance
+
+Programmatically set up:
+
+```
+const params = { appId: 'xxxxx-xxxxxx-xxxxxx-xxxxxxxxx' }; 
+
+if (user.messengerConnectionKey) { 
+  params.connectionType = 'messenger_auth'; 
+  params.connectionKey = user.messengerConnectionKey; 
+  params.connectionEmail = user.email; 
+} 
+
+window.chatgenie.default.messenger().initialize(params);
+```
+
+Destroy instance:
+
+```
+window.chatgenie.default.messenger().destroy();
+```

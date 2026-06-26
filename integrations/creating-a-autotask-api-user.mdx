@@ -1,0 +1,114 @@
+---
+title: "How to Setup Autotask Ticketing Integration"
+description: "This guide explains how to set up the Autotask Integration in the platform. During the initial setup of your account in the platform, you are prompted to set up your ticketing system. Following the p…"
+---
+
+This guide explains how to set up the Autotask Integration in the platform.
+
+During the initial setup of your account in the platform, you are prompted to set up your ticketing system. Following the prompts for Autotask will lead you to the following screen asking you to enter API credentials.
+
+1. Leave this screen open, we will come back to it later.
+  ![](/images/a3ce6c23-2023-08-29-14-11-19.png)
+2. Open a new browser tab or window to continue to the next step, configuring the API user.
+
+## 1. Configure the Security Level for the API User
+
+1. Log-in to Autotask:
+
+![](/images/b883ba5a-1.png)
+
+1. Go to **Admin** section of the menu and open **Account Settings & Users** page
+
+![](/images/83a9f700-image.png)
+
+1. Select **Security Levels** item from **Resources/Users (HR)** -&gt; **Security** section
+  ![](/images/ccf1c091-image.png)
+2. Select **Copy** item from the menu of **API User (system) (API-only)** role
+  ![](/images/1f777d14-image.png)
+3. On the opened window, change **Name** field to "*API User (system) with Webhooks*"
+  ![](/images/dca1e37a-image.png)
+4. Then go to the **Other** section and enable Can create Webhooks setting. Make sure to write 50 to the "Maximum number of Webhooks" field
+  ![](/images/fb0dad78-image.png)
+5. Next, navigate to the **Web Services API** section. Under **Resource Impersonation**, check all the permissions indicated in the screenshot below. Do the same for **Contact Impersonation**.These settings are used to impersonate your users so if they respond to a customer via Inbox, Teams or Slack, the notes update as them in Autotask. In a later step, we will also configure your user security levels so that the API user we create here can impersonate them.
+
+![](/images/fee7df51-image-20221025-131251.png)
+
+<Warning>
+  Before proceeding, please make sure all settings above are selected for this security level.
+</Warning>
+
+1. Once all the impersonation settings are configured, click **Save & Close** button to save the role. After that, click **Back** button to return to the **Account Settings & Users** page
+  ![](/images/f9fb74ec-image.png)
+
+## 2. Configure User Security Levels
+
+In this section, you will need to reconfigure the security levels that each of your users are assigned to so that the platform can effectively impersonate these users for Service notes, time entries and more.
+
+<Note>
+  This is what allows the user responses to customers from Inbox, Teams and Slack to show up as the user in Autotask rather than as the API account.
+</Note>
+
+The security level for each user that is going to respond to tickets in Inbox, Teams or Slack will need to be configured to allow for resource impersonation.
+
+<Tip>
+  We recommend configuring this setting on all security levels that are in use by users in your Autotask environment in order to prevent errors.
+</Tip>
+
+1. In Autotask, Navigate to **Admin** -&gt; **Account Settings & Users** -&gt; **Security** -&gt; **Security Levels**
+2. Change the filter on the **Active** column to **Yes (active)**
+3. Each security level in the list will show how many resources are assigned to each. You only need to update each security level that has a resource assigned. API type security levels do not need to be updated, only security levels assigned to active users.
+  ![](/images/9313aee3-2022-10-26-12-28-18.png)
+4. Start by selecting the first resource on the list that is in use and assigned to 1 or more resources.
+5. For that resource, click the menu button on the left (or right-click on it) and select **Edit**
+  ![](/images/8441feb5-2022-10-26-12-32-23.png)
+6. A window to edit that security level will pop up, scroll down to the Web Services API section and expand. Under Web Services **API** -&gt; **Resource Impersonation** -&gt; Check the box for **Allow Impersonation of resources with this security level**.
+  ![](/images/03c5115d-2022-10-26-12-34-37.png)
+7. Click **Save & Close**.
+8. **Repeat steps 4-7** for each Security Level on the list that is assigned to a resource and not an API User type.
+
+## 3. Create the Ticket Source
+
+The ticket source is used for reporting to allow you to distinguish tickets created via the platform/chat from other tickets.
+
+1. In Autotask, Navigate to **Admin** -&gt; **Features & Settings** -&gt; **Service Desk (Tickets)** -&gt; **Sources**
+2. Click the **+ New** button to create a new Source
+  ![](/images/6c604062-2022-10-26-12-55-40.png)
+3. Enter in the **Source Name** "Chat", enter a number for the **Source Sort Order** (this can be whatever you want) and check the **Active** box.
+  ![](/images/69452b77-2022-10-26-14-34-42.png)
+4. Click **Save** when done.
+
+## 4. Create the API User
+
+1. Open the **Resources/Users** page from **Resources/Users (HR)** section
+
+![](/images/21345ad6-image.png)
+
+1. Select "New API User" button from "New" button dropdown.
+  ![](/images/ff2ef246-image.png)
+2. In the opened page fill all required fields with self-explanatory values. Make sure to select "API User (system) with Webhooks" in "Security Level" field.
+  ![](/images/75544c15-image.png)
+3. Click "Generate Key" and "Generate Secret" buttons in "CREDENTIALS" section. Store generated values somewhere as it will be required later for the integration.
+  ![](/images/594dea2f-image.png)
+4. Select the "Integration Vendor" option from the list and select "Thread - Messaging" from the drop down list.
+  ![](/images/e91bc5d3-image.png)
+5. From the "LINE OF BUSINESS" section, select one or many (or all) lines of business to grant the access to the integration account.
+  ![](/images/a4c07b0b-image.png)
+6. Click the "Save & Close" button.
+
+## 5. Configure Thread with the API Information
+
+Now that you've set up your API keys, it's time to integrate Autotask with Thread! It's time to take the information you saved in the previous steps and enter it into the web form.
+
+![](/images/bf9bb88a-2023-08-29-14-11-19.png)
+
+1. **Company Name** - Enter your company name
+2. **Username (Key)** - Enter the Username (Key) that you saved in step **4.3 Create the API User**.
+3. **Password (Secret)** - Enter the Password (Secret) that you saved in step **4.3 Create the API User**.
+4. **Keep members in sync with PSA**
+  1. Leave this checked to quickly enable your team's access to thread.
+  2. Uncheck this if you prefer to invite members individually. If you choose this option, you will be able to invite members later.
+5. Once everything has been entered correctly, click **Continue** to proceed.
+
+## ⏩Next: Design your Customer Experience
+
+Design your Customer Experience

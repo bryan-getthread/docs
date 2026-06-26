@@ -1,0 +1,56 @@
+---
+title: "Flows and Views for Sentiment"
+description: "Once Sentiment is enabled, you can automate how your team responds to emotional signals—surfacing tense moments early, recognizing positive interactions, and keeping conversations moving in the right…"
+---
+
+Once Sentiment is enabled, you can automate how your team responds to emotional signals—surfacing tense moments early, recognizing positive interactions, and keeping conversations moving in the right direction.
+
+## Why It Matters
+
+Magic Sentiment doesn’t just detect how customers feel—it helps you act on it. With automatic escalations and recap templates, you can:
+
+- Spot frustration before it turns into follow-up loops
+- Route emotionally charged threads to the right people
+- Highlight standout service moments worth celebrating
+- Coach your team with real, contextual feedback
+
+## Sentiment Flow
+
+Whether you want to catch upset customers or celebrate happy ones, here's how we can configure a flow around Sentiment.
+
+### **Step 1: Apply Filters**
+
+1. Go to the **Thread Admin Panel →** **Flows → Create Flow**
+2. Enter a **flow name** then hit **“Create Flow”**
+3. Under **"Apply filters"**, set the following condition:
+  - **Where** → `Thread sentiment`
+  - **Condition** → Less than `<` or Greater than `>`
+  - **Value** → Use a low number to catch negative sentiment, and high for positive
+
+### **Step 2: Add Action**
+
+Once the sentiment condition is met, trigger the recap generation.
+
+1. Scroll to the **"Action"** section in the flow.
+2. Click on the **"Actions"** tab.
+3. From here, you can generate a recap, send to a Teams/Slack channel, or re-assign to another technician. Based on your filters above, we can make sure that action is taken on these situations.
+
+## 3. Triage Threads by Sentiment
+
+Use sentiment as a triage signal to help your team prioritize the right conversations faster.
+
+1. In [**Thread Inbox**](https://inbox.getthread.com), use **Views** to filter by `Thread sentiment`.
+2. For example, create a view for:
+
+- Threads with sentiment **below 31%** (high risk)
+- Threads with sentiment **above 79%** (high satisfaction)
+
+1. Alternatively, you can connect the Slack or Teams app directly from within the flow you created above—allowing alerts to trigger automatically when sentiment rules are met.
+
+- Route poor or excellent sentiment threads directly to specific channels
+- Ensure key team members are alerted when tone shifts dramatically
+
+1. If you have yet to set up your companion app, please refer to these guides:
+
+- [Slack Companion App](https://docs.getthread.com/article/ljgmr5sc5d-installing-slack-as-an-msp)
+- [Microsoft Teams Companion App](https://docs.getthread.com/article/ynz0rlxyls-teams-companion-app)

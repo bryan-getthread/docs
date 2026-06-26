@@ -1,0 +1,75 @@
+---
+title: "FAQs"
+description: "General. What is Magic Analytics? Magic Analytics is Thread's built-in reporting experience. It brings your service desk metrics and the impact of Thread's AI products together in dashboards, lets yo…"
+---
+
+## General
+
+**What is Magic Analytics?**
+
+Magic Analytics is Thread's built-in reporting experience. It brings your service desk metrics and the impact of Thread's AI products together in dashboards, lets you explore your data by topic, and — for AI Pro members — includes the Dashboard Agent for asking questions in plain English.
+
+**Is the data real-time?**
+
+No. Magic Analytics refreshes on a **daily cycle**, so it's effectively about a day behind. Each tile shows a **"Query ran…"** timestamp.
+
+**Can other companies see my data?**
+
+No. You only ever see your own organization's data.
+
+**Why is a dashboard slow sometimes?**
+
+It's a large dataset. Narrow your **date range** and apply **source / board** filters to speed things up.
+
+**Could the numbers differ from what I see in my PSA? (data drift)**
+
+They can differ slightly, for two reasons:
+
+- **The daily lag.** Magic Analytics is about a day behind, so very recent changes in your PSA may not have landed yet. This catches up on the next refresh.
+- **Missed or unconfigured syncs.** Your **PSA is the source of truth**, and Thread keeps in step with it through webhooks and scheduled syncs. If an integration isn't fully configured, or a webhook/sync is missed, some records can temporarily fall out of step — this is called **data drift**.
+
+<Note>
+  A day-old difference is expected. If a number looks
+  
+  materially
+  
+  off (well beyond a day's worth of activity), it's worth checking that your integrations are fully configured, then reaching out to your Thread contact so we can reconcile it.
+</Note>
+
+## Using dashboards
+
+**Can I download or export a dashboard?**
+
+Yes — See [*Downloading, alerts & scheduling*](/analytics/downloading-alerts-scheduling).
+
+**Can I be notified when something changes?**
+
+Yes — set an **Alert** on a tile. You can also **Schedule delivery** on a recurring cadence.
+
+**Why can't I drill into individual tickets/calls on some charts?**
+
+Some topics are **Aggregate** (rolled up for speed) and don't keep row-level detail. Use a **Detailed** topic like **Threads** (tickets), **Triage Agent** (sessions), or **Voice AI** (calls). See [*Things to know & gotchas*](/analytics/things-to-know-and-gotchas).
+
+**Why don't all closed tickets show who closed them?**
+
+We can credit the **member** who closed a ticket only when it's closed from within Thread (the Inbox or Pods). Tickets closed directly in the PSA can't be attributed to a specific member, due to a PSA API limitation around impersonation. So closer metrics reflect closures made in Thread. See [*Things to know & gotchas*](/analytics/things-to-know-and-gotchas).
+
+## Assistive AI
+
+**What's an "exception" on the Assistive AI Accuracy dashboard?**
+
+It's a case where Thread's AI suggested a value (priority, category, title) and it was later overridden by a person or system.
+
+**Why are some overrides shown as "PSA / System" instead of a person?**
+
+When a change is made directly in the PSA, a PSA API limitation prevents attributing it to a specific member, so it shows as PSA / System. Changes made in the Thread Inbox or Pods are attributed to the member. See [*Things to know & gotchas*](/analytics/things-to-know-and-gotchas).
+
+## Dashboard Agent
+
+**Who can use the Dashboard Agent?**
+
+The Dashboard Agent is available to **AI Pro** members.
+
+**What can I ask it?**
+
+Follow-up questions about any tile, summaries, and re-cuts of the data within the topics you have access to. See [*Dashboard Agent*](/analytics/dashboard-agent).

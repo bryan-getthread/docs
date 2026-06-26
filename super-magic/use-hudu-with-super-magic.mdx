@@ -1,0 +1,43 @@
+---
+title: "Use Hudu with Super Magic"
+description: "Availability: Limited release — contact your Thread account team to enable Hudu for your workspace. Connect Hudu and Super Magic can search your Hudu knowledge base, passwords documentation, and netw…"
+---
+
+<Tip>
+  Availability: Limited release
+  
+  — contact your Thread account team to enable Hudu for your workspace.
+</Tip>
+
+Connect Hudu and Super Magic can search your **Hudu knowledge base, passwords documentation, and network docs** mid-ticket, with links back to the source in Hudu.
+
+### What you can ask
+
+> "Search Hudu for Acme's network documentation"
+
+> "What does our Hudu KB say about the mail server setup?"
+
+> "Find the password documentation entry for Acme's router"
+
+Hudu search is **read-only** — Super Magic looks things up, it never changes your Hudu data.
+
+### Set it up (admin, once for the whole workspace)
+
+Hudu is a **workspace-level integration**: connect it once and it works for every member.
+
+1. **Connect Hudu to Thread** — if it isn't already, the **Configure** button on the Hudu row in **Super Magic settings → Integrations** takes you to the setup.
+2. **Enable it for Super Magic** — turn the **Hudu** toggle on in the same Integrations card.
+
+Both are required: a connected integration with the toggle off exposes nothing.
+
+#### Troubleshooting
+
+- **No Hudu results in chat?** Check the row shows **Connected** AND the toggle is on.
+- **Still nothing?** Your workspace may not have the Hudu release enabled yet — ask your account team.
+- Anything else: [**Super Magic Admin Guide → Troubleshooting**](/super-magic/super-magic-admin-guide-setup-access-safety).
+
+#### Available tools
+
+| Tool | Type | What it does |
+| --- | --- | --- |
+| search_hudu | Read | Searches Hudu (KB articles, passwords documentation, network docs) and returns results with links back to Hudu |

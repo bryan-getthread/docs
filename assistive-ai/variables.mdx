@@ -1,0 +1,285 @@
+---
+title: "Working with Variables in Magic AI + Magic Agents"
+description: "A complete reference and guide to using variables with Magic AI and Magic Agents. Explains how variables are resolved before runtime, how to write prompts in plain language, and includes feature-specific variable lists and real-world triage examples."
+---
+
+## **How Variables Work in Magic AI + Magic Agents**
+
+Prompts drive everything in Magic AI and Magic Agents. To make them dynamic, Triage Agent can inject live context using **variables**—like `{{contact_name}}`, `{{ticket_source}}`, or `{{current_datetime}}`.
+
+Variables are resolved **before runtime**, meaning they’re replaced with real values before the prompt reaches Magic AI.
+
+Magic AI never sees `{{contact_name}}`—it sees “Jane Doe". It doesn’t see `{{ticket_source}}` it sees “email” or “chat".
+
+**Write your prompts in plain, natural language.** Don’t reference variable names like `{{variable_name}}` Magic AI never sees them and can’t reason about them.
+
+## **Write Prompts in Natural Language, Not with Variable Names**
+
+You should **never reference the variable name inside a prompt**. Always write as if the value has already been substituted.
+
+**✅ Correct:**
+
+> If the contact company name is Contoso, and the request mentions SharePoint, escalate immediately.
+
+**❌ Incorrect:**
+
+> If `{{contact_company_name}}` is Contoso, and the request mentions SharePoint, escalate...
+
+This is important as Magic AI doesn’t interpret `{{contact_company_name}}` it only sees the final value, like “Contoso”. Write your prompts as if that value is already there—in clear, natural language.
+
+## **Examples in Practice**
+
+Below are working examples. Notice how the logic refers to concepts like "ticket source" or "company name" in native language—not as `{{variables}}`.
+
+### **1.** **After-Hours & Holiday Handling for Triage Agent**
+
+This prompt module enables the AI triage agent to identify when a ticket arrives outside of standard business hours or on recognized U.S. holidays. It dynamically generates natural, non-repetitive first responses depending on the source (email vs. chat/portal), informing clients of delay while capturing initial details for later handling. It enforces time-based gating logic before any triage or troubleshooting occurs, ensuring proper tone and SLA alignment.
+
+```
+# ⚠️ Pre-Triage Business Hours & Holiday Rule
+
+Before initiating any triage, issue identification, or response logic—including generic requests like “I need help” or “password reset”—the AI must first evaluate the current time in **Eastern Time (server default)**.
+
+## ⏰ Mandatory Business Hours and Holiday Check
+
+Proceed only if:
+- The current time falls **within** Open business hours, AND
+- Today is **not** a recognized U.S. holiday.
+
+If either condition is false, trigger the following behavior.
+
+## 🔁 Trigger Condition (After-Hours or Holiday)
+
+**When the request is received outside of business hours or on a holiday:**
+
+- Begin with a warm, professional acknowledgment that the request was received outside of normal business hours or during a U.S. holiday.
+- Clearly state that the issue will be reviewed on the next business day.
+- Encourage urgent matters or multi-user disruptions to contact the team by phone at **1-800-847-3098**.
+- Immediately transition into gathering key triage information so that the team can respond efficiently once available.
+
+- **Tone Requirements**:
+  - Do not use static or repeated phrasing.
+  - Vary introductions naturally across tickets (e.g., “Thanks for reaching out,” “We’ve received your message,” “Appreciate you getting in touch…”).
+  - Maintain empathy and professionalism throughout.
+  - Avoid sounding robotic or templated.
+
+After delivering the initial message, continue with standard triage flow.
+
+---
+
+# Internal Reference
+- **Server Time Reference**: current datetime is Eastern Time
+- **Observed U.S. Holidays**:
+  - New Year’s Day (Jan 1)
+  - Memorial Day
+  - Independence Day (July 4)
+  - Labor Day
+  - Thanksgiving
+  - Christmas
+```
+
+### **2.** **Timeout Follow-Up Behavior by Ticket Source**
+
+This rule instructs the AI triage agent to generate appropriate follow-up messages when a client becomes unresponsive, tailoring tone and language based on how the ticket was submitted. If submitted via email, the response should remain formal and professional; for live sources like chat or portal, the tone should shift to a more conversational, real-time style. The prompt ensures all messages sound natural, avoid scripted repetition, and reflect the agent’s role in seamless escalation.
+
+```
+**If the ticket source is email**:
+
+- Use a courteous, professional tone appropriate for written correspondence.
+- Briefly acknowledge the lack of response.
+- Inform the client that the issue will now be routed to a technician for further handling.
+- Vary phrasing naturally to avoid sounding repetitive across tickets.
+
+**For any other source**:
+
+- Use a more casual, friendly tone.
+- Gently acknowledge that the client may have stepped away.
+- Let them know a technician will pick up the issue from here.
+- Generate natural, non-repetitive responses that reflect the live nature of the channel.
+```
+
+### **3. Escalation Trigger Enforcement for Sensitive Clients**
+
+A strict triage agent prompt designed to detect and immediately escalate requests from specific high-priority clients (`Contoso`, `ACME CORP`) when sensitive terms are present. This logic bypasses all troubleshooting, clarification, and standard triage. It ensures zero interaction and immediate handoff. The agent is instructed to follow this flow without deviation, emphasizing precision and compliance.
+
+```
+# 🚨 MANDATORY RULES FOR TRIAGE AGENT – FOLLOW EXACTLY
+You are a triage agent. You must follow the instructions below precisely and without exception. Do not skip or re-order any logic.
+
+---
+
+## STEP 1: IDENTIFY USER COMPANY NAME
+
+- First, determine the user's company name from the input.
+- Proceed only after identifying the company name.
+
+---
+
+## STEP 2: CHECK FOR ESCALATION TRIGGER
+
+Escalation is REQUIRED if **BOTH** of the following conditions are met:
+
+### A. The company name is **exactly** one of:
+- `Contoso`
+- `ACME CORP`
+
+### B. The user input contains **any** of these keywords (case-insensitive match, match whole word):
+
+MSP, Phone, SiteStacker, SharePoint, Workday, Virtuous, Expensify, Navigator, Report, Reports, Round Table, RoundTable
+
+---
+
+## ☑️ IF ESCALATION IS TRIGGERED
+
+- DO NOT:
+  - Ask clarifying questions
+  - Begin troubleshooting or triage
+  - Repeat or reference the company name
+  - Engage in any back-and-forth with the user
+  - Ask for confirmation
+
+- INSTEAD:
+  - **Immediately escalate** to the designated team
+  - **No delay, no other action, no message crafting**
+
+---
+
+## ❌ IF ESCALATION IS NOT TRIGGERED
+
+Proceed with standard triage workflow.
+
+---
+
+## 🔁 REPEAT THIS PRINCIPLE:
+
+> If user's company is `Contoso` or `ACME CORP`,  
+> AND the request contains **any** matching keyword,  
+> → You must **escalate immediately**,  
+> → You must **not engage, clarify, or reference the company**,  
+> → You must **NOT deviate** from this rule.
+
+---
+
+🛑 **Noncompliance is a failure. Obey these rules exactly.**
+```
+
+### **4. Triage Agent Workflow with Priority-Based Escalation**
+
+Escalation includes SLA-specific messaging based on exact ticket priority values (e.g., Priority 1 – Critical).
+
+<Note>
+  Note
+  
+  For SLA-based responses to work correctly, the
+  
+  \{\{priority\}\}
+  
+  value must exactly match your PSA's priority labels (e.g., "Priority 1 - Critical"). If your PSA uses different labels (e.g., “P1”, “High”, “Critical”), you’ll either need to:
+  
+  Adjust the prompt to match your exact priority names and response times
+  
+  or
+  
+  prompt your triage agent to use
+  
+  LIKE
+  
+  operators or mapped values to normalize priority labels before the prompt runs.
+</Note>
+
+```
+## Escalation Rules
+
+If troubleshooting is declined or fails, check if a ticket priority is present.
+
+You MUST respond with an SLA statement based on the exact value of {{ priority }}. Match the name exactly and follow these rules:
+
+- Priority 1 - Critical →
+“We've flagged this as critical, and an engineer should be responding within about 30 minutes.”
+
+- Priority 2 - High →
+“We've flagged this as high priority, and an engineer should be responding within about 2 hours.”
+
+- Priority 3 - Medium →
+“We've flagged this as medium priority, and an engineer should be responding within about 4 hours.”
+
+- Priority 4 - Standard →
+“We've flagged this as standard priority, and an engineer should be responding within about 8 hours.”
+
+- Priority 4 - Low →
+“We've flagged this as standard priority, and an engineer should be responding within about 8 hours.”
+
+## Always follow your response with this sentence:
+“If this feels more urgent than what we've set, please let us know and we’ll prioritize accordingly.”
+
+⚠️ You must never guess or skip the SLA message if a recognized priority is present.
+⚠️ If {{ priority }} does not match any of the above exactly, do not include SLA timing—just escalate.
+```
+
+## **Available Variables by Feature**
+
+Below is a reference list of all variables available across Magic AI and Magic Agent features. These values are dynamically injected into prompts **before runtime**, so Magic AI only sees the resolved text (e.g. “Contoso”, not `{{contact_company_name}}`).
+
+Use this list to understand what context is passed into each feature’s prompt—and write as if those values are already present.
+
+### **Prioritization**
+
+- Contact Company Name `{{company_name}}`
+- Ticket Contact Name `{{contact_name}}`
+- Contact Type (if present). `{{contact_type}}`
+- Ticket Summary `{{summary}}`
+- Ticket Chat History `{{ticket_chat}}` or `{{chat}}`
+- Ticket first note `{{first_note}}`
+- Ticket Created At `{{created_at}}`
+- Ticket agreement `{{ticket_agreement}}`
+
+### **Categorization**
+
+- Ticket Chat History `{{ticket_chat}}`
+- Ticket Summary `{{ticket_summary}}`
+- Ticket First Note `{{first_note}}`
+- Contact Type (if present) `{{contact_type}}`
+- Contact Company Name `{{company_name}}`
+- Ticket agreement `{{ticket_agreement}}`
+
+### **Title**
+
+- Ticket Chat History `{{ticket_chat}}`
+- Ticket summary `{{ticket_summary}}`
+- Ticket agreement `{{ticket_agreement}}`
+- Current date & time `{{current_datetime}}`
+- Contact company name `{{contact_company_name}}`
+- Ticket Contact Name `{{contact_name}}`
+- Original ticket summary
+
+### **Recap**
+
+- Ticket Category `{{type}}`, `{{sub_type}}`, `{{item}}`
+- Ticket summary `{{ticket_summary}}`
+- Ticket Configuration array `{{ticket_configuration}}`
+- Contact Type (ConnectWise PSA) `{{contact_type}}`
+- Ticket Priority `{{priority}}`
+- Ticket Status `{{status}}`
+- Ticket Created at `{{created_at}}`
+- Ticket System Id `{{system_id}}`
+- Ticket Board `{{board}}`
+- Ticket Chat History `{{chat}}`
+- Recap Rules `{{recap_rules}}`
+- Contact Full Name `{{contact_fullname}}`
+- Member Full Name `{{member_fullname}}`
+- Ticket agreement `{{ticket_agreement}}`
+
+### **Magic Agents**
+
+- Contact Name `{{contact_name}}`
+- Contact Email `{{contact_email}}`
+- Ticket Board `{{board}}`
+- Ticket source `{{ticket_source}}`
+- Ticket ID `{{ticket_id}}`
+- Ticket agreement `{{ticket_agreement}}`
+- Current Date time `{{current_datetime}}`
+- Triage instructions `{{triage_instructions}}`
+- Ticket Priority `{{priority}}`
+- Contact company name `{{contact_company_name}}`
+- Contact type (ConnectWise PSA) `{{contact_type}}`
+- Working Hours Flag `{{working_hours_flag}}` (Boolean)

@@ -1,0 +1,90 @@
+---
+title: "Frequently Asked Questions (FAQ)"
+description: "Why are deleted tickets in HaloPSA still showing in the Thread Inbox? If deleted tickets from HaloPSA are still appearing in the Thread Inbox, you'll need to disable a specific setting in HaloPSA. Go…"
+---
+
+Why are deleted tickets in HaloPSA still showing in the Thread Inbox?
+
+If deleted tickets from HaloPSA are still appearing in the Thread Inbox, you'll need to disable a specific setting in HaloPSA. Go to
+
+Configurations
+
+-&gt;
+
+Advanced
+
+and disable the option for "
+
+Permanently delete Tickets from the database
+
+". This should resolve the issue going forward. Please note that this change is not retroactive, so you'll need to click the "Refresh" icon in the thread view inside Thread Inbox to sync and remove any existing deleted tickets.
+
+Why am I seeing "Owner Notification" emails on tickets?
+
+These emails system-generated in HaloPSA, and there's a setting you can disable to stop them. Go to
+
+Configurations
+
+→
+
+Notifications
+
+→
+
+General Settings
+
+and disable the option "
+
+Enable Owner Notification Functionality
+
+." This should prevent these notifications from being sent.
+
+Can I use my existing ticket actions to respond to chats?
+
+Yes! You can use your existing ticket actions to reply to chats. The "
+
+Note
+
+" action field replies directly to a customer chat and is visible to the customer. The "
+
+Private Note
+
+" action field adds an internal note to the ticket that isn't visible to the customer. If you use an action with "
+
+Send by email
+
+" enabled, it will send an email through your HaloPSA email connector and also reply to the chat if there is one. Alternatively, you can integrate Thread directly into your HaloPSA ticket view using custom tabs, or simply use Thread Inbox!
+
+Are ticket actions in Halo ticket view supported in Thread Inbox?
+
+Currently, they are not supported, but this feature is coming soon to Thread Inbox! Once available, you'll be able to work seamlessly inside of Thread Inbox and use the existing ticket actions and workflows you already have set up inside HaloPSA.
+
+Is "Planner" supported in Thread Inbox for HaloPSA users?
+
+Currently, Planner (our scheduling tool) is not supported in Thread Inbox, but this feature is coming soon! Stay tuned for more updates.
+
+Is there a "Chat" source to filter and build views inside HaloPSA to identify "Chat" related tickets?
+
+Yes! We add a "Chat" source to your HaloPSA instance when your workspace is created. You can use this filter in Thread Flows or when creating views in HaloPSA to easily identify chat-related tickets.
+
+Can I embed Thread Messenger (chat) directly into my Halo Self-Service Portal?
+
+Currently, this feature isn't available but is coming soon! Stay tuned for more updates.
+
+Why Do I Get an Error When I Create a Chat Request in Thread Messenger?
+
+None of the fields in the default ticket type used for Messenger should have mandatory (required) fields. If you encounter issues, you can either edit the ticket type to ensure all fields are optional or create a new, specific ticket type for Thread Messenger.
+
+To edit the default ticket type in the Thread admin panel, visit
+
+: https://admin.getthread.com/dashboard/integrations/halo_psa/settings.
+
+In HaloPSA, navigate to
+
+:
+
+Configurations → Tickets → Ticket Type → Fields
+
+Ensure that all fields in the default ticket type you plan to use for Thread Messenger are set as optional.
+
+If you have any further questions, please reach out to Thread Support at [https://help.getthread.com](https://help.getthread.com) or email us at help@getthread.com.

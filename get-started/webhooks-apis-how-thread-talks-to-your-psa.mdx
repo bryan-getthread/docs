@@ -1,0 +1,62 @@
+---
+title: "Webhooks & APIs: How Thread talks to your PSA"
+description: "Overview. When Thread Inbox and a customer's PSA (ConnectWise Manage, Autotask, or Halo) stay in sync — tickets updating, contacts appearing, statuses changing — that's webhooks and APIs doing the wo…"
+---
+
+## Overview
+
+When Thread Inbox and a customer's PSA (ConnectWise Manage, Autotask, or Halo) stay in sync — tickets updating, contacts appearing, statuses changing — that's webhooks and APIs doing the work behind the scenes. This article explains what they are and how they fit into the Thread ecosystem.
+
+### What is an API?
+
+An **API (Application Programming Interface)** is a structured way for two applications to talk to each other. Think of it like a waiter at a restaurant — you (Thread) place an order, the waiter (the API) takes it to the kitchen (the PSA), and brings back what was requested.
+
+APIs are typically used when **Thread needs to ask the PSA for something** or **send something to the PSA** — for example:
+
+- Pulling a list of contacts from ConnectWise into Thread
+- Creating a new ticket in Autotask when a conversation comes in
+- Updating a ticket status in Halo after a reply is sent
+
+API calls are **on-demand** — Thread reaches out to the PSA when it needs something.
+
+### What is a Webhook?
+
+A **webhook** is essentially a push notification between two apps. Instead of Thread repeatedly asking "has anything changed?", the PSA automatically notifies Thread the moment something happens.
+
+Think of it like signing up for email alerts — rather than checking a website constantly, the website emails you when there's an update.
+
+In practice, webhooks are used when the **PSA needs to notify Thread** about something — for example:
+
+- A technician updates a ticket in ConnectWise → Thread reflects that change in the Inbox
+- A ticket is closed in Autotask → Thread marks the conversation as resolved
+- A new contact is added in Halo → Thread becomes aware of that contact
+
+Webhooks are **event-driven** — the PSA reaches out to Thread when something happens.
+
+#### APIs vs. Webhooks at a Glance
+
+|  | API | Webhook |
+| --- | --- | --- |
+| Who initiates it? | Thread asks the PSA | The PSA notifies Thread |
+| When does it happen? | On demand | When a specific event occurs |
+| Analogy | Asking a question | Receiving an alert |
+| Common use | Fetching or sending data | Reacting to changes in real time |
+
+#### How They Work Together in Thread
+
+In most Thread + PSA integrations, **both APIs and webhooks are used together** to keep everything in sync:
+
+1. **On setup**, Thread uses the PSA's API to pull in existing data — boards, contacts, companies, ticket statuses.
+2. **During live use**, webhooks from the PSA notify Thread in real time when tickets are updated, created, or closed.
+3. **When Thread takes an action** (a reply is sent, a ticket is assigned), it uses the API to write that change back to the PSA.
+
+This two-way flow is what makes the Thread Inbox feel like a live reflection of what's happening in the PSA — and why a broken API connection or misconfigured webhook can cause tickets to fall out of sync.
+
+#### Common Issues to Watch For
+
+| Symptom | Likely Cause |
+| --- | --- |
+| Ticket updates not reflecting in Thread | Webhook from PSA may be broken or misconfigured |
+| Thread actions not appearing in the PSA | API connection issue or credential problem (401/403 errors) |
+| Contacts or companies not loading | API call failing — check for 404 or 500 errors |
+| Delays in syncing between platforms | Webhook delivery delay or rate limiting (429) |

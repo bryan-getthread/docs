@@ -1,0 +1,26 @@
+---
+title: "Data & Encryption"
+description: "Data. Thread limits the information it stores to only the items it needs to maintain connections between ConnectWise and Slack or Teams.Below are the data sets that we store : ConnectWise API Keys…"
+---
+
+### Data
+
+Thread limits the information it stores to only the items it needs to maintain connections between ConnectWise and Slack or Teams.Below are the data sets that we **store**:
+
+- ConnectWise API Keys
+- **Boards & Statuses** - Used for being able to route tickets and statuses
+- **Companies & Contacts** - Used for Messenger so that clients can create tickets and authenticate
+- **Tickets** - Thread creates tickets and routes tickets to appropriate channels
+- Teams / Slacks Channel Name & ID, User Email & ID (needed for ticket assignment)
+
+Thread does not store any business confidential information and will never. Here are examples of what we **do not store**:
+
+- Everything that is not listed above!
+- Absolutely no Financial Information
+- We are employing a strategy of Data Differential, where we are tracking actions on those various IDs, and providing summaries to our Product Development group to make informed decisions about user habits. No personal information is stored, or visible.
+- When you see various information in your slack, such as Contacts or Ticket Summary, Thread acts as a proxy as much as possible between ConnectWise Tenant and Slack / Teams tenant. We store only the minimal amount of information.
+
+### Encryption
+
+- At Rest: We are hosted with AWS. Our instances of code and database are encrypted as well as their storage volumes.
+- In Transit: We communicate to ConnectWise Servers, Slack APIs and Microsoft APis **only** through HTTPs.

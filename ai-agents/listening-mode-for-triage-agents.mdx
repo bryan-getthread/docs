@@ -1,0 +1,232 @@
+---
+title: "Listening Mode for Triage Agents"
+description: "👂 Listening Mode for Triage Agents. The Concept. Listening Mode is an enhanced state for your Triage Agent that replaces the previous 'Timeout' function. Instead of simply turning off when a contact…"
+---
+
+## 👂 Listening Mode for Triage Agents
+
+### The Concept
+
+Listening Mode is an enhanced state for your Triage Agent that replaces the previous "Timeout" function. Instead of simply turning off when a contact stops responding, the Triage Agent enters a "listening" state. In this mode, the agent remains active in the thread, ready to re-engage instantly if the contact returns, while allowing the Reminder Agent to handle follow-ups in the background.
+
+![](/images/d154e375-listineing-mode-gif-zoom.gif)
+
+### The Value
+
+Integrating Listening Mode into your workflow provides several key advantages for your team:
+
+- **Increased No-Touch Resolutions**: Users are automatically nudged to reply, often resolving tickets without any technician intervention.
+- **Higher Quality Triage**: Ensures threads are fully triaged with complete context before a human ever needs to step in.
+- **Eliminate Stalled Tickets**: Prevents threads from sitting idle in the inbox, keeping your workspace organized.
+- **Reduced Manual Workload**: Automates the "chasing" process, allowing technicians to focus on high-value tasks.
+
+### Proven Results
+
+<Tip>
+  Early adopted partners have seen significant improvements across key metrics:
+  
+  Real-World Benchmarks:
+  
+  Thread's own help desk has achieved 30% no-touch resolution by combining Listening Mode with the Reminder Agent, while other early (MSPs) adopters reached approximately 10.5% no-touch resolution using Listening Mode alone.Since launch, Listening Mode has delivered strong results across all AI Pro workspaces: timeout rates dropped from 50% to 0%, overall success rates jumped from 41% to 68%, and tech handoff rates improved by 39%.
+  
+  These results demonstrate that Listening Mode reduces premature agent disengagement and allows triage workflows to complete more consistently, with the strongest gains observed in chat interactions where back-and-forth engagement is most critical.
+</Tip>
+
+### How to Use Listening Mode
+
+#### 1. Configuration
+
+You can find these settings in the Admin section under Magic Agents:
+
+**Set the Timer**: Define how much time should pass before the agent switches from active triage to Listening Mode.
+
+![](/images/a0de5972-image.png)
+
+Customize the Prompt: Create a specific message the agent sends when the contact becomes inactive (e.g., "I'm putting this thread on hold for now, but I'm here when you're ready"). The timeout message now has a 600-character limit and triggers once per Listening Mode cycle.
+
+![](/images/b0d3d8d8-image.png)
+
+**Status Mapping**: Configure how threads are marked when entering Listening Mode. The system determines which status to apply based on your configuration:
+
+**If you select a specific Listening Mode status**: The thread will be set to your chosen status when the Agent enters Listening Mode.
+
+**If you leave it set to "None" (default)**: The status will not change from previous status (before entering listening mode).
+
+![](/images/15f077cd-image.png)
+
+#### 2. Re-engagement & Handoff
+
+**Automatic Return**: If a contact replies to a Reminder Agent message during Listening mode, the Triage Agent automatically "wakes up" and resumes the conversation to drive it toward completion. The thread returns to your mapped Active status.
+
+**Ending the Session**: The Triage Agent will stay in Listening Mode until one of the following occurs:
+
+- A technician manually replies (external note) to the thread or clicks the “*Takeover”* button
+- The triage process is complete (the Agent has successfully gathered all necessary information and resolved the issue or properly routed it)
+
+**Continuous Engagement**: The Triage Agent sends your timeout message every time the contact becomes inactive, ensuring consistent communication throughout the listening cycle.
+
+#### 3. Availability
+
+Listening Mode is available for all **AI Pro partners at Thread** and is fully functional across both **Email** and **Chat** sources.
+
+### **Timeout Fallback**
+
+We know every workspace transitions at its own pace. To support that, we've added a **Timeout Fallback** toggle in **Triage Agent → Settings → Post-Triage**.
+
+This option lets you continue using the previous inactivity behavior — where the agent deactivates after the contact becomes inactive — while your team gets familiar with everything Listening Mode has to offer.
+
+#### How to Set It Up
+
+Navigate to **Triage Agent → Settings → Post-Triage**.Enable the **Timeout Fallback** toggle.
+
+![](/images/396fc739-image.png)
+
+Edit your timeout message prompt to guide the agent's behavior — for example, you can prompt it to say nothing at all, or to stay silent on specific channels like email.
+
+1. Click **Save** to apply the changes.
+
+**What Happens When Timeout Fallback is Enabled**
+
+- The Listening Mode execution logic (including inactivity message handling) does not run.
+- The system follows the previous inactivity behavior where the agent deactivates after the timeout period.
+- No changes occur to triage routing or Magic AI post-deactivation actions.
+- The toggle applies only to new inactivity events — existing conversations are not affected.
+
+**When to Use It**
+
+Timeout Fallback is designed as a temporary bridge. We recommend using it only if your workspace needs additional time to adjust to Listening Mode. When you're ready for the full experience, simply switch the toggle off to take advantage of Listening Mode.
+
+<Tip>
+  We encourage all partners to stay on Listening Mode for the best results.
+  
+  Since launch, Listening Mode has eliminated timeouts entirely, improved success rates by 68%, and increased tech handoff rates by 39%.
+</Tip>
+
+### Key Behavior Changes from Previous Timeout Function
+
+What Used to Happen
+
+Previously:
+
+- The Triage Agent sent the timeout message **once**
+- Then immediately **disengaged**
+- This often caused threads to stall or remain unresolved till a human picks it up
+
+What Happens Now
+
+When the **Triage Agent** enters Listening Mode:
+
+- 💬 It sends your timeout message **every time** the contact becomes inactive
+- 🔁 It updates the thread to the **mapped Listening Mode status** (based on priority logic above)
+- 👂 It waits silently for the contact to return
+
+When the contact replies:
+
+- 🤖 The Triage Agent **automatically becomes active again**
+- 🔄 The thread returns to your **mapped Active status**
+- 🧵 The Agent resumes the conversation naturally and continues supporting the user
+
+#### Generative Follow-Up Messages
+
+If your timeout message instructs the Agent to generate a follow-up, it will use the full conversation context to write a natural, human-like nudge.
+
+**Default template for inspiration:**
+
+Generate a gentle follow-up using the full conversation context.
+
+CHAT: short and friendly.
+
+EMAIL: complete sentence and professional.
+
+Examples: Chat: "Just checking in, were you able to try the printer steps we discussed?"
+
+Email: "Hi, following up to see if the steps we reviewed helped."
+
+#### Silence timeout message
+
+![](/images/fed2e147-image.png)
+
+When enabled, this setting fully prevents the Triage Agent from sending its timeout follow-up message after a thread goes inactive, including the gentle "just checking in" check-in normally sent in Listening Mode and any custom timeout message you've configured. The agent still observes the inactivity window and still transitions the thread into Listening Mode (if Listening Mode is enabled); it simply does so without messaging the contact. Use this when you want the agent to monitor and stand down silently, leaving outreach entirely to your technicians.
+
+**Default:** off — existing workspaces continue to receive their current timeout messaging behavior until they opt in.
+
+**Interaction with related settings:**
+
+- Works alongside Listening Mode whether it's enabled or disabled. With Listening Mode on and this toggle on, the thread enters Listening Mode silently. With Listening Mode off and this toggle on, the agent deactivates without a final message.
+- Overrides any custom timeout message you've set. If you've configured one and turn this on, the custom message will not be sent.
+
+#### Common Scenarios
+
+Scenario 1: Standard Listening Mode Flow
+
+**Setup**: Listening Mode timer set to 5 minutes, custom Listening Mode status configured as "Waiting on User", Reminder Agent configured to send follow-ups every 24 hours.
+
+**Flow**:
+
+1. Triage Agent assists user with password reset issue
+2. User stops responding for 5 minutes
+3. Thread status changes to "Waiting on User"
+4. Reminder Agent sends follow-up after 24 hours
+5. User replies: "Thanks, I'm back now"
+6. Triage Agent re-engages automatically, status returns to "Active"
+7. Agent continues assisting until issue is resolved/triaged
+
+Scenario 2: Multiple Inactivity Cycles
+
+**Setup**: Same as Scenario 1
+
+**Flow**:
+
+1. Triage Agent helps user troubleshoot network connectivity
+2. User becomes inactive, Agent enters Listening Mode
+3. User returns after first reminder, Agent re-engages
+4. User goes inactive again during the conversation
+5. Agent enters Listening Mode again and sends timeout message a second time
+6. Process repeats until technician takes over or issue is fully resolved/triaged
+
+Scenario 3: No Custom Listening Mode Status Configured
+
+**Setup**: No specific Listening Mode status selected (set to "None"), board has "Triage Complete" status configured, Reminder Agent status is "Needs Follow-Up"
+
+**Flow**:
+
+1. Triage Agent triages a hardware request
+2. User becomes inactive
+3. Since no custom Listening Mode status is set, thread moves to "Triage Complete" status
+4. Agent waits in Listening Mode
+5. User returns, Agent re-engages and continues
+
+Scenario 4: Technician Intervention
+
+**Setup**: Standard Listening Mode configuration
+
+**Flow**:
+
+1. Triage Agent in Listening Mode waiting for user response
+2. Technician reviews the thread and clicks "Takeover"
+3. Listening Mode ends immediately
+4. Triage Agent no longer responds, even if user replies
+5. Technician handles the conversation manually
+
+### Frequently Asked Questions
+
+- **Q: How long does the Triage Agent stay in Listening Mode?** A: The Triage Agent remains in Listening Mode indefinitely until either the contact replies (triggering automatic re-engagement) or a technician manually takes over the thread or the Thread is fully triaged/resolved.
+- **Q: Will the timeout message be sent multiple times?** A: Yes. The timeout message is sent once per Listening Mode cycle. If the contact returns and then becomes inactive again, the message will be sent again when they go inactive.
+- **Q: What happens to the thread status when entering Listening Mode?** A: "The status depends on your configuration. If you've selected a specific Listening Mode status, the thread will be set to that status when the Agent enters Listening Mode. If you leave it set to "None" (the default), the status will not change from the previous status (before entering listening mode)."
+- **Q: Can I prevent the Triage Agent from re-engaging after it enters Listening Mode?** A: Yes. If a technician replies to the thread or clicks the Takeover button, the Triage Agent will permanently disengage and will not re-engage even if the contact replies.
+- **Q: How does Listening Mode work with the Reminder Agent?** A: Listening Mode is designed to complement the Reminder Agent. When your Listening Mode status is mapped to trigger reminder automations, the Reminder Agent can send scheduled follow-ups while the Triage Agent waits in the background, ready to re-engage when the contact responds.
+- **Q: What's the difference between the timeout message and Reminder Agent messages?** A: The timeout message is sent by the Triage Agent when the contact first becomes inactive. Reminder Agent messages are scheduled follow-ups sent based on your automation rules while the thread is in Listening Mode status.
+- **Q: Can I customize the timeout message for different channels?** A: Yes. You can include channel-specific instructions in your timeout message prompt. The Agent will adapt its response based on whether the conversation is happening via Chat or Email.
+- **Q: Is there a limit to how many times the Agent can enter and exit Listening Mode in a single thread?** A: No. The Agent can cycle between active and Listening Mode as many times as needed until the thread is either resolved/triaged or taken over by a technician.
+
+**Q: Does Listening Mode work for both Email and Chat channels?**
+
+A: Yes. Listening Mode is fully functional across both Email and Chat channels for all AI Pro partners.
+
+- **Q:** What is Timeout Fallback?
+
+A: Workspace-level toggle for the previous timeout behavior, temporary bridge while teams adjust.
+
+- **Q:** Does enabling Timeout Fallback affect existing conversations?
+
+A: No, only applies to new inactivity events.

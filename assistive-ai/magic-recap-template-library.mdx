@@ -1,0 +1,299 @@
+---
+title: "Magic Recap Template Library"
+description: "A collection of AI-powered Magic Recap templates to automate ticket summaries, CSAT requests, escalation reports, incident logs, sentiment analysis, and more. Save time, improve accuracy, and streaml…"
+---
+
+A collection of AI-powered Magic Recap templates to automate ticket summaries, CSAT requests, escalation reports, incident logs, sentiment analysis, and more. Save time, improve accuracy, and streamline workflows with structured, customizable.
+
+<Note>
+  Need help? Check out our
+  
+  Magic Recap Guide
+  
+  or
+  
+  contact support
+  
+  .
+</Note>
+
+## How to Add these Templates
+
+1. Navigate to [Recap Settings](https://admin.getthread.com/dashboard/magic/recap/settings)
+2. Click **New template** -&gt; Add a name -&gt; **Add**
+3. Under **Recap Rules**, paste in the appropriate prompt below
+4. **Share** - Select whether you want the recap to be sent to the customer or keep it internal only.
+5. **Set as resolution when this recap runs** - Select if you want the note to be flagged as a resolution note in your PSA (great for 4. Customer Experience Score)
+6. Click **Save template** when done.
+
+## **1. CSAT Survey Message (Customer Satisfaction Report)**
+
+Generate a personalized CSAT survey request.
+
+```
+Review the full ticket context (including title, conversation logs, internal notes, and resolution details). Generate a **CSAT survey message** with a **personalized opening note** that is **concise, clear, and human-sounding**. The note should briefly reference the customer's issue, what was accomplished, and kindly ask them to complete the survey.
+
+Then, include the survey text in the exact **Markdown format** below, ensuring that the `{Ticket ID}` placeholder is correctly embedded in all URLs. **Do not deviate from this structure or formatting.**
+
+**[Personalized Opening Note]**
+> [A concise, human-sounding note tailored to the customer's ticket context that briefly mentions the issue and its resolution, and kindly asks them to complete the survey.]
+
+Choose from the options below to rate your service experience:
+
+[Service magic ✨](https://feedback.smileback.io/{Ticket ID}/1/)
+[Good service 🙂](https://feedback.smileback.io/{Ticket ID}/0/)
+["I'm not mad; just disappointed" 🫤](https://feedback.smileback.io/{Ticket ID}/-1/)
+
+Thank you!
+
+Ensure the survey message follows this **Markdown format exactly** and that the opening note is **succinct, appropriately personalized, and includes a friendly request** to complete the survey.
+```
+
+## **2. Escalation Report**
+
+Summarize an escalated ticket for seamless handoff between teams.
+
+```
+Analyze the ticket details and generate an **Escalation Report** that provides a structured handover. Ensure that it is **concise, clear, and well-organized**.
+
+Format:
+
+**Issue Summary:** [Briefly describe the original problem]
+**Troubleshooting Steps:** [Summarize actions already taken and results]
+**Reason for Escalation:** [Clearly explain why escalation is required]
+**Next Steps & Owner:** [Define what needs to happen next and who is responsible]
+
+The report should be formatted using **bullet points for clarity**, avoid redundant information, and focus on **critical details for the escalation team**.
+```
+
+## **3. Incident Report**
+
+Generate a structured incident report summarizing key details.
+
+```
+Review the full incident details, including **conversation logs, technician notes, timestamps, and resolution steps**. Generate an **Incident Report** with the following structured format:
+
+**Incident Title:** [Summarize the issue in 5-10 words]
+**Date & Time:** [Timestamp of incident detection]
+**Affected Users/Systems:** [List impacted users, devices, or services]
+**Description:** [Briefly describe what happened and the symptoms observed]
+**Root Cause Analysis:** [Summarize identified causes, if known]
+**Actions Taken:** [List steps taken to mitigate or resolve the issue]
+**Final Resolution:** [Describe how the issue was resolved or next steps]
+
+Ensure the **report is concise, uses bullet points where possible**, and is formatted clearly for review.
+```
+
+## **4. Customer Experience Score**
+
+Analyzes the ticket and generates a Customer Experience (CX) score (1-5 score) by evaluating overall customer satisfaction based on the entire conversation, considering both AI and human agent interactions. Analyzes **Customer Sentiment**, **Resolution Status**, and **Service Quality**.
+
+```
+# Customer Experience (CX) Score Analysis Prompt
+
+You are an AI assistant tasked with analyzing a customer service conversation and generating a Customer Experience (CX) Score. Your goal is to evaluate the overall customer satisfaction based on the entire conversation, considering both AI and human agent interactions.
+
+## Scoring Framework
+
+Generate a score from 1-5 where:
+- **1-3**: Negative experience
+- **4-5**: Positive experience
+
+The final CX Score percentage = (Number of positive ratings [4s and 5s] / Total ratings) × 100
+
+## Key Evaluation Criteria
+
+Analyze the conversation across three primary dimensions:
+
+### 1. Customer Sentiment
+- **Tone Analysis**: Evaluate the customer's language and emotional tone throughout the conversation
+- **Sentiment Progression**: Track how the customer's mood evolves from start to finish
+- **Frustration Indicators**: Look for signs of irritation, repeated questions, or escalating language
+- **Satisfaction Signals**: Identify expressions of gratitude, understanding, or positive acknowledgment
+
+### 2. Resolution Status
+- **Issue Identification**: List all problems or questions raised by the customer
+- **Resolution Assessment**: Determine which issues were fully resolved, partially addressed, or left unresolved
+- **Clarity of Solutions**: Evaluate whether solutions were clearly communicated and understood
+- **Follow-up Needs**: Assess if the customer needs additional assistance
+
+### 3. Service Quality
+- **Response Timeliness**: Consider speed of responses relative to complexity
+- **Knowledge Demonstration**: Evaluate accuracy and depth of information provided
+- **Communication Clarity**: Assess how well agents explained solutions
+- **Professionalism**: Rate courtesy, empathy, and helpfulness
+- **Proactive Support**: Note any anticipation of customer needs
+
+## Scoring Guidelines
+
+### Score 5 - Exceptional Experience
+- All issues completely resolved
+- Customer expresses clear satisfaction
+- Service exceeded expectations
+- Proactive and empathetic support
+
+### Score 4 - Positive Experience
+- Main issues resolved satisfactorily
+- Generally positive customer tone
+- Good service quality with minor room for improvement
+- Customer needs were met
+
+### Score 3 - Neutral/Mixed Experience
+- Some issues resolved, others pending
+- Mixed customer sentiment
+- Adequate but not outstanding service
+- Basic needs met with some friction
+
+### Score 2 - Negative Experience
+- Key issues unresolved or poorly handled
+- Customer frustration evident
+- Service quality below expectations
+- Multiple pain points in the interaction
+
+### Score 1 - Very Poor Experience
+- Critical issues unresolved
+- High customer frustration/anger
+- Poor service quality
+- Customer explicitly dissatisfied
+
+## Output Format
+
+Provide your analysis in the following structure:
+CX SCORE: [1-5]
+CUSTOMER SENTIMENT ANALYSIS:
+
+Initial sentiment: [Positive/Neutral/Negative]
+Final sentiment: [Positive/Neutral/Negative]
+Key emotional indicators: [List specific phrases or behaviors]
+
+RESOLUTION STATUS:
+
+Issues identified: [List each issue]
+Resolution rate: [X out of Y issues resolved]
+Unresolved items: [List if any]
+
+SERVICE QUALITY ASSESSMENT:
+
+Response time: [Excellent/Good/Average/Poor]
+Knowledge level: [Excellent/Good/Average/Poor]
+Communication: [Excellent/Good/Average/Poor]
+Overall helpfulness: [Excellent/Good/Average/Poor]
+
+SCORE JUSTIFICATION:
+[2-3 sentences explaining why this specific score was assigned, highlighting the most impactful factors]
+KEY MOMENTS:
+
+Positive: [List standout positive moments]
+Negative: [List friction points or failures]
+
+IMPROVEMENT OPPORTUNITIES:
+[1-2 specific suggestions for better handling similar conversations]
+
+## Special Considerations
+
+1. **Multi-participant conversations**: When both AI and human agents are involved, evaluate the overall experience rather than individual performances
+2. **Context sensitivity**: Consider the complexity and urgency of the customer's issues
+3. **Cultural/language factors**: Be aware of communication style differences
+4. **Technical limitations**: Recognize when issues are beyond agent control (system outages, policy restrictions)
+
+## Exclusions
+
+Do not score if:
+- The conversation appears to be spam
+- There are fewer than 2 customer messages
+- There are fewer than 2 agent responses
+- The conversation lacks sufficient information for assessment
+
+**Remember**: Focus on the complete customer journey and overall satisfaction, not just the final outcome. A well-handled difficult situation can still result in a positive score if the service quality was exceptional.
+```
+
+## **5. User Sentiment Analysis**
+
+Detect and summarize customer sentiment from conversations.
+
+```
+Analyze the conversation logs and **identify customer sentiment** based on tone, keywords, and phrasing. Provide a **sentiment summary** that includes:
+
+- **Overall Sentiment:** [Positive / Neutral / Negative]
+- **Key Indicators:** [Mention key phrases or words that influenced this sentiment]
+- **Suggested Follow-Up Action:** [If sentiment is negative, recommend a follow-up approach]
+
+Ensure the summary is **concise, to the point, and highlights actionable insights**.
+```
+
+## **6. Change Management Log**
+
+Summarize system changes, approvals, and actions for IT documentation.
+
+```
+Review the change request and generate a **structured Change Management Log**:
+
+**Change Request Title:** [Summarize the change in a few words]
+**Requested Date & By Whom:** [List request date and requester]
+**Description of Change:** [Summarize what change was requested and why]
+**Approval Status:** [Approved / Pending / Denied – Include details if needed]
+**Actions Taken:** [List steps taken, including timestamps and responsible parties]
+**Outcome & Notes:** [Summarize the result and any key observations]
+
+Ensure the log is **structured for easy reference and compliance tracking**.
+```
+
+## **7. Compliance & Audit Notes**
+
+Generate compliance documentation based on ticket history.
+
+```
+Analyze the ticket and generate **Compliance & Audit Notes** that capture key information for compliance tracking.
+
+Format:
+
+**Compliance Area:** [Security / Data Handling / Access Control / etc.]
+**Description:** [Summarize the compliance-related issue or event]
+**Actions Taken:** [List compliance steps taken, including any approvals or documentation updates]
+**Notes & Next Steps:** [Any additional actions required for compliance tracking]
+
+Ensure the summary is **clear, factual, and structured for easy reference**.
+```
+
+## **8. Knowledge Base Draft (KB Article Generator)**
+
+Turn ticket resolutions into structured knowledge base articles.
+
+```
+Review the ticket details and generate a **Knowledge Base Draft** in a structured format.
+
+# **[Issue Title]**
+### **Issue Summary**
+[A concise summary of the problem users face]
+
+### **Symptoms**
+- [List key symptoms users may experience]
+
+### **Resolution Steps**
+1. **[Step 1]** – [Detailed explanation]
+2. **[Step 2]** – [Detailed explanation]
+3. **[Step 3]** – [Detailed explanation]
+
+### **Additional Notes**
+- [Any additional context, workarounds, or related articles]
+
+---
+
+Ensure the **draft is structured clearly** and uses **consistent formatting for easy readability**.
+```
+
+## **🚀 Ready to Automate Recaps?**
+
+With these AI-powered prompts, you can **eliminate manual summaries, improve handoffs, and gain instant insights** into your IT operations. **Customize these templates** to fit your workflows and start automating your recaps today!
+
+<Note>
+  Need help? Check out our
+  
+  Magic Recap Guide
+  
+  or
+  
+  contact support
+  
+  .
+</Note>

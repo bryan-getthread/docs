@@ -1,0 +1,93 @@
+---
+title: "Super Magic Admin Guide: Setup, Access & Safety"
+description: "Super Magic is Thread's AI assistant in the Inbox. Members ask it questions in plain language and it searches tickets, clients, contacts, and knowledge — and, with your permission, takes actions like…"
+---
+
+Super Magic is Thread's AI assistant in the Inbox. Members ask it questions in plain language and it searches tickets, clients, contacts, and knowledge — and, with your permission, takes actions like updating tickets or logging time. This guide covers everything you control as an admin: turning it on, deciding who can do what, connecting integrations, and troubleshooting access.
+
+**Where everything in this guide lives:** Admin app → **Magic** → **Magic Agents** → **Super Magic** → **Settings** (`/dashboard/magic/agents/super-agent/settings`).
+
+![](/images/a00fd7ee-thread-admin-super-magic.jpeg)
+
+### Turn Super Magic on or off
+
+At the top of the settings page, use the **Enable Super Magic** toggle.
+
+When disabled, Super Magic is hidden from all members in the Inbox. Nothing else on this page matters until this is on.
+
+### Control who can do what
+
+Super Magic separates **reading** from **acting**. This is the heart of the access model:
+
+#### Read access — always on, for everyone
+
+Members can search tickets, look up KB and docs, and ask questions. Read access is always available to all members and cannot be restricted. Read actions never change anything in your PSA.
+
+#### Write access — you choose
+
+Write actions are the ones that change things: creating or updating tickets, sending notes and approvals, logging time, and modifying flows and intents. Under **Member access → Write access**, pick one of:
+
+| Option | Who can trigger write actions |
+| --- | --- |
+| All members | Everyone in the workspace |
+| Admins only | Workspace admins |
+| Custom | Only members you add to the list |
+
+If you choose **Custom**, a member picker appears — search and add the specific members who should have write access. You can remove a member from the list at any time.
+
+#### Per-tool write toggles
+
+Below access levels, the **Tools** card lists every action Super Magic can take:
+
+- **READ** section — always on for all members (shown with a lock).
+- **WRITE** section — each write action has its own on/off toggle. Turning a toggle off removes that action for everyone, regardless of write access level.
+
+Two write tool groups are marked **(admin only)**: **intents** and **flows**. These build automations that affect your whole workspace, so only admins can ever use them — even if write access is set to "All members."
+
+> <Note>
+>   Good to know:
+>   
+>   one action is PSA-specific — merging tickets is only available on ConnectWise workspaces.
+> </Note>
+
+#### How Super Magic stays safe
+
+This is the section to share with whoever reviews security at your company:
+
+1. **Every write action requires explicit confirmation.** Before Super Magic changes anything, the member sees a **Confirm action** card showing exactly what will happen — the action, a plain-language description, and every detail (which ticket, which status, which contact). Nothing runs until they click **Confirm**. Read actions never need confirmation because they never change anything.
+2. **Super Magic acts as the individual member — never as a faceless service account.** When a technician confirms an action, the ticket history shows *that technician* did it. Accountability is preserved end to end.
+3. **Connector access uses each member's own credentials.** For NinjaOne, every member signs in with their *own* NinjaOne account, so Super Magic can only do what that member is allowed to do in NinjaOne — your NinjaOne role assignments keep working. The same applies to connectors like Linear, Notion, and Zapier: each member connects their own account.
+4. **Access is layered.** A member can only use a write action if *all* of these are true: Super Magic is enabled → they pass the write access level → the specific tool's toggle is on → (for admin-only tools) they're an admin → (for integration tools) the integration is connected and enabled.
+5. **External access is token-scoped.** If your workspace uses Thread MCP access *(Limited release)*, every external connection is authorized by the member signing in with their Thread account and acts with that member's exact permissions.
+
+#### Integrations and Connectors — what's the difference?
+
+Two cards on the settings page extend what Super Magic can reach. They work differently:
+
+- **Integrations** are connected **once for the whole workspace** by an admin, with company-level credentials: **TimeZest**, **IT Glue**, **Hudu**, **Liongard** (limited release). Each row shows **Connected** with a toggle, or a **Configure** button that takes you to the integration setup.
+- **Connectors** are enabled by an admin, but **each member signs in individually** with their own account: **Linear**, **Notion**, **Zapier**. Enabling a connector here makes it *available* — members then connect their own accounts from the **Connectors** page in the Inbox.
+- **NinjaOne is both** *(Limited release)*: you configure the workspace connection once, *and* each member signs in with their own NinjaOne account. See [**Connect NinjaOne to Super Magic**](/super-magic/connecting-ninja-one-to-super-magic) for the full guide.
+
+![](/images/3e84d615-ninja-one-admin-thread.jpeg)
+
+#### External agent access (Thread MCP)
+
+*(Limited release)*
+
+Members can connect external AI clients (Claude Desktop, ChatGPT, Claude Code, Cursor, and others) to Thread itself, so those clients can search and act on tickets with the member's exact Super Magic permissions. Connecting is a one-click sign-in with their Thread account — no tokens to manage — and removing the connector in the AI client ends the access. Details live in the [**Thread MCP Server: Developer Guide**](/super-magic/thread-mcp-server-developer-guide).
+
+#### Troubleshooting: "Why can't a member see or use a tool?"
+
+Work down this list — the first "no" is your answer:
+
+1. **Is Super Magic enabled?** Settings → Enable toggle. If off, nobody sees Super Magic at all.
+2. **Is it a write action, and does the member pass the write access level?** All members / Admins only / Custom list — check which level is set and whether the member qualifies.
+3. **Is the specific tool's toggle on?** Tools card → WRITE section.
+4. **Is it an admin-only tool?** Intents and flows are admin-only, always. The member must be a workspace admin.
+5. **Is it an integration tool, and is the integration both configured AND toggled on?** A connected integration with its toggle off (or vice versa) exposes nothing.
+6. **Does the tool need the member's own sign-in?** NinjaOne and connectors (Linear, Notion, Zapier) require each member to connect their own account from the Connectors page. The workspace being configured isn't enough.
+7. **Is it PSA-specific?** Merging tickets only appears on ConnectWise workspaces.
+
+If a member confirmed an action and the change isn't visible in the ticket yet, have them refresh the view — then check the ticket history to confirm the action recorded.
+
+Still stuck? Contact support with: the member's name and role, the tool they expected, and a screenshot of your Tools card.

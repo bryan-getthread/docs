@@ -1,0 +1,87 @@
+---
+title: "Team Admin Role"
+description: "Team Admin Role. Concept. The Team Admin is a middle-tier user role in Thread that sits between a standard Member and a full workspace Admin. While the role itself is assigned globally, a Team Admin'…"
+---
+
+## **Team Admin Role**
+
+#### **Concept**
+
+The **Team Admin** is a middle-tier user role in Thread that sits between a standard Member and a full workspace Admin. While the role itself is assigned globally, a Team Admin's permissions are strictly scoped to the specific teams they belong to. When a Team Admin accesses the Admin panel, they see a simplified interface limited strictly to **Feedback** and the specific **Teams** they are a part of, with all workspace-level settings hidden.
+
+#### **Value**
+
+This role is ideal for empowering team leads, supervisors, and managers to autonomously run their own groups without compromising workspace security. It distributes administrative workload by allowing leads to handle their own membership, Inbox Views, and team branding, while ensuring global configurations—such as integrations, overall user roles, status mapping, and workflows—remain securely restricted to full Admins.
+
+#### **How To**
+
+**1. Assign the Role (Admins Only)**
+
+- Navigate to **Admin &gt; Members**.
+- Assign the **Team Admin** role to a user. (Note: A user can only hold one role at a time).
+- Add the Team Admin to the specific team(s) they are responsible for. **Crucial step:** A Team Admin cannot view or manage a team until an Admin adds them to it.
+
+**2. Manage Your Team (Team Admins)**
+
+- Open the Admin panel to view your assigned teams.
+- Select a team to **add/remove members** or **update the team name and icon**.
+- Create new teams (you will be redirected to the Admin panel to finish setup).
+- Limitation: You cannot delete teams or manage teams you do not belong to.
+
+**3. Manage Inbox Views (Team Admins)**
+
+- Navigate to your team's Inbox.
+- **Create, edit, or delete** Inbox Views specifically for your assigned teams.
+- Use standard Views and apply filters just like any other member.
+- Limitation: You cannot create or edit workspace-level Views, edit Views for unassigned teams, or modify any Views originally created by a full Admin (these will be read-only).
+
+### What Team Admins can do:
+
+**Team management (from Admin) only for the teams they belong to:**
+
+- View their teams in the Admin panel
+- Add members to the team
+- Remove members from the team
+- Update the team name
+- Update the team icon
+- Create new teams (they'll be redirected to Admin to complete setup)
+
+**Manage Inbox Team Views only for the teams they belong to:**
+
+- Create new Views within the team
+- Edit existing Views within the team
+- Delete Views within the team
+
+**General Access**
+
+- Use all existing Inbox Views they are a part of(same as any user)
+- Apply filters within Views they are a part of(same as any user)
+- Access the Feedback section in Admin
+
+### What Team Admins cannot do:
+
+- Access workspace-level settings (Members, Integrations, Flows, Status Mapping, etc.)
+- View or manage the Members page
+- Assign or change user roles
+- Create, edit, or delete workspace-level Views
+- Manage teams they don't belong to
+- Edit or delete Views for teams they're not part of
+- Delete teams (this action appears disabled for Team Admins)
+- Modify Views that were created by a full Admin (these are read-only for Team Admins)
+
+### Frequently asked questions
+
+1. **How do I make someone a Team Admin?** Go to Admin → Members, find the user, and change their role to Team Admin using the role dropdown. Only full Admins can do this.
+2. **Can a Team Admin also be an Admin?** No. Each user can only have one role at a time. If you need someone to have full Admin access, change their role from Team Admin to Admin.
+3. **Why can't my Team Admin see a specific team?** Team Admins can only see teams they've been explicitly added to. An Admin needs to add them as a member of that team first. Once added, the team will appear in their Admin navigation and Inbox sidebar.
+4. **What happens if I remove a Team Admin from a team?** The team immediately disappears from their Admin navigation, and any permissions they had for that team (managing members, editing Views, etc.) are revoked. They will still have Team Admin permissions for any other teams they belong to.
+5. **Can a Team Admin delete a team?** No. Team deletion is restricted to full Admins only. Team Admins will see the Delete Team option as disabled on the Team settings page.
+6. **Can Team Admins edit workspace-level Views?** No. Workspace-level Views (those not inside a specific team) can only be created, edited, or deleted by full Admins. Team Admins can only manage Views within their assigned teams.
+7. **Can a Team Admin edit a View that was created by an Admin?** No. Views created by a full Admin are read-only for Team Admins. Team Admins can only edit Views that they or another Team Admin created within their team.
+8. **Do changes take effect immediately when I assign the Team Admin role?** Role changes take effect in real time where possible. In some cases, the user may need to refresh their browser or log out and back in to see updated permissions.
+9. **Can a Team Admin create a new team?** Yes. Team Admins can create new teams. They'll be redirected to the Admin page to complete the team setup.
+10. **What happens to Views a Team Admin created if their role is changed to Member?** Views they created will remain in place. However, as a Member, they will no longer be able to edit or delete those Views. A full Admin or another Team Admin on that team would need to manage them going forward.
+11. **Can a Team Admin see tickets or conversations from other teams?** The Team Admin role controls management permissions (team settings, Views), not ticket visibility. Ticket visibility in Inbox is determined by the Views and filters configured for the workspace, not by the Team Admin role itself.
+12. **I just changed a user's role but nothing seems to have updated.** Try having the user refresh their browser. If the issue persists, have them log out and back in. In rare cases, cached data may need to clear before the new role takes full effect.
+13. **When should I use Team Admin vs. giving someone full Admin access?** Use Team Admin when someone needs to manage team members and team Views but should not have access to workspace settings, integrations, billing, security, or the Members page. Full Admin access should be reserved for people who need to configure the workspace globally.
+14. **Does this change access to specific Boards (CW) / Queues (AT) / Teams (Halo)?** No, there are no access updates for Boards/Queues/Teams as part of this release. Thread still allows Admins and Team Admins to see all Boards that sync to thread when setting up their views.

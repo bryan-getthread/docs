@@ -1,0 +1,82 @@
+---
+title: "Automagically: Running Runbooks"
+description: "Runbooks are pre-built automations that handle IT tasks end-to-end. Instead of executing a series of manual steps across multiple admin portals, you run a single automation that handles everything. T…"
+---
+
+Runbooks are pre-built automations that handle IT tasks end-to-end. Instead of executing a series of manual steps across multiple admin portals, you run a single automation that handles everything.
+
+This article walks through how to run a runbook to resolve an IT task.
+
+## Running Runbooks
+
+**1. Select the client**
+
+Before opening a runbook, select the client environment the request applies to using the client selector in the left panel. If no client is selected, the runbook will run against your own organization's environment instead.
+
+![](/images/3ec004b5-image.png)
+
+**2. Find the runbook**
+
+Go to **Runbooks** in the left panel and browse for the runbook that matches the request. You can also search or filter by tags to narrow the list.
+
+![](/images/ac7e5549-image.png)
+
+If no runbook exists for the task, build one! Or ask your manager to if you don't have access.
+
+**3. Open the runbook**
+
+Click on the runbook to open its detail page. Here you'll find a description of what it does and a step-by-step list of all actions it executes. Review this before running if you're unfamiliar with the runbook or want to confirm it covers the request.
+
+![](/images/6829807b-image.png)
+
+**4. Fill in the inputs**
+
+Each runbook has a form with required parameters. Fill these in exactly as specified in the ticket. Required fields are marked with a red asterisk.
+
+![](/images/e605963f-image.png)
+
+Before clicking Run, confirm the correct client is shown at the top of the form. If needed, go back to step 1 to select the correct client.
+
+**5. Run it**
+
+As simple as it sounds: Click **Run**. The automation executes against the selected client environment. Once finished, it will show you a summary of the execution.
+
+![](/images/13a91cb0-image.png)
+
+**6. Verify the output and close the ticket**
+
+Click **View details** to open the full execution result, where you can review what ran and confirm it matches what was requested. See how to read execution output below.
+
+![](/images/d905d6bf-image.png)
+
+Once confirmed, document the outcome and close the ticket in your PSA.
+
+### **Interpreting results and accessing execution history**
+
+#### Reading a result
+
+Every execution result shows four things: a status, the parameters inputted, a step-by-step breakdown, and an output summary.
+
+![](/images/18780a24-image.png)
+
+**Status:** shown at the top of the result screen. Either **Succeeded**, **Warning (Partial Success)** or **Failed**.
+
+**Parameters:** the inputs you provided when running the runbook, shown for reference.
+
+**Steps:** each action taken by the runbook is listed with a status indicator and execution time. A successful run shows all steps completed. A failed run shows which step failed and highlights the error inline.
+
+**Output:** a plain-English summary confirms what happened in a high-level.
+
+When a runbook fails, the result screen includes an explanation of what happened, the likely cause, and the resolution required.
+
+![](/images/530489b0-image.png)
+
+Read this before escalating, as it often contains the information needed to understand whether the issue is with the inputs, the client environment, or a permissions gap.
+
+#### Accessing history
+
+Go to **History** in the left panel to see all previous executions. The list shows the timestamp, runbook name, source, status, duration, who triggered it, and which client it ran against.
+
+![](/images/19eb016b-image.png)
+
+Use the filters at the top to narrow by runbook, user, status, or source. Once you find the execution you’re looking for, click any row to open the full execution result.

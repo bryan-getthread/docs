@@ -1,0 +1,139 @@
+---
+title: "Best Practices for Writing Prompts"
+description: "Why Prompt Design Matters. Writing clear and structured prompts ensures AI-driven features—like prioritization, categorization, recaps, ticket titles, and Magic Agents—perform accurately. Using well-…"
+---
+
+## **Why Prompt Design Matters**
+
+Writing clear and structured prompts ensures AI-driven features—like prioritization, categorization, recaps, ticket titles, and Magic Agents—perform accurately. Using well-crafted prompts results in consistent and reliable AI responses, improving automation and efficiency.
+
+## **1. Use Markdown for Clarity and Structure**
+
+Magic AI processes plain text, but using formatting tools like markdown can significantly improve readability and structure, making it easier for the AI to understand and act accordingly.
+
+✅ **Good Example**(Incident Report Recap Rule)
+
+```
+- **Problem:** [Briefly summarize the issue].  
+
+- **Actions Taken:** [List troubleshooting steps and escalations].  
+
+- **Resolution:** [Describe how the issue was resolved].  
+
+- **Follow-ups:** [Mention monitoring needs, documentation updates, or next steps].  
+```
+
+❌ **Bad Example**
+
+```
+Summarize what happened and what was done.
+```
+
+**Why?** Clear, structured formatting helps guide the AI in generating well-organized and consistent responses.
+
+## **2. Be Specific and Provide Context**
+
+Magic AI may require specific instructions to generate accurate, context-sensitive responses. Avoid vague or overly general prompts to ensure precise actions.
+
+✅ **Good Example**(Prioritization Custom Rule)
+
+```
+**Prioritize tickets where the user expresses frustration.**  
+
+- Look for phrases like: "This is unacceptable!" or "I've been waiting too long!"  
+- Increase urgency based on sentiment, issue type, and response time.  
+- If the issue is blocking work, escalate immediately.  
+```
+
+❌ **Bad Example**
+
+```
+Prioritize when a user is upset.
+```
+
+**Why?** Clear instructions guide the AI to act based on context, improving its ability to prioritize effectively.
+
+## **3. Structure Prompts Clearly**
+
+Ensure AI follows a well-defined framework by explicitly specifying key details, such as **Type, Subtype, and Item** (depending on your ticketing system). This improves accuracy when categorizing tickets as an example.
+
+✅ **Good Example**(Categorization Definition or Prompt)
+
+```
+- **Definition:** A request for access, software installation, or information.  
+- **Sub-Type:** Choose the best match from available categories.  
+- **Item:** Assign based on the specific service requested.  
+```
+
+❌ **Bad Example**
+
+```
+Classify tickets that request something.
+```
+
+**Why?** Providing clear category definitions ensures AI assigns tickets correctly.
+
+## **4. Use Step-by-Step Instructions**
+
+When guiding AI through a task or decision-making process, break down the workflow into steps to help the AI follow a structured process.
+
+✅ **Good Example**(Magic Agent Master Intent Prompt)
+
+```
+**You're an Automated Triage Agent**  
+
+1. **Identify the Issue**  
+   - Analyze user input to understand the problem.  
+
+2. **Ask Targeted Questions**  
+   - **For slowness:** "Since when? Any updates or changes?"  
+   - **For connectivity:** "Affecting all devices or just one?"  
+
+3. **Confirm Next Steps**  
+   - If troubleshooting is needed: Provide step-by-step guidance.  
+   - If escalation is required: "I will escalate this internally." 
+
+4. **Strict Language Rules**  
+   - Avoid "contact IT support."  
+   - Instead, say "I will escalate this internally."  
+```
+
+❌ **Bad Example**
+
+```
+Help users with IT problems.
+```
+
+**Why?** The step-by-step format ensures AI follows a structured process.
+
+## **5. Use ChatGPT to Help Create Your Own Prompts**
+
+When creating your own AI prompts, consider using tools like ChatGPT to assist in generating clear, structured, and effective prompts. ChatGPT can help you brainstorm ideas, provide examples, and refine your language to ensure precision. This can be particularly useful for designing prompts for prioritization, categorization, recaps, ticket titles, and other AI-driven processes.
+
+### **How to Use ChatGPT for Prompt Creation:**
+
+By using ChatGPT, you can quickly generate high-quality prompts tailored to your needs and ensure they follow best practices for clarity and effectiveness.
+
+1. **Provide Context:** Start by explaining the task or desired outcome. The more specific you are, the more tailored the response will be.
+2. **Ask for Structured Examples:** Request examples or templates that fit your needs (e.g., for categorization, prioritization, etc.).
+3. **Refine & Iterate:** Work with ChatGPT to fine-tune your prompts. Ask for revisions based on feedback or new insights as you go.
+
+**Example ChatGPT Prompt for Creating AI Prompts:**
+
+```
+"Can you help me create a prompt for AI to prioritize tickets based on user frustration? I want the prompt to identify key phrases like 'unacceptable' or 'I've been waiting too long', and then escalate if the issue is blocking work. Please format it in a clear, structured way."
+```
+
+## **6. Final Best Practices Summary**
+
+✅ **Use markdown-style formatting** to enhance readability and clarity (`**bold text**`, `- bullet points`, `[placeholders]`). This helps the AI process information more efficiently and ensures consistent responses.
+
+✅ **Define clear expectations** with structured steps. Provide step-by-step instructions so the AI can follow a logical process to deliver accurate results.
+
+✅ **Guide AI behavior with real-world examples**. Use concrete scenarios to help the AI understand how it should respond in various situations, improving the relevance and accuracy of its output.
+
+✅ **Break complex workflows into steps**. Divide large tasks into smaller, manageable steps to maintain consistency and guide the AI through each stage.
+
+✅ **Ensure prompt clarity and specificity**. Avoid vague or overly general language, and be specific about the context, expected actions, and desired outcomes to ensure the AI acts as intended.
+
+✅ **Use AI services, like ChatGPT, to help create and refine prompts.** Leverage AI tools to generate clear, structured prompts tailored to your needs. By providing context, asking for specific examples, and iterating based on feedback, you can quickly design effective prompts.

@@ -1,0 +1,27 @@
+---
+title: "Cloning a Legacy Teams App"
+description: "Cloning a Teams app allows you to quickly create a new app with the same configuration as an existing one. This is useful when you want to reuse settings, tokens, or behavior from a legacy app withou…"
+---
+
+Cloning a Teams app allows you to quickly create a new app with the same configuration as an existing one. This is useful when you want to reuse settings, tokens, or behavior from a legacy app without rebuilding it from scratch.
+
+## Why clone a Teams app?
+
+Microsoft has deprecated **MultiTenant** support for Teams apps. This means all legacy MultiTenant apps must be rebuilt by **March 2026**. Cloning your existing Teams app in Thread is the easiest way to migrate — all settings and configurations are automatically carried over, keeping your setup consistent while ensuring compliance with Microsoft’s new requirements.
+
+## Steps
+
+1. **Navigate to the Teams Apps section** In the Thread Admin panel, go to **Messenger → Teams Apps**.
+2. **Duplicate the app** Find the app you’d like to clone. Click the **Duplicate** button on the right-hand side.
+3. **Confirm and create** In the top-right corner, click **Next**, then select **Create**.
+4. **Done!** A new app will be created with all the same settings as your original one.
+  ![](/images/c1d6a64b-app_clone.gif)
+
+## After cloning
+
+Once your new app has been created, you can **deploy it** to your customers right away. We recommend deploying the new version to all existing legacy app users **before March 2026** to ensure a smooth transition ahead of Microsoft’s MultiTenant deprecation.
+
+**Best practices:**
+
+- Remove the **“(duplicate)”** tag from the name of your new app before deployment.
+- Rename your legacy app to include **“(old)”** in its title to help differentiate between the two.

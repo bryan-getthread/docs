@@ -1,0 +1,69 @@
+---
+title: "Trigger Powerful Automations with Magic Agents"
+description: "Magic Agent is great at troubleshooting and gathering information. It can take that information and either send it to a technician, or kick off an automation. Just like for a technician, it can kick…"
+---
+
+Magic Agent is great at troubleshooting and gathering information. It can take that information and either send it to a technician, or kick off an **automation**. Just like for a technician, it can kick off the automation by passing in the information to a URL of your choosing. This is is a great way to kick off a Robotic Process Automation tool such as Microsoft's PowerAutomate / LogicApp or Azure Functions or Rewst or Zapier or Make or any other tool!
+
+This makes the automation very powerful for many use cases, such as:
+
+- Triggering a user onboarding
+- Triggering an off boarding
+- Looking up a help article from IT Glue or Hudu and sending it to the end user
+- Assigning a license in M365
+- And so much more!
+
+This is a great way to continue to get more value out of your existing automations or to start on your automation journey. Here is how it works.
+
+1. Once Magic Agent detects the intent, it asks the questions of the user
+2. Once the user gets all of the information across, Magic Agent will confirm that the information entered is right
+3. It will trigger the URL that you put into the Automation section
+
+![](/images/83e43b30-image.png)
+
+When using Magic Agents Automation URL, it will sends a **POST** request with the following JSON object.
+
+The key to notice here is that under the "intent_fields". These are dynamic based on the **Intent Form Field Names** that you have created. And the value for it is what the end user has submitted.
+
+<Note>
+  The intent_fields are dynamically generated based on the arguments you've built for the corresponding intent. Formatting is
+  
+  "argument name": "customer response"
+</Note>
+
+```
+{
+  "intent_name": "Add user to Microsoft Teams",
+  "intent_fields": {
+    "Group Email": "test@chatgenie.io",
+    "User Name": "Ben"
+  },
+  "meta_data": {
+    "ticket_id": 1234,
+    "ticket_board_name": "Help Desk",
+    "ticket_board_id": 1,
+    "contact_id": 4567,
+    "contact_name": "Bruce Wayne",
+    "contact_email": "Brucy@wayne.net",
+    "company_id": "2237",
+    "company_name": "Wayne Enterprises",
+    "company_types": [
+      "Client"
+    ]
+  }
+}
+```
+
+The API call does wait for a response to be able to let the end user know what is going on.
+
+Below is what the response is waiting for:
+
+```
+Header: Status Code 200 
+{
+  "success": 200,
+  "message": "I was able to get that done for you!"
+}
+```
+
+This can be extremely powerful if you want to send a password reset link, a help article or a message that says "that user is already part of the email group!".

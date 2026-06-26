@@ -1,0 +1,46 @@
+---
+title: "Use TimeZest with Super Magic"
+description: "Availability: GA — available to all workspaces with a TimeZest integration. Connect TimeZest and Super Magic can handle scheduling with your clients conversationally — look up who's bookable, check a…"
+---
+
+<Tip>
+  Availability: GA
+  
+  — available to all workspaces with a TimeZest integration.
+</Tip>
+
+Connect TimeZest and Super Magic can handle scheduling with your clients conversationally — look up who's bookable, check appointment types, and **send a real scheduling link to the client** without leaving the ticket.
+
+### What you can ask
+
+> "Send Jane a scheduling link for a 30-minute remote support session"
+
+> "What TimeZest appointment types do we have?"
+
+> "Who can be booked for an on-site this week?"
+
+> "Has the client responded to the scheduling request on this ticket?"
+
+**Heads up:** sending a scheduling request emails the client for real. That's why it always goes through Super Magic's **Confirm action** card — you'll see exactly who gets what before anything sends — and it respects your workspace's write-access settings.
+
+#### Set it up (admin, once for the whole workspace)
+
+TimeZest is a **workspace-level integration**: connect it once and it works for every member.
+
+1. **Connect TimeZest to Thread** — if it isn't already, the **Configure** button on the TimeZest row in **Super Magic settings → Integrations** takes you to the setup.
+2. **Enable it for Super Magic** — turn the **TimeZest** toggle on in the same Integrations card.
+
+#### Troubleshooting
+
+- **No scheduling tools in chat?** Check the row shows **Connected** AND the toggle is on.
+- **Scheduling link won't send?** Sending is a write action — check the member passes your write-access level and the Schedule toggles are on (Tools card).
+- Anything else: [**Super Magic Admin Guide → Troubleshooting**](/super-magic/super-magic-admin-guide-setup-access-safety).
+
+#### Available tools
+
+| Tool | Type | What it does |
+| --- | --- | --- |
+| list_timezest_resources | Read | Who can be booked |
+| list_timezest_appointment_types | Read | Available appointment types |
+| get_timezest_scheduling_requests | Read | Existing scheduling requests and their status |
+| create_timezest_scheduling_request | Write | Sends a real scheduling email to the contact — always behind the Confirm action card |

@@ -1,0 +1,121 @@
+---
+title: "Microsoft Teams Pay-As-You-Go Resource Account Calling"
+description: "Microsoft Teams – Enabling Pay-As-You-Go Calling for Resource Accounts. ⚠️ Important: Microsoft Licensing Change – Effective November 1, 2025 Microsoft has announced that starting November 1, 2025 ,…"
+---
+
+## Microsoft Teams – Enabling Pay-As-You-Go Calling for Resource Accounts
+
+<Note>
+  ⚠️ Important: Microsoft Licensing Change – Effective November 1, 2025
+  
+  Microsoft has announced that starting
+  
+  November 1, 2025
+  
+  , Resource Accounts (such as Auto Attendants and Call Queues)
+  
+  will no longer be able to make outbound calls
+  
+  without activating
+  
+  Communication Credits
+  
+  .
+  
+  To activate Communication Credits, you need at least
+  
+  1 Teams Phone Pay-As-You-Go Calling Plan
+  
+  license on the tenant.
+  
+  ⚠️
+  
+  Note:
+  
+  Direct Routing numbers are
+  
+  not
+  
+  affected by this licensing change. This only applies to Calling Plan customers.
+</Note>
+
+<Tip>
+  📌
+  
+  You do NOT need a license for every user.
+  
+  Microsoft requires just
+  
+  1 license per tenant
+  
+  to enable this functionality.
+</Tip>
+
+**Official Microsoft Reference:** [Teams Phone Extensibility – Outbound Call Prerequisites](https://learn.microsoft.com/en-us/azure/communication-services/concepts/interop/tpe/teams-phone-extensibility-connectivity-cost#outbound-call-prerequisites)
+
+**Who Is Affected?**
+
+- Tenants using **Microsoft Calling Plans** assigned to Teams Resource Accounts (Auto Attendants, Call Queues)
+- Any Resource Account making **outbound PSTN calls** after November 1, 2025
+- **Not affected:** Tenants using Direct Routing or Operator Connect (check with your carrier for Operator Connect)
+
+**What You Need to Do**
+
+Purchase **1 license** of **Teams Phone with Pay-As-You-Go Calling** for the tenant, then enable Pay-As-You-Go billing on that subscription.
+
+There are two plans available:
+
+- **Zone 1 – US** (for domestic US customers)
+- **Zone 2 – International** (for international customers)
+
+### How To
+
+#### Step 1: Purchase the License
+
+1. Log in to the **Microsoft 365 Admin Center** at [admin.microsoft.com](https://admin.microsoft.com).
+2. In the left navigation, go to **Billing &gt; Purchase services** (or **Marketplace &gt; All Products**).
+3. Search for **"Teams Phone with pay-as-you-go calling"**.
+4. Select the appropriate zone:
+  - **Country Zone 1 – US** for US-based tenants
+  - **Country Zone 2** for international tenants
+5. Purchase **1 license** (you only need one for the entire tenant).
+
+#### Step 2: Open the Subscription Details
+
+1. In the **Microsoft 365 Admin Center**, go to **Billing &gt; Your products**.
+2. Locate **Teams Phone with pay-as-you-go calling (country zone 1 – US)** (or your applicable zone).
+3. Click **Details** to open the subscription management page.
+
+![](/images/bf293701-xAfa9wu0)
+
+#### Step 3: Enable Pay-As-You-Go Services
+
+1. Scroll down on the subscription details page to find the section titled **"Pay-as-you-go services"**.
+2. You will see a table listing:
+  - **Product name:** Phone services consumption
+  - **Status:** Off (or On)
+3. If Status shows **"Off"** — click on it to toggle it **On**.
+4. Confirm the change when prompted.
+
+![](/images/691e6190-79BNJMXu)
+
+#### Step 4: Verify & Monitor
+
+- Once enabled, the **Status** column should show **"On"** for Phone services consumption.
+- You can click **"Manage costs"** to set a spending limit or review usage.
+- Use **"See Teams call history for your organization"** to monitor call activity.
+
+<Note>
+  ⏱️ Propagation Time
+  
+  Please allow 12–24 hours
+  
+  for this change to fully propagate across the tenant. Resource Account outbound calling may not work immediately after enabling — this is expected.
+</Note>
+
+Additional Resources
+
+- [Microsoft: Pay-As-You-Go Calling Plan](https://learn.microsoft.com/en-us/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)
+- [Microsoft: Set up Communications Credits](https://learn.microsoft.com/en-us/microsoftteams/set-up-communications-credits-for-your-organization)
+- [Microsoft: Enable pay-as-you-go services](https://learn.microsoft.com/en-us/microsoft-365/commerce/subscriptions/manage-pay-as-you-go-services)
+- [Microsoft: Assign Teams add-on licenses](https://learn.microsoft.com/en-us/microsoftteams/teams-add-on-licensing/assign-teams-add-on-licenses)

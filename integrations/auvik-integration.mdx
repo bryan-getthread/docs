@@ -1,0 +1,43 @@
+---
+title: "Auvik"
+description: "Prerequisites. Create user with API only access: Log in to your Auvik account as an admin and access Manage Users → Roles on the left Navigation board . Click on the Add role button . Fill-in Role na…"
+---
+
+### Prerequisites
+
+**Create user with API only access:**
+
+- Log in to your Auvik account as an admin and access **Manage Users**→ **Roles**on the left Navigation board
+- Click on the Add role button
+- Fill-in Role name (ex. Thread integration)
+- Click on API Access Only checkbox and click Save
+- Navigate to **Manage Users → Users**
+- Now you can either assign existing user with Thread integration role or Invite new one and indicate role:
+
+### A) Assigning a role to an existing user
+
+- To assign role to existing user click on the checkbox near the user's name and click on Authorize
+- Click on checkbox near company names you want to grant access to
+- Click on Roles button and choose Thread integration role in the dropdown
+- Click Save
+
+### B) Inviting new user
+
+- Click on Invite users
+- Fill-in email address you want to invite
+- Click on checkbox near company names you want to grant access to
+- Click Send
+- Make sure that user has accepted invitation
+- Log in into Auvik account as User with Thread integration role
+- Access Profile page by clicking on username on the left bottom in the navigation bar
+- Click on Generate in the API KEY section and make sure to store it somewhere
+
+### Instructions
+
+- Fill in Base URL with [https://auvikapi.us2.my.auvik.com/v1/](https://auvikapi.us2.my.auvik.com/v1/) where us2 should be replaced by region your account resides. To see your region, log into your Auvik dashboard and look at the URL in your browser’s address bar. For more information, please refer to official Auvik regions documentation)
+  ![](/images/2f93967c-image.png)
+
+- Fill-in Username with email of Auvik user with API access
+- Fill-in API Key with token you've generated (see prerequisites if you do not have one)
+- Fill-in Domain prefix. It can be found in Auvik's profile page in the API Key sections)
+- Click Connect

@@ -1,0 +1,64 @@
+---
+title: "Microsoft Teams App Permissions"
+description: "Microsoft Teams App Permissions. Concept. Thread installs a single enterprise application in Microsoft Entra ID to power all Teams and SSO functionality. Admin consent is required once during onboard…"
+---
+
+## Microsoft Teams App Permissions
+
+### Concept
+
+Thread installs a single enterprise application in Microsoft Entra ID to power all Teams and SSO functionality. Admin consent is required once during onboarding. Thread uses **Delegated** permissions during initial setup and **Application** permissions for ongoing operations, ensuring users are never prompted for permissions after the initial configuration.
+
+### Overview
+
+Thread integrates deeply with Microsoft 365 through two connected applications that provide a seamless experience between Teams and Thread Inbox:
+
+- **Service App:** Installed in your clients' Teams environment, allowing end-users to chat with your service team and submit tickets.
+- **Companion App:** Installed in your internal Teams environment, allowing technicians to receive notifications and manage workflows.
+
+All permissions, sign-in behaviors, and Graph API access flow through one central Entra ID application.
+
+### Why Thread Needs Permissions
+
+Thread uses Microsoft Graph to perform secure, automated actions. These permissions are required to:
+
+- Install the Thread Teams app for users.
+- Enable secure Microsoft SSO for technicians and clients.
+- Power file sharing, message routing, and chat-based workflows.
+- Ensure the integration stays active without being tied to a specific individual's admin account.
+
+### Types of Permissions
+
+1. **Delegated Permissions:** Used primarily during onboarding to bootstrap tenant-level setup and upload the app to your catalog. These act "as the admin" during the initial configuration.
+2. **Application Permissions:** Used for ongoing operations. These allow Thread to run Teams actions and access Microsoft Graph independently, ensuring stability even if the original admin account is deactivated.
+3. **Microsoft Single Sign-On (SSO):** Thread uses your Microsoft 365 identity for secure login. It only requests permissions already granted to the enterprise app to ensure a seamless experience.
+
+### Permissions Reference Table
+
+Each permission below is requested through Microsoft Graph using the principle of least privilege.
+
+| Permission | Type | Purpose / What it Allows | Used By |
+| --- | --- | --- | --- |
+| AppCatalog.Read.All | Application | Validates if the Thread Service App is already installed in the organization's catalog. | Service App |
+| AppCatalog.ReadWrite.All | Delegated | Uploads, updates, or removes Thread apps in the Teams catalog. | Service App |
+| Channel.Create | Application | Creates Teams channels for dynamic or automated workflows (e.g., per-ticket flows). | Companion App |
+| Channel.Delete.All | Application | Automatically deletes temporary or dynamic channels when a Thread is closed. | Companion App |
+| Channel.ReadBasic.All | Application | Identifies existing channels and routes messages correctly for workflows. | Companion App |
+| Chat.Create | Application | Starts new 1:1 or group chats between members, contacts, or automations. | Service App |
+| Chat.ReadWrite.All | Application | Enables full chat functionality (sending/editing messages) between Thread and Teams. | Service App |
+| ChatMember.ReadWrite.All | Application | Manages participants by adding or removing the correct users from chats. | Service App |
+| ChatMessage.Read.All | Application | Reads chat messages to detect file attachments (required for display inside Thread). | Service App |
+| Domain.Read.All | Application | Reads domain info to assign default domains to dummy users (required for iOS/mobile compatibility). | Service App |
+| email | Delegated | Reads the user's primary email address for identity and account linking. | Both |
+| Files.Read.All | Application | Allows viewing and attaching Microsoft 365 files within Thread Inbox/PSA tickets. | Service App |
+| Group.Read.All | Application | Enables SSO and helps Thread understand team structure and membership. | Companion App |
+| offline_access | Delegated | Maintains continuous access to data without requiring repeated re-authentication. | Both |
+| openid | Delegated | Required for Microsoft SSO; allows users to sign in with basic profile info. | Both |
+| Organization.Read.All | App/Del | Retrieves tenant metadata to validate configuration during and after onboarding. | Both |
+| profile | Delegated | Accesses basic profile data (name, picture, username) for SSO accuracy. | Both |
+| Sites.Read.All | Application | Downloads files from SharePoint for sharing between Teams and Thread. | Service App |
+| Team.ReadBasic.All | Application | Identifies Teams your users belong to (for future Flow functionality). | Companion App |
+| TeamsAppInstallation.ReadWriteAndConsentForChat | Application | Automatically installs Thread Service Apps into Teams group chats. | Service App |
+| User.Read | Delegated | Required for basic Microsoft SSO authentication. | Both |
+| User.Read.All | Delegated | Retrieves user details and avatars to map Teams users to Thread users. | Both |
+| User.ReadWrite.All | Application | Creates dummy members for group chats when needed for mobile compatibility. | Service App |

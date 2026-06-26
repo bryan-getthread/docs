@@ -1,0 +1,45 @@
+---
+title: "Default Work Role & Type Logic"
+description: "Concept. When a time entry or work item is processed, Thread automatically determines which Default Work Role and Work Type to apply. Instead of requiring manual selection every time, Thread resolves…"
+---
+
+### Concept
+
+When a time entry or work item is processed, Thread automatically determines which **Default Work Role** and **Work Type** to apply. Instead of requiring manual selection every time, Thread resolves these values using a **three-tier priority chain**:
+
+**Ticket → Agreement → Member**
+
+Thread checks each source in order and uses the **first match** it finds:
+
+| Priority | Source | Description |
+| --- | --- | --- |
+| 1st | Ticket | A Work Role/Type set directly on the ticket |
+| 2nd | Agreement | A default defined on the associated agreement |
+| 3rd | Member | The default configured on the technician's profile |
+
+If the Ticket has a value, Thread stops there. If not, it checks the Agreement. If neither has a value, it falls back to the Member.
+
+1. Ticket (Highest Priority)
+
+Thread first checks whether a Work Role/Type has been specified directly on the Ticket. If one is set, it is used — no further lookup occurs.
+
+Use this when a specific ticket requires a work role or type that differs from the norm.
+
+2. Agreement (Fallback)
+
+If no Work Role/Type is found on the Ticket, Thread checks the Agreement associated with that ticket. If the Agreement defines a default Work Role/Type, it is applied.
+
+Use this to standardize billing or work categorization across all tickets covered under a particular client agreement.
+
+3. Member (Final Fallback)
+
+If neither the Ticket nor the Agreement specifies a Work Role/Type, Thread falls back to the Member's default Work Role/Type — i.e., the one configured on the technician's profile.
+
+Use this as a catch-all to ensure every time entry always resolves to something meaningful.
+
+### Value
+
+- **Eliminates manual entry** — technicians don't need to pick a Work Role/Type on every time entry.
+- **Ensures consistency** — agreements can enforce standardized billing and categorization across all their tickets.
+- **Guarantees a result** — the Member-level fallback means every time entry always resolves to something meaningful, even when nothing is configured upstream.
+- **Supports exceptions** — a single ticket can override the norm without disrupting the defaults set at the agreement or member level.

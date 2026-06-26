@@ -1,0 +1,52 @@
+---
+title: "Hudu Integration"
+description: "Hudu Integration Guide. The Hudu integration connects your Thread environment directly to your Hudu documentation platform. This integration enables Thread’s AI, 'Ask Magic,' to access, read, and ref…"
+---
+
+## Hudu Integration Guide
+
+The Hudu integration connects your Thread environment directly to your Hudu documentation platform. This integration enables Thread’s AI, "Ask Magic," to access, read, and reference your Hudu knowledge base articles alongside Thread's internal knowledge base.
+
+Currently, this integration functions by searching your Hudu instance globally to retrieve relevant information for technicians.
+
+### Value
+
+- **Unified Knowledge Access:** Technicians can use Ask Magic to query information and receive answers derived directly from your Hudu documentation without leaving their workflow.
+- **S****treamlined Support**:By linking Hudu, you reduce the time technicians spend context-switching between Thread and your documentation portal.
+- **Dual-Search Capability:** Thread will intelligently look for answers in both Thread’s internal knowledge base and Hudu simultaneously to provide the best possible answer.
+
+## How To: Set Up the Hudu Integration
+
+**Prerequisites**
+
+- Admin access to your Thread dashboard.
+- Admin access to your Hudu instance to generate API keys.
+
+**Step 1: Generate an API Key in Hudu**
+
+1. Log in to your Hudu instance.
+2. Navigate to **Admin** &gt; **API Keys**.
+3. Click **New API Key**.
+4. Name the key (e.g., "Thread Integration") to identify it later.
+5. Copy the API Key.
+
+**Step 2: Configure the Integration in Thread**
+
+![](/images/f3a625bb-screenshot-2025-12-29-at-4-08-02-pm.png)
+
+1. Log in to the Thread Admin dashboard.
+2. Navigate to the **Integrations** panel.
+3. Locate and select the **Hudu** integration.
+4. Enter your Hudu **Base URL**.
+5. Paste the **API Key** you generated in Step 1.
+  ![](/images/c69e8405-screenshot-2025-12-29-at-4-08-20-pm.png)
+6. Click **Save** to complete the configuration.
+
+Step 3: Verification
+
+Once saved, the integration is immediately active. You can test this by opening a thread (in Slack or Teams) and using "Ask Magic" to ask a question related to an article stored in Hudu. The AI should be able to retrieve the information and provide a link to the source article.
+
+## Important Notes
+
+- **Company Mapping:** Currently, the integration searches Hudu globally. It does not yet strictly map specific Hudu companies to specific Thread companies, though dynamic mapping is being explored for future updates.
+- **Release Scope:** For the current release, Ask Magic will pull answers from Hudu, but the user interface may not explicitly distinguish between a "Thread article" and a "Hudu article" until the user clicks the source link.

@@ -1,0 +1,31 @@
+---
+title: "What if my organization has IP or domain restrictions?"
+description: "Thread uses these IP addresses to make outgoing connections. Please whitelist these IP addresses if you have network restrictions in place. 52.70.34.233 3.221.147.202 54.152.112.100 34.226.184.103…"
+---
+
+Thread makes both outgoing connections and clients like Inbox or Messenger make incoming connections to Thread. When Thread makes outgoing connections to your platforms, you will need to whitelist IP addresses. When you are running a client, such as Inbox or Messenger, you will need to whitelist domains.
+
+Thread uses these IP addresses to make outgoing connections. For example, when Thread calls your PSA (ConnectWise, Autotask, etc...) to pull data, you will need to whitelist IP addresses. Please whitelist these IP addresses if you have network restrictions in place.
+
+```
+52.70.34.233
+3.221.147.202
+54.152.112.100
+34.226.184.103
+52.23.25.207
+3.220.225.111
+```
+
+Thread uses these domain names to make incoming connections. For example if you are running Inbox on the Web or Desktop, you will need to whitelist these domain addresses.
+
+```
+wss://tsock.us1.twilio.com -> *.twilio.com (please note this is not over HTTPS or HTTP)
+wss://thread.getthread.com
+*.getthread.com
+*.chat-genie.com
+*.chatgenie.io
+*.auth0.com
+*.googleapis.com
+*.google-analytics.com
+*.posthog.com
+```

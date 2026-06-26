@@ -1,0 +1,37 @@
+---
+title: "How to Enable Chat and Timepad Insights in Autotask"
+description: "Now you can bring the power of Thread directly into Autotask, experience all the great features Inbox has to offer including real-time chat, automated time entries, snippets, @mentions and more! Best…"
+---
+
+Now you can bring the power of Thread directly into Autotask, experience all the great features Inbox has to offer including real-time chat, automated time entries, snippets, @mentions and more!
+
+Best of all, it is super easy to setup. This guide will show you how.
+
+## **Adding Insights to Service Ticket Categories in Autotask**
+
+1. Make Layout adjustments in order to make Insights visible. Go to: **Admin → Features & Settings → Service Desk (Tickets) → Ticket Categories → Edit (category) → Insights:**
+  ![](/images/b604b947-untitled-1.png)
+2. Thread insights should be in “Hidden Insights” section. Drag them and drops into “Visible insights” section:
+  ![](/images/6b119128-untitled-2.png)
+3. That’s it! You should now see the insights in the Ticket screen
+  ![](/images/fe29d5ff-untitled-3.png)
+
+## **Troubleshooting**
+
+If you have tried to steps above and are having trouble, please follow the steps below:
+
+### **Step 1: Confirming Prerequisites**
+
+1. First, check to make sure the Autotask API user for Thread has the correct API Tracking Identifier.
+  1. From Autotask, Navigate to **Admin -&gt; Account Settings & Users -&gt; Resources/Users (HR) -&gt; Resources/Users -&gt; Find the Thread API user you created when setting up your Thread Integration -&gt; Edit -&gt; Verify the API Tracking Identifier is set to Integration Vendor: Thread - Messaging**
+    ![](/images/c20029ca-2023-10-11-18-15-03.png)
+  2. If you are one of our first Autotask partners, then the API Tracking Identifier may be set to custom. In order for the insights to work, we need an API member that is tied to our tracking identifier.
+    1. To fix this, you will need to set up a new API user for your Thread workspace. Follow [step 4: Create the API User from our document, How to setup the Autotask Ticketing Integration](/integrations/creating-a-autotask-api-user#4_create_the_api_user).
+    2. Once the API user is created, navigate to your [Thread Admin Panel -&gt; Integrations -&gt; Autotask](https://admin.getthread.com/dashboard/integrations/datto_autotask).
+    3. Enter the username and secret key you generated when creating the new API user.
+2. Next, you must enable access to Insights for your Thread API member in Autotask.
+  1. From Autotask, Navigate to **Admin → Extensions & Integrations → Other Extensions & Tools → Integration Center → Thread - Messaging (Edit) → Vendor Insights → Enable Integration Vendor Ticket Insights**
+  2. Check **Active** under **General**
+    ![](/images/7fc52b9f-2023-10-11-18-41-49.png)
+  3. Check **Enable Integration Vendor Ticket Insights**
+    ![](/images/dcb28fc7-untitled.png)

@@ -1,0 +1,38 @@
+---
+title: "Voice AI FAQ"
+description: "Question Answer Which contacts are in scope for Voice AI? Only PSA contacts with an email or phone number are in scope. If the contact has only an email, the agent will ask for their name and company…"
+---
+
+| Question | Answer |
+| --- | --- |
+| Which contacts are in scope for Voice AI? | Only PSA contacts with an email or phone number are in scope. If the contact has only an email, the agent will ask for their name and company; otherwise mapping is automatic by phone number. |
+| Where does the agent get the MSP name from? | This is the name of your Thread Workspace. |
+| Why is the agent unable to find correct contact information? | There are three main reasons:1. The phone number doesn't exist in PSA2. The phone number exists on multiple contacts in the PSA3. For existing partners: The phone number is in the PSA, but a recent contact sync hasn't been run - go to Admin and run a PSA Contacts Sync |
+| Can the AI verify end users using PINs or other methods? | Not yet. |
+| How are unknown/unverified users handled? | When a caller cannot be verified, Voice AI does not create new contacts. It will assign a ticket to the default contact you have chosen in the agent settings and add a note to the ticket saying the user is unknown. Tickets from unknown callers will be sent to your catch-all queue. Once you identify who the user is and their phone number, you can update their records in PSA and Voice will start mapping them correctly. |
+| Should I create a default company for unknown callers? | Whether to create a default company specifically for unverified users is up to you to decide. You can set up a default user with the default contact and company to alert someone about unidentified contacts. This should be configured in your PSA and set under your agent settings. |
+| Does the agent have access to internal notes? | No. It cannot access internal notes to prevent sensitive data from being surfaced. |
+| What happens if the AI doesn't understand the caller? | It will rephrase the question and try to capture the answer again. |
+| Can the caller use speech to navigate menu options in Attendant? | Not supported. Callers must press a key. Speaking may break the script. |
+| Can we customize the agent's greeting, voice, or personality? | Yes, you can customize your agent's greeting message and behavior settings during agent configuration. |
+| What languages does Voice AI support? | English only. |
+| Can we test Voice AI before going live? | Yes, you can. You are only live once you complete the setup in your telephony system or once you share the number with your clients. |
+| Can custom hold music be used? | Not yet. |
+| What is the recommended “call routing timeout”? | The recommended call routing timeout is the time it takes for your team/technician to pick up + 10 seconds. For example, some partners are using 120 seconds. |
+| Will the attendant and overflow have different numbers? | Yes, they will. |
+| Can different hours be set for chat versus voice? | We are currently working on adding this capability. |
+| Are after-hours settings configured per client or globally? | Currently, it's global, per MSP. |
+| How do we handle emergency or urgent calls? | You can setup hot keywords for escalation so the agent can skip the questions and forward the call to a technician in some cases. |
+| Can we have multiple agents for different departments or clients? | You can have multiple agents with different settings and numbers. |
+| Where do AI-generated tickets get routed? | Based on your routing defined in Thread (ie. default board). |
+| Where do tickets land in Thread messenger and how can they be found? | Tickets land in the same way as non-voice generated ones. You can search them in Inbox. For example, create a view where source=Call . |
+| Can the AI create tickets without live transfer? | Yes, you will want to use our Overflow Agent for this use case. |
+| Can the AI retrieve existing ticket information for status updates? | Yes, it can. The agent will ask "what can I help you with?", and if the caller is verified (phone number is registered in PSA), it will try to match their answer with an existing ticket. If a ticket is found, it will ask the caller if they wish to leave a message or read the latest updates. |
+| Where can call transcripts be viewed? | Call transcripts can be viewed in:- Admin (Voice Dashboard) - Inbox (Thread) - There is a section called "Phone calls" on the right side of each ThreadNote: Transcripts are not added to PSA tickets, only available in Inbox and Admin. |
+| What is the retention policy for call recordings, and can we export the data? | We're still working on a formal retention policy. In the meantime, recordings are stored securely and you can download the recording of individual calls directly from the player. |
+| Can Thread handle transcribing outbound calls? | Not yet, but we will add support to Outbound calls on 2026 Q1. |
+| What backend technology powers Thread's Voice AI? | LiveKit , Cartesia and Azure OpenAI. |
+| Should menu options be used? | It depends on your use case:1. I don't want an IVR menu, but I still want to transfer to a technician: - In this case, you can choose "Don't use menu options" then add the phone number you want to redirect the user into in "Call Queue + Extension" field2. I don't want an IVR menu and I don't want to transfer to a technician: - Use Overflow agent instead |
+| How is custom pronunciation for company names handled? | Through the "Custom Pronunciation" feature, you will add the term to be mapped to your custom pronunciation and the agent will respect that during the entire call. |
+| How does the end user know if a technician declines a call? | The agent will provide a verbal notification to them ("no one is available at this time"), take down their details and end the call. |
+| What are the basic requirements to onboard with Voice? | 1. Have a default board set in Messenger2. Run a PSA Contacts Sync in Admin |

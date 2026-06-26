@@ -1,0 +1,86 @@
+---
+title: "Things to Know and Gotchas"
+description: "A few important characteristics of Magic Analytics. Reading these first will save you confusion later. Data is about a day behind (not real-time). Magic Analytics refreshes on a daily cycle , so it i…"
+---
+
+A few important characteristics of Magic Analytics. Reading these first will save you confusion later.
+
+### Data is about a day behind (not real-time)
+
+Magic Analytics refreshes on a **daily cycle**, so it is **effectively one day behind**. Activity from today (tickets opened this morning, a call that just happened) generally appears the next day.
+
+- Every query shows when it last ran — look for **"Query ran …"** with a date and time on each tile. On any tile, click the **⋮** (three dots) to see the date and time the last query ran.
+- Use Magic Analytics for trends, performance, and value reporting — not for live, to-the-minute monitoring.
+
+### It's a large dataset
+
+Magic Analytics sits on a large volume of data. Most dashboards are fast, but the more you widen a date range or remove filters, the more work a query has to do.
+
+<Tip>
+  Tip:
+  
+  Set your
+  
+  date range
+  
+  and any
+  
+  source / board
+  
+  filters before digging in. Narrower questions return faster.
+</Tip>
+
+### Some topics are pre-aggregated (no drill-down to single rows)
+
+To keep things quick, several topics are **pre-aggregated** — the data is rolled up in advance (for example, summarized by day, by customer, or by feature). That makes queries fast, but it means:
+
+- You **can't drill down to an individual ticket, call, or session** from those topics, because the row-level detail isn't stored there.
+- **Aggregate** topics include AI Accuracy, Value Realization, Magic Agent Rollup, Messenger, Service Team Performance, Inbox, and Planner.
+- For row-level detail, use a **Detailed** topic such as **Threads** (one row per ticket), **Triage Agent** (per session), or **Voice AI** (per call).
+
+See [*Topics you can explore*](/analytics/topics-you-can-explore) for the grain of every topic.
+
+### Assistive AI: who gets credited for an override (attribution limitation)
+
+The Assistive AI Accuracy dashboard tracks **exceptions** — cases where Thread's AI suggested a value and it was later overridden. There's an important limit on *who* we can credit for that override:
+
+- When the change is made **inside Thread (the Inbox or Pods)**, we can attribute it to the specific **member** who made it, along with a reason.
+- When the change is made **directly in the PSA**, we **cannot** attribute it to a member. This is a **PSA API limitation around impersonation** — so those changes show up as **PSA / System attributed**.
+
+<Note>
+  A high share of "PSA / System" overrides usually means changes are happening in the PSA rather than in Thread — not that there's no human involved.
+</Note>
+
+### Who gets credited for closing a ticket (attribution limitation)
+
+Magic Analytics can show **who closed a ticket**, but the same limitation applies:
+
+- We can attribute the **closer** to a specific **member** only when the ticket is closed **from within Thread (the Inbox or Pods)**.
+- Tickets closed **directly in the PSA cannot be attributed** to the member who closed them — the same **PSA API limitation around impersonation** applies.
+
+<Note>
+  Treat closer / "closed by" metrics as a view of closures happening
+  
+  in Thread
+  
+  , not a complete record of every closure across your PSA.
+</Note>
+
+### Your PSA is the source of truth (potential for drift)
+
+The numbers in Magic Analytics should track your PSA, but they can occasionally fall slightly out of step:
+
+- Beyond the **daily lag** above, Thread stays in sync with your PSA through **webhooks and scheduled syncs**.
+- If an integration isn't fully configured, or a webhook/sync is missed, some records can temporarily drift from what's in the PSA until the next sync reconciles them.
+
+<Note>
+  A roughly day-old difference is expected. A
+  
+  materially
+  
+  larger gap is worth flagging to Thread Help — and checking that your integrations are fully configured.
+</Note>
+
+### You only ever see your own data
+
+Row-level security ensures every user only sees data belonging to your organization.

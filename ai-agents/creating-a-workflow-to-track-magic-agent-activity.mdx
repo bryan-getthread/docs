@@ -1,0 +1,66 @@
+---
+title: "Creating a Workflow to Track Magic Agent Activity"
+description: "To seamlessly integrate Magic Agents into your service workflow, it's recommended to create a dedicated or unique status for when Magic Agents are actively working on a ticket. This provides clear vi…"
+---
+
+To seamlessly integrate Magic Agents into your service workflow, it's recommended to create a dedicated or unique status for when Magic Agents are actively working on a ticket. This provides clear visibility and allows your service team to step in if needed.
+
+Once set up, you can use Thread Inbox views to track AI-triaged tickets and those ready for dispatch, ensuring a smooth workflow regardless of your support method. Prefer to work within your ticketing system instead? No problem—you can replicate these views there, though updates won’t be in real-time.
+
+### **Step 1: Create a Unique Status for Magic Agents**
+
+1. In your ticketing system, navigate to your **Service Board** or **Queue Settings**.
+2. Create a **new status** specifically for when Magic Agents is actively working on a ticket (e.g., "Triage"). Keep in mind that these statuses are visible to clients in the Messenger chat application, so choose wording accordingly.
+3. Save the changes.
+
+### **Step 2: Sync Service Boards in Thread**
+
+1. Open the [**Thread admin panel**](https://admin.getthread.com/).
+2. Navigate to **Integrations** → **PSA** → **PSA Sync**.
+3. Click **Force Sync** next to **Boards & Categories (type/sub-types)** to pull in the newly created status.
+4. Wait for the sync to complete.![](/images/6ddef7f6-Sync%20Service%20Board.gif)
+
+### **Step 3: Map the Unique Status in Thread Inbox**
+
+1. Open [**Thread Inbox**](https://inbox.getthread.com/).
+2. Click on your **profile picture** in the bottom-left corner.
+3. Go to **Preferences &gt; Workspace** settings. Note that these are global workspace settings and are only visible to Thread admins.
+4. Click **Add Board**.
+5. Scroll down to **Magic Agents** status mappings.
+6. Select the status you created in the previous steps for the "**When Magic Agent begins working on a thread**" setting.
+7. Click **Save**.
+8. Repeat these steps for each service board or queue where you have Magic Agents running.![](/images/eb8ff05d-Worksapce%20Magic%20Agent%20Status%20Mapping.gif)
+
+### **Step 4: Create Views in Thread Inbox**
+
+Once the status is mapped, set up views in Thread Inbox to improve visibility and workflow efficiency.
+
+#### **View 1: Agent Triage**
+
+This view helps monitor tickets where Magic Agents is actively triaging requests.
+
+1. Open **Thread Inbox**.
+2. Click **Create New View**.
+3. Set the following filters:
+  - **Status** **is** **Triage** (or the unique status you created).
+  - **Owner is blank**
+4. Name the view "**Agent Triage**" and click **Save**.![](/images/0d66df9c-Agent%20Triage%20View.gif)
+
+#### **View 2: Ready for Dispatch**
+
+This view highlights tickets that Magic Agents have completed triaging and are ready for assignment.
+
+1. Open **Thread Inbox**.
+2. Click **Create New View**.
+3. Set the following filters:
+  - **Status is not Triage** (or the unique status you created).
+  - **Owner is not blank**
+4. Name the view "**Ready for Dispatch**" and click **Save**.![](/images/a0c45d4a-Ready%20for%20Dispatch%20View.gif)
+
+### **Step 5: Test Your New Workflow!**
+
+Now it's time to test everything!
+
+Start by submitting a new ticket into your support desk (make sure Magic Agents is enabled for at least your internal company by this point—if you haven’t enabled it yet, please refer to [Getting Started with Magic Agents](/ai-agents/getting-started-with-magic-agents)).
+
+You’ll immediately see the status change to the one you set in the previous steps, and you can now track all tickets that Magic Agents are working on. Once Magic Agents successfully triage or deactivate from the ticket, it will be removed from the "Agent Triage" view (since all views are dynamic) and move to the "Ready for Dispatch" view. Voila! You’ve successfully integrated Magic Agents into your workflow!![](/images/4932ba94-Magic%20Agents%20Triage.gif)

@@ -1,0 +1,80 @@
+---
+title: "Flows"
+description: "Flows. Flows are the core of Inbox automation. They let you automatically trigger actions when threads meet specific criteria. From the Admin Panel , you can create new flows or edit existing ones. E…"
+---
+
+## Flows
+
+Flows are the core of **Inbox automation**. They let you automatically trigger actions when threads meet specific criteria.
+
+From the **Admin Panel**, you can create new flows or edit existing ones. Each flow is a set of conditions and actions — essentially, an **“If this → then that”** system.
+
+## How Flows Work
+
+A flow consists of **triggers** (conditions) and **actions** (what happens when conditions are met).
+
+For example:
+
+- **If** a thread is on the **Help Desk** OR **Sales** board
+- **And** its status is not “New”
+- **And** its status is not “Product Backlog”
+
+➡️ **Then** the thread is automatically updated, assigned, or flagged based on the flow’s action.
+
+This logic ensures the right tasks happen automatically without manual intervention.
+
+## Creating a Flow
+
+1. Navigate to Thread Admin -&gt; [Flows](https://admin.getthread.com/dashboard/flows)
+2. Click **Create Flow** in the top right
+3. Give your flow a name
+4. Apply your filters Filters will follow AND or OR logic. You can create and nest groups within your flow to create precise and powerful automations
+5. Send threads to Companion App (Optional) If you have a Teams or Slack Companion app installed, you can have the threads that match this flow sent right into a channel, or create a new channel per thread. This is great if you want to keep track outside of Inbox or prefer to work out of your chat app.
+6. Set your Actions Here we set what happens when the filter matches. You can add more than one action, so get creative with it!
+7. Ensure your flow is toggled **ON** and click **Save** in the top right.
+8. Congrats! Your flow is active and ready to go!
+
+## FAQs
+
+### Do flows apply to existing threads immediately?
+
+Flows only take effect when a thread is **updated after the flow is created**.
+
+Thread stays in sync with your PSA using **webhooks**:
+
+- A webhook is a real-time notification sent whenever a thread changes (reply, status change, internal note, etc.).
+- When a webhook is received, Inbox evaluates all applicable flows for that thread.
+- Only then will actions be applied according to the flow’s rules.
+
+<Note>
+  Webhooks are not 100% guaranteed. Rarely, an update may be missed.
+</Note>
+
+**Examples of actions that trigger a webhook:**
+
+- Sending a reply
+- Adding an internal note (recommended)
+- Changing the status
+- Changing the board
+
+### What’s the difference between **Status** and **Status Name**?
+
+- **Status** → Targets a single status on a single board.
+  - Example: “Waiting Client Response” only on the **Help Desk** board.
+- **Status Name** → Targets status names across all boards.
+  - Example: “Waiting Client Response” on both **Help Desk** and **Sales** boards.
+
+📽️ *[Video Example — Loom Embed]*
+
+### What’s the difference between **Owner** and **Member**?
+
+- **Owner** → The primary assigned technician.
+- **Member** → Includes both the owner *and* any additional assigned resources.
+
+Use **Owner** to target only the primary tech. Use **Member** to include secondary resources as well.
+
+## Best Practices
+
+- Use **internal notes** to reliably trigger flow updates.
+- Use **Status Name** to apply flows across multiple boards.
+- Keep flows simple; overly complex flows are harder to maintain and troubleshoot.

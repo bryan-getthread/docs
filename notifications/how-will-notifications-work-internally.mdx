@@ -1,0 +1,160 @@
+---
+title: "How Notifications Work for your Team"
+description: "As your techs transition to using inbox, they will encounter a number of different notifications from various places. This doc aims to explain the behavior of each type of notification they will enco…"
+---
+
+As your techs transition to using inbox, they will encounter a number of different notifications from various places. This doc aims to explain the behavior of each type of notification they will encounter.
+
+![](/images/7d08644f-notifications-gtm-intro.gif)
+
+## Inbox Notifications (Desktop and Web)
+
+When using inbox, techs by default will get all notifications for all updates on all threads inside inbox. These settings can be configured on the global user level, and the channel user level.
+
+### The Global User Level
+
+At the global user level, each user is able to control two settings
+
+1. "Play a sounds when there's a new message"
+
+2. "Play a sound when there's a new thread"
+
+![](/images/63706875-image.png)
+
+The first setting will affect all threads that you are assigned to, and the second setting will affect all new threads.
+
+### The View User Level
+
+At the view level, each user has 4 options to configure notifications for each view.
+
+![](/images/10f84453-image.png)
+
+1. **All** - This setting will notify you when there is a new thread, when there is a new message on a thread where you are the owner or a member, and when you are @ mentioned on a thread.
+
+2. **Owner** - This setting will notify you when there is a new message on a thread where you are the owner or a member, and when you are @ mentioned on a thread.
+
+3. **Mentions** - This setting will notify you when you are @ mentioned on a thread
+
+4. **Off** - This will disable notifications from this view and will also disable the swarm mode for live threads inside this view
+
+<Note>
+  This setting is configured by each user for each view that they are a member of.
+</Note>
+
+### The Notification Banner
+
+The notification Banner appears at the top center of inbox and comes in 2 variates, Live and Non-Live.
+
+Live threads will look like this
+
+![](/images/c0a4beaa-image.png)
+
+And Non-Live threads will look like this:
+
+![](/images/2f16fe07-image.png)
+
+The main difference is the timer, as the Live-Chat request contains an SLA of 5 minutes.
+
+<Note>
+  This banner will appear if and only if a new thread comes into inbox that does not have an assigned owner and is a new thread. It will not appear when the thread gets assigned or someone is mentioned
+</Note>
+
+## Desktop Notifications
+
+Desktop notifications will appear based on your inbox notification settings, as well as your OS notification settings. Desktop notifications will appear the same whether you are using the web version of inbox, or the desktop version of inbox. If you wish to mute system notifications entirely for inbox, you can do that in your OS system settings the same way you do it for any other application.
+
+## Admin Panel Controls
+
+Before we go into how Slack and Teams notifications work, it is important to talk about some more global member notification settings that affect both.
+
+In the [Thread Admin Panel](https://admin.getthread.com/dashboard/members) in the members tab, each member has a notification setting that will affect what notifications they will receive from the bot in either Slack or Teams.
+
+![](/images/cf7c97fd-image.png)
+
+1. **All** - When this setting is selected, the member will get a notification for ALL threads that they are assigned to in inbox, regardless if they were sent to MS Teams or Slack via a flow or not
+
+2. **Flow Only** - When this setting is selected, the member will only be notified about threads that they are assigned to that are sent to MS teams or Slack via a flow
+
+3. **None** - When this setting is selected, the member will not receive any "assigned" notifications from the bot in MS Teams or Slack
+
+<Note>
+  Note that this setting only affects the MS Teams or Slack 1 on 1 bot, it will not affect notifications coming from a view configured to receive threads from a flow
+</Note>
+
+## Microsoft Teams Notifications
+
+Teams notifications are based on the Teams Companion App that you integrate into your teams tenant. For more info on that integration, please [see this doc](https://docs.getthread.com/article/ynz0rlxyls-teams-companion-app).
+
+Once this integration is setup, your techs will begin to receive system notification from Microsoft Teams. They will be the same weather you are using the web or desktop version of teams.
+
+### 1. Notifications from the installed Teams Companion App
+
+Once a tech is assigned to a thread as an owner or a member, they will begin to receive Teams notifications from the installed companion app.
+
+![](/images/deabe6af-image.png)
+
+From here, when the thread can be viewed in the 1 on 1 conversation with the bot
+
+![](/images/c4122c09-image.png)
+
+### 2. Notifications from a public teams channel
+
+Once the Teams integration is setup in your workspace, you have the option to direct threads to a public Teams channel in your tenant via a flow in the thread admin panel. When a new thread is created, it will appear in the channel
+
+![](/images/036f527d-image.png)
+
+But after the thread gets an assigned owner, only that owner will get notifications about that thread.
+
+![](/images/7ae4e8fb-image.png)
+
+## Slack Notifications
+
+Slack notifications are based on the Slack Companion App that you integrate into your slack tenant. For more info on that integration, please [see this doc](https://docs.getthread.com/article/ljgmr5sc5d-installing-slack-as-an-msp).
+
+Once this integration is setup, your techs will begin to receive system notifications from slack regarding their thread. These notifications can come from 1 of 2 places.
+
+### 1. Notifications from the installed Slack Companion App
+
+Once a tech is assigned to a thread as an owner or a member, they will begin to receive Slack notifications from the installed companion app.
+
+![](/images/3c451db9-image.png)
+
+From here, when the thread is updated by the contact or another tech, the owner will be notified.
+
+![](/images/53dbf14a-image.png)
+
+### 2. Notifications from a public slack channel
+
+Once the slack integration is setup in your workspace, you have the option to direct threads to a public slack channel in your tenant via a flow in the thread admin panel. When a new thread is created, anyone in that channel will receive notification for new threads:
+
+![](/images/1ee1bf0b-image.png)
+
+But after the thread gets an assigned owner, only that owner will get notifications about that thread.
+
+![](/images/a79d9e89-image.png)
+
+## Internal Notification FAQ
+
+#### **Q: "What are the recommended notification settings?"**
+
+A: We believe the most useful settings are to have:
+
+1. Inbox - "Play a sound when there's a new thread" - ENABLED
+2. Inbox - "Play a sound when there's a new message" - DISABLED
+3. Admin Panel - Configure member notification to FLOW ONLY
+4. Inbox View Notifications - Confiture view notifications to "OWNER"
+5. Teams / Slack - Keep default settings
+
+Keep in mind, each companies work flow is different and these settings may not work well with how your team works. Play around with these settings until you get to a point where you are happy!
+
+#### **Q: "I added the Slack/Teams companion bot to a private channel and I am not getting any notifications. Why is it not working?"**
+
+A: The Slack/Teams companion bot can only be added to a public channel. When added to a private channel, the bot is unable to update anything.
+
+#### **Q: "I am getting overloaded with teams notifications from the Teams/Slack Companion App. How can I mute these notifications?"**
+
+A: If you are getting too many notifications from the Teams/Slack Companion App, you can mute the 1 on 1 conversation with the bot itself in teams, mute the companion app itself in slack, or you can mute the channel that you have all of your threads routes to in teams
+
+#### **Q: "I am getting spammed with Swarm Mode SLA Breach in inbox. How do I get these to go away without responding?"**
+
+A: To get rid of these Swarm Modes in inbox, you can set the view notifications to "none" where these swarm modes are coming from. If the Swarms are coming from multiple views, you will have to mute all of them

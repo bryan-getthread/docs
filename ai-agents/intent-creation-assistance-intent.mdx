@@ -1,0 +1,75 @@
+---
+title: "Intent Creation Assistance"
+description: "The Intent Creation Assistance intent is designed to help users build new intents within the Magic Agent service catalog. This intent collects the necessary details, such as the intent name, descript…"
+---
+
+The **Intent Creation Assistance** intent is designed to help users build new intents within the Magic Agent service catalog. This intent collects the necessary details, such as the intent name, description, and required arguments, to ensure accurate and logical workflows for IT teams.
+
+## **Configuration Guide**
+
+### 1. **Create the Intent**
+
+To create the **Intent Creation Assistance** intent, follow these steps:
+
+1. Navigate to **Thread Admin** ([https://admin.getthread.com](https://admin.getthread.com/)) &gt; **Magic AI** &gt; **Agent** &gt; **Catalog** ([Direct Link](https://admin.getthread.com/dashboard/magic/agent)).
+2. Click **Create Intent**.
+3. Input the intent details exactly as follows:
+  - **Intent Name**: "Intent Creation Assistance"
+  - **Description**: "An intent to assist in building new intents within the Magic Agent service catalog by gathering necessary information, including crafting effective prompts for arguments. Think logically about the user’s intent and craft questions to fill in more about the issue or request, like features IT might need. The goal is to ask the right questions to gather accurate information so a Tier 2 IT Service Tech will have all they need to resolve the issue. Keep questions succinct, minimal, logically ordered, and ensure logical consistency."
+  - **Who can use this intent**: Select your internal or test companies or modify to specific client types as needed.
+
+### 2. **Configure Arguments**
+
+| Field Name | Description | Type | Required |
+| --- | --- | --- | --- |
+| Intent Name | Ask the user what intent they’d like help creating. Don’t ask if the user has already described the intent they’d like help creating. Based on that, determine the short name for the new intent and confirm with the user. | Textfield | Yes |
+| Intent Description | Based on the intent name generated, generate a detailed description of the intent so the agent knows what user requests to run the intent against. Don’t ask if the user has already described the intent they’d like help creating. The more detailed the description, the more likely the Agent can match the users’ needs to the appropriate intent. Only include the details of what types of issues the intent should be targeting; do not provide any arguments or questions in the description. | Textfield | Yes |
+| Max Arguments | Determine the maximum arguments or questions that will be included in the form. If specified by the user, do not exceed the max number of arguments specified; otherwise, generate the minimum number of arguments required from a user leveraging the IT Service Agent to gather the correct information from the user so that they answer all the questions, a Tier 2 IT Service Tech will have all the information they need to resolve the issue or request. | Number | No |
+
+### 3. **Configure External Reply**
+
+Set up the following external reply and check the box for **"This is a resolution"**:
+
+**External Reply Text**:
+
+> You are tasked with generating a detailed intent form for a user. Follow these instructions closely to ensure the output meets the required format:
+
+> Output Structure:
+
+> Intent Name
+
+> Intent Description
+
+> For each argument (repeat for every argument needed):
+
+> Argument [X] Name: Provide a short and descriptive name for the argument. If a name is already provided, use it without asking the user.
+
+> Argument [X] Description: Write an effective and logical prompt for this argument. Use existing information where possible and skip the question if it is already answered. The description should instruct the agent to think logically, focus on accuracy, and avoid redundancy.
+
+> Argument [X] Type: Choose from the following:
+
+> Textfield, Number, Date, Email address, Yes/No, Multiple choice (include at least 2-3 relevant options based on context).
+
+> Argument [X] Required: Indicate if the argument is True (mandatory) or False (optional). Use logical reasoning to decide if the argument is essential for the Tier 2 IT Service Tech to resolve the issue.
+
+> Process:
+
+> Generate Arguments: Based on the user’s intent, build the necessary arguments without asking the user to specify their own arguments. Ensure arguments are: Succinct, Logically ordered, Minimal, focusing only on what’s essential.
+
+> Ensure Logical Consistency: Each argument must be crafted as if you were a Tier 1 IT Service agent gathering the right details for Tier 2 resolution.
+
+> Reply with Form Output: Share the form output with the user in the format outlined above and ask: "Does this resolve your request? Would you like to make any changes?"
+
+> Iterate if Necessary: If the user requests changes, continue working with them until they confirm the output is satisfactory.
+
+### 4. **Automation (Optional)**
+
+Include an API URL if required for integration with systems that generate or validate intent forms.
+
+## **Use Cases**
+
+- Assisting your team in crafting customized intents for recurring user requests.
+- Streamlining the intent creation process for quicker deployments.
+- Reducing manual intervention by ensuring high-quality intents aligned with organizational workflows.
+
+This intent simplifies creating accurate, logically consistent intents for the Magic AI catalog.

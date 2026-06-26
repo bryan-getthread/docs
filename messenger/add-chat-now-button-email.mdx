@@ -1,0 +1,74 @@
+---
+title: "How to Add a 'Chat Now' Button to Ticket Email Notifications in Your PSA"
+description: "This guide explains how to add a 'Chat Now' button to your ticket email notifications in your PSA."
+---
+
+This guide explains how to add a **"Chat Now"** button to your **ticket email notifications** in your PSA. The button gives clients instant access to your support team via Thread Messenger, driving faster resolutions and better engagement.
+
+## **What the Button Does**
+
+The **Chat Now** button:
+
+1. Is embedded directly in ticket-related emails.
+2. Opens a live support chat in the client's browser.
+3. Automatically includes the client’s name, email, and company—no extra steps required.
+
+## **Code Snippet**
+
+Paste the following HTML code into your PSA’s ticket email template to display the chat button:
+
+```
+<p> </p>
+<p style="font-family: helvetica">
+  <span style="display: inline-block; text-decoration: none; color: #FFFFFF; background-color: #EB4034; padding: 12px 16px; border-radius: 4px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; text-align: center; border: none">
+    <a href="https://messenger.getthread.com?fullname=[contactfirstname]+[contactlastname]&flow=customer&email=[contactemail]&companyName=[companyname]&appId=<add your appid>¬ificationPermission=granted" 
+       style="text-decoration: none; color: #FFFFFF; background-color: #EB4034; border-radius: 4px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; text-align: center; border: none">
+       Chat Now
+    </a>
+  </span>
+</p>
+<p> </p>
+```
+
+## **How It Works**
+
+The link in the button dynamically pulls information using placeholder fields supported by your PSA:
+
+1. `[contactfirstname]` – The client’s first name
+2. `[contactlastname]` – The client’s last name
+3. `[contactemail]` – The client’s email address
+4. `[companyname]` – The client’s company
+
+Make sure your PSA supports these variables. If not, update them with the correct placeholder format your system uses.
+
+## **Where to Find Your App ID**
+
+To make this button functional, you need to replace `<add your appid>` in the link with your actual **Thread App ID**.
+
+Here’s how to find it:
+
+1. Log in to your [**Thread admin panel**](https://admin.getthread.com/).
+2. Navigate to **Messenger → Installation**.
+3. Locate your **App ID** in the installation section.
+4. Copy and paste it into the `appId=` portion of the chat link.
+
+## **How to Add It to Your PSA**
+
+While every PSA is different, here's a general process for updating your email template:
+
+1. Open your PSA's **email template editor**.
+2. Locate the template used for **ticket updates** or **status notifications**.
+3. Open the **HTML view** (or source view) of the template.
+4. Paste the HTML snippet where you'd like the **Chat Now** button to appear.
+5. Replace `<add your appid>` with your actual App ID.
+6. Save and preview the template using a test ticket or contact.
+
+## **Best Practices**
+
+- Test how the email renders in various email clients (desktop + mobile).
+- Ensure placeholder fields are correctly replaced by your PSA.
+- Customize button color (`#EB4034`) to match your branding if needed.
+
+## **🚀 The Result: A Better Support Experience**
+
+By giving clients a one-click way to chat with support, you're removing barriers and encouraging real-time conversations. It's a simple upgrade that delivers serious impact.

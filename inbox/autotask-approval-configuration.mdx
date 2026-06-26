@@ -1,0 +1,77 @@
+---
+title: "How to Set Up User-Defined Fields (UDFs) in Autotask for Approvals"
+description: "Overview. This guide explains how to create a User-Defined Field (UDF) in Autotask, assign it to contacts, and configure Thread to use approvals."
+---
+
+## **Overview**
+
+This guide explains how to create a User-Defined Field (UDF) in Autotask, assign it to contacts, and configure Thread to use approvals.
+
+Approvals can be used in the following:
+
+| Feature | Description |
+| --- | --- |
+| Thread Inbox | Manually trigger or cancel an approval directly within Thread Inbox or Pods/Insights. |
+| Triage Agent | Automatically send approval requests directly within an intent with Triage Agent. |
+
+Click here for more information on approvals
+
+## **Step 1: Create a Contact UDF in Autotask**
+
+![](/images/de32304f-Creating%20User-Defined%20Fields%20in%20Autotask.gif)
+
+1. Login to [Autotask PSA](https://ww1.autotask.net/Mvc/Framework/Authentication.mvc/Authenticate).
+2. Click on **Admin** in the top navigation bar.
+3. Select **User-Defined Fields (UDFs)** under **Application-Wide (Shared) Features**.
+4. Click on the **Contacts** tab.
+5. Click **New** to create a new UDF.
+6. **Enter a Name:** (e.g., `Approval Role`)
+7. **Field Type:** Select `List (Single Select)`
+8. Under the **List Options** click **New** to add **Contact Types** and define approval roles, such as:**Approval Role****Description**ApproverReviews and approves or denies requests.FinanceReviews and approves requests related to budgets, expenses, and financial impact.ProcurementReviews and approves vendor, contracts, and purchasing requests.Human ResourcesReviews and approves new hire, termination and other human resource related requests.Change Advisory Board (CAB)A committee that reviews and approves system-wide IT changes.
+9. Click **Save & Close** to save the new UDF.
+
+## **Step 2: Assign the UDF to Contacts in Autotask**
+
+1. Login to [Autotask PSA](https://ww1.autotask.net/Mvc/Framework/Authentication.mvc/Authenticate).
+2. Go to **CRM &gt; Contacts** in Autotask.
+3. Search for and select the contact.
+4. Find the newly created **Approval Role** UDF field.
+5. Choose the correct role from the dropdown (e.g., Approver, Procurement).
+6. Click **Save & Close**.
+
+## **Step 3: Sync Data from Autotask to Thread**
+
+<Note>
+  Note
+  
+  Contacts are automatically updated in Thread. However, you will need to force sync
+  
+  Contact Types
+  
+  by following the steps below:
+</Note>
+
+1. Login to the **Thread admin panel**.
+2. Go to the **PSA Sync** tab.
+3. Click **Force Sync** next to**Contact Types**.
+4. Wait for the sync to complete.
+
+Once completed, Thread will now recognize the **Approval Role** UDF and use it for the approvals workflow.
+
+## **Step 4: Configure Thread to Use the UDF for Approvals**
+
+1. Login to the [**Thread admin panel**](htttps://admin.getthread.com).
+2. Click **Admin &gt; Integrations &gt; PSA &gt; Settings**.
+3. Locate the **Approval Field** setting.
+4. Select the UDF you created in Autotask (e.g., `Approval Roles`).
+5. Click **Save Changes**.
+
+![](/images/538d4d03-Set%20UDF%20Contact%20Type%20in%20Thread%20Admin%20Panel.gif)
+
+## **Completion**
+
+- Check a request in Thread to ensure that approvals are assigned correctly.
+- If the UDF is not showing, verify that the **Autotask-Thread sync** was successful.
+- If issues persist, [reach out to **support**](https://help.getthread.com/).
+
+![](/images/36a6845e-Requesting%20Approval.gif)

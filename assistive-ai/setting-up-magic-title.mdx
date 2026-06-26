@@ -1,0 +1,72 @@
+---
+title: "Configuring Magic Title"
+description: "Magic Title automatically updates thread titles based on the context of your conversations, ensuring everything stays synced with your PSA system. Key Benefits of Magic Title. 🚀 Saves Time : Quickly…"
+---
+
+**Magic Title** automatically updates thread titles based on the context of your conversations, ensuring everything stays synced with your PSA system.
+
+## **Key Benefits of Magic Title**
+
+- 🚀 **Saves Time**: Quickly identify the purpose of threads without reading the full conversation.
+- 📅 **Improves Organization**: Keep your dashboard cleaner and more structured with clear, concise titles.
+- 🎯 **Boosts Focus**: Spot critical topics at a glance and prioritize tasks effectively.
+- ⚙️ **Streamlines Workflow**: Automatically summarizes threads, reducing manual effort and improving productivity.
+
+### **Use Cases**
+
+- **Non-descriptive Subject Line**: If a thread comes in with a vague subject, Magic Title can retitle it automatically to summarize the essence of the customer’s request.
+- **General Requests**: When a customer simply says "Hi!" or "Help!", you can (automatically) run Magic Title after gathering more information to give it context.
+- **Customizable Titles**: You can customize how Magic Title retitles your threads, such as adding key words like "URGENT:" to highlight important requests.
+
+<Note>
+  In this guide, we will be using the Connectwise Manage term
+  
+  Boards
+  
+  . Anywhere boards is mentioned, the same will apply to Autotask Queues and HaloPSA Teams
+</Note>
+
+Setting up Magic Title is done in two steps: Configuring Access and Editing Rules.
+
+## **1. Configure Access**
+
+1. **Navigate to the** [**Admin Panel**](https://admin.getthread.com/)
+  - Go to **Admin Panel** → **As****sistive AI** → **Generate Title: Manage Access**
+2. **Configure Automation Triggers** Here you will see two sections: **Apply when** and **Apply to**. Currently, the only trigger for Magic Title is when a thread is created. When toggled on, Title Generation will run when a ticket first reaches Thread. In **Apply to**, we can now configure what tickets the above trigger will affect. We can do this by restricting access by Clients, Boards, and Sources.![](/images/286d04f7-title_access.gif)
+
+## **2. Configure Title Rules**
+
+1. **Navigate to the** [**Admin Panel**](https://admin.getthread.com/)
+  - Go to **Admin Panel** → **As****sistive AI** → **Generate Title: Edit**
+2. **M****odify the Magic Title Rules (Recommended)** You can modify the title rules for Magic Title. Check out the [Magic Title Rule Creation Guide](/assistive-ai/magic-title-rule-creation-guide) for tips and tricks. With Title rules, you can customize how the AI behaves by specifying formatting preferences or telling it to ignore certain words.
+
+<Tip>
+  Feeling stuck? Try asking Threadalf, the Prompt Wizard! He was created to assist you in constructing the perfect prompt!
+</Tip>
+
+Threadalf, the Prompt Wizard
+
+1. **Test Magic Title Using the Emulator**
+  - Once you've configured Magic Title rules, you can test its functionality using the emulator on the right. You can try real-world scenarios or paste descriptions from recent service requests to observe how Magic AI titles them.![](/images/136fd41d-title_test.gif)
+
+## **3.** **Configure a Flow to run Magic Title (optional)**
+
+To run Magic Title outside of thread creation, follow the steps below. This set up is great for running Title Generation when a thread is escalated to a new team, a thread is closed, and many more situations. This ensures that all the way through the thread lifecycle, the title stays true, even when new information is added.
+
+### **How to Configure the Flow**
+
+If you’ve already set up auto prioritization from earlier, you can add an additional action for categorization in the same flow. Otherwise, you can use the template below to set up auto categorization.
+
+1. **Navigate to Flows**
+  - Go to **Admin Panel** → **Flows** → **Create Flow**
+2. **Apply Filters** Apply filters for when and you want the flow to run. For example, you can set the filters to specific types, territories, agreements, and much more! For more Flow examples, see our [Flows](/inbox/flows) guide
+3. **Add Title Generation Action** Scroll to the bottom, click **+**, then select **Actions** → **Magic** → **Generate Title**.
+4. **Save and Test** Save the flow changes, then test it by submitting a new service request that matches the ticket criteria you set in the flow.
+
+### **4.****Manual action**
+
+You can also manually trigger Magic Title from the actions inside Thread Inbox or Pods when needed. This brings in the latest conext of the ticket, latest discussion notes, etc. to update the ticket title.
+
+1. **Trigger Magic Title Manually in Thread Inbox or Pods**
+  - Head to Thread Inbox or Pods, click on **Actions** → **Magic** → **Generate Title**.
+  - Watch as the magic happens instantly and the ticket title is updated!![](/images/6806169b-Manual%20Magic%20Title.gif)

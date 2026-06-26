@@ -1,0 +1,43 @@
+---
+title: "Use IT Glue with Super Magic"
+description: "Availability: Limited release — contact your Thread account team to enable IT Glue for your workspace. Connect IT Glue and Super Magic can search your IT Glue documentation mid-ticket — configuration…"
+---
+
+<Tip>
+  Availability: Limited release
+  
+  — contact your Thread account team to enable IT Glue for your workspace.
+</Tip>
+
+Connect IT Glue and Super Magic can search your **IT Glue documentation** mid-ticket — configurations, passwords documentation, client runbooks — with links back to the source in IT Glue.
+
+### What you can ask
+
+> "Find the firewall documentation for Acme in IT Glue"
+
+> "What does IT Glue say about Acme's VPN configuration?"
+
+> "Pull up the server documentation for this client"
+
+IT Glue search is **read-only** — Super Magic looks things up, it never changes your IT Glue data.
+
+### Set it up (admin, once for the whole workspace)
+
+IT Glue is a **workspace-level integration**: connect it once and it works for every member.
+
+1. **Connect IT Glue to Thread** — if it isn't already, the **Configure** button on the IT Glue row in **Super Magic settings → Integrations** takes you to the setup.
+2. **Enable it for Super Magic** — turn the **IT Glue** toggle on in the same Integrations card.
+
+Both are required: a connected integration with the toggle off exposes nothing.
+
+#### Troubleshooting
+
+- **No IT Glue results in chat?** Check the row shows **Connected** AND the toggle is on.
+- **Still nothing?** Your workspace may not have the IT Glue release enabled yet — ask your account team.
+- Anything else: [**Super Magic Admin Guide → Troubleshooting**](/super-magic/super-magic-admin-guide-setup-access-safety).
+
+#### Available tools
+
+| Tool | Type | What it does |
+| --- | --- | --- |
+| search_itglue | Read | Searches IT Glue documentation and returns matching documents with links back to IT Glue |

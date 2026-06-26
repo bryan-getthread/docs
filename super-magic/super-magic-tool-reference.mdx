@@ -1,0 +1,116 @@
+---
+title: "Super Magic Tool Reference"
+description: "Availability: This is the canonical reference for every tool Super Magic can use — in the Inbox chat and over the Thread MCP server (the two surfaces expose the same tools under the same names, filte…"
+---
+
+<Tip>
+  Availability: This is the canonical reference for every tool Super Magic can use — in the Inbox chat and over the Thread MCP server (the two surfaces expose the same tools under the same names, filtered by the same permissions).
+</Tip>
+
+### How to read this reference
+
+| Column | Meaning |
+| --- | --- |
+| Tool | The tool id (identical in-product and over MCP) |
+| Type | Read (never prompts) or Write (always shows a Confirm action card) |
+| Gating | What controls whether a member sees this tool |
+
+**Gating values:** **Always on** (every member, cannot be disabled) · **Write toggle** (on/off per tool; member must also pass the write-access level) · **Admin-only** · **Integration** (configured + toggle on; some are *Limited release*) · **Platform** (managed by Thread).
+
+### Tickets
+
+| Tool | Type | Gating | Notes |
+| --- | --- | --- | --- |
+| search_tickets | Read | Always on | Filters: keywords, client, board, state, dates, priority, contact, member, sentiment; single-ticket lookup by internal or PSA id; optional full message thread; count-only mode |
+| list_boards | Read | Always on | Resolves board names → ids |
+| list_ticket_statuses | Read | Always on | Statuses valid for a board |
+| list_ticket_priorities | Read | Always on |  |
+| list_recap_templates | Read | Always on | Recap templates available to the workspace |
+| create_ticket | Write | Write toggle | Requires title, board, client; optional contact/assignee |
+| update_ticket | Write | Write toggle | Title, status, priority, board, assignee (assign/unassign) |
+| add_ticket_note | Write | Write toggle | Internal (staff-only) or external (client-visible, synced to PSA) |
+| merge_ticket | Write | Write toggle | ConnectWise workspaces only — hidden elsewhere |
+| send_approval | Write | Write toggle | Emails a contact to approve/decline — route to specific contacts or by contact type |
+| log_time_entry | Write | Write toggle | Records time in the PSA, optionally marked as the resolution |
+| run_assistive_ai | Write | Write toggle | Auto title / priority / categorization / recap in a single call |
+
+### Scheduling
+
+| Tool | Type | Gating | Notes |
+| --- | --- | --- | --- |
+| schedule_ticket | Write | Write toggle | Books a technician to a date/time — lands on the Planner + PSA dispatch calendar (does not write to Outlook) |
+| update_schedule_entry | Write | Write toggle | Modify, reassign, mark done, or delete an entry |
+
+> <Note>
+>   Bounds for mass operations:
+>   
+>   chained requests run up to ~30 agent steps, and ticket sweeps cover the newest ~500 tickets. Batch bigger jobs in chunks.
+> </Note>
+
+### Search & lookups
+
+| Tool | Type | Gating | Notes |
+| --- | --- | --- | --- |
+| search_clients | Read | Always on | Resolves client companies → ids |
+| search_contacts | Read | Always on | People at a client; includes learned contact memory |
+| search_members | Read | Always on | Workspace staff |
+| search_thread_docs | Read | Always on | Thread product documentation |
+| search_knowledge_base | Read | (Limited release) | Workspace KB + resolved-ticket history |
+| search_itglue | Read | Integration (Limited release) | IT Glue documentation |
+| search_hudu | Read | Integration (Limited release) | Hudu KB, passwords, network docs |
+| web_search | Read | Platform | Live web results (error codes, CVEs, vendor docs) |
+
+### Intents — admin-only
+
+| Tool | Type | Gating |
+| --- | --- | --- |
+| list_intents | Read | Admin-only |
+| get_intent | Read | Admin-only |
+| create_intent | Write | Admin-only + write toggle ( intent_tools ) |
+| update_intent | Write | Admin-only + write toggle ( intent_tools ) |
+| update_variation | Write | Admin-only + write toggle ( intent_tools ) |
+| set_variation_replies | Write | Admin-only + write toggle ( intent_tools ) |
+| set_variation_arguments | Write | Admin-only + write toggle ( intent_tools ) |
+
+### Flows — admin-only
+
+| Tool | Type | Gating |
+| --- | --- | --- |
+| list_flows | Read | Admin-only |
+| get_flow | Read | Admin-only |
+| create_flow | Write | Admin-only + write toggle ( flow_tools ) |
+| list_flow_actions | Read | Admin-only |
+| list_flow_filter_attributes | Read | Admin-only |
+| list_flow_filter_attribute_values | Read | Admin-only |
+
+### NinjaOne — integration *(Limited release)*
+
+Requires: NinjaOne configured by an admin **and** the member signed in with their own NinjaOne account. Tools act with **that member's NinjaOne permissions**.
+
+| Tool | Type | Notes |
+| --- | --- | --- |
+| list_ninjaone_organizations | Read | Client orgs in NinjaOne |
+| search_ninjaone_devices | Read |  |
+| get_ninjaone_device | Read | Device detail |
+| get_ninjaone_device_link | Read | Deep link to the device in NinjaOne |
+| get_ninjaone_device_activities | Read | Recent device activity |
+| list_ninjaone_alerts | Read |  |
+| list_ninjaone_windows_services | Read |  |
+| reboot_ninjaone_device | Write |  |
+| set_ninjaone_device_maintenance | Write | Maintenance mode on/off |
+| reset_ninjaone_alert | Write |  |
+| control_ninjaone_windows_service | Write | Start/stop/restart a Windows service |
+| set_ninjaone_device_approval | Write | Approve/reject a device |
+
+### TimeZest — integration
+
+| Tool | Type | Notes |
+| --- | --- | --- |
+| list_timezest_resources | Read |  |
+| list_timezest_appointment_types | Read |  |
+| create_timezest_scheduling_request | Write | Sends a real scheduling email to the contact |
+| get_timezest_scheduling_requests | Read |  |
+
+### Liongard — integration *(Limited release)*
+
+Liongard tools are fetched dynamically from your Liongard instance, so the exact list depends on what Liongard exposes (environments, systems, metrics, alerts, detections, timelines, reports). All Liongard tools are reads.

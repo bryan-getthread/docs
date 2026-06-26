@@ -1,0 +1,176 @@
+---
+title: "Voice AI Setup – Phase 1: Initial Configuration"
+description: "Introduction to Voice AI. Voice AI capabilities allow your business to handle calls intelligently, ensuring no client query goes unanswered while optimizing your team's workflow. Introduction to Agen…"
+---
+
+## Introduction to Voice AI
+
+Voice AI capabilities allow your business to handle calls intelligently, ensuring no client query goes unanswered while optimizing your team's workflow.
+
+**Introduction to Agent Types**
+
+- **Overview of Overflow**
+  - Provides coverage when your team is unavailable.
+  - Includes after-hours functionality.
+- **Overview of Attendant**
+  - Acts as an intelligent receptionist, taking down customer issues before directing calls for a warm handoff to your technicians.
+
+**Use Cases: Known Configurations**
+
+Here are the common ways partners set up voice:
+
+1. **Overflow as a front desk:** Taking all calls, no technicians answer directly. Technicians can prioritize issues and call back later.
+2. **Overflow + After hours as voicemail:** Ensures coverage when the office is closed.
+3. **Attendant Advanced:** Intake and warm transfer with ticket creation and call recording (+ contact mapping).
+  - *SUPERCHARGE with Call time out transfer to Overflow*
+4. **Attendant Minimal:** Just immediate ticket creation and call recording.
+  - *SUPERCHARGE with Call time out transfer to Overflow*
+
+### Initial Configuration Steps
+
+#### Step 1: Create Agent
+
+- Navigate to **Voice &gt; Agents** and click **Create Agent**.
+- Give it an internal name (e.g., "Thread Overflow").
+
+![](/images/81405fc1-cfimages)
+
+#### Step 2: Update the Agent Description
+
+This is where you set the role for your agent. This can impact how the agent responds to your callers.
+
+**Examples:**
+
+- "You are a helpful support agent for [Company]"
+- "You are an IT support agent that will help record caller issues."
+- "You are an AI agent that helps take issues for [business categories]."
+
+#### Step 3: Set Up Communication Style
+
+**Choose a Voice**
+
+Select a voice that matches your brand (e.g., Brooke (US)).
+
+**Select a Background Sound**
+
+This will play when your AI agent is updating/thinking so callers don't think the line went dead.
+
+**Custom Hold Music**
+
+Custom hold music allows you to replace the default hold music with your own uploaded audio files. Whether you want to play a promotional message, brand-specific music, or a custom greeting, providing unique audio keeps your callers engaged and reinforces your professional identity while they wait.
+
+<Note>
+  All Uploaded Music must be Royalty-Free. Thread is not responsible for hold music chosen by partners and or any licensing costs they may incur as a result
+</Note>
+
+How to Set Up Custom Hold Music:
+
+1. Navigate to the General tab.
+2. Under the "Select Hold Music" section, select the Custom tab.
+3. Upload your audio file.
+4. Click Save to apply your changes.
+  ![](/images/7972aa64-custom-hold-music.gif)
+
+<Note>
+  Supported Formats: MP3, WAV, and OGG
+  
+  Maximum File Size: 10MB
+  
+  Recommended encoding for best results:
+  
+  MP3 or OGG at 64kbps, mono, 16kHz sample rate. This keeps file sizes small while maintaining clear voice quality.
+  
+  What does this mean in practice?
+  
+  At recommended settings, MP3 and OGG files can hold 20+ minutes of audio well under the 10MB limit. WAV files are uncompressed and much larger, so they're only practical for short recordings (under 5 minutes).
+</Note>
+
+**My file was rejected – what do I do?**
+
+If your audio file exceeds 10MB, it's almost always an encoding issue, not a duration issue. Check for these common culprits:
+
+- **Stereo instead of mono** – voice calls only need one channel. Stereo doubles the file size for no benefit.
+- **High bitrate** – settings like 128kbps, 192kbps, or 320kbps are designed for music. 64kbps is plenty for voice.
+- **WAV format on longer recordings** – if your call is more than a couple of minutes, switch to MP3 or OGG.
+
+Most phone systems and recording tools let you configure these settings. If you need help adjusting them, reach out to your CSM.
+
+**Speech Speed & Volume**
+
+![](/images/111c2d46-image.png)
+
+You can adjust the Voice Agents speech speed from 60% up to 150%
+
+Voice Agent speech volume can be adjusted from 50% up to 200%
+
+<Note>
+  Preview audio reflects volume changes accurately.Live calls are routed through phone networks which normalize audio levels,therefore caller-perceived volume may not match the slider
+</Note>
+
+**Communication Rules**
+
+You can generally keep these with our default settings, but this area helps control how the agent responds. For example, rephrasing questions or lengthy responses.
+
+**Tone of Voice:**
+
+You can generally keep these with our default settings, but this area helps control the agent's delivery of what it is saying. For example, tone, positivity, helpfulness.
+
+**Custom Pronunciations (Optional)**
+
+You can use custom pronunciations to help standardize how the agent says specific words. You can preview the pronunciation using the "preview" button, but we recommend also testing this when you have your agent fully set up by calling the Agent phone number.
+
+![](/images/e9bd9c63-custom-pronounce.png)
+
+#### Step 4: Default Company and Contact (Critical)
+
+<Note>
+  ⚠️
+  
+  CRITICAL STEP
+  
+  Action:
+  
+  You MUST select a "Default Company" and "Default Contact".
+  
+  Why:
+  
+  If the AI cannot identify the caller's phone number in your PSA, it needs a fallback contact to create the ticket against. Without this, the system will error out.
+</Note>
+
+Click **Save**.
+
+![](/images/608e0b4a-cfimages)
+
+#### Step 5 : Set Backup Number
+
+Enter a Backup number that the agent will fall back to in the rare case of PSA Outages
+
+![](/images/e6660d51-image.png)
+
+#### Optional Best Practice – Visibility & Source Tracking
+
+Isolate AI-generated traffic from standard phone traffic within your PSA by using unique "Source" identifiers.
+
+<Tip>
+  Why this matters:
+  
+  This provides immediate visibility into AI performance. Management can instantly review a dedicated feed of AI transcripts and tickets to measure ROI and quality, without having to dig through a mixed "Phone" ticket board.
+</Tip>
+
+**The Problem**
+
+Most MSPs use a generic "Phone" source for everything, making it hard to track AI performance.
+
+**The Solution (Unique Source)**
+
+1. Create a unique **Source** in your PSA called **"Voice AI"** (or similar).
+2. When creating your voice agents, under **Agent &gt; Overflow AND Attendant &gt; Default Board and Source**, select this new **"Voice AI"** source.
+3. **Important:** Remove this source/board from Triage agent to prevent conflicts.
+
+**Create the Inbox View**
+
+1. Go to the **Thread Inbox**.
+2. Create a new **View** filtered by Source = Voice AI.
+3. **Benefit:** This creates a dedicated feed of all calls handled by the AI, allowing management to review transcripts and performance in one place without digging through other tickets.
+
+Phase 2: Overflow & After Hours

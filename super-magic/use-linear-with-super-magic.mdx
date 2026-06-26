@@ -1,0 +1,62 @@
+---
+title: "Use Linear with Super Magic"
+description: "Availability: Limited release — contact your Thread account team to enable connectors for your workspace. Connect Linear and Super Magic can work with your issues, projects, and cycles — so when a ti…"
+---
+
+<Tip>
+  Availability: Limited release
+  
+  — contact your Thread account team to enable connectors for your workspace.
+</Tip>
+
+Connect Linear and Super Magic can work with your **issues, projects, and cycles** — so when a ticket turns out to be a product bug, you can file it without leaving the conversation.
+
+### What you can ask
+
+> "Create a Linear issue for this bug and link this ticket in the description"
+
+> "Find Linear issues about the printer driver problem"
+
+> "What's in the current cycle?"
+
+> "Add a comment to LIN-123 with what the client just reported"
+
+Anything that creates or changes something in Linear goes through Super Magic's **Confirm action** card first.
+
+#### Set it up
+
+Linear is a **connector**: an admin makes it available, then **each member signs in with their own Linear account** — Super Magic acts with your Linear permissions, not a shared bot account.
+
+**Admin (once):**
+
+1. Open **Super Magic settings → Connectors**.
+2. Turn on the **Linear** toggle.
+
+**Each member (once):**
+
+1. Open the **Connectors** page in your Inbox.
+2. Click **Connect** on the Linear row and sign in to Linear.
+3. The row shows **Signed in as** your account — done. Disconnect anytime.
+
+#### Troubleshooting
+
+- **Linear not on your Connectors page?** Your admin hasn't enabled it, or your workspace isn't in the connectors release yet.
+- **Connected but tools failing?** Disconnect and reconnect — your Linear authorization may have been revoked on Linear's side.
+- Anything else: [**Super Magic Admin Guide → Troubleshooting**](/super-magic/super-magic-admin-guide-setup-access-safety).
+
+#### Available tools
+
+Linear's official MCP server (`mcp.linear.app` — the same endpoint Thread connects to) currently exposes **~45 tools**. Verified June 10, 2026 against the live server:
+
+| Area | Tools |
+| --- | --- |
+| Issues | list_issues , get_issue , save_issue (create/update), list_issue_statuses , get_issue_status , list_issue_labels , create_issue_label |
+| Projects & milestones | list_projects , get_project , save_project , list_project_labels , list_milestones , get_milestone , save_milestone |
+| Teams, people & cycles | list_teams , get_team , list_users , get_user , list_cycles |
+| Documents & initiatives | list_documents , get_document , save_document , list_initiatives , get_initiative , save_initiative |
+| Comments | list_comments , save_comment , delete_comment |
+| Customers & needs | list_customers , save_customer , delete_customer , save_customer_need , delete_customer_need |
+| Status updates | get_status_updates , save_status_update , delete_status_update |
+| Attachments & misc | create_attachment , create_attachment_from_upload , prepare_attachment_upload , get_attachment , delete_attachment , extract_images , get_diff , get_diff_threads , list_diffs , search_documentation |
+
+> Notes: the exact set is controlled by Linear and can change — Super Magic picks up changes automatically (tool list refreshes every ~5 minutes) and registers the vendor's tools **1:1, nothing filtered**. In Super Magic each tool appears as `linear_{name}` (e.g. `linear_list_issues`). What a member can actually do is still bound by their own Linear permissions.

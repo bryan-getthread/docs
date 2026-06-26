@@ -1,0 +1,55 @@
+---
+title: "Voice AI Pronunciation Guide"
+description: "Voice AI Pronunciation Guide. This guide focuses on optimizing the way Getthread Voice AI pronounces brand names, contact names, and industry-specific jargon using the standard text and preview box.…"
+---
+
+## Voice AI Pronunciation Guide
+
+This guide focuses on optimizing the way Getthread Voice AI pronounces brand names, contact names, and industry-specific jargon using the standard text and preview box.
+
+Since the agent processes text naturally, the best way to correct mispronunciations is through **Phonetic Respelling**. This involves changing the spelling of a word in your script to a version that "sounds like" the intended result.
+
+### 1. The Phonetic Respelling Strategy
+
+When the Voice AI mispronounces a word, replace it in your script with a phonetic version. Use **hyphens** to separate syllables and **capitalization** to indicate which syllable the agent should emphasize.
+
+| Original Word | Phonetic Replacement | Why? |
+| --- | --- | --- |
+| Getthread | Get-thred | Ensures the "th" isn't blended or skipped. |
+| Azure | ASH-er | Prevents the agent from saying "Ah-zoor." |
+| SaaS | Sass | Stops the agent from spelling out "S-A-A-S." |
+
+| Name | Phonetic Replacement | Corrects for... |
+| --- | --- | --- |
+| Galanis | guh-LAN-iss | Middle syllable emphasis. |
+| Nguyen | Wen | Common mispronunciation of the silent letters. |
+| Xavier | ex-ZAY-vee-er | Prevents the "Zavier" or "Havier" variants. |
+
+### 2. Best Practices for Clear Speech
+
+To get the most natural sound out of the preview box, follow these formatting rules:
+
+- **Break it down:** Use hyphens for multi-syllable names (e.g., `Me-gan` vs `May-gan`).
+- **Use Emphasis:** Capitalize the "stressed" part of the word. A voice agent will naturally lift the pitch and volume of capitalized letters.
+  - Example: `pro-DUCE` (the verb) vs. `PRO-duce` (the fruit).
+- **Check for Homonyms:** Some words are spelled the same but sound different. If the agent says "I read (red) the book" when you want "I will read (reed) the book," change the spelling to `reed`.
+
+### 3. Dealing with Acronyms and Numbers
+
+Voice AI sometimes struggles to decide whether to say a word or spell it out.
+
+- **To force spelling it out:** Use periods or spaces between letters.
+  - Example: `T.H.R.E.A.D.` or `T H R E A D`.
+- **To force a word:** Spell it as it sounds.
+  - Example: For the "SQL" database, use `Se-quel` instead of `S.Q.L.`
+- **Dates and Years:** If "2024" sounds robotic, try typing `twenty twenty-four`.
+
+### 4. The "Trial and Error" Workflow
+
+Because you have access to the **Preview Box**, use this 3-step loop to perfect your brand voice:
+
+1. **Paste & Listen:** Paste your actual script into the box and generate the audio.
+2. **Identify "Glitch" Words:** Note any words where the agent sounds robotic, hesitant, or incorrect.
+3. **Swap & Test:** Replace only those specific words with phonetic versions (e.g., changing `Getthread` to `Get-thred`) and preview again until it sounds human.
+
+> **Tip:** Keep a "Brand Dictionary" internally with these phonetic spellings. This ensures that every time you build a new onboarding path or voice flow, the brand names remain consistent across all agents.

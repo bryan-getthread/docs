@@ -1,0 +1,43 @@
+---
+title: "Configuring Ticket Type Categorization"
+description: "Ticket Type categorization is available for both Autotask PSA and HaloPSA integrations, helping to streamline your ticket management process. Key Benefits of Ticket Type Categorization. 🤖 AI-Driven U…"
+---
+
+Ticket Type categorization is available for both **Autotask PSA** and **HaloPSA** integrations, helping to streamline your ticket management process.
+
+### **Key Benefits of Ticket Type Categorization**
+
+- 🤖 **AI-Driven Updates**: The system automatically adjusts the ticket type based on the request, ensuring accuracy and eliminating the need for manual updates.
+- 📈 **Aligned with ITIL Best Practices**: By correctly categorizing tickets from the beginning, it supports ITIL service management principles, promoting smoother workflows and improved service delivery.
+- ⚙️ **Automated Ticket Routing**: With automatic ticket type changes, errors are minimized, and tickets are quickly routed to the appropriate team for faster resolution.
+- ⏱️ **Efficiency Boost**: This feature saves time by instantly categorizing tickets, enabling teams to focus on resolving issues rather than on administrative tasks.
+
+## **1. Configure Ticket Type Categorization**
+
+1. **Navigate to the** [**Admin Panel**](https://admin.getthread.com/)
+  - Go to **Admin Panel** → **Magic AI** → **Categorization** → **Ticket Type**.
+2. **Add Definitions for Each Ticket Type**
+  - Begin by defining each Ticket Type to ensure the correct categorization.
+3. **Optional: Ignore Certain Types**
+  - If you don’t want Magic AI to automatically assign certain ticket type, click the **"ignore"** checkbox.
+4. **Test Ticket Type Categorization Using the Emulator**
+  - Once you've configured Ticket Type Categorization, you can test its functionality using the emulator on the right. You can try real-world scenarios or paste descriptions from recent service requests to observe how Magic AI categorizes them.
+5. **Continue to Iterate and Define Categories**
+  - Whenever Auto Categorization is triggered on a ticket, Thread will append an internal note explaining the categorization decision. This allows you to review and tweak your configuration on the fly to further train Magic AI as needed.
+
+## **2.** **Configure a Flow to Automatically Categorize Incoming Threads**
+
+Now that you’ve set up Auto Categorization prompts, the next step is to configure a flow that will automatically categorize incoming threads.
+
+### **How to Configure the Flow:**
+
+If you’ve already set up auto categorization from earlier, you can skip this step. Otherwise, you can use the template below to set up auto categorization.
+
+1. **Navigate to Templates**
+  - Go to **Admin Panel** → **Templates** → **Auto Categorization**.
+2. **Apply Filters**
+  - Apply filters that match your incoming threads. For example, you can set the filter to your incoming **service boards, queues, or teams** to categorize all incoming service requests.
+3. **Ensure Auto Categorize Action Is Added**
+  - The **Auto Categorize** action is already included in the template. If you’re building your flow from scratch in the **Flow Builder**, scroll to the bottom, click **+**, then select **Actions** → **Magic** → **Auto Categorize**.
+4. **Save and Test**
+  - Save the flow changes, then test it by submitting a new service request that matches the ticket criteria you set in the flow.

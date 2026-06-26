@@ -1,0 +1,72 @@
+---
+title: "Connect IT Glue, Hudu, TimeZest & Knowledge Sources to Super Magic"
+description: "Availability : Liongard is Limited release — contact your Thread account team to enable them for your workspace. These integrations extend what Super Magic can reach when working on tickets. They're…"
+---
+
+<Tip>
+  Availability
+  
+  : Liongard is Limited release — contact your Thread account team to enable them for your workspace.
+</Tip>
+
+These integrations extend what Super Magic can reach when working on tickets. They're all **workspace-level**: an admin connects each one once, and it works for every member (no individual sign-ins — that's what makes them *integrations* rather than *connectors*; see the [**Super Magic Admin Guide**](/super-magic/super-magic-admin-guide-setup-access-safety) for the distinction).
+
+### The pattern (same for all of them)
+
+Every integration on this page follows two steps:
+
+1. **Connect it** — configure the integration with its credentials (the **Configure** button on each row takes you to the right setup page if it isn't connected yet).
+2. **Enable it for Super Magic** — in **Super Magic settings → Integrations**, turn the integration's toggle on.
+
+Both must be true before the tools appear. A connected integration with its toggle off exposes nothing — and vice versa.
+
+![](/images/1fe3dd8c-integrations-and-connectors-sm-admin.jpeg)
+
+#### IT Glue
+
+Adds **IT Glue documentation search** to Super Magic. Members can ask things like *"find the firewall docs for Acme in IT Glue"* and get matching documents in the chat, with links back to IT Glue.
+
+#### Hudu
+
+Adds **Hudu search** — knowledge base articles, passwords, and network documentation. Results appear in chat with links to the source in Hudu.
+
+#### TimeZest
+
+Adds four scheduling capabilities:
+
+- Look up **resources** (who can be booked) and **appointment types**
+- See existing **scheduling requests**
+- **Send a scheduling request** — this one is a write action: it sends a **real scheduling email** to the contact, so it always goes through the Confirm action card, and it respects your write-access settings.
+
+A member can ask: *"Send Jane a scheduling link for a 30-minute remote support session."*
+
+#### Liongard *(Limited release)*
+
+Adds **Liongard inspection data** to Super Magic — environments, systems, metrics, alerts, detections, and timelines from your Liongard instance. The exact capabilities come from your Liongard instance directly, and they're all read-only.
+
+<Tip>
+  Liongard is also offered in the
+  
+  Super MCP connector catalog
+  
+  (per-member sign-in) — see
+  
+  Add External Tools to Super Magic with Connectors.
+</Tip>
+
+#### Knowledge base, web search, and Thread docs
+
+Three knowledge sources need no integration setup:
+
+- **Knowledge base search** *(Limited release)* — searches your workspace KB and resolved-ticket history.
+- **Web search** — live web results (error codes, CVEs, vendor docs). Managed by Thread; no admin action needed.
+- **Thread docs search** — always on; answers questions about how Thread itself works.
+
+#### Troubleshooting
+
+Tools not appearing after setup? In order:
+
+1. Check the integration shows **Connected** on its row.
+2. Check its **toggle is on** in Super Magic settings → Integrations.
+3. For limited-release integrations, confirm with your account team that your workspace is enabled.
+4. Still stuck — work through the decision tree in the [**Super Magic Admin Guide → Troubleshooting**](/super-magic/super-magic-admin-guide-setup-access-safety).

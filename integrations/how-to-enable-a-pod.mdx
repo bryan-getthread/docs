@@ -1,0 +1,69 @@
+---
+title: "Pod Configuration in ConnectWise PSA"
+description: "Thread seamlessly integrates with ConnectWise, enabling real-time chat with your customers directly within service tickets using Pods. Enjoy powerful features like real-time communication, automated…"
+---
+
+Thread seamlessly integrates with ConnectWise, enabling real-time chat with your customers directly within service tickets using Pods.
+
+Enjoy powerful features like real-time communication, automated time entries, snippets, @mentions, and more, all within the ConnectWise platform.
+
+The best part? It’s easy to set up! Follow this guide to get started.
+
+## **How to Add Pods to Your Service Ticket View in ConnectWise**
+
+<Note>
+  Note
+  
+  each technician who wants to access the Pods must set them up in their service ticket view in ConnectWise.
+</Note>
+
+1. Open a Service Ticket in ConnectWise PSA.
+2. Click the gear icon (⚙️) in the top-left corner.
+3. Select **Pod** **Configuration**.
+  ![](/images/41767975-image.png)
+4. From the available pods, select **Thread Auto Time Entries** and **Thread Real-Time Notes**.
+5. Move these to the **Displayed** column.
+6. Click **Save**.
+  ![](/images/e70f582e-image.png)
+7. Customize the location of the pods by dragging and dropping them where you prefer within the service ticket view.
+
+<Note>
+  Limits imposed by PSA
+  
+  Max ticket summary length 100 chars
+  
+  Max note length Max number of member/contact participants
+  
+  Due to PSA rate limits-
+  
+  PSA webhook processing is throttling without losing data
+  
+  PSA sync jobs can process slower when reaching rate limits
+</Note>
+
+## **Troubleshooting**
+
+**What if I don't see the option to add the pods to my service ticket view?**
+
+If the pods aren't showing up in your service ticket view, follow these troubleshooting steps:
+
+1. **Log in as an Administrator:**
+  - Navigate to **System** -&gt; **Setup Tables**.
+  - Search for the **Manage Hosted API** table and open it.
+2. **Check for Existing Entries:**
+  - If you see the entries for the pods, you're all set! Click on each pod and review the **Location Restrictions**.
+  - If a location restriction is set and you're not assigned to that location, you'll need to add your location to make the pods visible.
+3. **If Pods Are Missing:**
+  - It’s possible that Thread did not have the necessary permissions to create the pods during your setup. To fix this, follow the next steps to review your permissions.
+4. **Verify Permissions:**
+  - Navigate to **System** -&gt; **Security Roles** and search for the security role assigned to the **Thread API user**.
+  - Edit the security role settings for the **Thread API user**.
+  - Go to **System** -&gt; **Table Setup**, then click **Customize**.
+  - In the pop-up modal, make sure to **Allow** the following permissions:
+    - **General / Manage Hosted API**.
+5. **Save Your Changes**
+  - After updating permissions, save the settings.
+6. **Contact Support (If Needed):**
+  - If the pods still aren’t showing up, reach out to our support team and ask them to enable the pods for your workspace.
+  - Email: help@getthread.com
+  - Chat: [https://help.getthread.com](https://help.getthread.com)

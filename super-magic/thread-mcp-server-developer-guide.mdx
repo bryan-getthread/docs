@@ -1,0 +1,135 @@
+---
+title: "Thread MCP Server: Developer Guide"
+description: "Availability: Limited release — enabled per workspace (pilot-first). If you don't see the connector URL in Thread (below), ask your admin or your Thread account team. Looking for the other direction?…"
+---
+
+<Tip>
+  Availability: Limited release
+  
+  — enabled per workspace (pilot-first). If you don't see the connector URL in Thread (below), ask your admin or your Thread account team.
+</Tip>
+
+<Note>
+  Looking for the other direction?
+  
+  This guide is about using Thread's tools
+  
+  from
+  
+  your own agent. To bring external tools (Linear, Notion, Zapier)
+  
+  into
+  
+  Super Magic, see
+  
+  Add External Tools to Super Magic with Connectors
+  
+  .
+</Note>
+
+Thread exposes its service-desk actions over the [Model Context Protocol](https://modelcontextprotocol.io), so any MCP-capable client — Claude Desktop, ChatGPT, Claude Code, Cursor, partner agents, your own app — can drive Thread workflows the same way Super Magic does in-product: search tickets, look up clients and devices, and (with the right permissions) take real actions.
+
+```
+Endpoint:   <https://api.getthread.com/mcp>
+Transport:  Streamable HTTP
+Auth:       OAuth 2.1 — sign in with your Thread account (no tokens to manage)
+```
+
+Once connected, you can ask your assistant to do real work in Thread:
+
+> "Create a ticket for Acme Corp: user can't print, high priority."
+
+> "Show my open tickets for Globex."
+
+> "Add a note to ticket 12345 and log 30 minutes."
+
+> "Look up the contact Jane Doe and her recent tickets."
+
+> "Search our knowledge base for the VPN setup article."
+
+The assistant acts **as you** — it can only see and do what you can in Thread, in your workspace.
+
+### Before you start
+
+- A **Thread account** with login access.
+- **MCP enabled** for your workspace (limited release). The tell: in Thread's Inbox, open **Settings → Connectors → Thread MCP access** — if the connector URL isn't shown, it isn't enabled yet.
+
+#### Get your connector URL
+
+In Thread's Inbox: **Settings → Connectors → Thread MCP access** → copy the URL under "Add this URL as a custom connector":
+
+```
+<https://api.getthread.com/mcp>
+```
+
+#### Connect your client
+
+**Claude Desktop**
+
+1. **Settings → Connectors → Add custom connector**
+2. Paste the connector URL and click **Add**, then **Connect / Log in**
+3. A browser window opens — **sign in with your Thread account** and approve
+4. Done — Thread's tools appear in Claude. No token needed.
+
+**ChatGPT**
+
+1. **Settings → Connectors → Add custom connector** (custom MCP)
+2. Paste the URL, add it, and complete the Thread sign-in when prompted
+
+**Claude Code (CLI)**
+
+```
+claude mcp add --transport http --scope user thread <https://api.getthread.com/mcp>
+```
+
+On first use, Claude Code opens a browser to sign in with Thread (or run `/mcp` inside Claude Code to authenticate). `--scope user` makes it available in every project; drop it to add Thread to the current project only. Remove later with `claude mcp remove thread`.
+
+**Other clients (Cursor, …)** — same flow everywhere: add the URL as a custom connector and sign in with your Thread account.
+
+#### Permissions: every connection sees a different tool list
+
+The server registers tools **per connection**, applying exactly the permissions that member has in Super Magic:
+
+| Gate | Effect on the tool list |
+| --- | --- |
+| Member role | Intent and flow tools appear only for workspace admins |
+| Workspace write access level | Write tools (create/update ticket, notes, time, approvals…) appear only if the member passes it (All members / Admins only / Custom list) |
+| Per-tool toggles | A write tool an admin switched off disappears for everyone |
+| Integrations | NinjaOne / TimeZest / IT Glue / Hudu tools appear only when the integration is configured + enabled — and NinjaOne additionally requires the member's own NinjaOne sign-in |
+
+Practical consequence: **don't hardcode the tool list.** Call `tools/list` and work with what's there. A read-only member's connection registers only read tools; an admin on a fully-integrated workspace can see 50+. The connection only ever touches **your workspace's** data.
+
+#### Typical workflows
+
+**Discover ids, then write.** Ticket writes take internal ids — resolve them first:
+
+1. `search_clients` → `client_company_id`
+2. `list_boards`, `list_ticket_statuses`, `list_ticket_priorities` → board/status/priority ids
+3. `create_ticket` / `update_ticket` / `add_ticket_note` / `log_time_entry` with those ids
+
+**Look up before acting.** `search_tickets` accepts a PSA ticket number or internal id and returns `internal_ticket_id` — pass *that* to write tools.
+
+**Device workflows (NinjaOne connected):** `search_ninjaone_devices` → `get_ninjaone_device` / `list_ninjaone_alerts` → `reboot_ninjaone_device` etc.
+
+**Admin automation:** intent and flow tools let an admin connection inspect and build workspace automations programmatically.
+
+#### Security model
+
+- **You authorize by signing in** — no secrets to paste, store, or rotate for the one-click path.
+- **Least privilege by construction** — a connection can never do more than its member can in the product. To restrict an external agent, restrict the member.
+- **Disconnect = revoke** — remove the connector in your AI client and the connection stops working.
+- **Audit** — every tool call is logged under the member identity behind the connection.
+
+#### Errors & troubleshooting
+
+| Symptom | Meaning | Fix |
+| --- | --- | --- |
+| "Your account has no active Thread membership" | Signed into an account that isn't an active member of a Thread workspace | Sign in with the right account |
+| Tools don't appear / connection fails | URL typo, sign-in not completed, or stale client state | Re-check the exact URL, finish the sign-in, then quit and relaunch the client |
+| No connector URL visible in Thread | MCP isn't enabled for your workspace | Ask your admin / Thread account team |
+| Login opens but errors out | Transient auth issue | Retry from a fresh browser session; if it persists, contact Thread support |
+| A tool you expect isn't in tools/list | Per-connection visibility (matrix above) | Check the member's role, write access, the tool's toggle, and integration state |
+
+#### Tool reference
+
+Full tool-by-tool documentation: [**Super Magic Tool Reference**](/super-magic/super-magic-tool-reference) .

@@ -1,0 +1,11 @@
+# migration working data (HelpDocs cache; not part of the site)
+work/
+
+# secrets — the HelpDocs key is read from the environment, never committed
+.env
+*.env
+
+# tooling
+node_modules/
+.DS_Store
+.mintlify/

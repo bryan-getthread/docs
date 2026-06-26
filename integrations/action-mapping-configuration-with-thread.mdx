@@ -1,0 +1,168 @@
+---
+title: "Action Mapping Configuration with Thread"
+description: "Customizing Actions in Halo for Thread Integration. Actions in Halo are customizable buttons that let technicians perform specific tasks on tickets, helping streamline workflows and tailor HaloPSA to…"
+---
+
+## Customizing Actions in Halo for Thread Integration
+
+Actions in Halo are customizable buttons that let technicians perform specific tasks on tickets, helping streamline workflows and tailor HaloPSA to your business processes. To sync conversations from Thread into HaloPSA, we require the following actions:
+
+1. **Action for sending customer-facing notes**
+2. **Action for sending internal notes ("private notes")**
+3. **Action for emailing contacts**
+4. **Action for receiving customer messages**
+
+## Important Notes Before You Begin
+
+### Required Fields
+
+Adding any required fields to actions will disrupt the mapped events, making those actions unusable, as we do not currently support required or additional action fields.
+
+### Allowed Values
+
+Ensure the actions mapped are set as 'Allowed values' on all ticket types in Halo. If they aren't, conversations won't sync back to the associated ticket in Halo. For more details, please [click here](/integrations/action-mapping-configuration-with-thread#allow_actions_on_all_ticket_types).
+
+### Workflow Restrictions
+
+Although we suggest marking actions as "actions visible outside of workflows", you may encounter issues where conversations do not sync from Thread to HaloPSA due to workflow restrictions. We recommend adding these custom actions to all workflows in HaloPSA to avoid any issues. Note: we suggest hiding these custom actions from the HaloPSA ticket view. For more details, please [click here](/integrations/action-mapping-configuration-with-thread#allow_actions_on_all_workflows).
+
+### Action Fields
+
+These custom actions are to ensure conversations from Thread sync into Halo. You can keep your existing actions without disrupting your current setup, but here's what the following action "fields" do in Halo:
+
+- **Private Note** action field: Sends an internal note in Thread.
+- **Note** action field**:** Sends a public note in Thread (e.g., sends a chat reply to the customer in Thread Messenger or service apps).
+- **Email** action field: Sends an email and replies to the customer in Thread Messenger or service app.
+
+## Custom Actions to Create
+
+These are the custom actions we will create in the steps below:
+
+1. **Thread Private Note**: Used for sending internal notes visible only to your team.
+2. **Thread Public Note**: Used for sending notes visible to external contacts.
+3. **Thread Email User**: Used for sending emails to contacts associated with the thread or ticket.
+4. **Thread Customer Replied**: Used for tracking customer replies with the thread or ticket.
+
+![](/images/7db9065a-image.png)
+
+## Configuring Actions in HaloPSA
+
+Follow these steps to set up and configure actions in HaloPSA to work seamlessly with Thread. These custom actions are necessary for conversations to sync from Thread to HaloPSA
+
+### Create "Thread Private Note" Action
+
+1. Login to HaloPSA.
+2. Navigate to **Configuration** → **Tickets** → **Actions**.
+3. Click **New**.
+4. Enter the following details:
+  1. **Outcome Description**: Thread Private Note
+  2. **Button Name**: Thread Private Note
+5. Click **Edit**.
+6. Enable the checkboxes under **Details** tab:
+  1. **Action button is visible**
+  2. **Action is visible outside of Workflows**
+  3. **Hide from Ticket Header** (hides these actions from the HaloPSA ticket view to avoid interfering with your current setup and actions)
+  4. Hide from User
+7. Under the **Field List** tab:
+  1. Add the **Private** **Note** field.
+  2. Click **Save**.
+8. Click **Save**.
+
+### Create "Thread Public Note" Action
+
+1. **Clone** the **Thread Private Note** action created above:
+  1. Select **Thread Private Note** from the Actions list.
+  2. Click **Clone**.
+2. Enter the following details:
+  1. **Outcome Description**: Thread Public Note
+  2. **Button Name**: Thread Public Note
+3. Click **Edit**.
+4. Under the details tab:
+  1. Uncheck the hide from user
+5. Under the **Field List** tab:
+  1. Delete the **Private** **Note** field.
+  2. Add the **Note** field.
+  3. Click **Save**.
+6. Click **Save**.
+
+### Create "Thread Email User" Action
+
+1. **Clone** the **Thread Public Note** action create above:
+  1. Select **Thread Public Note** from the Actions list.
+  2. Click **Clone**.
+2. Enter the following details:
+  1. **Outcome Description**: Thread Email User
+  2. **Button Name**: Thread Email User
+3. Click **Edit**.
+4. Set the following under **Defaults** tab:
+  1. **Send an Email**: Yes
+5. Under the **Field List** tab:
+  1. Add Mailbox
+6. Click **Save**.
+
+### Create "Thread Customer Replied" Action
+
+1. **Clone** the **Thread Public Note** action create above:
+  1. Select **Thread Public Note** from the Actions list.
+  2. Click **Clone**.
+2. Enter the following details:
+  1. **Outcome Description**: Thread Customer Replied
+  2. **Button Name**: Thread Customer Replied
+3. Click **Edit**.
+4. Click **Save**.
+5. Now that you've created these custom actions, make sure they are allowed on all ticket types by following the steps below 👇.
+
+## Allow Actions on All Ticket Types
+
+To ensure smooth integration between Thread and Halo, any actions mapped within the Thread admin panel need to be set as 'Allowed values' on all ticket types you wish to use in Thread. If these actions are not allowed on certain ticket types, Thread will be unable to sync conversation events (e.g., private notes, public notes, and emails) back to the associated ticket in Halo.
+
+### How to Add Actions to Ticket Types
+
+1. Log in to HaloPSA.
+2. Navigate to **Configurations** → **Tickets** → **Ticket Types**.
+3. Select a **Ticket Type** and go to the **Allowed Values** tab.
+4. Here, you can either allow all actions or restrict actions on the ticket type. Ensure that all actions or the specific actions mapped in Thread are set as allowed values for this ticket type, as shown below.
+  ![](/images/bdea870d-image.png)
+5. Click **Save**.
+
+## Allow Actions on All Workflows
+
+Actions mapped within the Thread admin panel need to be added to all workflows under '**Agent Actions allowed at any Step**' to avoid any disruptions with syncing conversations from Thread to HaloPSA. Note that we've set the custom actions created above to be hidden from the ticket header, so these custom actions will not interfere with your ticket types, actions, or workflows.
+
+### How to Add Actions to Workflows
+
+1. Log in to HaloPSA.
+2. Navigate to **Configurations** → **Tickets** → **Workflows**.
+3. Select a **Workflow** and go to the **Details** tab.
+4. Click **Edit**.
+5. Add the custom actions created above under '**Agent Actions allowed at any Step**'.
+6. Click **Save**.
+  ![](/images/c65088a4-image.png)
+
+## Mapping Actions in Thread
+
+### Thread Admin Panel
+
+1. Login to Thread Admin Panel.
+2. Navigate to **Integrations** → **HaloPSA** → **PSA Settings**.
+3. Select actions from the dropdown to map them. The selections will be saved automatically.
+  ![](/images/739d0ec8-2024-07-12-10-47-43-1.gif)
+
+#### Troubleshooting: Created Actions Not Visible
+
+If new actions are not visible, please ensure you have set "Action button is visible" on the action in HaloPSA:
+
+1. Login to HaloPSA.
+2. Navigate to **Configuration** → **Tickets** → **Actions**.
+3. Find and select the action from the list.
+4. Click **Edit**.
+5. Check the box for "**Action button is visible**".
+  ![](/images/a7af24ba-image.png)
+6. Click **Save**.
+7. Head back to the [Thread admin panel](https://admin.getthread.com/dashboard/integrations/halo_psa/settings) to map the action (Thread admin panel → Integrations → HaloPSA → PSA Settings), and the action should show up immediately for you to map.
+
+### New Workspace Setup
+
+1. If you haven't set up your workspace, follow this [setup guide](/integrations/how-to-setup-halo-psa-integration).
+2. Upon connecting with HaloPSA, map the actions under **Service Settings** in the setup wizard.
+  ![](/images/7d9c3943-image.png)

@@ -1,0 +1,49 @@
+---
+title: "TimeZest"
+description: "Send TimeZest 🍋 meeting invitations directly from Thread, making it easy for techs and customers to find the best meeting time—eliminating scheduling 'ping pong'—while chatting in a thread. With an a…"
+---
+
+Send TimeZest 🍋 meeting invitations directly from Thread, making it easy for techs and customers to find the best meeting time—eliminating scheduling "ping pong"—while chatting in a thread. With an active TimeZest account, you can send a TimeZest link to contacts using the `/TimeZest` slash command. Contacts can then choose a meeting time through the link, which will update Thread's Planner in real-time with the meeting details.
+
+### Step 1: Create an API Key from TimeZest
+
+#### Create an API Key
+
+To integrate TimeZest with Thread, you'll need to create an API key. Any TimeZest administrator can create an API key on the API Keys page in TimeZest.
+
+1. Go to the [TimeZest login page](https://app.timezest.com/login) and enter your administrator credentials to log in.
+2. On the API Keys page, click the **Create New API Key** button.
+3. In the API Key creation form, enter a **Name** for your API key. This name should help you identify the purpose of this key (e.g., "Thread Integration").
+4. Select the **Access Level** as **Read/Write**. This will grant full access to the TimeZest API, allowing both reading and modifying data.
+5. Click the **Create** button to create the API key.
+6. Once generated, the API key will be displayed. **Copy this key** and store it in a secure location. You will need this key to integrate TimeZest with Thread.
+
+<Warning>
+  Member URLs are required to be setup for your users for the integration to function. Please see
+  
+  this document
+  
+  from TimeZest on how to set this up. Timezest has recently changed their page regarding this, and have not updated their documentation just yet.
+</Warning>
+
+### Step 2: Integrate TimeZest into Your Thread Inbox
+
+1. Login to [Thread Admin Panel](https://admin.getthread.com/dashboard/integrations).
+2. Go to **Integrations** and select **TimeZest** from the list of integrations.
+3. Enter your domain (e.g., `https://yourdomain.timezest.com`) and your API Key generated from Step 1.
+4. Click **Connect**.
+5. You're all set to start sending meeting invitations directly from within Thread! 🍋
+  ![](/images/c411397a-image.png)
+
+### Step 3: How to Use TimeZest in Thread
+
+Note: `/TimeZest` slash commands are available within Thread chat, so you can run this command from within Thread's Inbox, ConnectWise Pods, or Autotask Insights.
+
+1. Type in `/TimeZest` slash command in the **Reply** tab of a thread or click **Actions → TimeZest** **→** **Create appointment link**.
+2. Select a **Resource** and **Appointment type** from the dropdowns and click **Create link**.
+3. Once you're satisfied with the reply message, click **Send**.
+4. The appointment link will be sent to the contact assigned to the thread.
+5. The contact will click the appointment link and schedule a meeting using the link provided.
+6. When an appointment is booked, it will automatically add a task to the assigned technician on the thread.
+
+Say goodbye to scheduling ping-pong! 🍋

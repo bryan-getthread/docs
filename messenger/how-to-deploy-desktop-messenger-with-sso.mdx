@@ -1,0 +1,34 @@
+---
+title: "How to Deploy Desktop Messenger with SSO"
+description: "Note: This is only available for Windows Deployments. If your customers use Microsoft 365, this is our recommended way of deploying Thread. Why? As soon as you deploy the app, your customers won't ne…"
+---
+
+<Note>
+  Note: This is only available for Windows Deployments
+</Note>
+
+If your customers use Microsoft 365, this is our recommended way of deploying Thread.
+
+**Why?** As soon as you deploy the app, your customers won't need to sign in at all to start experiencing the magic and getting updates on their tickets right on their PC. Signing in with SSO streamlines the messenger sign in process and the adoption you will see from your customers will be greatly noticable!
+
+## How to deploy Desktop Messenger with Microsoft 365 SSO
+
+1. Navigate to the Thread Admin Panel and go to the "[clients](https://admin.getthread.com/dashboard/clients/companies)" tab
+2. Select a company that you have not yet deployed Thread to
+3. In the "App Deployment" Tab, select "Windows" and click continue
+  ![](/images/829cc1f3-image.png)
+4. Toggle on "Auto Authentication"
+  ![](/images/9992ee06-image.png)
+5. Then, open an incognito or private tab and past the link provided.
+6. You will then be prompted to login to Microsoft. Once logged in, approve any permissions you are asked for, and you will see this screen and be given a silent install script to install messenger.
+  ![](/images/4d872f0d-image.png)
+7. This script is a PER CLIENT script and can only be used for the specific client you are deploying to. What makes it unique is the AppID, which is specific to each client. The script below can have the "YOUR_APP_ID_HERE" replaced with any client's AppID to deploy.
+
+```
+msiexec /i "https://assets.getthread.com/messenger/downloads/desktop/messenger.msi" APP_ID=YOUR_APP_ID_HERE FLOW=customer INSTALL_TYPE=user /qn
+```
+
+1. To find a client's AppID, go to the [client's tab](https://admin.getthread.com/dashboard/clients/companies) in the admin panel, and click on a client that you wish to find the AppID of
+2. Then, click the "Installation" tab for that client, and the AppID for that client will be there.
+  ![](/images/ff42b2bf-image.png)
+3. And that's it! Now your customers can use Desktop Messenger with SSO

@@ -1,0 +1,112 @@
+---
+title: "Status Automations"
+description: "Status Automations keep your workflows organized and your SLAs accurate by automatically updating a thread’s status when key actions occur — like a reply, a resolution, or an approval. They reduce ma…"
+---
+
+Status Automations keep your workflows organized and your SLAs accurate by automatically updating a thread’s status when key actions occur — like a reply, a resolution, or an approval. They reduce manual work, prevent missed updates, and ensure both your team and your customers always see an accurate reflection of a thread’s progress.
+
+<Note>
+  Each board has its own automation settings, so make sure to configure them individually for every board you manage.
+</Note>
+
+### How It Works
+
+Status Automations listen for specific triggers — such as user replies, contact responses, or completed approvals — and automatically update the thread’s status. This helps maintain consistency, provides visibility across your team, and ensures timely transitions without manual input.
+
+## Status Change Mappings
+
+### **After My First Reply**
+
+**Action:** Set thread to [status] after my first reply
+
+When a user sends their first reply to the contact, this automation updates the thread’s status to indicate active work has started.
+
+This ensures SLAs begin correctly and the customer can see that progress is underway.
+
+### **When a Contact Replies to a Closed Thread**
+
+**Action:** Set thread to [status] when a contact replies to a closed thread
+
+If a contact replies to a thread that’s already closed, this automation can reopen it to make sure follow-ups aren’t missed.
+
+If left unset, the thread will either follow PSA logic or remain unchanged.
+
+### **When TimePad Entry Has a Resolution Flag**
+
+**Action:** Set thread to [status] when a TimePad entry has a resolution flag
+
+When a TimePad entry is submitted with the resolution flag enabled, the thread can close automatically.
+
+This keeps your SLAs accurate and ensures tickets are marked as resolved as soon as the resolution is recorded.
+
+### **When a Contact Replies to Threads Mapped to the “Waiting” Group**
+
+**Action:** Set thread to [status] when a contact replies to threads mapped to the status group *Waiting*
+
+This automation ensures that any customer reply to an active thread moves it back to a visible, “customer replied” state — helping teams respond quickly to ongoing conversations.
+
+<Note>
+  At least one status must be mapped to the “Waiting” group for this automation to function.
+</Note>
+
+### **When an Approval is Pending**
+
+**Action:** Set thread to [status] when an approval is pending
+
+When an approval request is initiated, the thread automatically moves to a designated “awaiting approval” status.
+
+This keeps pending items clearly visible to all team members.
+
+### **When an Approval is Finished**
+
+**Action:** Set thread to [status] when an approval is finished
+
+When an approval request is completed — whether approved, declined, or canceled — the thread automatically updates to reflect completion.
+
+This ensures organized visibility across approval workflows.
+
+## Magic Agents Automations
+
+Magic Agents can also trigger automated status changes as part of AI-powered workflows. These automations help blend human and AI-driven processes seamlessly.
+
+### **When Triage Agent Begins Working on a Thread**
+
+**Action:** Set thread to [status] when Triage Agent begins working on a thread
+
+Updates the thread to indicate the Triage Agent has started automation work.
+
+### **When Triage Agent Completes Automation Work and Exits**
+
+**Action:** Set thread to [status] when Triage Agent completes automation work and exits a thread
+
+Automatically transitions the thread to indicate triage has been completed and is ready for review or next steps. This applies when the Triage Agent escalates a thread, times out, or a custom intent runs.
+
+### **When a Contact Confirms Resolution During Triage**
+
+**Action:** Set thread to [status] when a contact confirms resolution while Triage Agent is engaged on a thread
+
+When the contact confirms their issue is resolved, this automation can close the thread automatically, ensuring clean and accurate closure tracking.
+
+## Status Groups
+
+Status Groups define how related statuses behave and enable two-step closing workflows. Each board can have multiple groups that organize statuses by purpose or workflow stage.
+
+### **Waiting Group**
+
+Statuses in this group represent threads where your team is awaiting or wants to be notified of a reply. When a contact replies to a thread in this group, the system will update the status according to the rule defined above.
+
+This ensures replies stay visible and clearly marked for action without reopening the thread.
+
+### **Done Group**
+
+Statuses in this group represent threads that are completed or closed.
+
+Automations tied to resolution flags or confirmations usually map to a status in this group.
+
+## Best Practices
+
+- Configure automations per board — settings don’t carry over between boards.
+- Use consistent naming for statuses to simplify mapping and reporting.
+- Ensure each status group has at least one mapped status for automations to work.
+- Combine automations with TimePad entries for more accurate SLA tracking.
+- Review automation results periodically to make sure transitions still align with your workflow.

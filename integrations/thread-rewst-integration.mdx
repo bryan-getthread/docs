@@ -1,0 +1,112 @@
+---
+title: "Thread + Rewst Integration"
+description: "Concept. The Thread Automations Crate creates a seamless integration bridge between Thread and Rewst , enabling automated workflows triggered directly from Thread's Magic AI Intents. At its core, thi…"
+---
+
+## Concept
+
+The **Thread Automations Crate** creates a seamless integration bridge between **Thread** and **Rewst**, enabling automated workflows triggered directly from Thread's Magic AI Intents. At its core, this integration captures structured user information submitted through Thread's conversational AI interface and securely transmits it to Rewst via webhooks for downstream processing.
+
+The current implementation focuses on **employee onboarding automation**. When an end user interacts with Thread's Magic Agent and triggers the onboarding intent, the AI conversationally collects key details — First Name, Last Name, Username, and Email Address — then pushes that data into a Rewst workflow. The Rewst workflow handles the actual provisioning and task execution, while Thread provides confirmation feedback directly in the PSA ticket.
+
+Security is maintained through a **shared secret key** validated between Thread and Rewst on every webhook call, ensuring that only authorized requests are processed.
+
+> <Note>
+>   Important:
+>   
+>   This integration relies on Thread's native data collection capabilities. Any advanced validation logic or business rules should be built into the receiving Rewst workflow, not the Thread Intent itself.
+> </Note>
+
+## Value
+
+- **Eliminates manual handoffs** — Information collected in Thread flows automatically into Rewst workflows, removing the need for technicians to re-enter data or copy details between systems.
+- **Accelerates onboarding** — New user provisioning begins the moment the intent is completed, reducing turnaround time from hours to minutes.
+- **Improves data accuracy** — Structured form fields ensure consistent data capture, minimizing errors caused by free-text ticket notes.
+- **Enhances the end-user experience** — Users receive immediate confirmation of what they submitted, directly in their ticket thread.
+- **Extensible framework** — While the default setup covers onboarding, the same pattern can be adapted for other automation scenarios (offboarding, access requests, equipment provisioning, etc.) by creating new intents and corresponding Rewst workflows.
+- **Secure by design** — Secret key validation on every webhook call ensures that only legitimate Thread submissions trigger Rewst workflows.
+
+## How To Set Up
+
+### Prerequisites
+
+- You must be an **admin in Thread** to configure intents.
+- You must have access to the **Rewst Marketplace** and **Workflow Builder**.
+
+### Step 1: Create the Intent in Thread
+
+1. Log into your **Thread** account.
+2. Navigate to **Thread Admin → Magic AI → Magic Agents → Catalog**.
+3. Click **Create Intent**.
+4. Fill in the following fields **exactly as shown**: FieldValue**Intent Name**`Rewst - Onboarding`**Describe the intent**`An intent to assist in building new intents within the Magic Agent service catalog by gathering necessary information, including crafting effective prompts for arguments. Think logically about the user's intent and craft questions to fill in more about the issue or request, like features IT might need. The goal is to ask the right questions to gather accurate information so a Tier 2 IT Service Tech will have all they need to resolve the issue. Keep questions succinct, minimal, logically ordered, and ensure logical consistency.`**Visibility filters**Choose **Specific clients** (select your internal or test companies) or **All clients** as preferred.
+  ![](/images/21a99448-image.png)
+  ![](/images/e393514d-image.png)
+5. Click **+Add form field** three times to create a total of **four form fields**. Name them exactly:
+  - `First Name`
+  - `Last Name`
+  - `Username`
+  - `Email`
+  > <Note>
+  >   ⚠️ Field names must match exactly for the Crate to function. Adding fields beyond these four will require additional configuration in the Thread
+  >   
+  >   wrapper to pass data into the Rewst workflow.
+  > </Note>
+  >
+  > ![](/images/42dbebc8-image.png)
+6. *(Optional)* In the **External Reply (Optional)** submenu, enter a reply description in the *Describe what the AI should reply* field, such as:
+  > *Reply with the summary of what they provided against the field names, so for instance telling us that the first name they provided was X.*
+  >
+  > ![](/images/b90ef544-image.png)
+7. **Keep your Thread browser window open** — you'll return to it after completing the Rewst steps.
+
+### Step 2: Unpack the Crate in Rewst
+
+1. In Rewst, navigate to **Marketplace → Crates**.
+2. Search for **Thread Automation**.
+3. Click the Crate tile to open its details page.
+  ![](/images/44a42b8b-image.png)
+4. Click **Unpack Crate → Continue**.
+5. Enter your **time saved** estimate.
+6. Expand the **Webhook** accordion menu and ensure **Enabled** is toggled on.
+  ![](/images/0ffa73ef-image.png)
+7. *(Optional)* Select organizations in the **Activate for Organizations** dropdown.
+8. Click **Unpack**.
+
+### Step 3: Configure the Secret Key in Rewst
+
+1. Navigate to **Configuration → Organization Variables**.
+2. Create a new organization variable: SettingValue**Name**`rewst_thread_webhook_secret`**Category**`Secret`**Value**A secure password of your choosing
+  ![](/images/b29c25c9-image.png)
+3. **Copy this password** and store it securely — you'll need it for both Rewst and Thread configuration.
+
+### Step 4: Retrieve the Webhook URL and Assign the Secret
+
+1. Navigate to **Automations → Workflows**.
+2. Search for **[Rewst - Crate] Thread Automations**.
+3. Click the workflow to enter the **Workflow Builder** view.
+4. Open the **Trigger** settings.
+5. Click **View Webhook URLs** under *Trigger Configuration*.
+  ![](/images/5c237e51-image.png)
+6. **Copy the webhook URL** — you'll need it for Thread.
+7. Under the **Trigger Parameters** submenu, find the **Secret Key** dropdown and select the organization variable you created (`rewst_thread_webhook_secret`).
+  ![](/images/1f0d02e3-image.png)
+8. Click **Submit**.
+
+### Step 5: Complete the Configuration in Thread
+
+1. Return to your Thread browser window with the intent still open.
+2. In the **Automation (Optional)** submenu, paste the webhook URL into the **API URL** field.
+  ![](/images/170c427b-image.png)
+3. In the **Headers (Optional)** section:SettingValue**Key**`x-rewst-secret`**Value**The secret password you created in Rewst
+4. Ensure **MagicAI is enabled** for the client you are using in Thread.
+5. Click **Save** in the top right corner of the intent screen.
+
+#### Customization Options
+
+| What You Can Customize | How |
+| --- | --- |
+| Intent form fields | Modify the fields in the Thread Intent to match your specific use case. The defaults are First Name, Last Name, Username, and Email. Adding new fields requires updating the Thread wrapper configuration to pass data into the Rewst workflow. |
+| Confirmation message | Edit the External Reply field in the Intent to personalize the message users see after submitting their information. |
+| Downstream logic | Build any validation rules, business logic, or provisioning steps directly in the Rewst workflow that receives the webhook data. |
+
+This integration is designed as a **starting template**. The onboarding intent demonstrates the pattern, but the same webhook-driven architecture can power any scenario where Thread collects structured information and Rewst executes the resulting automation.

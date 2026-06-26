@@ -1,0 +1,83 @@
+---
+title: "Getting Started with Magic Recap"
+description: "Magic Recap uses AI to instantly distill conversations into clear, actionable summaries , saving your team time and ensuring nothing gets lost. With fully customizable templates , you can tailor Magi…"
+---
+
+Magic Recap uses AI to **instantly distill conversations into clear, actionable summaries**, saving your team time and ensuring nothing gets lost. With **fully customizable templates**, you can tailor Magic Recap to fit your workflows, from **personalized** **CSAT reports** to **incident summaries**—and much more.
+
+## **What Can Magic Recap Do?**
+
+Magic Recap does more than just summarize conversations. It can generate customized insights, reports, and documentation tailored for IT service teams. You have the flexibility to define your own rules, ensuring it integrates seamlessly with your workflows.
+
+Recap Template Library
+
+## **1. Getting Started with Magic Recap**
+
+1. **Access the Magic Recap Settings:**
+  - Log in to the [Thread Admin Panel](https://admin.getthread.com/).
+  - Navigate to **Magic AI** → **Recap**.
+2. **Create or Edit a Recap Template:****Tip:** Check out our [**Best Practices for Crafting Prompts**](/assistive-ai/prompt-best-practices) for tips and common use cases!
+  - To update an existing template, select it from the **Use Template** dropdown.
+  - To create a new template, click **New Template**. Give your template a name and click **Add**.
+  - Write your **Recap Rules** or AI-prompts to define how the summaries will be generated.
+3. **Save Your Template:** Once satisfied, click **Save** to store your new or updated template.
+
+![](/images/213a5839-Create%20Magic%20Recap%20Template.gif)
+
+## **2. Test Recap with the Emulator**
+
+To test your Recap rules, you can use the **Test Recap Widget**:
+
+1. **Access the Magic Recap Settings:**
+  - Log in to the [Thread Admin Panel](https://admin.getthread.com/).
+  - Navigate to **Magic AI** → **Recap**.
+2. **Use the Test Recap Widget**:
+  - On the right-hand side, under **Test Recap**, select an existing thread
+  - Click **Generate Recap**.
+  - Magic AI will automatically create a recap of the thread.
+  - Review the recap and make any necessary customizations.
+
+<Note>
+  Note
+  
+  : If there are not enough notes in the thread, you may encounter an error. Try again with a thread that contains more notes.
+</Note>
+
+![](/images/5a3f1364-Test%20Magic%20Recap.gif)
+
+## **3. Running Magic Recap**
+
+You have the option to run your Recap template either automatically through Flows or manually within Thread Inbox.
+
+### **Run Magic Recap Automatically**
+
+To automatically generate a recap:
+
+1. Navigate to [**Thread Admin Panel**](https://admin.getthread.com/) → **Magic AI** → **Recap** → **Settings**.
+2. Under **Automatically run for**, select one of the following options:
+  - **All chat threads**
+  - **All chat, email, and phone threads**
+  - **Specify in the Flows** (If you need more granular controls, you can customize triggers by using Flows)
+3. Toggle **Magic Recap** on.
+4. Click **Save**.
+
+#### **Specify in the Flows:**
+
+1. **Set up a flow** using the pre-built template:
+  - [**Automatically Summarize on Escalation Flow Template**](https://admin.getthread.com/dashboard/templates/create-flow?name=Automatically%20Summarize%20on%20Escalation&template=2ovwlilMyxpp2LvWnRVpid)
+2. **Apply filters** for the specific conditions under which the recap should trigger.
+3. **Add the Magic Recap Action**:
+  - Click **Add Action** → **Actions** → **Magic** → **Generate Recap Template**.
+  - Select the desired **Recap Template**.
+4. Click **Save** to finalize your flow.
+
+![](/images/552e78e2-Create%20a%20Flow.gif)
+
+### **Run Magic Recap Manually**
+
+To manually generate a recap:
+
+1. Open a thread in [Thread Inbox](https://inbox.getthread.com/) or **Pods**.
+2. Use the slash command **/Magic → Generate Recap** or click **Actions** → **Magic** → **Generate Recap Template**.
+
+![](/images/210f7ea3-Manual%20Recap.gif)

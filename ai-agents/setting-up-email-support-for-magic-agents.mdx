@@ -1,0 +1,43 @@
+---
+title: "Setting Up Email Support for Magic Agents and Inbox"
+description: "Magic Agents can be used across both chat and email-sourced service tickets to triage, troubleshoot, and collect information for your team or trigger powerful workflow automations. This guide will wa…"
+---
+
+Magic Agents can be used across both chat and email-sourced service tickets to triage, troubleshoot, and collect information for your team or trigger powerful workflow automations. This guide will walk you through how to enable email for each ticketing system integration, ensuring your customers have a seamless experience via email.
+
+<Tip>
+  Pro Tip:
+  
+  Using Magic Agents for email is the fastest way to deliver value, as email is likely the primary communication channel your customers expect. By integrating with your existing email workflows and templates, you can easily implement Magic Agents, roll out chat in parallel, and start streamlining processes while enhancing your customer service experience.
+</Tip>
+
+### **Email Requirements for ConnectWise PSA**
+
+To enable email for Magic Agents in ConnectWise Manage, ensure the following:
+
+1. **Email Connector Configuration** Make sure your email connector is configured. For detailed instructions, refer to the [ConnectWise Email Configuration Guide](https://docs.connectwise.com/ConnectWise_Documentation/001/System_Administration/330/007).
+2. **Email Source Mapping** In the [Thread Admin panel](https://admin.getthread.com/), go to **Integrations** → **PSA** → **Settings**, and ensure that the **Email Source** is mapped to the correct default source used for all inbound service tickets to your service desk.
+3. **Closed Loop Automatic Email Options** Enable **Closed Loop Automatic Email Options** at the service board level for all service boards where you want Magic Agents to be active.
+4. **Reply from Connected API Member** The Magic Agent will reply from the connected API member used for the Thread integration. You can change the display name of the API member to match your bot name, which is the one used in your Messenger settings.
+5. **Enable Updates to Discussion** Ensure that updates to the discussion are enabled under the **Closed Loop Options**.
+6. **Enable Email Support with Magic Agents** In the [Thread Admin panel](https://admin.getthread.com/), navigate to **Magic Agents** → **Triage** **Agent (Manage client access)** → **Apply to**. Under the **Sources** option, ensure that **Email** is selected, then click **Save**.
+  ![](/images/d0a30d87-image.png)
+
+### **Email Requirements for Autotask PSA**
+
+To enable email for Magic Agents in Autotask PSA, ensure the following:
+
+1. **Email Connector Configuration** Make sure your email connector is configured. Follow the setup guide here: [Autotask PSA Email Configuration Guide](https://help.workplace.datto.com/managerhelp/Content/4_MANAGER/AutotaskPSAIntegration/Setup/Setup%20IEP.htm).
+2. **Create Email Communication Workflows** You need to create the following email communication workflows. Follow this guide for setup: [Email Communication Workflow Guide](/integrations/setting-up-an-email-communication-workflow-in-autotask).
+3. **Reply from Connected API Member** Similar to ConnectWise Manage, the Magic Agent will reply from the connected API member used for the Thread integration. You can modify the display name of the API member to match your bot name used in Messenger settings.
+4. **Enable Email Support with Magic Agents** In the [Thread Admin panel](https://admin.getthread.com/), navigate to **Magic Agents** → **Triage** **Agent (Manage client access)** → **Apply to**. Under the **Sources** option, ensure that **Email** is selected, then click **Save**.
+  ![](/images/02655f36-image.png)
+
+### **Email Requirements for HaloPSA**
+
+To enable email for Magic Agents in HaloPSA, ensure the following:
+
+1. **Mailbox/Email Connector Configuration** Make sure your mailbox/email connector is configured. Refer to the guide here: [HaloPSA Email Configuration Guide](https://usehalo.com/halopsa/guides/1799).
+2. **Reply from API Member** As with the other ticketing systems, the Magic Agent will reply from the connected API member used for the Thread integration. Adjust the display name of the API member to align with the bot name used in your Messenger settings.
+3. **Enable Email Support with Magic Agents** In the [Thread Admin panel](https://admin.getthread.com/), navigate to **Magic Agents** → **Triage** **Agent (Manage client access)** → **Apply to**. Under the **Sources** option, ensure that **Email** is selected, then click **Save**.
+  ![](/images/5b204187-image.png)

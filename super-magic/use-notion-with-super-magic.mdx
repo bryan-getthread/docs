@@ -1,0 +1,70 @@
+---
+title: "Use Notion with Super Magic"
+description: "Availability: Limited release — contact your Thread account team to enable connectors for your workspace. Connect Notion and Super Magic can read and write your pages, databases, and docs — pull up t…"
+---
+
+<Tip>
+  Availability: Limited release
+  
+  — contact your Thread account team to enable connectors for your workspace.
+</Tip>
+
+Connect Notion and Super Magic can **read and write your pages, databases, and docs** — pull up the runbook mid-ticket, or turn a hard-won fix into documentation without leaving the conversation.
+
+### What you can ask
+
+> "Find the client onboarding runbook in Notion"
+
+> "What does our Notion say about VPN setup for Acme?"
+
+> "Turn this ticket's resolution into a runbook page in our Notion database"
+
+> "Add what we learned today to the known-issues page"
+
+Creating or editing Notion content goes through Super Magic's **Confirm action** card first.
+
+#### Set it up
+
+Notion is a **connector**: an admin makes it available, then **each member signs in with their own Notion account** — Super Magic sees exactly what you can see in Notion, nothing more.
+
+**Admin (once):**
+
+1. Open **Super Magic settings → Connectors**.
+2. Turn on the **Notion** toggle.
+
+**Each member (once):**
+
+1. Open the **Connectors** page in your Inbox.
+2. Click **Connect** on the Notion row, sign in, and choose what to share when Notion asks.
+3. The row shows **Signed in as** your account — done.
+
+#### Troubleshooting
+
+- **Notion not on your Connectors page?** Your admin hasn't enabled it, or your workspace isn't in the connectors release yet.
+- **Super Magic can't find a page you know exists?** Your Notion connection only covers what you shared during sign-in — reconnect and grant access to the right spaces.
+- Anything else: [**Super Magic Admin Guide → Troubleshooting**](/super-magic/super-magic-admin-guide-setup-access-safety).
+
+#### Available tools
+
+Notion's official MCP server (`mcp.notion.com` — the same endpoint Thread connects to) currently exposes **16 tools**. Verified June 10, 2026 against the live server:
+
+| Area | Tools |
+| --- | --- |
+| Find & read | notion-search , notion-fetch |
+| Create & edit pages | notion-create-pages , notion-update-page , notion-move-pages , notion-duplicate-page |
+| Databases & views | notion-create-database , notion-update-data-source , notion-create-view , notion-update-view , notion-query-database-view |
+| Meeting notes | notion-query-meeting-notes |
+| Comments | notion-create-comment , notion-get-comments |
+| Workspace info | notion-get-users , notion-get-teams |
+
+> <Note>
+>   Notes: the set is controlled by Notion and can change — Super Magic picks up changes automatically (tool list refreshes every ~5 minutes) and registers the vendor's tools
+>   
+>   1:1, nothing filtered
+>   
+>   . In Super Magic each tool appears prefixed with the connector slug (e.g.
+>   
+>   notion_notion-search
+>   
+>   ). Access covers only what you shared with the connection during sign-in.
+> </Note>
