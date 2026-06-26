@@ -73,28 +73,3 @@ mode: "custom"
     </Card>
   </Columns>
 </div>
-
-<script
-  dangerouslySetInnerHTML={{
-    __html: `
-      (function () {
-        function openAssistant() {
-          var ev = new KeyboardEvent('keydown', {
-            key: 'k', code: 'KeyK', keyCode: 75, which: 75,
-            metaKey: true, ctrlKey: true, bubbles: true
-          });
-          document.dispatchEvent(ev);
-        }
-        function bind() {
-          var btn = document.getElementById('thread-ask-ai');
-          if (btn && !btn.dataset.bound) {
-            btn.dataset.bound = '1';
-            btn.addEventListener('click', openAssistant);
-          }
-        }
-        bind();
-        document.addEventListener('DOMContentLoaded', bind);
-      })();
-    `,
-  }}
-/>
