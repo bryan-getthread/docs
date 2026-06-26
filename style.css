@@ -15,7 +15,9 @@
 }
 
 /* ============================================================
-   Landing page hero (mode: "custom") — mint/green gradient glow
+   Landing page hero (mode: "custom") — TRANSPARENT bg + mint/green
+   gradient glow. Blends into white (light) or black (dark); text is
+   theme-aware so it stays readable on whichever background shows through.
    ============================================================ */
 .thread-hero {
   position: relative;
@@ -23,25 +25,19 @@
   padding: 7rem 1.5rem 5rem;
   text-align: center;
   overflow: hidden;
-  background-color: #000;
+  background-color: transparent;
   background-image:
-    radial-gradient(60rem 32rem at 50% -8rem, rgba(0, 187, 153, 0.28), transparent 60%),
-    radial-gradient(42rem 28rem at 18% 12%, rgba(153, 238, 153, 0.20), transparent 55%),
-    radial-gradient(46rem 30rem at 88% 4%, rgba(0, 187, 153, 0.16), transparent 55%);
+    radial-gradient(60rem 32rem at 50% -8rem, rgba(0, 187, 153, 0.22), transparent 60%),
+    radial-gradient(42rem 28rem at 18% 12%, rgba(153, 238, 153, 0.18), transparent 55%),
+    radial-gradient(46rem 30rem at 88% 4%, rgba(0, 187, 153, 0.14), transparent 55%);
 }
-/* soft fade into the page background at the bottom of the hero */
-.thread-hero::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 8rem;
-  background: linear-gradient(to bottom, transparent, var(--background, #000));
-  pointer-events: none;
+/* a touch more saturated glow on dark, where it reads as light */
+.dark .thread-hero {
+  background-image:
+    radial-gradient(60rem 32rem at 50% -8rem, rgba(0, 187, 153, 0.30), transparent 60%),
+    radial-gradient(42rem 28rem at 18% 12%, rgba(153, 238, 153, 0.22), transparent 55%),
+    radial-gradient(46rem 30rem at 88% 4%, rgba(0, 187, 153, 0.18), transparent 55%);
 }
-:root .thread-hero { --background: #fff; }
-.dark .thread-hero { --background: #000; }
 
 .thread-hero-inner {
   position: relative;
@@ -49,32 +45,42 @@
   max-width: 46rem;
   margin: 0 auto;
 }
+
+/* ---- Eyebrow ---- */
 .thread-eyebrow {
   font-family: Poppins, sans-serif;
   letter-spacing: 0.18em;
   font-size: 0.78rem;
   font-weight: 600;
-  color: #99ee99;
+  color: #0c8c5e;               /* light mode: dark green */
   margin: 0 0 1rem;
 }
+.dark .thread-eyebrow { color: #99ee99; }   /* dark mode: mint */
+
+/* ---- Title (gradient clipped text) ---- */
 .thread-hero-title {
   font-family: Poppins, sans-serif;
   font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1.05;
   font-weight: 700;
   margin: 0 0 1.25rem;
-  background: linear-gradient(180deg, #ffffff 0%, #b9f5c9 100%);
+  background: linear-gradient(180deg, #0c8c5e 0%, #08323c 100%); /* light mode */
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-/* Hero sits on a dark gradient in BOTH themes, so its text is always light.
-   Force the color on inner elements too — Mintlify applies a dark prose color
-   to the wrapping <span> in light mode that would otherwise win. */
-.thread-hero-sub,
-.thread-hero-sub * {
-  color: rgba(255, 255, 255, 0.72) !important;
+.dark .thread-hero-title {
+  background: linear-gradient(180deg, #ffffff 0%, #b9f5c9 100%); /* dark mode */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+/* ---- Subhead (force over Mintlify prose color) ---- */
+.thread-hero-sub,
+.thread-hero-sub * { color: rgba(0, 0, 0, 0.66) !important; }
+.dark .thread-hero-sub,
+.dark .thread-hero-sub * { color: rgba(255, 255, 255, 0.72) !important; }
 .thread-hero-sub {
   font-size: 1.12rem;
   line-height: 1.6;
@@ -82,7 +88,7 @@
   max-width: 36rem;
 }
 
-/* Ask AI search-style bar */
+/* ---- Ask AI search-style bar ---- */
 .thread-ask {
   display: flex;
   align-items: center;
@@ -93,35 +99,48 @@
   padding: 0.95rem 1.1rem;
   border-radius: 0.9rem;
   cursor: pointer;
-  background: rgba(153, 238, 153, 0.08);
-  border: 1px solid rgba(153, 238, 153, 0.35);
-  box-shadow: 0 0 0 0 rgba(153, 238, 153, 0.0);
+  background: rgba(12, 140, 94, 0.06);
+  border: 1px solid rgba(12, 140, 94, 0.35);
   transition: background 0.15s ease, box-shadow 0.2s ease, border-color 0.15s ease;
 }
 .thread-ask:hover {
+  background: rgba(12, 140, 94, 0.12);
+  border-color: rgba(12, 140, 94, 0.6);
+  box-shadow: 0 0 2.5rem -0.5rem rgba(0, 187, 153, 0.4);
+}
+.dark .thread-ask {
+  background: rgba(153, 238, 153, 0.08);
+  border-color: rgba(153, 238, 153, 0.35);
+}
+.dark .thread-ask:hover {
   background: rgba(153, 238, 153, 0.14);
   border-color: rgba(153, 238, 153, 0.6);
   box-shadow: 0 0 2.5rem -0.5rem rgba(0, 187, 153, 0.55);
 }
-.thread-ask-icon { color: #99ee99; font-size: 1.1rem; }
+.thread-ask-icon { color: #0c8c5e; font-size: 1.1rem; }
+.dark .thread-ask-icon { color: #99ee99; }
+.thread-ask-text { flex: 1; text-align: left; font-size: 1rem; }
 .thread-ask-text,
-.thread-ask-text * {
-  flex: 1;
-  text-align: left;
-  color: rgba(255, 255, 255, 0.85) !important;
-  font-size: 1rem;
-}
+.thread-ask-text * { color: rgba(0, 0, 0, 0.78) !important; }
+.dark .thread-ask-text,
+.dark .thread-ask-text * { color: rgba(255, 255, 255, 0.85) !important; }
 .thread-ask-kbd {
   font-size: 0.75rem;
-  color: #99ee99;
-  border: 1px solid rgba(153, 238, 153, 0.4);
+  color: #0c8c5e;
+  border: 1px solid rgba(12, 140, 94, 0.4);
   border-radius: 0.4rem;
   padding: 0.15rem 0.45rem;
 }
-.thread-ask-hint,
-.thread-ask-hint * {
-  color: rgba(255, 255, 255, 0.45) !important;
+.dark .thread-ask-kbd {
+  color: #99ee99;
+  border-color: rgba(153, 238, 153, 0.4);
 }
+
+/* ---- Hint (fine print) ---- */
+.thread-ask-hint,
+.thread-ask-hint * { color: rgba(0, 0, 0, 0.5) !important; }
+.dark .thread-ask-hint,
+.dark .thread-ask-hint * { color: rgba(255, 255, 255, 0.45) !important; }
 .thread-ask-hint {
   margin: 0.9rem auto 0;
   font-size: 0.72rem;
