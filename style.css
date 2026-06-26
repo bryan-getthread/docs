@@ -68,6 +68,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* Hero sits on a dark gradient in BOTH themes, so its text is always light. */
 .thread-hero-sub {
   font-size: 1.12rem;
   line-height: 1.6;
@@ -75,7 +76,6 @@
   margin: 0 auto 2.25rem;
   max-width: 36rem;
 }
-.light .thread-hero-sub { color: rgba(0, 0, 0, 0.6); }
 
 /* Ask AI search-style bar */
 .thread-ask {
@@ -105,7 +105,6 @@
   color: rgba(255, 255, 255, 0.85);
   font-size: 1rem;
 }
-.light .thread-ask-text { color: rgba(0, 0, 0, 0.7); }
 .thread-ask-kbd {
   font-size: 0.75rem;
   color: #99ee99;
@@ -117,10 +116,9 @@
   margin: 0.9rem auto 0;
   font-size: 0.72rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.45);
   max-width: 28rem;
 }
-.light .thread-ask-hint { color: rgba(0, 0, 0, 0.45); }
 
 /* Card sections below the hero */
 .thread-section { max-width: 64rem; margin: 3.5rem auto 0; padding: 0 0.5rem; }
