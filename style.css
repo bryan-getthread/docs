@@ -1,16 +1,30 @@
 /* "Go to Thread" / Inbox CTA — match the active sidebar item:
    translucent mint background + mint text (instead of a solid pill). */
+/* Light mode: darker brand green for contrast on the white navbar */
 #topbar-cta-button a > span:first-child {
-  background-color: rgba(153, 238, 153, 0.12) !important;
-  border: 1px solid rgba(153, 238, 153, 0.30);
+  background-color: rgba(12, 140, 94, 0.10) !important;
+  border: 1px solid rgba(12, 140, 94, 0.40);
   background-image: none !important;
 }
 #topbar-cta-button a:hover > span:first-child {
-  background-color: rgba(153, 238, 153, 0.20) !important;
+  background-color: rgba(12, 140, 94, 0.18) !important;
   opacity: 1 !important;
 }
 #topbar-cta-button a span.z-10,
 #topbar-cta-button a svg {
+  color: #0c8c5e !important;
+}
+
+/* Dark mode: mint on the black navbar */
+.dark #topbar-cta-button a > span:first-child {
+  background-color: rgba(153, 238, 153, 0.12) !important;
+  border: 1px solid rgba(153, 238, 153, 0.30);
+}
+.dark #topbar-cta-button a:hover > span:first-child {
+  background-color: rgba(153, 238, 153, 0.20) !important;
+}
+.dark #topbar-cta-button a span.z-10,
+.dark #topbar-cta-button a svg {
   color: #99ee99 !important;
 }
 
@@ -57,24 +71,16 @@
 }
 .dark .thread-eyebrow { color: #99ee99; }   /* dark mode: mint */
 
-/* ---- Title (gradient clipped text) ---- */
+/* ---- Title (solid color, theme-aware) ---- */
 .thread-hero-title {
   font-family: Poppins, sans-serif;
   font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1.05;
   font-weight: 700;
   margin: 0 0 1.25rem;
-  background: linear-gradient(180deg, #0c8c5e 0%, #08323c 100%); /* light mode */
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #0c8c5e;          /* light mode: brand green */
 }
-.dark .thread-hero-title {
-  background: linear-gradient(180deg, #ffffff 0%, #b9f5c9 100%); /* dark mode */
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+.dark .thread-hero-title { color: #ffffff; }   /* dark mode: white */
 
 /* ---- Subhead (force over Mintlify prose color) ---- */
 .thread-hero-sub,
