@@ -1,3 +1,20 @@
+/* "Book a demo" navbar link — render as the solid mint CTA (like getthread.com),
+   sitting next to the translucent "Thread Inbox" button. */
+#navbar a[href="https://www.getthread.com/demo"],
+a[href="https://www.getthread.com/demo"] {
+  background-color: #99ee99 !important;
+  color: #06281c !important;
+  font-weight: 600 !important;
+  padding: 0.4rem 0.95rem !important;
+  border-radius: 0.6rem !important;
+  transition: filter 0.15s ease;
+}
+#navbar a[href="https://www.getthread.com/demo"]:hover,
+a[href="https://www.getthread.com/demo"]:hover {
+  filter: brightness(0.94);
+  color: #06281c !important;
+}
+
 /* "Go to Thread" / Inbox CTA — match the active sidebar item:
    translucent mint background + mint text (instead of a solid pill). */
 /* Light mode: darker brand green for contrast on the white navbar */
