@@ -1,0 +1,69 @@
+name: Append changelog entry
+
+# Auto-appends a Mintlify <Update> block to changelog.mdx whenever a GitHub
+# Release is published. The release body becomes the entry; the release name
+# becomes the label. Edit the trigger/source to match your release process
+# (e.g. switch to `workflow_dispatch` for manual entries, or parse merged PRs).
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      label:
+        description: "Entry label (e.g. 'July 2026' or 'v2.4.0')"
+        required: true
+      body:
+        description: "Markdown body for the entry"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  append:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build entry + insert after frontmatter
+        env:
+          ENTRY_LABEL: ${{ github.event.release.name || inputs.label }}
+          ENTRY_BODY: ${{ github.event.release.body || inputs.body }}
+          RELEASE_URL: ${{ github.event.release.html_url }}
+        run: |
+          python3 - <<'PY'
+          import os, re, pathlib
+
+          label = os.environ["ENTRY_LABEL"].strip()
+          body  = os.environ["ENTRY_BODY"].strip()
+          url   = os.environ.get("RELEASE_URL", "").strip()
+
+          # Link back to the release / related article(s).
+          footer = f"\n\n[View release ↗]({url})" if url else ""
+
+          entry = (
+              f'<Update label="{label}">\n'
+              f"{body}{footer}\n"
+              f"</Update>\n\n"
+          )
+
+          path = pathlib.Path("changelog.mdx")
+          text = path.read_text()
+
+          # Insert the new entry immediately after the closing frontmatter (---).
+          m = re.search(r"^---\s*$.*?^---\s*$", text, re.S | re.M)
+          end = m.end()
+          # keep one blank line, then the new (newest-first) entry
+          new = text[:end] + "\n\n" + entry + text[end:].lstrip("\n") + "\n"
+          path.write_text(new)
+          print(f"Inserted changelog entry: {label}")
+          PY
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add changelog.mdx
+          git commit -m "changelog: ${{ github.event.release.name || inputs.label }}" || echo "no changes"
+          git push

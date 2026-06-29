@@ -33,7 +33,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Get Started",
+        "tab": "Docs",
         "groups": [
           {
             "group": "Get Started",
@@ -41,16 +41,9 @@
               "get-started/what-is-thread-an-overview",
               "get-started/thread-product-overview-your-guide-to-the-ai-powered-msp-service-desk",
               "get-started/quick-setup-guide",
-              "get-started/status-mapping-in-thread",
-              "get-started/thread-partner-change-management-guide",
-              "get-started/talking-to-customers-about-ai-powered-support-thread-customer-value-messaging"
+              "get-started/status-mapping-in-thread"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Products",
-        "groups": [
+          },
           {
             "group": "Thread Inbox",
             "pages": [
@@ -207,7 +200,6 @@
               {
                 "group": "Super Magic Tools",
                 "pages": [
-                  "super-magic/super-magic-tool-reference",
                   "super-magic/add-external-tools-to-super-magic-with-connectors-super-mcp",
                   "super-magic/connecting-ninja-one-to-super-magic",
                   "super-magic/use-hudu-with-super-magic",
@@ -266,12 +258,7 @@
               "analytics/things-to-know-and-gotchas",
               "analytics/faqs"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Apps & Integrations",
-        "groups": [
+          },
           {
             "group": "Messenger",
             "pages": [
@@ -322,13 +309,17 @@
                 ]
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Admin",
+        "groups": [
           {
             "group": "Integrations",
             "pages": [
               "integrations/hudu-integration",
               "integrations/it-glue-ask-magic",
-              "integrations/thread-rewst-integration",
               "integrations/microsoft-bookings-integration-for-psa-scheduling",
               "integrations/pia-integration",
               {
@@ -377,18 +368,6 @@
             ]
           },
           {
-            "group": "Developers",
-            "pages": [
-              "get-started/webhooks-apis-how-thread-talks-to-your-psa",
-              "super-magic/thread-mcp-server-developer-guide"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Account",
-        "groups": [
-          {
             "group": "Security & Billing",
             "pages": [
               "security-billing/data-encryption",
@@ -418,11 +397,49 @@
                 ]
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Guides",
+        "groups": [
           {
-            "group": "Adoption",
+            "group": "Guides",
             "pages": [
-              "adoption/craft-your-white-labeled-thread-customer-rollout-campaign"
+              "guides/getting-started-by-role",
+              {
+                "group": "Playbooks",
+                "pages": [
+                  "get-started/thread-partner-change-management-guide",
+                  "get-started/talking-to-customers-about-ai-powered-support-thread-customer-value-messaging",
+                  "adoption/craft-your-white-labeled-thread-customer-rollout-campaign"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Developers",
+        "groups": [
+          {
+            "group": "Developers",
+            "pages": [
+              "get-started/webhooks-apis-how-thread-talks-to-your-psa",
+              "super-magic/thread-mcp-server-developer-guide",
+              "super-magic/super-magic-tool-reference",
+              "integrations/thread-rewst-integration"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "groups": [
+          {
+            "group": "Changelog",
+            "pages": [
+              "changelog"
             ]
           }
         ]
