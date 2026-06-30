@@ -3,4 +3,147 @@ title: "Planner ↔ Outlook Calendar Integration"
 description: "Planner ↔ Outlook Calendar Integration. The Planner ↔ Outlook integration brings your technicians’ Outlook calendar events directly into Planner, giving dispatchers and managers a more complete view…"
 ---
 
-<Note>Content for this article is being migrated.</Note>
+
+### Planner ↔ Outlook Calendar Integration
+
+The Planner ↔ Outlook integration brings your technicians’ Outlook calendar events directly into Planner, giving dispatchers and managers a more complete view of availability and helping avoid double-booking. Planner continues to show ticket-based work from your PSA, while also surfacing non-ticket events like meetings, training, or time off from Outlook — all in one place.
+
+The Outlook calendar sync is a read-only integration that pulls your technicians' Outlook events directly into Planner.
+
+Here is a brief breakdown of what the sync means for your workspace:
+
+- **The Concept:** It brings non-ticket events from Outlook—such as meetings, training, and out-of-office time—into the same view as the ticket-based schedules from your PSA. It connects at the workspace level, meaning an admin authorizes it for the whole team rather than individually.
+- **The Value:** It provides a single source of truth for technician availability, giving dispatchers a complete picture so they can schedule confidently and avoid double-booking. It also automatically deduplicates events if your PSA already syncs with Outlook.
+- **How it Works:** Once connected, Planner displays up to two weeks of future Outlook events. Event updates sync every 10 minutes. Because the integration is strictly read-only, you cannot create, edit, or delete Outlook calendar events from within Planner.
+
+#### What does this integration do?
+
+Once connected, Planner will:
+
+- Pull read-only Outlook calendar events for technicians
+- Display those events alongside scheduled ticket work
+- Automatically deduplicate events when the same schedule exists in both your PSA and Outlook
+- Keep events updated as they’re created, edited, or deleted in Outlook
+
+Planner events can come from three sources:
+
+1. Your PSA (ticket-based schedules)
+2. Outlook (meetings, OOO, personal events)
+3. Native Planner scheduling
+
+#### How do I connect Planner to Outlook?
+
+To connect Outlook to Planner:
+
+1. Go to **Admin** → **Integrations**
+2. Select **Outlook Calendar**
+3. Authorize the integration with a Microsoft 365 Global Admin account
+4. Accept the required calendar permissions
+
+**Important notes:**
+
+- The integration is workspace-wide — you can’t connect individual users.
+- Permissions are read-only.
+- This is a separate Microsoft app from SSO or Teams integrations.
+
+Once connected, Outlook events will begin syncing automatically.
+
+##### What happens after connecting to Outlook?
+
+!
+
+Users in a Thread’s Inbox can view calendar events for everyone in the Inbox. These events are read-only and cannot be modified. People who are not Admins/Members of Thread’s Inbox will not appear in Planner.
+
+Planner also respects individual privacy. Events marked as **Private** in Outlook will remain marked as private in Planner.
+
+##### How often does Planner sync with Outlook?
+
+Planner uses two background sync processes:
+
+- **Initial Calendar Sync:** Takes 1 hour
+- **Calendar Sync:** Runs every hour
+- **Event Sync:** Runs every 10 minutes. However, if your PSA experiences delays syncing to Outlook, those delays will impact the time it takes for events to show up in Planner.
+
+After that, changes in Outlook (new, updated, or deleted events) typically show up within minutes.
+
+##### How far into the future does Planner pull Outlook events?
+
+Planner pulls Outlook events in a rolling window:
+
+- Planner displays up to 2 weeks of future Outlook events by default.
+- This window helps balance performance while still giving dispatchers enough visibility to schedule confidently.
+
+##### What types of Outlook events appear in Planner?
+
+Any calendar event that appears in the user’s default calendar will appear in Planner.
+
+For privacy reasons, Planner may show time blocks without full event details, depending on the event type and configuration. Furthermore, any event set to **Private** in Outlook will automatically carry over that private status into Planner.
+
+##### Can I hide event titles for specific users?
+
+Yes. We understand that certain users (such as C-suite executives or other key personnel) need their calendar event titles kept private from the broader team.
+
+Admins have the ability to hide Outlook event titles for specific users while preserving their scheduling context:
+
+**How to hide titles:**
+
+1. Navigate to Thread Admin / Integrations / Microsoft 365 / Manage Calendars
+2. Within the Calendars table, find the user(s) you want to hide event titles for
+3. Toggle the "Hide event titles" to ON
+4. Done!
+
+- **What it looks like:** When the toggle is on, event titles for that user are immediately replaced with the word “Busy” in Planner. The event time blocks remain fully visible, ensuring dispatchers know the user is unavailable. When the toggle is off, event titles show normally.
+- **Who can do this:** Only Admins can change this setting.
+
+##### Will events show up twice if my PSA already syncs to Outlook?
+
+No — Planner automatically deduplicates events.
+
+If your PSA (Autotask, ConnectWise, or HaloPSA) already syncs schedules into Outlook, Planner detects matching events and shows them only once. Deduplication is handled automatically using details like:
+
+- Ticket name or ID
+- Start and end time
+- Assigned technician
+
+This prevents duplicate blocks from appearing in Planner.
+
+##### Can I edit Outlook events from Planner?
+
+No. The integration is read-only, for now.
+
+You cannot create, edit, or delete Outlook calendar events from Planner. Any changes must be made directly in Outlook (or your PSA). Planner will reflect those changes during the next sync.
+
+##### What happens if I disconnect the integration?
+
+If the Outlook integration is disconnected:
+
+- All Outlook calendar events are removed from Planner
+- PSA-based schedules and Planner-created plans remain unchanged
+- You can reconnect at any time to resume syncing
+
+##### What happens if the Outlook integration fails?
+
+If the integration is temporarily unavailable:
+
+- Planner will continue showing existing events
+- New Outlook changes won’t appear until the issue is resolved
+- Admins may see alerts related to authorization or sync issues
+
+##### Which Outlook Calendar permissions will Planner require?
+
+- `Calendars.Read` - to read calendars and calendar events
+- `User.Read.All` - to list active users and iterate over them to retrieve their calendars
+
+##### Security & permissions
+
+- Requires admin-level authorization in Microsoft 365
+- Uses read-only calendar access
+- Events are not modified by Planner
+
+---
+
+### How did we do?
+
+---
+
+### Related Articles - [Thread Planner: How-To Guides and FAQs](/article/1bn5gd3h6p-using-planner) - [Topics You Can Explore](/article/0nvp89krkp-topics-you-can-explore) - [Things to Know and Gotchas](/article/k9rdz950hk-things-to-know-and-gotchas)

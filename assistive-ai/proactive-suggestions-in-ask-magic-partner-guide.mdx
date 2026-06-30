@@ -3,4 +3,109 @@ title: "Proactive Suggestions in Ask Magic — Partner Guide"
 description: "Availability: Proactive Messaging is currently rolling out to all partners. If you don't see it in your account yet, it will be available to you shortly.. Concept. When a technician opens a ticket, A…"
 ---
 
-<Note>Content for this article is being migrated.</Note>
+
+****Availability:**** **Proactive Messaging is currently rolling out to all partners. If you don't see it in your account yet, it will be available to you shortly.**
+
+### Concept
+
+When a technician opens a ticket, Ask Magic can automatically surface a draft resolution before they have to ask anything. This is called **Proactive Suggestions** (also referred to as Suggested Resolution).
+
+It gives technicians a head start — context, resolution steps, and relevant documentation — scoped to the specific ticket and company, the moment they need it.
+
+### Value
+
+When a ticket is opened, Ask Magic automatically generates a structured draft for the technician. It pulls from the ticket itself, your knowledge base, past related tickets, and any connected documentation (Hudu or IT Glue, if enabled).
+
+The draft is internal only — it is never sent to the end customer. The technician reviews it and can apply it into Ask Magic as a starting message, then edit or continue from there.
+
+Think of it as a proactive briefing tied to the ticket — so technicians start with context instead of a blank screen.
+
+### How it works
+
+#### When it appears
+
+A suggestion is generated in two situations:
+
+- **When a technician opens the ticket** — if no suggestion exists yet and the ticket is eligible, Ask Magic starts generating one in the background. The technician may briefly see a loading state.
+- **When the Triage Agent hands off the ticket** — once the agent deactivates on a thread, Ask Magic queues a suggestion so it is ready when the technician picks it up.
+
+Only one suggestion is generated per ticket. If one already exists, the system does not create another.
+
+#### How it shows up
+
+Depending on the state of the Ask Magic panel when the suggestion is ready:
+
+|  |  |
+| --- | --- |
+| Situation | What the technician sees |
+| Ask Magic panel is open and empty | The suggestion appears automatically as the first message |
+| Ask Magic panel is closed | A badge appears on the Ask Magic tab so the technician knows something is waiting |
+| Ask Magic already has messages | A banner appears with a "View Resolution" option to apply the draft without overwriting the conversation |
+
+#### What's in the draft
+
+The draft is structured to be fast to scan. It may include:
+
+- **Thread details** — ticket title, ID, and status
+- **Contact intelligence** — device, environment, and behavioral cues when available
+- **Resolution steps** — ordered, actionable steps inferred from the ticket and knowledge sources
+- **Past related tickets** — similar tickets from the same contact or company, when found
+- **Knowledge articles** — relevant internal KB articles, and Hudu or IT Glue docs when those integrations are enabled
+
+Sections are only included when there is real data to show. If a source has nothing relevant, that section is left out entirely — no placeholders, no filler.
+
+#### What sources it draws from
+
+Proactive Suggestions is grounded in your operational data — not the open web.
+
+**Always used:**
+
+- The ticket summary, status, and chat history between the end user and your team
+- Devices or configurations tied to the ticket
+- Your company summary for that client (if configured in Client Intelligence)
+
+**Used when available and enabled:**
+
+- Your internal Thread Knowledge Base articles
+- Past tickets from the same contact or company
+- Hudu documentation (if your Hudu integration is connected and enabled for Ask Magic)
+- IT Glue documentation (if your IT Glue integration is connected and enabled for Ask Magic)
+
+**Not used:**
+
+- Open web search — this feature is intentionally scoped to your systems only
+- Prior Ask Magic chat on the same ticket — the suggestion is based on the ticket thread, not the Ask Magic side panel history
+
+#### FAQ
+
+**Is the suggestion sent to the customer?**
+
+No. The draft is internal only. It is placed into the Ask Magic panel for the technician to review and use. The customer never sees it unless the technician chooses to copy and send it manually.
+
+**Can a technician ignore it?**
+
+Yes. Applying the suggestion is always optional. Technicians can dismiss the banner or simply not act on it and continue working in Ask Magic manually.
+
+**What if the suggestion says "not available" for a ticket?**
+
+This usually means the ticket or client is outside your current KB eligibility rules, or the per-client suggestions setting is off for that company. It is not an error — it is intentional scoping.
+
+**What if it fails to generate?**
+
+If something goes wrong during generation, no draft will appear for that ticket. The technician can continue using Ask Magic manually as usual.
+
+**Will it generate a new suggestion if I re-open the ticket?**
+
+No. Once a suggestion exists for a ticket (in any state), the system does not generate another one for the same ticket.
+
+**Does it use Hudu or IT Glue?**
+
+Yes, if those integrations are connected and enabled for Ask Magic in your workspace. Relevant articles from those sources will appear in the draft when found.
+
+---
+
+### How did we do?
+
+---
+
+### Related Articles - [IT Glue + Ask Magic Partner Guide](/article/c7hp2x7h9d-it-glue-ask-magic) - [Manager Guide -Getting started with Client Intelligence](/article/2srejncrzn-getting-started-with-knowledge) - [Magic Recap Template Library](/article/bwkpislyig-magic-recap-template-library)

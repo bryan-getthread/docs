@@ -3,4 +3,148 @@ title: "Voice AI - Outbound Calling"
 description: "Outbound Calling. Concept. Outbound calling in Thread lets your technicians place calls to customers directly from Inbox, with a verified business caller ID displayed regardless of which device or nu…"
 ---
 
-<Note>Content for this article is being migrated.</Note>
+
+### Outbound Calling
+
+#### Concept
+
+Outbound calling in Thread lets your technicians place calls to customers directly from Inbox, with a verified business caller ID displayed regardless of which device or number the tech is actually calling from.
+
+#### Value
+
+Once outbound is set up, every call your team places carries a consistent, recognizable business identity to the customer — and every call is automatically recorded, transcribed, and tied to the right ticket:
+
+- **Flexible for any phone setup** — works for MSPs whose techs have direct numbers, extensions under a DID, or use personal devices. Customers always see your main verified caller ID.
+- **Recorded and transcribed automatically** — every outbound call lands in the ticket as a transcript, accessible from both the Admin dashboard and the right-hand sidebar of Inbox.
+- **Supercharged by Super Magic** — techs can query the live transcript mid-call to pull up docs, and ask Super Magic to summarize the call and write a Time Pad entry the moment they hang up.
+
+### How To
+
+##### Before you start
+
+|  |  |
+| --- | --- |
+| Requirement | Details |
+| Admin access in Thread | Required to add agents and verify caller ID numbers. |
+| At least one phone number for caller ID | This is the number customers will see, regardless of what device the tech calls from. You'll need to be able to answer this number to complete verification (unless it routes through a Thread Inbound agent, in which case it validates automatically). |
+| A number where the technician can be reached | Pulled automatically from your PSA, or any number/extension the tech enters manually. |
+
+##### Step 1 — Add an agent (Admin)
+
+!
+
+In Thread, go to **Admin** and add a new outbound agent.
+
+Most MSPs only need **one agent**. Outbound agents have limited settings — multiple agents only make sense if you need different compliance messaging by region, or want to divide call data by office.
+
+When configuring:
+
+1. Enter an **agent name**.
+2. Decide whether to include a **compliance message** at the start of each call.
+3. **OPTIONAL**-Add **custom pronunciations** for the consent message (e.g., your MSP's name) so it's spoken correctly.
+
+##### Step 2 — Add and verify a caller ID number
+
+!
+
+Navigate to outbound Numbers, Click **Add Number**, then:
+
+1. Enter the **phone number** and **extension** (if applicable).
+2. Add a **label**.
+3. Click **Add Number**.
+4. Thread places a verification call to that number — answer it and enter the code Thread provides on your dial pad.
+
+A few things to know about verification:
+
+- Verification status is shown on the numbers table; you can **resend the verification** if needed.
+- If your DID routes through a **Thread Inbound agent**, the number validates automatically — the verification window closes itself when complete (may take a few moments).
+- A number **cannot be used as caller ID until verified**.
+- **Outbound calling cannot be activated** until at least one caller ID is verified.
+
+If you want to display different caller IDs by region or office (e.g., one number for midwest offices, one for east coast), simply add and verify each number — techs will be able to choose between them when placing calls.
+
+Outbound agents and calling can be **toggled on and off at any time** from Admin.
+
+##### Step 3 — Set your default calling preferences (first call only)
+
+The first time a technician places an outbound call from Inbox, they'll see a setup popup. These preferences can be changed anytime from the Preferences section of Inbox.
+
+1. Select the **agent** and **caller ID** — this is the number the customer will see, regardless of what number the tech is calling from. If your Technicians use an Extension and are not receiving the call, they may need to edit their extension to add "w's" too add a half second to the extension trigger as noted in the tool-tip  
+   !
+
+   NOTE: Customers will not see the Agents name, Only the Caller ID
+2. Select **the number the tech wants to be reached at**:
+   - Thread automatically pulls the tech's number from the PSA as an option, OR
+   - Choose **"Use a different number"** to enter any phone number and extension.  
+
+     We strongly recommend that partners Run a PSA Sync before placing your first call to ensure that you are pulling the correct extensions for both Members and Contacts
+
+##### Step 4 — Place a call
+
+From inside **Inbox**, start a call from either the **contact panel** or the **top of the conversation area**.
+
+In the call popup:
+
+1. Choose the number the **customer** should be reached at — Thread pulls the default PSA contact number, or you can enter a different number and extension.
+   - **Troubleshooting tip:** If the call isn't connecting through an extension, try adding a couple of `w`s before the extension (e.g., `www90`) to insert pause delays.
+
+     As a best practice, Technicians should confirm the correct number to reach them at. Depending on your PSA Hygiene, phone number configuration, and or customer preference, the number listed may not be the preferred number for the customer.!Note: if the number is not dialable, you will see a warning icon with additional details next to the phone number
+2. Edit your **caller ID** or **the number you'll be reached at** for this call if needed. (To change them permanently, go to Preferences in Inbox.)
+3. Click **Place Call**. The Technician will then press 1 or say "Start the call" to Connect
+
+   Timepad will automatically start and stop when the call is initiated and when it ends
+
+Thread will ring the **technician first** at the number they provided, then connect the customer once the tech picks up.
+
+##### Step 5 — During the call
+
+While the call is live, technicians have a few controls inside Inbox:
+
+- **Pause and resume the transcript** to keep sensitive information (passwords, payment details, etc.) out of the record.
+- **End the call from Inbox** if needed — also useful if a call appears stuck "in progress" long after it actually ended.!
+
+##### Step 6 — After the call
+
+Every outbound call is **recorded and transcribed into the ticket** automatically. You'll find the transcript in three places:
+
+- The **Admin dashboard**, marked as outbound.
+- The **right-hand sidebar of Inbox**, the same place inbound call transcripts live.
+- The **Conversation Area** in the ticket
+
+##### Step 7 — Use Super Magic with the call
+
+Super Magic has access to the **live call transcript**, both during and after the call.
+
+- **During the call** — ask Super Magic questions and have it reference the transcript to surface relevant documentation.
+- **After the call** — ask Super Magic to summarize the steps taken, reference the call time, and **write an entry to Time Pad**. Call notes that used to take minutes take seconds.
+
+##### Notes and limitations
+
+|  |  |
+| --- | --- |
+| Note | Detail |
+| Call transfers | Transfers work ONLY when it's inside the same phone number.    IE- You call [555-900-8000](tel:7809008000) and then have to dial or press an extension.  [555-900-8000](tel:7809008000) transferring to 555-777-777 will not work |
+| Tech-side flexibility | Techs can call from a **main DID, a DID with an extension, or any number** — and the customer will still see your verified main line. |
+| Where outbound runs | Outbound calling is supported through **Thread Inbox only**. |
+
+##### FAQ
+
+**Do I need more than one outbound agent?** Probably not. One agent covers most MSPs. Add more only if you need different compliance messaging per region, or want to segment call data by office.
+
+**Does my tech's real number show to the customer?** No. The customer always sees the **verified caller ID** you've configured, regardless of what device or number the tech is actually calling from.
+
+**What if a number won't verify by phone call?** If the DID routes through a Thread Inbound agent, verification happens automatically — give it a few moments. Otherwise, make sure you have direct access to answer that line, and use the **resend verification** option from the numbers table if needed. If your Technicians use an Extension and are not receiving the call, they may need to edit their extension to add "w's" too add a half second to the extension trigger as noted in the tool-tip
+
+**A call extension isn't connecting — what do I do?** Add a couple of `w`s before the extension digits (e.g., `www90`). The `w`s insert pauses that give the receiving system time to register the extension.
+
+**Where do I find the call transcript afterward?** In the **Admin dashboard** (marked as outbound) and in the **right-hand sidebar of Inbox** on the related thread.
+
+**Can I turn outbound off temporarily?** Yes. Outbound agents and calling can be toggled on and off at any time from Admin.
+
+---
+
+### How did we do?
+
+---
+
+### Related Articles - [Voice AI FAQ](/article/6yxedwcqzs-voice-ai-faq) - [Microsoft Teams Pay-As-You-Go Resource Account Calling](/article/xewygpofxu-microsoft-teams-pay-as-you-go-resource-account-calling) - [Topics You Can Explore](/article/0nvp89krkp-topics-you-can-explore)

@@ -3,4 +3,69 @@ title: "Automate Approvals with Magic Agents"
 description: "The Magic Agent Approvals feature allows Managed Service Providers (MSPs) to fully automate approval workflows directly within Thread. By adding approvals to Magic Agent intents , you can automatical…"
 ---
 
-<Note>Content for this article is being migrated.</Note>
+
+The **Magic Agent Approvals feature** allows **Managed Service Providers (MSPs)** to fully automate approval workflows **directly within Thread**. By adding approvals to **Magic Agent intents**, you can **automatically trigger approval requests** based on the request type, removing manual effort and ensuring a **consistent, fast, and compliant approval process**.
+
+With this feature, **technicians no longer need to manually request approvals**—instead, approvals are automatically triggered when a request **matches a predefined intent**. Approvers can **approve or decline** instantly via **Thread, New Teams, Messenger, or email**, keeping decisions moving without delays.
+
+**This is currently only available for Connectwise and Autotask Partners.**
+
+**Setup Process**
+
+**1. Configuring Contact Types in ConnectWise**
+
+To enable approvals, partners need to configure ConnectWise:
+
+1. Create/Use the appropriate **Contact Types** for approval purposes in ConnectWise.
+2. Assign the **Approvers** (Contacts) to the corresponding Contact Types.
+3. Assign each Contact Type to the relevant intent(s).
+
+!
+
+**2. Enabling Approvals for Intents in Thread**
+
+Once the ConnectWise setup is complete:
+
+1. Navigate to the **Admin Magic AI** section in Thread.
+2. Select the **Agents** tab.
+3. Pick the intent you want to enable approvals for and click **Edit**.
+4. In the intent settings, locate the **Approval** section and toggle it **On**.
+5. Choose the **Contact Types** that contain all possible approvers for that intent.
+
+!
+
+**Functionality**
+
+**1. Pending Approvals**
+
+- The agent will **not time out** while waiting for an approval decision.
+- If the organization has the **Teams integration**, approvers will be added to the Teams chat as a notification to approve the request.
+- In **Messenger**, approvers will also appear in the chat until an action is performed (approve or decline).
+
+!
+
+**2. Approval Tracking in Inbox**
+
+Technicians and admins can monitor all approvals in the Inbox. Approvals will be categorized as:
+
+- **Active**/**Closed**
+
+With multiple Approval states:
+
+- **Pending**
+- **Approved**
+- **Declined**
+
+!
+
+**3. Email Notifications**
+
+Approvers will receive an **email reminder**. The email will include buttons to **Approve** or **Decline** the request, redirecting the approver to the Thread interface to complete their action.
+
+---
+
+### How did we do?
+
+---
+
+### Related Articles - [Approvals in Inbox](/article/9nto3x9yix-approvals-in-inbox) - [Introducing Your Service Catalog](/article/xb9mxsqhsi-building-your-magic-agents-service-catalog) - [Configure Status Mapping in Thread](/article/71r30mmurb-status-mapping-in-thread)

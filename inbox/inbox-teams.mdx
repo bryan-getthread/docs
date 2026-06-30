@@ -3,4 +3,232 @@ title: "Inbox Teams"
 description: "Overview. Inbox Teams give you a scalable way to organize team members and the Views they rely on every day. Instead of manually adding each technician to individual Views, Teams let you group people…"
 ---
 
-<Note>Content for this article is being migrated.</Note>
+
+### Overview
+
+Inbox Teams give you a scalable way to organize team members and the Views they rely on every day. Instead of manually adding each technician to individual Views, Teams let you group people together once—then automatically grant them access to all Views inside that Team.
+
+Teams are ideal for partners with operational groups such as **Tier 1 Support, Tier 2/Escalations, NOC teams, After-Hours Support, or client-specific pods**, or anyone looking for a clearer, easier way to manage access across Inbox.
+
+Only Admins can create and manage Teams. Members can’t create Teams themselves, but once an Admin adds them to a Team, it automatically appears in their Inbox with all associated Views.
+
+With Teams, Admins can:
+
+- Create one or more Inbox Teams
+- Add or remove members at any time
+- Create Views inside a Team
+- Duplicate existing Views into a Team
+- Remove themselves from a Team (optional)
+- Expand or collapse Teams in Inbox’s navigation to see all Views tied to that Team
+
+Admins maintain full visibility and can manage all Teams from the Admin area, even if they’re not a member of those Teams.
+
+### **Getting Started**
+
+### **Where to find Teams**
+
+Teams can be created from two places, depending on your permissions:
+
+### **If you’re an Admin**
+
+Admins can create and manage Teams from either **Inbox** or **Admin**:
+
+- **From Inbox:**  
+  In the left navigation, you’ll see a **“Teams”** section with a **plus (+) icon** beside it.  
+  Selecting the plus icon will route you to **Admin → Teams** to begin creating a new Team.
+- **From Admin:**  
+  Go directly to **Admin → Teams** to create a Team, edit its details, or manage membership and Views.
+
+Admins can see **all** Teams in the Admin area—even if they are not members—and can modify members, Views, or delete a Team entirely.
+
+### **If you’re a Member**
+
+Members cannot create Teams and will not see the plus (+) icon in Inbox.
+
+When an Admin adds a Member to a Team:
+
+- The Team automatically appears in the member’s Inbox
+- The member gains access to all Views inside that Team
+- No additional setup is required
+
+### **Creating a Team**
+
+Admins can create a Team from either Inbox or Admin:
+
+1. From Inbox, click the **plus (+) icon** next to the Teams section. You’ll be routed to **Admin → Teams**.
+2. Or navigate directly to **Admin → Teams** and select **Create Team**.
+3. Name your Team and add members.
+4. Save.
+
+Members cannot create Teams and will not see the “add team” option.
+
+### **Managing Team Members**
+
+Teams make membership management straightforward:
+
+- **Add a member:** they instantly gain access to every View inside the Team
+- **Remove a member:** they lose access immediately
+- **Admins** can manage membership for any Team
+- Members cannot self-manage or leave a Team
+
+Later milestones will introduce more granular roles, but Admin-only creation and management keeps things simple for Milestone 1.
+
+#### **Views Inside Teams**
+
+Views can be created *directly inside a Team* or duplicated into a Team.
+
+### **Create a new View inside a Team**
+
+1. Go to **Admin → Teams**
+2. Select your Team
+3. Click **Create View**
+4. Configure filters, sorting, and conditions
+5. Save
+
+The View will appear nested under that Team in Inbox.
+
+[Create Team View](https://www.loom.com/share/09f565ae4c15497db74684e840de9ecf)
+
+### **Duplicate an existing View into a Team**
+
+From the View’s menu, choose **Duplicate to Team…**, then select the Team. This will maintain your current view and duplicate it within the Team you selected. Feel free to delete the pre-existing view from the Views section.
+
+### **Using Teams in Inbox**
+
+- **Admins** see the Teams they’re a member of directly in Inbox. They can also view and manage all Teams from **Admin → Teams**.
+- **Members** only see Teams they’ve been added to, and will not see the option to create new ones.
+- Teams can be expanded or collapsed to view their nested Views.
+- Technicians interact with Team Views the same way they interact with any other View.
+
+> If Admins do see all Teams in Inbox, not just the ones they belong to, let me know — I’ll adjust the recommended copy accordingly.
+
+When you first create a Team, it can be helpful to set up a few core Views that give your technicians immediate clarity on what to work on. Here are a few recommended Views many partners start with:
+
+### **1. All Threads**
+
+Create an “All Threads” View for your Team based on where this Team typically receives its work.
+
+For example, if your team works out of a specific Board (Connectwise) / Queue (Autotask) / Team (Halo) in your PSA, set up an All Threads View where **Board/Queue/Team = [that location]**.
+
+This gives your technicians a single place to see everything they’re responsible for.
+
+### **2. Magic in Progress**
+
+A View showing all threads where the Magic Agent is actively engaged.
+
+> Example filter:
+>
+> Magic Agent = **Engaged**
+
+### **3. Unassigned**
+
+A View that highlights threads the Magic Agent hasn’t handled or where no owner has been assigned.
+
+This helps teams quickly identify new work waiting to be picked up.
+
+> Example filters:
+>
+> Magic Agent = **Disengaged** or **Never engaged**
+>
+> Owner = **blank**
+
+### **4. Needs Response**
+
+A View that surfaces threads where the customer was the last to reply, helping technicians focus on timely responses.
+
+> Example filter:
+>
+> Last sender = **Contact**
+
+### **5. Poor Sentiment**
+
+A View that highlights threads with low sentiment, signaling where customers may be frustrated or need extra attention.
+
+> Example filter:
+>
+> Sentiment < **40**
+
+### FAQ
+
+##### **Who can create a Team?**
+
+Only Admins. Members cannot create Teams and will not see the option to do so.
+
+##### **Who can create or edit Views inside a Team?**
+
+Only Admins. Members can’t create new Views or edit existing Team Views. They can use filters and work within Views that an Admin has set up.
+
+##### **Where can I create a Team?**
+
+Admins can create a Team from either:
+
+- The **plus (+) icon** next to the Teams section in Inbox (which routes to Admin → Teams), or
+- Directly from **Admin → Teams**
+
+##### **Why don't I see the option to add a Team?**
+
+You must have Admin permissions. Members do not see the “add team” option in Inbox or in Admin.
+
+##### **Do Admins need to join a Team to manage it?**
+
+No. Admins can view and manage all Teams from the Admin area, even if they’re not members of that Team.
+
+##### **What happens when a member is added to a Team?**
+
+The Team appears in their Inbox automatically, and they gain access to all Views inside that Team.
+
+##### **Can members remove themselves from a Team?**
+
+No. Only Admins can add or remove members.
+
+##### **Can Admins remove themselves from a Team they created?**
+
+Yes. Admins can add or remove themselves from any Team.
+
+##### **Are Teams required?**
+
+Teams are optional. You can continue using standalone Views, but Teams significantly simplify member access management—especially for partners with multiple service teams.
+
+##### **Can I move an existing View into a Team?**
+
+Partially. Use the View’s menu and select **Duplicate to Team…**, then choose the destination Team. When you do this, the View is **duplicated** for the chosen Team, and the original View in the Views section remains.
+
+##### **Can I remove a View from a Team?**
+
+Yes. You can delete a View from a team. When you delete a View from a Team, the View is deleted **for everyone in that Team**.
+
+##### **Do technicians automatically gain access to all Views in their Team?**
+
+Yes. Access is granted instantly when they’re added to the Team.
+
+##### **If I remove a member from a Team, what happens?**
+
+They immediately lose access to all Views inside that Team.
+
+##### **Does creating a Team change how Views work?**
+
+No. Views function the same inside and outside Teams. Teams simply organize Views and automate access management.
+
+##### **Are there limits on how many Teams or Views I can create?**
+
+No. You can create as many Teams and Views as needed.
+
+##### **Are Teams in Thread the same as Teams in my PSA?**
+
+No. Teams in Thread are separate from PSA teams. However, you can set up Thread Teams that mirror your PSA structure if that works best for your workflow.
+
+##### **How do notifications work with Teams?**
+
+Notifications remain set per technician and per View. Teams don’t introduce global notification settings, so functionality remains the same as in Views.
+
+##### **Can Teams sync with Microsoft Entra ID groups?**
+
+No. There’s currently no option to sync Thread Teams with Entra ID groups. Teams must be managed directly in Thread.
+
+---
+
+### How did we do?
+
+---
+
+### Related Articles - [Setting Up Thread Inbox Based on Your Service Team Structure](/article/ttc32szrp1-service-team-structure) - [Inbox: Getting Started](/article/kxfe3p9kb8-1-the-channel-viewer) - [Team Admin Role](/article/7of7ftagbo-team-admin-role)

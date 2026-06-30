@@ -3,4 +3,88 @@ title: "Approvals in Inbox"
 description: "Overview. The Approvals feature in Inbox enables Managed Service Providers (MSPs) to request and manage approvals directly within conversations. This eliminates the need for pre-configured Magic Agen…"
 ---
 
-<Note>Content for this article is being migrated.</Note>
+
+### **Overview**
+
+The **Approvals** feature in **Inbox** enables **Managed Service Providers (MSPs)** to request and manage approvals directly within conversations. This eliminates the need for pre-configured **Magic Agent intents**, ensuring faster decision-making without disrupting workflows.
+
+Approvers can **approve or decline requests instantly** via **Thread, Microsoft Teams, Messenger, or email**. All approval records are centralized within **Inbox**, improving tracking, compliance, and auditability.
+
+### **Requesting Approvals in Inbox**
+
+#### **1. How to Manually Request an Approval**
+
+Technicians can request approvals in real-time using either of the following methods:
+
+##### ****1️⃣ Using the******`/approval`******Command****
+
+1. Type `/approval` in the **chat composer**.
+2. A **pop-up modal** will appear to configure the approval request.
+
+##### **2️⃣ Using the Action Button in Inbox**
+
+1. Click the **Action** button above the **chat composer**.
+2. Select **Request Approval** to open the approval request modal.
+
+#### **2. Configuring Approval Requests**
+
+When the approval request modal opens, technicians can configure the request using these options:
+
+##### **✅ Select Approvers**
+
+- Choose **Contact Types** (ConnectWise, AutoTask) or **specific contacts**.
+- **Halo** partners can only select **individual contacts**.
+- Optionally, filter contacts by **company affiliation** using the checkbox.
+
+##### **✅ Preview the Approval Message**
+
+- A **standardized approval request message** is generated.
+- Approvers' names are dynamically included for clarity and consistency.
+
+##### **✅ Send the Request**
+
+- Approvers are added to the conversation and notified via **Teams, Messenger, or email**.
+
+### **Functionality & Workflow**
+
+#### **1. Pending Approvals**
+
+- Approval requests remain **pending** until an **approver** responds.
+- **No timeout** is applied; requests stay open until action is taken.
+- If **Teams integration** is enabled, approvers are **added to the Teams chat**.
+- In **Messenger**, approvers stay in the chat until they approve or decline.
+
+#### **2. Approval Tracking in Inbox**
+
+Technicians and admins can track approvals within Inbox:
+
+- **Navigate to:** `Inbox → Apps → Approvals`
+- Approvals are categorized as:
+  - **Active**
+  - **Closed**
+- Filters allow users to view:
+  - **Pending approvals**
+  - **Approved requests**
+  - **Declined requests**
+
+#### **3. Email Notifications for Approvers**
+
+- Approvers receive an **email notification** with **Approve** and **Decline** buttons.
+- Clicking either button redirects the approver to **Thread** to take action.
+
+### **Additional Notes**
+
+- Approvals requested via Inbox are **independent of Magic Agent intents** and do not require AI automation.
+- **ConnectWise & AutoTask partners** can use **Contact Types** and **User Defined Attributes (UDA)** for automated approver selection.
+- **Halo partners** must select **direct contacts** as approvers.
+- Every **approval action** is **logged in Thread and PSAs** for compliance and auditing.
+
+This feature streamlines **approval workflows** while ensuring **quick responses** and **better tracking** within Thread Inbox.
+
+---
+
+### How did we do?
+
+---
+
+### Related Articles - [How to Set Up User-Defined Fields (UDFs) in Autotask for Approvals](/article/st20cy59is-autotask-approval-configuration) - [Automate Approvals with Magic Agents](/article/upy9f3hkdj-approvals) - [Navigating a Thread](/article/wq3qzrmw1f-3-the-thread-itself)
