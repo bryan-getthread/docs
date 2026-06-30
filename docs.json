@@ -310,7 +310,8 @@
               }
             ]
           }
-        ]
+        ],
+        "icon": "book-open"
       },
       {
         "tab": "Admin",
@@ -398,7 +399,8 @@
               }
             ]
           }
-        ]
+        ],
+        "icon": "gear"
       },
       {
         "tab": "Guides",
@@ -417,7 +419,8 @@
               }
             ]
           }
-        ]
+        ],
+        "icon": "compass"
       },
       {
         "tab": "Developers",
@@ -431,7 +434,8 @@
               "integrations/thread-rewst-integration"
             ]
           }
-        ]
+        ],
+        "icon": "code"
       },
       {
         "tab": "Changelog",
@@ -442,7 +446,8 @@
               "changelog"
             ]
           }
-        ]
+        ],
+        "icon": "clock-rotate-left"
       }
     ]
   },

@@ -180,3 +180,47 @@ a[href="https://www.getthread.com/demo"]:hover {
   font-weight: 600;
   margin: 0 0 1.25rem;
 }
+
+/* Card hover micro-interaction (lift + mint glow), like top Mintlify docs.
+   Scoped to the landing sections; excludes the integration chips. */
+.thread-section a:not(.thread-chip) {
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.15s ease;
+}
+.thread-section a:not(.thread-chip):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.65rem 1.6rem -0.8rem rgba(0, 187, 153, 0.45);
+}
+
+/* Popular integrations — pill chips */
+.thread-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.thread-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none !important;
+  border: 1px solid rgba(12, 140, 94, 0.35);
+  background: rgba(12, 140, 94, 0.06);
+  color: #0c8c5e !important;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.thread-chip:hover {
+  background: rgba(12, 140, 94, 0.14);
+  border-color: rgba(12, 140, 94, 0.6);
+  transform: translateY(-1px);
+}
+.dark .thread-chip {
+  border-color: rgba(153, 238, 153, 0.3);
+  background: rgba(153, 238, 153, 0.07);
+  color: #99ee99 !important;
+}
+.dark .thread-chip:hover {
+  background: rgba(153, 238, 153, 0.14);
+  border-color: rgba(153, 238, 153, 0.6);
+}

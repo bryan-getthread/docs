@@ -26,16 +26,16 @@ mode: "custom"
 </div>
 
 <div className="thread-section">
-  <h2 className="thread-section-title">Start here</h2>
+  <h2 className="thread-section-title">What do you want to do?</h2>
   <Columns cols={3}>
-    <Card title="What is Thread?" icon="circle-info" href="/get-started/what-is-thread-an-overview">
-      A quick overview of the platform and how the pieces fit together.
+    <Card title="Get set up" icon="rocket" href="/get-started/quick-setup-guide">
+      Connect your PSA, configure Magic AI, and launch your workspace.
     </Card>
-    <Card title="Quick setup guide" icon="rocket" href="/get-started/quick-setup-guide">
-      Connect your PSA and get your workspace live in minutes.
+    <Card title="Run the service desk" icon="headset" href="/inbox/service-team-structure">
+      Work, triage, and resolve tickets faster in the Thread Inbox.
     </Card>
-    <Card title="Product overview" icon="compass" href="/get-started/thread-product-overview-your-guide-to-the-ai-powered-msp-service-desk">
-      Your guide to the AI-powered MSP service desk.
+    <Card title="Automate & extend" icon="code" href="/super-magic/thread-mcp-server-developer-guide">
+      The Thread MCP server, webhooks & APIs, and automation tooling.
     </Card>
   </Columns>
 </div>
@@ -67,8 +67,36 @@ mode: "custom"
     <Card title="Messenger" icon="comments" href="/messenger/add-chat-now-button-email">
       Branded chat and service apps for your customers.
     </Card>
-    <Card title="Integrations" icon="plug" href="/integrations/hudu-integration">
-      Connect ConnectWise, Autotask, Halo, and the tools you use.
+    <Card title="Automagically" icon="bolt" href="/automagically/automagically-getting-started">
+      No-code runbooks that automate repetitive service work.
+    </Card>
+  </Columns>
+</div>
+
+<div className="thread-section">
+  <h2 className="thread-section-title">Popular integrations</h2>
+  <div className="thread-chips">
+    <a className="thread-chip" href="/integrations/connectwise-permissions-overview">ConnectWise PSA</a>
+    <a className="thread-chip" href="/integrations/creating-a-autotask-api-user">Autotask PSA</a>
+    <a className="thread-chip" href="/integrations/how-to-setup-halo-psa-integration">Halo PSA</a>
+    <a className="thread-chip" href="/integrations/setting-up-it-glue">IT Glue</a>
+    <a className="thread-chip" href="/integrations/hudu-integration">Hudu</a>
+    <a className="thread-chip" href="/super-magic/connecting-ninja-one-to-super-magic">NinjaOne</a>
+    <a className="thread-chip" href="/integrations/thread-rewst-integration">Rewst</a>
+    <a className="thread-chip" href="/integrations/integrating-time-zest-with-thread">TimeZest</a>
+    <a className="thread-chip" href="/integrations/auvik-integration">Auvik</a>
+    <a className="thread-chip" href="/integrations/how-to-integrate-cloud-radial">CloudRadial</a>
+  </div>
+</div>
+
+<div className="thread-section">
+  <h2 className="thread-section-title">Stay updated</h2>
+  <Columns cols={2}>
+    <Card title="Changelog" icon="clock-rotate-left" href="/changelog">
+      The latest releases, features, and improvements to Thread.
+    </Card>
+    <Card title="Book a demo" icon="calendar" href="https://www.getthread.com/demo">
+      See Thread in action with our team.
     </Card>
   </Columns>
 </div>
