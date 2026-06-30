@@ -1,6 +1,70 @@
 ---
 title: "Add External Tools to Super Magic with Connectors (Super MCP)"
-description: "Availability: Limited release — contact your Thread account team to enable connectors for your workspace. Looking for the other direction? This guide is about bringing external tools into Super Magic…"
+description: "Bring external tools into Super Magic with connectors, so it can read and act across the systems you already use, right from the ticket."
 ---
 
-<Note>Content for this article is being migrated.</Note>
+<Tip>
+  Availability: Limited release — contact your Thread account team to enable
+  connectors for your workspace.
+</Tip>
+
+**Connectors** let Super Magic reach the tools you already use — documentation,
+RMM, automation, scheduling, and more — so it can answer questions and take
+action across them without leaving the ticket conversation.
+
+### How connectors work
+
+Each connector follows the same two-step model:
+
+1. **Admin enables it (once).** In **Super Magic settings → Connectors**, an admin
+   turns on the connector. This makes it *available* — it doesn't connect anyone
+   yet.
+2. **Each member signs in (once).** From the **Connectors** page in the Inbox,
+   each member clicks **Connect** and signs in with their own account. Super Magic
+   then sees exactly what that member can see in the connected tool — nothing more.
+
+Anything that *changes* data goes through Super Magic's **Confirm action** card
+before it runs, just like every other write.
+
+### Available connectors
+
+<Columns cols={2}>
+  <Card title="Notion" icon="book" href="/super-magic/use-notion-with-super-magic">
+    Read and write pages, databases, and docs.
+  </Card>
+  <Card title="Zapier" icon="bolt" href="/super-magic/use-zapier-with-super-magic">
+    Trigger any of your Zaps across 8,000+ apps.
+  </Card>
+  <Card title="Liongard" icon="magnifying-glass-chart" href="/super-magic/use-liongard-with-super-magic">
+    Ask about client IT infrastructure and inventory.
+  </Card>
+  <Card title="Hudu" icon="book-open" href="/super-magic/use-hudu-with-super-magic">
+    Search documentation and asset records.
+  </Card>
+  <Card title="IT Glue" icon="book-open" href="/super-magic/use-it-glue-with-super-magic">
+    Look up documentation and configurations.
+  </Card>
+  <Card title="TimeZest" icon="calendar" href="/super-magic/use-time-zest-with-super-magic">
+    Schedule appointments from the conversation.
+  </Card>
+  <Card title="Linear" icon="list-check" href="/super-magic/use-linear-with-super-magic">
+    Create and update engineering issues.
+  </Card>
+  <Card title="NinjaOne" icon="screwdriver-wrench" href="/super-magic/connecting-ninja-one-to-super-magic">
+    Query devices and run RMM actions.
+  </Card>
+</Columns>
+
+### Good to know
+
+- **Each member's connection is their own.** Tools and access reflect the account
+  that member signed in with; teammates connect separately.
+- **Tool lists are vendor-controlled.** A connector exposes the tools its provider
+  offers; Super Magic picks up changes automatically.
+- **Least privilege:** only share the spaces and actions you actually want Super
+  Magic to use.
+
+<Note>
+  Troubleshooting and safety details live in the
+  [Super Magic Admin Guide](/super-magic/super-magic-admin-guide-setup-access-safety).
+</Note>

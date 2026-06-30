@@ -1,6 +1,57 @@
 ---
 title: "Use Liongard with Super Magic"
-description: "Availability: Limited release — contact your Thread account team to enable Liongard for your workspace. Connect Liongard and Super Magic can answer questions about your clients' IT infrastructure — e…"
+description: "Connect Liongard so Super Magic can answer questions about your clients' IT infrastructure right from the ticket."
 ---
 
-<Note>Content for this article is being migrated.</Note>
+<Tip>
+  Availability: Limited release — contact your Thread account team to enable
+  Liongard for your workspace.
+</Tip>
+
+Connect Liongard and Super Magic can **answer questions about your clients' IT
+infrastructure** — surfacing the inventory, configurations, and change history
+Liongard tracks, without leaving the ticket conversation.
+
+### What you can ask
+
+> "What does Liongard show for Acme's domain and SSL expiration?"
+
+> "List Acme's Microsoft 365 admins from Liongard"
+
+> "Has anything changed on Acme's firewall config recently?"
+
+Liongard is read-only context for Super Magic — it brings infrastructure detail
+*into* the conversation to speed up diagnosis.
+
+### Set it up
+
+Liongard is a **connector**: an admin makes it available, then **each member signs
+in with their own Liongard account** — Super Magic sees exactly what you can see
+in Liongard, nothing more.
+
+**Admin (once):**
+
+1. Open **Super Magic settings → Connectors**.
+2. Turn on the **Liongard** toggle. (This makes it available — it doesn't connect
+   anyone yet.)
+
+**Each member (once):**
+
+1. Open the **Connectors** page in your Inbox.
+2. Click **Connect** on the Liongard row and sign in.
+3. The row shows **Signed in as** your account — you're ready.
+
+### Troubleshooting
+
+- **Liongard not on your Connectors page?** Your admin hasn't enabled it, or your
+  workspace isn't in the connectors release yet.
+- **Super Magic can't find a system you expect?** Your connection only covers what
+  your Liongard account can access — reconnect and confirm the right environments
+  are in scope.
+- Anything else: [**Super Magic Admin Guide → Troubleshooting**](/super-magic/super-magic-admin-guide-setup-access-safety).
+
+<Note>
+  The tools available through this connector are provided by Liongard and may
+  change; Super Magic picks up changes automatically. Each member's access
+  reflects their own Liongard sign-in.
+</Note>
