@@ -1,0 +1,69 @@
+---
+title: "Use ImmyBot with Super Magic"
+description: "Connect ImmyBot so Super Magic can answer questions about your clients' devices and software right from the ticket."
+---
+
+<Tip>
+  Availability: Limited release — contact your Thread account team to enable
+  ImmyBot for your workspace.
+</Tip>
+
+Connect ImmyBot and Super Magic can **answer questions about your clients'
+devices and software** — surfacing the inventory and automation detail ImmyBot
+tracks, without leaving the ticket conversation.
+
+### What you can ask
+
+> "What does ImmyBot show for Acme's devices?"
+
+> "Which software is deployed to this machine?"
+
+> "When did ImmyBot last check in for Acme?"
+
+Unlike NinjaOne, ImmyBot is connected once at the workspace level — there is no
+per-member sign-in. Every technician using Super Magic sees the same ImmyBot
+context.
+
+### Set it up
+
+ImmyBot uses an **Azure Entra app registration** to authenticate. You'll need
+your ImmyBot server subdomain and the app's tenant ID, client ID, and client
+secret.
+
+**Admin (once):**
+
+1. In Azure, create an app registration for ImmyBot (or reuse the one already
+   authorized on your ImmyBot instance). Note the **Directory (tenant) ID**,
+   **Application (client) ID**, and a **client secret**.
+2. In the Thread Admin app, go to **Integrations** and open **ImmyBot**.
+3. Enter:
+   - **Server Subdomain** — the part before `.immy.bot` in your ImmyBot URL
+     (for example, `acme` from `acme.immy.bot`).
+   - **Azure Tenant ID** — the Directory (tenant) ID of the Entra app
+     registration.
+   - **Client ID** — the Application (client) ID.
+   - **Client Secret** — stored encrypted; leave blank when editing later to
+     keep the current one.
+4. Toggle the integration **On** and click **Save**.
+5. Open **Super Magic settings → Integrations**, find **ImmyBot**, and turn
+   the toggle on.
+
+That's it — ImmyBot tools now appear in Super Magic for everyone in your
+workspace.
+
+### Troubleshooting
+
+- **ImmyBot not in your Admin integrations list?** Your workspace isn't in the
+  ImmyBot release yet — contact your Thread account team.
+- **"Configure" in Super Magic settings sends me to Integrations.** That's
+  expected — ImmyBot credentials live on the Integrations page, not in a
+  per-member modal.
+- **Super Magic can't find a device or org you expect?** Confirm the Entra app
+  registration has access to the right ImmyBot instance and that the server
+  subdomain is correct.
+- Anything else: [**Super Magic Admin Guide → Troubleshooting**](/super-magic/super-magic-admin-guide-setup-access-safety).
+
+<Note>
+  The tools available through this integration are provided by ImmyBot and may
+  change; Super Magic picks up changes automatically.
+</Note>
