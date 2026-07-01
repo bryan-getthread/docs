@@ -57,6 +57,7 @@
                 "group": "Getting Started with Inbox",
                 "pages": [
                   "inbox/avatars",
+                  "inbox/available-for-dispatch",
                   "inbox/how-to-setup-single-sign-on-sso",
                   "inbox/views-and-insights"
                 ]
