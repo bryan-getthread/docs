@@ -1,0 +1,66 @@
+---
+title: "Share Super Magic chats with teammates"
+description: "Turn a Super Magic conversation into a read-only link your teammates can open — no more screenshots into Slack. Rotate or revoke access from the chat header."
+---
+
+## What sharing does
+
+Sharing gives you a link to any of your Super Magic chats that teammates in your workspace can open as a **read-only** view. The full transcript is visible — every message, tool call, and confirmation card — but nobody can send new messages, take actions, or delete the chat from a shared link.
+
+Use it when:
+
+- You want a teammate to pick up where you left off on a troubleshooting thread without re-explaining what you tried.
+- You need a second pair of eyes on how Super Magic reached a conclusion before you act on it.
+- You want to hand off a chat as reference for a runbook or a post-mortem.
+
+Shared links only work for signed-in members of your workspace. They are not public URLs.
+
+## Share a chat
+
+Prerequisites:
+
+- Super Magic is enabled for your workspace.
+- Your admin has enabled chat sharing for your workspace. Contact your admin if you don't see the share icon.
+- You are the **owner** of the chat you want to share. You can only share chats you started.
+
+Steps:
+
+1. Open the Super Magic chat you want to share — either from the sidebar or the full-page Magic view.
+2. In the top-right of the chat header, select the **share** icon.
+3. In the dialog, select **Shared**. Super Magic mints a link and copies it to your clipboard.
+4. Paste the link into Slack, Teams, email, or a ticket note.
+
+The share icon shows a subtle active state while the chat is shared, so you can tell at a glance which of your chats have a live link out.
+
+To copy the link again later, open the same dialog and select the copy icon next to the URL.
+
+## Stop sharing or rotate the link
+
+- **Stop sharing.** Open the share dialog and select **Keep private**. The token is revoked immediately and any existing link stops working.
+- **Rotate the link.** Select **Keep private** to revoke, then select **Shared** again to mint a fresh link. Old links stay dead.
+
+Rotate a link whenever you're not sure who forwarded the original, or when the sensitive part of a chat is done and you only want a smaller group to keep viewing it.
+
+## Open a chat someone shared with you
+
+When you open a shared link, Super Magic loads the chat in read-only mode:
+
+- A **Shared by _\{owner\}_** pill appears in the header so you know who sent it.
+- The composer, share icon, and delete controls are hidden.
+- A **Read-only view** footer sits below the transcript.
+
+You can scroll the full transcript and expand tool-call cards to see exactly what Super Magic did, but you can't reply or run any actions. To continue the work in your own chat, start a new Super Magic conversation.
+
+If the link has been revoked or the chat was deleted, you'll see a "not found" message instead of the transcript. Ask the owner for a fresh link.
+
+## Good to know
+
+- **Sharing is workspace-scoped.** Only signed-in members of the same workspace can open a shared link. External contacts cannot.
+- **Shared chats aren't a copy.** They stream from the original chat, so any new messages the owner adds show up the next time a viewer loads the link.
+- **Only owners can share.** If a chat was shared with you, you can't re-share it — the share control is hidden in read-only view.
+- **Desktop app links open in the web app.** Links minted from the desktop app point at the browser Inbox so teammates can open them anywhere.
+
+## Related
+
+- [Meet Super Magic](/super-magic/meet-super-magic-your-ai-assistant-in-the-inbox)
+- [Super Magic admin guide](/super-magic/super-magic-admin-guide-setup-access-safety)
