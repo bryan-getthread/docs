@@ -107,7 +107,8 @@
                   "inbox/messenger",
                   "inbox/plans-licenses",
                   "inbox/status-automations",
-                  "inbox/workspace"
+                  "inbox/workspace",
+                  "inbox/auto-dispatch-profiles"
                 ]
               },
               {
