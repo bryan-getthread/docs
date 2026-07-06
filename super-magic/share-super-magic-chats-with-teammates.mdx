@@ -15,6 +15,18 @@ Use it when:
 
 Shared links only work for signed-in members of your workspace. They are not public URLs.
 
+## Every chat has its own URL
+
+Every Super Magic chat now lives at its own address — `/super-magic/{id}` — in the full-page Magic view. That means you can:
+
+- **Bookmark a chat** and jump back to it from your browser.
+- **Refresh the page** without losing your place — the chat reloads instead of resetting to a blank state.
+- **Copy the address bar URL** as a quick link to that chat.
+
+Selecting a chat from **Past Chats**, starting a new one, or creating a chat from a suggested resolution all update the URL to match. Starting a new chat sends you to `/super-magic` — a clean slate.
+
+Chat URLs are still workspace-scoped. Sending someone a chat URL only lets them open the chat if you've also enabled sharing on it (see below). Otherwise they'll see a not-found message.
+
 ## Share a chat
 
 Prerequisites:
@@ -33,6 +45,15 @@ Steps:
 The share icon shows a subtle active state while the chat is shared, so you can tell at a glance which of your chats have a live link out.
 
 To copy the link again later, open the same dialog and select the copy icon next to the URL.
+
+## See who has viewed a shared chat
+
+Once a chat is shared, Super Magic tracks which of your teammates have opened it.
+
+- A **viewer facepile** appears next to the share icon in the chat header, showing avatars for the most recent viewers.
+- Open the share dialog to see the full **Viewed by** list with a total count. The list refreshes every time you open the dialog, so you don't need to reload the page.
+
+Viewers only see themselves in the shared, read-only view — the facepile and viewer list are visible only to the owner. Revoking the link or starting a new chat clears the viewer list.
 
 ## Stop sharing or rotate the link
 
@@ -57,7 +78,8 @@ If the link has been revoked or the chat was deleted, you'll see a "not found" m
 
 - **Sharing is workspace-scoped.** Only signed-in members of the same workspace can open a shared link. External contacts cannot.
 - **Shared chats aren't a copy.** They stream from the original chat, so any new messages the owner adds show up the next time a viewer loads the link.
-- **Only owners can share.** If a chat was shared with you, you can't re-share it — the share control is hidden in read-only view.
+- **Only owners can share.** If a chat was shared with you, you can't re-share it — the share control is hidden in read-only view. A teammate who opens a chat URL you own always gets a read-only view.
+- **Older shared links still work.** Links you generated before the URL change (in the `/super-magic/shared/{token}` format) continue to open the same chat in read-only mode.
 - **Desktop app links open in the web app.** Links minted from the desktop app point at the browser Inbox so teammates can open them anywhere.
 
 ## Related
