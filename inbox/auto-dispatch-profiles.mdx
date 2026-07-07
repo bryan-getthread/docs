@@ -1,6 +1,7 @@
 ---
 title: "Auto-dispatch profiles"
 description: "Configure how Thread routes incoming tickets to your technicians with Self-serve or Auto-assign auto-dispatch profiles."
+hidden: true
 ---
 
 Auto-dispatch profiles control how Thread routes eligible tickets to your technicians. Each profile targets one or more PSA boards and picks a dispatch mode: **Self-serve** (technicians request threads when they're ready) or **Auto-assign** (Thread pushes threads to available technicians automatically).
@@ -28,7 +29,7 @@ You can switch a saved profile between modes. Thread keeps each mode's configura
 
 ## Configure Self-serve
 
-Self-serve uses **scoring factors** to decide which thread a technician gets next. Weights range from *Not used* through *Highest*.
+Self-serve uses **scoring factors** to decide which thread a technician gets next. Weights range from _Not used_ through _Highest_.
 
 | Factor | What it does |
 | --- | --- |
@@ -40,7 +41,7 @@ Self-serve uses **scoring factors** to decide which thread a technician gets nex
 | Contact type | Tickets matching a selected contact type rank higher. |
 | Agreement type | Tickets matching a selected agreement type rank higher. |
 
-Only factors above *Not used* affect ordering. Use the **Test run** panel to preview how the current scoring would order live tickets before you save.
+Only factors above _Not used_ affect ordering. Use the **Test run** panel to preview how the current scoring would order live tickets before you save.
 
 ## Configure Auto-assign
 
@@ -62,7 +63,7 @@ Add technicians who should never receive auto-assigned threads from this profile
 
 Set the workload limit and the statuses Thread uses to measure it:
 
-- **Max threads** — The maximum number of active tickets a technician can hold before Thread skips them for the next dispatch. Choose *No limit* or a preset from 1–10, 15, 20, or 25.
+- **Max threads** — The maximum number of active tickets a technician can hold before Thread skips them for the next dispatch. Choose _No limit_ or a preset from 1–10, 15, 20, or 25.
 - **Active statuses** (per board) — Threads in these statuses count toward a tech's max. Pick at least one status per board.
 - **Fallback status** (per board) — The status Thread sets on a thread when no technician is available. Pick one status per board.
 
