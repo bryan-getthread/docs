@@ -16,6 +16,10 @@
   "appearance": {
     "default": "dark"
   },
+  "banner": {
+    "content": "📚 Our help docs have a new home! Looking for the old help center? Visit [docs.getthread.com](https://docs.getthread.com).",
+    "dismissible": true
+  },
   "fonts": {
     "heading": {
       "family": "Poppins",
@@ -107,7 +111,8 @@
                   "inbox/messenger",
                   "inbox/plans-licenses",
                   "inbox/status-automations",
-                  "inbox/workspace"
+                  "inbox/workspace",
+                  "inbox/auto-dispatch-profiles"
                 ]
               },
               {
