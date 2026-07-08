@@ -358,6 +358,7 @@
                 "group": "PSA Settings",
                 "pages": [
                   "integrations/keep-members-in-sync-with-psa-toggle",
+                  "integrations/log-emoji-reactions-in-psa",
                   "integrations/managing-board-visibility-in-thread-board-exclusion"
                 ]
               },

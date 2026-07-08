@@ -1,0 +1,44 @@
+---
+title: "Log emoji reactions in PSA"
+description: "Turn contact emoji reactions in Thread Messenger into internal notes on the linked PSA ticket, so techs see feedback without leaving their PSA."
+---
+
+## Overview
+
+When a contact adds an emoji reaction to a message in Thread Messenger, you can automatically record that reaction as an **internal note** on the associated PSA ticket. This gives your service techs quick, in-context feedback (thumbs up, thanks, question, and so on) without needing to jump into Thread Inbox.
+
+The **Log Emoji reactions in PSA** toggle controls this behavior at the workspace level.
+
+## When to use it
+
+Enable this toggle if you want:
+
+- A permanent record of contact sentiment on the ticket itself.
+- Techs who work primarily inside ConnectWise, Autotask, or Halo to see reaction activity alongside other ticket notes.
+- Reporting on emoji reactions from your PSA's ticket notes data.
+
+Leave it off if you prefer to keep reactions in Thread only and avoid extra note traffic on PSA tickets.
+
+## How it works
+
+| Toggle state | Behavior |
+| --- | --- |
+| **On** | Every emoji reaction a contact adds to a message is posted as an internal note on the linked PSA ticket. The note includes the emoji and the reactor's name. |
+| **Off** (default) | Reactions still appear on messages in Thread Inbox and Messenger, but no note is written to the PSA. |
+
+Reactions from Microsoft Teams messages surface on the message bubble in Thread Inbox regardless of this setting. The toggle only controls whether those reactions are mirrored into the PSA as an internal note.
+
+## Enable the toggle
+
+1. Open the [Thread admin panel](https://admin.getthread.com/).
+2. Select **Integrations** from the sidebar.
+3. Click **PSA**.
+4. Open the **PSA Sync** tab.
+5. Scroll to **Log Emoji reactions in PSA** and switch it on.
+
+Changes take effect immediately for new reactions. Reactions added before the toggle was enabled are not backfilled to the PSA.
+
+## Related settings
+
+- [Keep Members in Sync with PSA Toggle](/integrations/keep-members-in-sync-with-psa-toggle)
+- [Managing board visibility in Thread](/integrations/managing-board-visibility-in-thread-board-exclusion)
