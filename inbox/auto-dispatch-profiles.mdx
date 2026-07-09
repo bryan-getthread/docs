@@ -45,7 +45,7 @@ Only factors above _Not used_ affect ordering. Use the **Test run** panel to pre
 
 ## Configure Auto-assign
 
-Auto-assign adds three sections in place of scoring and Test run.
+Auto-assign replaces scoring with three configuration sections. **Test run** is still available and previews the order technicians would receive tickets instead of the order tickets would be picked up.
 
 ### Flows conflict banner
 
@@ -70,6 +70,17 @@ Set the workload limit and the statuses Thread uses to measure it:
 <Warning>
   Active statuses and the fallback status must not overlap with the board's dispatch statuses. If they do, save is blocked until you fix the conflict. Each board also needs at least one active status and a fallback before you can save.
 </Warning>
+
+### Test run
+
+Open **Test run** to preview which technician would receive the next auto-assigned thread using your current (unsaved) configuration. Auto-assign pools every dispatch team on the profile, so the preview covers all techs across the profile — there's no team selector.
+
+Results split into two sections:
+
+- **Eligible for dispatch** — Available techs who are under their max threads, ranked least-busy first. Each row shows the tech's rank, avatar, availability, teams, and a capacity bar.
+- **Not eligible for dispatch** — Techs who can't receive a thread right now. Techs at their max threads appear in a separate bucket at the bottom.
+
+Run a test again after you change scoring inputs, exclusions, statuses, or max threads — the panel flags the previous result as stale until you re-run.
 
 ## Save the profile
 
