@@ -225,6 +225,7 @@
               "ai-agents/voice-ai-setup-phase-2-overflow-after-hours",
               "ai-agents/voice-ai-setup-phase-3-the-auto-attendant-walk-run",
               "ai-agents/contact-mapping",
+              "ai-agents/voice-ai-sip-trunks-and-caller-id",
               "ai-agents/voice-ai-pronunciation-guide",
               "ai-agents/voice-ai-faq",
               "ai-agents/outbound-calling-lite",
