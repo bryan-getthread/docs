@@ -57,10 +57,12 @@ The certificate is environment-wide, not per-trunk. Import it once per PBX.
 
 Select **Test connection** to place a signaling probe through the trunk. Thread cancels the call immediately after your server responds. Possible results:
 
+By default, Thread dials a reserved test number (`+15555550199`). If your PBX only accepts calls to DIDs it recognizes (for example 3CX), the probe can come back as a false auth failure even when the trunk itself is fine. To avoid this, select **Change destination number** and enter one of your existing DIDs in E.164 format so the test exercises a number your PBX already accepts. Leave it collapsed to use Thread's default.
+
 | Status | Meaning | What to check |
 | --- | --- | --- |
 | **Connection successful** | Thread reached your server and (if credentials were provided) authentication passed. | You're ready to save. |
-| **Authentication failed** | Reached the server but credentials were rejected. | Confirm Thread's egress IPs are allowlisted and that the username and password match your PBX. |
+| **Authentication failed** | Reached the server but credentials were rejected. | Confirm Thread's egress IPs are allowlisted and that the username and password match your PBX. If your PBX rejects unknown DIDs (for example 3CX), retry with a **Change destination number** value that matches one of your DIDs. |
 | **Could not reach the trunk** | No response on the expected port. | Check the hostname, port, transport, and firewall. For TLS, make sure the CA from Step 4 is installed on the PBX. |
 | **Test was inconclusive** | The probe itself failed. | Retry, or double-check the trunk configuration. |
 
