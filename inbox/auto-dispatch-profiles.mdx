@@ -1,0 +1,82 @@
+---
+title: "Auto-dispatch profiles"
+description: "Configure how Thread routes incoming tickets to your technicians with Self-serve or Auto-assign auto-dispatch profiles."
+hidden: true
+---
+
+Auto-dispatch profiles control how Thread routes eligible tickets to your technicians. Each profile targets one or more PSA boards and picks a dispatch mode: **Self-serve** (technicians request threads when they're ready) or **Auto-assign** (Thread pushes threads to available technicians automatically).
+
+Use this page to pick the right mode and configure a profile.
+
+## Prerequisites
+
+- You have Team Admin access to the Thread admin panel.
+- Your PSA integration is connected and boards are synced.
+- Statuses are mapped in Thread. See [Status mapping](/get-started/status-mapping-in-thread).
+
+<Note>
+  Auto-assign (push) is rolling out behind a feature flag. If the tile shows **Coming soon**, contact your Thread representative to enable it for your workspace. Self-serve is available to everyone.
+</Note>
+
+## Choose a dispatch mode
+
+When you create or edit a profile, pick a mode at the top of the editor:
+
+- **Self-serve** — Threads stay in your dispatch statuses until a technician requests the next one. Best for teams that already run a "grab the next ticket" workflow and want scoring to decide what comes up next.
+- **Auto-assign** — Thread assigns eligible threads to available technicians automatically based on their active workload. Best for teams that want tickets pushed to techs the moment they have capacity.
+
+You can switch a saved profile between modes. Thread keeps each mode's configuration on the profile, so switching back later restores your previous settings.
+
+## Configure Self-serve
+
+Self-serve uses **scoring factors** to decide which thread a technician gets next. Weights range from _Not used_ through _Highest_.
+
+| Factor | What it does |
+| --- | --- |
+| Priority | Higher-priority tickets rank first. |
+| Ticket age | Older tickets rank higher. |
+| Client replied | Tickets with unanswered client replies rank higher. |
+| Sentiment | Tickets with negative client sentiment rank higher. |
+| Company type | Tickets matching a selected company type rank higher. |
+| Contact type | Tickets matching a selected contact type rank higher. |
+| Agreement type | Tickets matching a selected agreement type rank higher. |
+
+Only factors above _Not used_ affect ordering. Use the **Test run** panel to preview how the current scoring would order live tickets before you save.
+
+## Configure Auto-assign
+
+Auto-assign adds three sections in place of scoring and Test run.
+
+### Flows conflict banner
+
+If any of your [Flows](/inbox/flows) assign tickets to specific members, Auto-assign can override those assignments. Thread shows a dismissible banner at the top of the editor when you enter Auto-assign mode:
+
+> Auto-assign may conflict with Flows that assign members.
+
+Review member-assigning Flows and disable or scope them before turning on Auto-assign in production. Dismissing the banner only hides it for the current edit — it returns the next time you open a push profile.
+
+### Exclude techs
+
+Add technicians who should never receive auto-assigned threads from this profile — for example, team leads, on-call staff who dispatch manually, or techs on temporary leave. Excluded techs apply across every board on the profile.
+
+### Technician assignment
+
+Set the workload limit and the statuses Thread uses to measure it:
+
+- **Max threads** — The maximum number of active tickets a technician can hold before Thread skips them for the next dispatch. Choose _No limit_ or a preset from 1–10, 15, 20, or 25.
+- **Active statuses** (per board) — Threads in these statuses count toward a tech's max. Pick at least one status per board.
+- **Fallback status** (per board) — The status Thread sets on a thread when no technician is available. Pick one status per board.
+
+<Warning>
+  Active statuses and the fallback status must not overlap with the board's dispatch statuses. If they do, save is blocked until you fix the conflict. Each board also needs at least one active status and a fallback before you can save.
+</Warning>
+
+## Save the profile
+
+Click **Save**. Thread validates the configuration and enables the profile. Save is blocked when:
+
+- Auto-assign is selected but not enabled for your workspace.
+- Any board is missing an active status or a fallback status.
+- An active or fallback status overlaps with the board's dispatch statuses.
+
+You can enable or disable a profile at any time from the profile list without losing its configuration.

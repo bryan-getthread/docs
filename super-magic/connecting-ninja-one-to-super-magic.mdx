@@ -36,13 +36,11 @@ In **NinjaOne**, go to **Administration → Apps → API → Client App IDs** an
 
 Configure the app exactly like this:
 
-![](/images/b793d45b-image-12.png)
-
 | Setting | Value | Why it matters |
 | --- | --- | --- |
 | Application platform | Web | Only Web apps get a client secret. Native/Single-Page apps won't work. |
 | Name | e.g. "Thread Super Magic" | Shown to members on the consent screen |
-| Redirect URI | Copy it from Thread: Super Magic settings → Integrations → NinjaOne — the setup dialog shows the exact URI with a copy button | Must match character for character — no trailing slash |
+| Redirect URI | Copy it from Thread: **Integrations → NinjaOne → Configure** — the setup dialog shows the exact URI with a copy button | Must match character for character — no trailing slash |
 | Scopes | Monitoring and Management | Reads + device actions |
 | Grant type | Authorization Code | Required for member sign-in (refresh enabled) |
 
@@ -50,11 +48,9 @@ Click **Save** and copy the **Client ID** and **Client Secret**. The secret is s
 
 More Info [here](https://www.ninjaone.com/docs/integrations/how-to-set-up-api-oauth-token/).
 
-![](/images/75dbc784-image.png)
-
 #### Step 2 — Configure the connection in Thread (admin)
 
-In the Thread Admin app, go to **Super Magic settings → Integrations → NinjaOne** and open the setup dialog ("NinjaOne OAuth client"). Enter:
+In the Thread Admin app, go to **Integrations** (`/dashboard/integrations`), find **NinjaOne**, and click **Configure →** to open the setup dialog ("NinjaOne OAuth client"). Enter:
 
 1. **Instance URL** — your NinjaOne web address, exactly as it appears in your browser when you're logged in to NinjaOne. NinjaOne runs regional instances, and using the wrong one is the most common setup failure:
 
@@ -69,9 +65,9 @@ It must start with `https://` and be a `ninjaone.com` or `ninjarmm.com` address.
 
 1. **Client ID** and **Client Secret** — from Step 1. The secret is stored encrypted; when editing later, leave the secret blank to keep the current one.
 
-Then turn the **NinjaOne** toggle on in the same Integrations card.
+Click **Connect** to save and activate the integration. In the **Super Magic access** card that appears below the setup, toggle Super Magic access on so device tools reach Super Magic.
 
-![](/images/a7a63d92-ninja-one-admin-thread.jpeg)
+To edit the connection later, use the three-dots menu on the NinjaOne row and choose **Edit**. **Disconnect** deactivates NinjaOne (and turns off its Super Magic access) while keeping the credentials on file.
 
 #### Step 3 — Each member connects their NinjaOne account
 
@@ -85,12 +81,10 @@ In **Inbox**, go to **Navigation or "+" in Super Magic Chat → Connectors → N
 
 You stay connected from then on (Thread refreshes your session automatically). You can disconnect at any time, and an admin can verify who's connected.
 
-![](/images/dfb47dea-image.png)
-
 #### Troubleshooting
 
 | Symptom | Cause | Fix |
 | --- | --- | --- |
 | There's no Client Secret to copy in NinjaOne | The API app was created as Native or Single Page — those types don't issue secrets | Create a new app with platform Web (Step 1) and reconfigure Thread with its credentials. |
 | Sign-in window shows a redirect error | The Redirect URI on the NinjaOne app doesn't match exactly | Re-check Step 1's redirect URI — character for character, no trailing slash. |
-| Device tools don't appear in chat for a member | Usually layer 2: that member hasn't connected their own NinjaOne account — or the integration toggle is off, or your workspace isn't in the NinjaOne release yet | Have the member complete Step 3. Then check Super Magic settings → Integrations → NinjaOne toggle. Then work through the decision tree in the Super Magic Admin Guide . |
+| Device tools don't appear in chat for a member | Usually layer 2: that member hasn't connected their own NinjaOne account — or Super Magic access is off on the integration, or your workspace isn't in the NinjaOne release yet | Have the member complete Step 3. Then open **Integrations → NinjaOne** and confirm **Super Magic access** is on. Then work through the decision tree in the Super Magic Admin Guide. |

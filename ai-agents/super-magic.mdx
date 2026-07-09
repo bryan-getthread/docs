@@ -111,7 +111,42 @@ With admin rights, Super Magic can help configure automation, not just run it:
 
 For true hands-off bulk work at scale, **a Flow is the better tool** than an ad-hoc Super Magic mass action.
 
-#### Step 7 — Chain it all together (end-to-end workflows)
+#### Step 7 — Run Super Magic inside a Flow (New Super Magic Agent action)
+
+For unattended automation — where you want Super Magic to do the work every time a Flow triggers, without a tech in the loop — add a **New Super Magic Agent** action to your Flow.
+
+**When to use it**
+
+Use this instead of an ad-hoc Super Magic run when:
+
+- The same multi-step ask needs to happen on every ticket that matches a trigger (for example, every new ticket on a client, or every P1 out of hours).
+- You want the agent to triage, note, prioritize, or log time consistently without a tech confirming each step.
+- The scope of what the agent is allowed to change should be **fixed in advance**, not decided per run.
+
+**How to configure it**
+
+1. Open **Flow Builder** and either create a new Flow or open an existing one.
+2. Add an action step, then select **Actions** → **Magic** → **New Super Magic Agent**.
+3. Configure the inline panel:
+   - **Prompt** — describe what the agent should do on every run, in plain language. This is the same kind of instruction you'd give Super Magic in the Inbox, but written once and reused every time the Flow fires. Use the **Improve prompt** (sparkle) button to have AI rewrite your draft into a clearer instruction.
+   - **Write tools** — check the tools the agent is allowed to use to change data (update tickets, post notes, log time, schedule, and so on). Read tools are always available — you don't need to enable them here.
+4. Save the Flow.
+
+Example prompt:
+
+```text
+Search recent tickets from this client for similar issues.
+If you find a likely duplicate, link it in an internal note.
+Otherwise, post an internal note summarizing the request and set the priority based on impact.
+```
+
+**How permissions work in a Flow**
+
+Because a Flow runs unattended, there is no per-write confirmation prompt. The **write tools you check are the agent's write scope for this Flow** — anything you leave unchecked, the agent cannot do, even if the prompt asks for it. Leaving every write tool unchecked is effectively **read-only**: the agent can still search, summarize, and post its findings via any write tools you later approve, but on its own it will only read.
+
+Treat the tool list as a safety boundary. Only approve tools you're comfortable with the agent running on its own against the tickets this Flow matches.
+
+#### Step 8 — Chain it all together (end-to-end workflows)
 
 The real value of Super Magic is chaining many tools in **one ask**. A few representative workflows:
 
@@ -157,6 +192,8 @@ The real value of Super Magic is chaining many tools in **one ask**. A few repre
 
 **What about sensitive client data inside MCP connectors?** Each MCP connector runs under the technician's own OAuth, so access is scoped to what that tech can already see in the connected tool. Admins control which connectors are enabled at the workspace level.
 
-**When should I use a Flow instead of Super Magic?** Use **Super Magic** for ad-hoc, tech-driven work — one ask, many tools, confirmed step by step. Use a **Flow** for recurring, hands-off automation that should run the same way every time without a tech in the loop.
+**When should I use a Flow instead of Super Magic?** Use **Super Magic** for ad-hoc, tech-driven work — one ask, many tools, confirmed step by step. Use a **Flow** for recurring, hands-off automation that should run the same way every time without a tech in the loop. To have Super Magic itself run inside a Flow, add the **New Super Magic Agent** action (see Step 7).
+
+**Does the New Super Magic Agent action still confirm every write?** No — that's the point of running it in a Flow. Because there's no tech in the loop to confirm each step, you approve the agent's write scope **once, up front**, by checking which write tools it can use in the action panel. Anything not checked, the agent cannot do on that Flow.
 
 Questions? Reach out to your Thread CSM or email **help@getthread.com**.

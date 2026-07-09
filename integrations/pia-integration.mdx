@@ -22,9 +22,9 @@ Before you begin, ensure the following are in place:
 - **Admin Access:** You will need administrator access to both Thread and PIA to exchange API keys.
 - **Microsoft Graph:** The specific client must have authorized the Microsoft Graph API within PIA.!
 
-Please contact your Pia Customer Success Manager if you do not see these options available in your Pia Workspace
+Please contact your Pia Customer Success Manager if you do not see these options available in your Pia Workspace.
 
-### Configuration Guide
+### Configuration guide
 
 #### Step 1: Connect Thread to Pia
 
@@ -72,9 +72,11 @@ Leave this field empty to use a default confirmation message.
 
 > **Note:** Both fields are optional. Existing Pia intents work without any changes — the agent will stay active by default after a form is sent.
 
-#### Testing & Validation
+#### Testing and validation
 
-##### We recommend testing the flow internally before rolling it out to production.
+##### Test internally before rolling out
+
+We recommend testing the flow internally before rolling it out to production.
 
 1. **Trigger the Flow:** Open the chat window and type a phrase matching your intent (e.g., "I want to onboard a new user").
 2. **Verify the Prompt:** The bot should respond with a card containing an **"Open Form"** button.
@@ -94,7 +96,7 @@ Leave this field empty to use a default confirmation message.
 
 !
 
-#### Post-Form Agent Behavior
+#### Post-form agent behavior
 
 After a Pia SmartForm link is sent to the contact, the Triage Agent stays active and responds based on what happens next.
 
@@ -106,9 +108,9 @@ After a Pia SmartForm link is sent to the contact, the Triage Agent stays active
 | Contact messages while form is pending | Normal triage continues. The form stays open in the background and the agent handles the new message as usual. |
 | No action taken | Agent enters listening mode based on your standard triage timeout settings. A single check-in is sent. If still no response, the Reminder Agent takes over on its normal cadence. |
 
-### Getting Started with Pia Intents
+### Getting started with Pia intents
 
-Below are common PIA/Thread intent descriptions that work well to get you started
+Below are common PIA/Thread intent descriptions that work well to get you started.
 
 **CHANGE CALENDAR PERMISSION**
 
@@ -214,4 +216,4 @@ not ask any additional setup questions before triggering the Pia SmartForm
 
 ---
 
-### Related Articles - [Connectwise Permissions Overview](/article/a7soczwphc-connectwise-permissions-overview)
+### Related Articles - [Connectwise Permissions Overview](/integrations/connectwise-permissions-overview)

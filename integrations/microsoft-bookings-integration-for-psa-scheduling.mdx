@@ -32,7 +32,7 @@ By integrating these systems, you create a seamless workflow that connects end-u
 
 **Pro Tip** pair this automation with a Snippets shortcut in Thread Inbox to make sharing your calendar effortless. Create a pre-written snippet that inserts your Microsoft Bookings link into chats, so you can instantly offer customers a way to book time with you. 👉 [Learn how to create a Snippet](https://docs.getthread.com/article/a4p1i5wiz6-save-time-answering-chats-with-snippets)
 
-### **🔧 What This Power Automate Flow Does**
+### 🔧 What this Power Automate flow does
 
 This solution is built entirely within **Power Automate** and acts as a smart bridge between Microsoft Bookings and your PSA platform (e.g. ConnectWise, Autotask, Halo).
 
@@ -45,42 +45,42 @@ When a customer schedules an appointment using your Microsoft Bookings page, the
 5. 👤 **Adds a scheduled resource/technician** to the ticket based on the booking info.
 6. 🤖 **Triggers AI Notetakers** (e.g. Fireflies AI) by embedding ticket metadata in the event title.
 
-### **🧠 Why This Matters**
+### 🧠 Why this matters
 
-#### **✅ Business Value**
+#### ✅ Business value
 
 - **Reduces technician coordination overhead**: No need to manually update calendars or ticket statuses.
 - **Improves recap accuracy**: Fireflies or Copilot recap tools can pick up the ticket number from meeting titles.
 - **Syncs calendars**: Automatically connects Bookings and O365 calendars with CW schedules.
 - **Protects SLA compliance**: Ensures that scheduled tickets are statused appropriately and assigned.
 
-#### **🎯 Best Use Cases**
+#### 🎯 Best use cases
 
 - MSPs with multiple engineers booking their own time.
 - Partners using Fireflies AI or other AI notetakers for meeting recaps.
 - Teams aiming to reduce manual triage and improve customer experience.
 
-### **⚙️ How to Set It Up**
+### ⚙️ How to set it up
 
-#### **1. Download and Import the Power Automate Flow**
+#### 1. Download and import the Power Automate flow
 
 Coming soon!
 
-##### **How to Import It**
+##### How to import it
 
 1. Go to [Power Automate](https://make.powerautomate.com/).
 2. In the left-hand menu, click **My flows** → **Import** → **Import Package (Legacy)**.
 3. Upload the `.zip` file you downloaded above.
 4. Follow the prompts to configure connectors (Microsoft Bookings, Office 365 Outlook, and your PSA API).
 
-#### **1.** **Shared Booking Page Requirements**
+#### 2. Shared booking page requirements
 
 - You must include a shared booking page and custom form questions in Microsoft Bookings that collects the **ticket number** (e.g., "Enter your Thread ticket number").
 - Ensure staff members are mapped to the right Office 365 calendars.
 
 **Need help creating your booking page and custom form fields?** Refer to Microsoft’s official guide 👉 [Create a Bookings calendar and add custom questions](https://learn.microsoft.com/en-us/microsoft-365/bookings/add-questions?view=o365-worldwide)
 
-#### **2.** **Power Automate Flow Structure**
+#### 3. Power Automate flow structure
 
 1. **Trigger**: `When an appointment is created` via Microsoft Bookings.
 2. **Variable Init + Ticket Validation**: Validates the ticket number format.
@@ -92,7 +92,7 @@ Coming soon!
 
 Engineer-specific calendar logic is handled in a **Switch** block keyed by display name (e.g., Frodo Baggins, Samwise Gamgee).
 
-#### **3.** **Required Connections**
+#### 4. Required connections
 
 Ensure these connectors are active in Power Automate:
 
@@ -103,9 +103,9 @@ Ensure these connectors are active in Power Automate:
 | Office 365 Outlook | Update calendar events |
 | ConnectWise (via HTTP) | Fetch and modify ticket data. Authentication is handled using an HTTP header containing your **Basic Auth** token and `ClientID` from ConnectWise API credentials. You can obtain your `ClientID` here: 👉 [ConnectWise Developer Portal](https://developer.connectwise.com/ClientID) |
 
-### **🛠️ Example Booking Flow**
+### 🛠️ Example booking flow
 
-1. **Technicians use snippets** in Thread Inbox to quickly share your team’s Microsoft Bookings link, making it easy for customers to book time with yo.
+1. **Technicians use snippets** in Thread Inbox to quickly share your team’s Microsoft Bookings link, making it easy for customers to book time with you.
 2. **User Books** a time via your public Microsoft Bookings page.
 3. **Flow Triggered** → Validates and extracts the ticket number.
 4. **Calls CW API** to pull ticket summary and owner.
@@ -124,4 +124,4 @@ Ensure these connectors are active in Power Automate:
 
 ---
 
-### Related Articles - [Microsoft Teams App Permissions](/article/3462n4j5k5-microsoft-teams-app-permissions) - [Microsoft Teams 2.0 FAQs](/article/60zevp0x1d-microsoft-teams-2-0-faqs) - [Configuring Auto Categorization](/article/ijt3zqzcso-getting-started-with-auto-categorization)
+### Related Articles - [Microsoft Teams App Permissions](/security-billing/microsoft-teams-app-permissions) - [Microsoft Teams 2.0 FAQs](/messenger/microsoft-teams-2-0-faqs) - [Configuring Auto Categorization](/assistive-ai/getting-started-with-auto-categorization)

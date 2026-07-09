@@ -9,7 +9,7 @@ The first and most important step in setting up status mapping is configuring a 
   All configurations are applied at the board, queue, or team level, depending on your ticketing system.
 </Note>
 
-## 1. Define Status Groups (Recommended First Step)
+## 1. Define status groups (recommended first step)
 
 Status Mappings can be configured by going to **Thread Admin Panel -&gt; Click on Status Automation On The Right Side**
 
@@ -17,7 +17,7 @@ Status Mappings can be configured by going to **Thread Admin Panel -&gt; Click o
 
 ![](/images/6a5e7976-image.png)
 
-### How Thread interprets DONE States
+### How Thread interprets Done states
 
 A ticket is **DONE** if the status is either:
 
@@ -51,24 +51,24 @@ While optional, this group is particularly useful when paired with the **status 
 
 We will look at all active tickets on that board and see if any have the status entered under the Done field and mark those as Done
 
-## 2. (Optional) Configure Status Change Mappings
+## 2. (Optional) Configure status change mappings
 
 With Status Groups configured, you can optionally set up automatic transitions triggered by specific thread activity. These mappings reduce manual status updates and ensure consistency across workflows.
 
 <Note>
-  Note statuses configured in Thread are visible to end-users in the Messenger chat application. Choose clear and appropriate status names that reflect progress or resolution accurately from the customer's perspective.
+  Note statuses configured in Thread are visible to end-users in the Messenger chat application. Select clear and appropriate status names that reflect progress or resolution accurately from the customer's perspective.
 </Note>
 
 Available triggers include:
 
-### When a Contact Replies After the First Agent Reply
+### When a contact replies after the first agent reply
 
 Automatically moves the thread to a mapped status to resume visibility and SLA response tracking, such as:
 
 - `Waiting for Technician`
 - `Updated`
 
-### When a Contact Replies to a Closed Thread
+### When a contact replies to a closed thread
 
 Reopens the thread and sets it to a visible status, ensuring it re-enters active workflows, such as:
 
@@ -82,7 +82,7 @@ Moves the thread to a resolved status when TimePad marks the issue as resolved, 
 - `Completed`
 - `Closed`
 
-### When a Contact Replies to Threads in the "Waiting" Group
+### When a contact replies to threads in the "Waiting" group
 
 Ensures the thread stays in a visible, active state when customer engagement resumes, such as:
 
@@ -90,21 +90,21 @@ Ensures the thread stays in a visible, active state when customer engagement res
 - `With Customer`
 - `Waiting on Customer`
 
-### When an Approval is Made
+### When an approval is made
 
 Transitions the thread to a designated status when a request is approved, such as:
 
 - `Approved`
 - `Accepted`
 
-### When an Approval is Finished (Declined, Canceled, etc.)
+### When an approval is finished (declined, canceled, etc.)
 
 Updates the status to reflect the end of the approval process, aiding in visibility and closure, such as:
 
 - `Declined`
 - `Cancelled`
 
-## 3. (Optional) Magic Agent Automation Mapping
+## 3. (Optional) Magic Agent automation mapping
 
 If your team uses Magic Agents, you can also automate status updates based on agent activity:
 
@@ -130,11 +130,11 @@ Automatically marks the thread as closed, such as:
 - `Confirmed Resolved`
 - `Completed`
 
-## 4. Saving Changes
+## 4. Saving changes
 
 Be sure to click **Save** at the bottom of the board configuration page after making any updates. Changes are not applied until saved.
 
-## 5. Best Practices
+## 5. Best practices
 
 - Configure **Status Groups** before enabling any other automations.
 - Review configuration per board or queue to reflect the specific structure of your ticketing system.

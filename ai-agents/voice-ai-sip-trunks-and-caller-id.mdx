@@ -1,0 +1,115 @@
+---
+title: "Voice AI SIP Trunks & Caller ID"
+description: "Route Voice AI attendant transfers through your own SIP trunk so your PBX sees the customer's caller ID and custom headers."
+---
+
+<Note>
+  SIP Trunks & Caller ID is in beta and gated behind a feature flag. Ask your Thread contact to enable **`voice-sip-to-sip-attendant-caller-id`** for your company before you can see the page.
+</Note>
+
+## What is a SIP trunk in Thread?
+
+By default, when a Voice AI attendant transfers a caller back to your team, your phone system sees **Thread's number** as the caller. Adding a SIP trunk lets Thread route that transfer through your own phone system, so:
+
+- Your PBX sees the **original customer's phone number** as the caller ID.
+- Thread can attach **custom SIP headers** (name, company, PSA IDs, ticket number, call reason) that your PBX or wallboard can read.
+
+SIP trunks are optional — Voice AI works without one. Add a trunk when you want caller-ID pass-through or richer call metadata delivered to your on-prem or cloud PBX (for example 3CX, Asterisk-based systems, or Teams Direct Routing).
+
+## Where to find it
+
+Go to **Voice AI &gt; SIP Trunks & Caller ID** in the admin app. If you don't see the tab, the feature flag is not enabled for your company yet.
+
+## Add a SIP trunk
+
+Select **Add SIP Trunk** to launch the stepped configuration form. You can move between steps freely — nothing is saved until you select **Save**.
+
+### Step 1 — Trunk identity
+
+- **Name** — internal label for this trunk.
+- **Transport** — pick the transport your PBX accepts:
+  - **TLS** — encrypted signaling (recommended). Default port `5061`.
+  - **TLS + SRTP** — encrypted signaling and media.
+  - **TCP** — unencrypted signaling over TCP. Default port `5060`.
+  - **UDP** — unencrypted signaling over UDP. Default port `5060`.
+- **Host and port** — enter your PBX hostname and port separately. Thread combines them into `host:port` on save. Leave the port blank to use the transport default.
+- **Country** — the country this trunk serves. Only attendant agents in the same country can be linked to it.
+
+### Step 2 — Egress IPs
+
+Add both of the outbound IP ranges shown here to your SIP server's allowlist. Voice AI will place signaling from these ranges only — traffic from anything else should be rejected. Use the copy icon on each range.
+
+### Step 3 — Credentials (optional)
+
+If your PBX requires SIP digest authentication, enter the **username** and **password**. Leave both blank for IP-based authentication.
+
+### Step 4 — TLS certificate
+
+This step only appears for **TLS** or **TLS + SRTP** transports. Thread shows the LiveKit root CA:
+
+- **Issuer** and **SHA-256 fingerprint** for verification.
+- The full **PEM** — copy it and import it into your PBX's trusted CA store so your PBX will accept Thread's TLS handshake.
+- **Refetch** re-loads the CA if you need the latest copy.
+
+The certificate is environment-wide, not per-trunk. Import it once per PBX.
+
+### Step 5 — Test connection
+
+Select **Test connection** to place a signaling probe through the trunk. Thread cancels the call immediately after your server responds. Possible results:
+
+By default, Thread dials a reserved test number (`+15555550199`). If your PBX only accepts calls to DIDs it recognizes (for example 3CX), the probe can come back as a false auth failure even when the trunk itself is fine. To avoid this, select **Change destination number** and enter one of your existing DIDs in E.164 format so the test exercises a number your PBX already accepts. Leave it collapsed to use Thread's default.
+
+| Status | Meaning | What to check |
+| --- | --- | --- |
+| **Connection successful** | Thread reached your server and (if credentials were provided) authentication passed. | You're ready to save. |
+| **Authentication failed** | Reached the server but credentials were rejected. | Confirm Thread's egress IPs are allowlisted and that the username and password match your PBX. If your PBX rejects unknown DIDs (for example 3CX), retry with a **Change destination number** value that matches one of your DIDs. |
+| **Could not reach the trunk** | No response on the expected port. | Check the hostname, port, transport, and firewall. For TLS, make sure the CA from Step 4 is installed on the PBX. |
+| **Test was inconclusive** | The probe itself failed. | Retry, or double-check the trunk configuration. |
+
+Expand **Details** to see the raw SIP response for troubleshooting.
+
+### Step 6 — Custom SIP headers
+
+Custom headers let you deliver caller and ticket metadata to your PBX on every transferred call. Enter a header name (Thread prefixes custom headers with `X-` for you) and pick a supported value from the dropdown:
+
+- `caller_phone`
+- `contact_name`
+- `contact_company`
+- `contact_match_type` (`by_phone_number`, `by_name_and_company`, or `unable_to_determine`)
+- `psa_contact_id`, `psa_contact_company_id`, `psa_ticket_number`
+- `call_reason`
+- `correlation_id`
+
+Headers set here apply to every agent linked to this trunk — you don't need to configure them per agent.
+
+**P-Asserted-Identity** is added and locked by Thread. It carries the caller's number in the standard RFC 3325 name-addr form so PBXs (including 3CX) accept the call.
+
+### Step 7 — Link agents
+
+Select the attendant agents that should route their outbound transfers through this trunk. Only attendants whose phone number's country matches the trunk's country are eligible. Changing the trunk's country clears any linked agents.
+
+## Enable, edit, and delete trunks
+
+Once at least one trunk exists, the list view shows each trunk as a card with:
+
+- **Enable / disable toggle** — turns the trunk on or off without opening the form. Linked agents are preserved when you toggle.
+- **Edit** — opens the stepped form pre-populated with the current values.
+- **Delete** — asks for confirmation, then removes the trunk. Any linked agents fall back to the default Thread caller ID.
+
+<Tip>
+  Test the trunk before enabling it in production. If a call fails on your side after enabling, disable the trunk to route transfers back through Thread's number while you troubleshoot.
+</Tip>
+
+## Frequently asked questions
+
+**Do I need a SIP trunk to use Voice AI?**
+No. Voice AI attendants work without one — the trunk is only needed for caller-ID pass-through and custom SIP headers on transfers.
+
+**Which PBXs are supported?**
+Any PBX that accepts a standard SIP trunk with the transports listed above. Verified integrations include 3CX, Asterisk-based systems, and Microsoft Teams via Direct Routing.
+
+**Can one trunk serve multiple countries?**
+No. A trunk is scoped to a single country, and only same-country attendant agents can be linked to it. Add one trunk per country if you operate in more than one.
+
+**What happens if the trunk is unreachable during a live call?**
+If the trunk is disabled or unreachable at the time of transfer, Voice AI falls back to Thread's number so the call still connects.
