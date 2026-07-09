@@ -16,6 +16,10 @@
   "appearance": {
     "default": "dark"
   },
+  "banner": {
+    "content": "📚 Our help docs have a new home! Looking for the old help center? Visit [docs.getthread.com](https://docs.getthread.com).",
+    "dismissible": true
+  },
   "fonts": {
     "heading": {
       "family": "Poppins",
@@ -57,6 +61,7 @@
                 "group": "Getting Started with Inbox",
                 "pages": [
                   "inbox/avatars",
+                  "inbox/available-for-dispatch",
                   "inbox/how-to-setup-single-sign-on-sso",
                   "inbox/views-and-insights"
                 ]
@@ -107,7 +112,8 @@
                   "inbox/messenger",
                   "inbox/plans-licenses",
                   "inbox/status-automations",
-                  "inbox/workspace"
+                  "inbox/workspace",
+                  "inbox/auto-dispatch-profiles"
                 ]
               },
               {
@@ -195,6 +201,7 @@
             "pages": [
               "super-magic/meet-super-magic-your-ai-assistant-in-the-inbox",
               "ai-agents/super-magic",
+              "super-magic/share-super-magic-chats-with-teammates",
               "super-magic/super-magic-admin-guide-setup-access-safety",
               "super-magic/connect-it-glue-hudu-time-zest-knowledge-sources-to-super-magic",
               {
@@ -203,6 +210,7 @@
                   "super-magic/add-external-tools-to-super-magic-with-connectors-super-mcp",
                   "super-magic/connecting-ninja-one-to-super-magic",
                   "super-magic/use-hudu-with-super-magic",
+                  "super-magic/use-immybot-with-super-magic",
                   "super-magic/use-it-glue-with-super-magic",
                   "super-magic/use-linear-with-super-magic",
                   "super-magic/use-liongard-with-super-magic",
@@ -220,6 +228,7 @@
               "ai-agents/voice-ai-setup-phase-2-overflow-after-hours",
               "ai-agents/voice-ai-setup-phase-3-the-auto-attendant-walk-run",
               "ai-agents/contact-mapping",
+              "ai-agents/voice-ai-sip-trunks-and-caller-id",
               "ai-agents/voice-ai-pronunciation-guide",
               "ai-agents/voice-ai-faq",
               "ai-agents/outbound-calling-lite",
@@ -353,6 +362,7 @@
                 "group": "PSA Settings",
                 "pages": [
                   "integrations/keep-members-in-sync-with-psa-toggle",
+                  "integrations/log-emoji-reactions-in-psa",
                   "integrations/managing-board-visibility-in-thread-board-exclusion"
                 ]
               },
