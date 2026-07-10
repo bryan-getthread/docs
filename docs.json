@@ -311,6 +311,7 @@
           {
             "group": "Companion Apps",
             "pages": [
+              "companion-apps/choose-which-ticket-updates-post-to-channel",
               {
                 "group": "Slack Companion App for Service Teams",
                 "pages": [
