@@ -2,7 +2,7 @@
    sitting next to the translucent "Thread Inbox" button. */
 #navbar a[href="https://www.getthread.com/demo"],
 a[href="https://www.getthread.com/demo"] {
-  background-color: #99ee99 !important;
+  background-color: #00B398 !important;
   color: #06281c !important;
   font-weight: 600 !important;
   padding: 0.4rem 0.95rem !important;
@@ -19,30 +19,30 @@ a[href="https://www.getthread.com/demo"]:hover {
    translucent mint background + mint text (instead of a solid pill). */
 /* Light mode: darker brand green for contrast on the white navbar */
 #topbar-cta-button a > span:first-child {
-  background-color: rgba(12, 140, 94, 0.10) !important;
-  border: 1px solid rgba(12, 140, 94, 0.40);
+  background-color: rgba(0, 179, 152, 0.10) !important;
+  border: 1px solid rgba(0, 179, 152, 0.40);
   background-image: none !important;
 }
 #topbar-cta-button a:hover > span:first-child {
-  background-color: rgba(12, 140, 94, 0.18) !important;
+  background-color: rgba(0, 179, 152, 0.18) !important;
   opacity: 1 !important;
 }
 #topbar-cta-button a span.z-10,
 #topbar-cta-button a svg {
-  color: #0c8c5e !important;
+  color: #00B398 !important;
 }
 
 /* Dark mode: mint on the black navbar */
 .dark #topbar-cta-button a > span:first-child {
-  background-color: rgba(153, 238, 153, 0.12) !important;
-  border: 1px solid rgba(153, 238, 153, 0.30);
+  background-color: rgba(0, 179, 152, 0.12) !important;
+  border: 1px solid rgba(0, 179, 152, 0.30);
 }
 .dark #topbar-cta-button a:hover > span:first-child {
-  background-color: rgba(153, 238, 153, 0.20) !important;
+  background-color: rgba(0, 179, 152, 0.20) !important;
 }
 .dark #topbar-cta-button a span.z-10,
 .dark #topbar-cta-button a svg {
-  color: #99ee99 !important;
+  color: #00B398 !important;
 }
 
 /* ============================================================
@@ -58,16 +58,16 @@ a[href="https://www.getthread.com/demo"]:hover {
   overflow: hidden;
   background-color: transparent;
   background-image:
-    radial-gradient(60rem 32rem at 50% -8rem, rgba(0, 187, 153, 0.22), transparent 60%),
-    radial-gradient(42rem 28rem at 18% 12%, rgba(153, 238, 153, 0.18), transparent 55%),
-    radial-gradient(46rem 30rem at 88% 4%, rgba(0, 187, 153, 0.14), transparent 55%);
+    radial-gradient(60rem 32rem at 50% -8rem, rgba(0, 179, 152, 0.22), transparent 60%),
+    radial-gradient(42rem 28rem at 18% 12%, rgba(0, 179, 152, 0.18), transparent 55%),
+    radial-gradient(46rem 30rem at 88% 4%, rgba(0, 179, 152, 0.14), transparent 55%);
 }
 /* a touch more saturated glow on dark, where it reads as light */
 .dark .thread-hero {
   background-image:
-    radial-gradient(60rem 32rem at 50% -8rem, rgba(0, 187, 153, 0.30), transparent 60%),
-    radial-gradient(42rem 28rem at 18% 12%, rgba(153, 238, 153, 0.22), transparent 55%),
-    radial-gradient(46rem 30rem at 88% 4%, rgba(0, 187, 153, 0.18), transparent 55%);
+    radial-gradient(60rem 32rem at 50% -8rem, rgba(0, 179, 152, 0.30), transparent 60%),
+    radial-gradient(42rem 28rem at 18% 12%, rgba(0, 179, 152, 0.22), transparent 55%),
+    radial-gradient(46rem 30rem at 88% 4%, rgba(0, 179, 152, 0.18), transparent 55%);
 }
 
 .thread-hero-inner {
@@ -83,10 +83,10 @@ a[href="https://www.getthread.com/demo"]:hover {
   letter-spacing: 0.18em;
   font-size: 0.78rem;
   font-weight: 600;
-  color: #0c8c5e;               /* light mode: dark green */
+  color: #00B398;               /* light mode: dark green */
   margin: 0 0 1rem;
 }
-.dark .thread-eyebrow { color: #99ee99; }   /* dark mode: mint */
+.dark .thread-eyebrow { color: #00B398; }   /* dark mode: mint */
 
 /* ---- Title (solid color, theme-aware) ---- */
 .thread-hero-title {
@@ -95,7 +95,7 @@ a[href="https://www.getthread.com/demo"]:hover {
   line-height: 1.05;
   font-weight: 700;
   margin: 0 0 1.25rem;
-  color: #0c8c5e;          /* light mode: brand green */
+  color: #00B398;          /* light mode: brand green */
 }
 .dark .thread-hero-title { color: #ffffff; }   /* dark mode: white */
 
@@ -122,26 +122,26 @@ a[href="https://www.getthread.com/demo"]:hover {
   padding: 0.95rem 1.1rem;
   border-radius: 0.9rem;
   cursor: pointer;
-  background: rgba(12, 140, 94, 0.06);
-  border: 1px solid rgba(12, 140, 94, 0.35);
+  background: rgba(0, 179, 152, 0.06);
+  border: 1px solid rgba(0, 179, 152, 0.35);
   transition: background 0.15s ease, box-shadow 0.2s ease, border-color 0.15s ease;
 }
 .thread-ask:hover {
-  background: rgba(12, 140, 94, 0.12);
-  border-color: rgba(12, 140, 94, 0.6);
-  box-shadow: 0 0 2.5rem -0.5rem rgba(0, 187, 153, 0.4);
+  background: rgba(0, 179, 152, 0.12);
+  border-color: rgba(0, 179, 152, 0.6);
+  box-shadow: 0 0 2.5rem -0.5rem rgba(0, 179, 152, 0.4);
 }
 .dark .thread-ask {
-  background: rgba(153, 238, 153, 0.08);
-  border-color: rgba(153, 238, 153, 0.35);
+  background: rgba(0, 179, 152, 0.08);
+  border-color: rgba(0, 179, 152, 0.35);
 }
 .dark .thread-ask:hover {
-  background: rgba(153, 238, 153, 0.14);
-  border-color: rgba(153, 238, 153, 0.6);
-  box-shadow: 0 0 2.5rem -0.5rem rgba(0, 187, 153, 0.55);
+  background: rgba(0, 179, 152, 0.14);
+  border-color: rgba(0, 179, 152, 0.6);
+  box-shadow: 0 0 2.5rem -0.5rem rgba(0, 179, 152, 0.55);
 }
-.thread-ask-icon { color: #0c8c5e; font-size: 1.1rem; }
-.dark .thread-ask-icon { color: #99ee99; }
+.thread-ask-icon { color: #00B398; font-size: 1.1rem; }
+.dark .thread-ask-icon { color: #00B398; }
 .thread-ask-text { flex: 1; text-align: left; font-size: 1rem; }
 .thread-ask-text,
 .thread-ask-text * { color: rgba(0, 0, 0, 0.78) !important; }
@@ -149,14 +149,14 @@ a[href="https://www.getthread.com/demo"]:hover {
 .dark .thread-ask-text * { color: rgba(255, 255, 255, 0.85) !important; }
 .thread-ask-kbd {
   font-size: 0.75rem;
-  color: #0c8c5e;
-  border: 1px solid rgba(12, 140, 94, 0.4);
+  color: #00B398;
+  border: 1px solid rgba(0, 179, 152, 0.4);
   border-radius: 0.4rem;
   padding: 0.15rem 0.45rem;
 }
 .dark .thread-ask-kbd {
-  color: #99ee99;
-  border-color: rgba(153, 238, 153, 0.4);
+  color: #00B398;
+  border-color: rgba(0, 179, 152, 0.4);
 }
 
 /* ---- Hint (fine print) ---- */
@@ -188,7 +188,7 @@ a[href="https://www.getthread.com/demo"]:hover {
 }
 .thread-section a:not(.thread-chip):hover {
   transform: translateY(-3px);
-  box-shadow: 0 0.65rem 1.6rem -0.8rem rgba(0, 187, 153, 0.45);
+  box-shadow: 0 0.65rem 1.6rem -0.8rem rgba(0, 179, 152, 0.45);
 }
 
 /* Popular integrations — pill chips */
@@ -205,22 +205,22 @@ a[href="https://www.getthread.com/demo"]:hover {
   font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none !important;
-  border: 1px solid rgba(12, 140, 94, 0.35);
-  background: rgba(12, 140, 94, 0.06);
-  color: #0c8c5e !important;
+  border: 1px solid rgba(0, 179, 152, 0.35);
+  background: rgba(0, 179, 152, 0.06);
+  color: #00B398 !important;
   transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 .thread-chip:hover {
-  background: rgba(12, 140, 94, 0.14);
-  border-color: rgba(12, 140, 94, 0.6);
+  background: rgba(0, 179, 152, 0.14);
+  border-color: rgba(0, 179, 152, 0.6);
   transform: translateY(-1px);
 }
 .dark .thread-chip {
-  border-color: rgba(153, 238, 153, 0.3);
-  background: rgba(153, 238, 153, 0.07);
-  color: #99ee99 !important;
+  border-color: rgba(0, 179, 152, 0.3);
+  background: rgba(0, 179, 152, 0.07);
+  color: #00B398 !important;
 }
 .dark .thread-chip:hover {
-  background: rgba(153, 238, 153, 0.14);
-  border-color: rgba(153, 238, 153, 0.6);
+  background: rgba(0, 179, 152, 0.14);
+  border-color: rgba(0, 179, 152, 0.6);
 }
