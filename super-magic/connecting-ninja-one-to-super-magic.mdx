@@ -40,7 +40,7 @@ Configure the app exactly like this:
 | --- | --- | --- |
 | Application platform | Web | Only Web apps get a client secret. Native/Single-Page apps won't work. |
 | Name | e.g. "Thread Super Magic" | Shown to members on the consent screen |
-| Redirect URI | Copy it from Thread: **Integrations → NinjaOne → Configure** — the setup dialog shows the exact URI with a copy button | Must match character for character — no trailing slash |
+| Redirect URI | Copy it from Thread: **Integrations → NinjaOne → Configure** — the NinjaOne setup page shows the exact URI with a copy button | Must match character for character — no trailing slash |
 | Scopes | Monitoring and Management | Reads + device actions |
 | Grant type | Authorization Code | Required for member sign-in (refresh enabled) |
 
@@ -50,7 +50,7 @@ More Info [here](https://www.ninjaone.com/docs/integrations/how-to-set-up-api-oa
 
 #### Step 2 — Configure the connection in Thread (admin)
 
-In the Thread Admin app, go to **Integrations** (`/dashboard/integrations`), find **NinjaOne**, and click **Configure →** to open the setup dialog ("NinjaOne OAuth client"). Enter:
+In the Thread Admin app, go to **Integrations** (`/dashboard/integrations`), find **NinjaOne**, and click **Configure →** to open the NinjaOne setup page. Enter:
 
 1. **Instance URL** — your NinjaOne web address, exactly as it appears in your browser when you're logged in to NinjaOne. NinjaOne runs regional instances, and using the wrong one is the most common setup failure:
 
@@ -67,7 +67,7 @@ It must start with `https://` and be a `ninjaone.com` or `ninjarmm.com` address.
 
 Click **Connect** to save and activate the integration. In the **Super Magic access** card that appears below the setup, toggle Super Magic access on so device tools reach Super Magic.
 
-To edit the connection later, use the three-dots menu on the NinjaOne row and choose **Edit**. **Disconnect** deactivates NinjaOne (and turns off its Super Magic access) while keeping the credentials on file.
+To edit the connection later, return to **Integrations → NinjaOne → Configure**. Use **Disconnect** on the same page to deactivate NinjaOne (and turn off its Super Magic access) while keeping the credentials on file.
 
 #### Step 3 — Each member connects their NinjaOne account
 
