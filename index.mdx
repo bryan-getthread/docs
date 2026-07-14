@@ -1,102 +1,73 @@
 ---
 title: "Thread Docs"
-description: "Guides, integration setup, admin references, and FAQs for Thread — the AI-powered service desk for MSPs running ConnectWise, Autotask, or HaloPSA."
-mode: "custom"
+description: "Everything you need to set up, run, and scale your AI service desk — for MSPs running ConnectWise, Autotask, or HaloPSA."
 ---
 
-<div className="thread-hero">
-  <div className="thread-hero-inner">
-    <p className="thread-eyebrow">DOCUMENTATION</p>
-    <h1 className="thread-hero-title">Thread Docs</h1>
-    <p className="thread-hero-sub">
-      Everything you need to set up, run, and scale your AI service desk.
-    </p>
+## What do you want to do?
 
-    <button id="thread-ask-ai" className="thread-ask" type="button">
-      <span className="thread-ask-icon">✦</span>
-      <span className="thread-ask-text">Ask AI anything about Thread…</span>
-      <span className="thread-ask-kbd">⌘K</span>
-    </button>
+<Columns cols={3}>
+  <Card title="Get set up" icon="rocket" href="/get-started/quick-setup-guide">
+    Connect your PSA, configure Magic AI, and launch your workspace.
+  </Card>
+  <Card title="Run the service desk" icon="headset" href="/inbox/service-team-structure">
+    Work, triage, and resolve tickets faster in the Thread Inbox.
+  </Card>
+  <Card title="Automate & extend" icon="code" href="/super-magic/thread-mcp-server-developer-guide">
+    The Thread MCP server, webhooks & APIs, and automation tooling.
+  </Card>
+</Columns>
 
-    <p className="thread-ask-hint">
-      Powered by the docs assistant. Or open any page in Claude or ChatGPT
-      from the menu at the top of each article.
-    </p>
-  </div>
+## Explore by product
+
+<Columns cols={3}>
+  <Card title="Thread Inbox" href="/inbox/service-team-structure">
+    The unified workspace where your team works every ticket.
+  </Card>
+  <Card title="Magic AI" href="/assistive-ai/proactive-suggestions-in-ask-magic-partner-guide">
+    Assistive AI that prioritizes, categorizes, titles, recaps, and reads sentiment.
+  </Card>
+  <Card title="Magic Agents" href="/ai-agents/getting-started-with-magic-agents">
+    Triage and Reminder agents that take action on tickets.
+  </Card>
+  <Card title="Super Magic" href="/super-magic/meet-super-magic-your-ai-assistant-in-the-inbox">
+    Your AI assistant in the Inbox, with connectors and tools.
+  </Card>
+  <Card title="Voice AI" href="/ai-agents/voice-ai-setup-phase-1-initial-configuration">
+    An AI voice agent for inbound and outbound calls.
+  </Card>
+  <Card title="Service Intelligence" href="/ai-agents/getting-started-with-knowledge">
+    Client memory and knowledge that ground better answers.
+  </Card>
+  <Card title="Magic Analytics" href="/analytics/getting-started-with-magic-analytics">
+    Explore your service desk data, dashboards, and alerts.
+  </Card>
+  <Card title="Messenger" href="/messenger/add-chat-now-button-email">
+    Branded chat and service apps for your customers.
+  </Card>
+</Columns>
+
+## Popular integrations
+
+<div className="thread-chips">
+  <a className="thread-chip" href="/integrations/connectwise-permissions-overview">ConnectWise PSA</a>
+  <a className="thread-chip" href="/integrations/creating-a-autotask-api-user">Autotask PSA</a>
+  <a className="thread-chip" href="/integrations/how-to-setup-halo-psa-integration">Halo PSA</a>
+  <a className="thread-chip" href="/integrations/setting-up-it-glue">IT Glue</a>
+  <a className="thread-chip" href="/integrations/hudu-integration">Hudu</a>
+  <a className="thread-chip" href="/super-magic/connecting-ninja-one-to-super-magic">NinjaOne</a>
+  <a className="thread-chip" href="/integrations/thread-rewst-integration">Rewst</a>
+  <a className="thread-chip" href="/integrations/integrating-time-zest-with-thread">TimeZest</a>
+  <a className="thread-chip" href="/integrations/auvik-integration">Auvik</a>
+  <a className="thread-chip" href="/integrations/how-to-integrate-cloud-radial">CloudRadial</a>
 </div>
 
-<div className="thread-section">
-  <h2 className="thread-section-title">What do you want to do?</h2>
-  <Columns cols={3}>
-    <Card title="Get set up" icon="rocket" href="/get-started/quick-setup-guide">
-      Connect your PSA, configure Magic AI, and launch your workspace.
-    </Card>
-    <Card title="Run the service desk" icon="headset" href="/inbox/service-team-structure">
-      Work, triage, and resolve tickets faster in the Thread Inbox.
-    </Card>
-    <Card title="Automate & extend" icon="code" href="/super-magic/thread-mcp-server-developer-guide">
-      The Thread MCP server, webhooks & APIs, and automation tooling.
-    </Card>
-  </Columns>
-</div>
+## Stay updated
 
-<div className="thread-section">
-  <h2 className="thread-section-title">Explore by product</h2>
-  <Columns cols={3}>
-    <Card title="Thread Inbox" icon="inbox" href="/inbox/service-team-structure">
-      The unified workspace where your team works every ticket.
-    </Card>
-    <Card title="Magic AI" icon="wand-magic-sparkles" href="/assistive-ai/proactive-suggestions-in-ask-magic-partner-guide">
-      Assistive AI that prioritizes, categorizes, titles, recaps, and reads sentiment.
-    </Card>
-    <Card title="Magic Agents" icon="robot" href="/ai-agents/getting-started-with-magic-agents">
-      Triage and Reminder agents that take action on tickets.
-    </Card>
-    <Card title="Super Magic" icon="sparkles" href="/super-magic/meet-super-magic-your-ai-assistant-in-the-inbox">
-      Your AI assistant in the Inbox, with connectors and tools.
-    </Card>
-    <Card title="Voice AI" icon="phone" href="/ai-agents/voice-ai-setup-phase-1-initial-configuration">
-      An AI voice agent for inbound and outbound calls.
-    </Card>
-    <Card title="Service Intelligence" icon="brain" href="/ai-agents/getting-started-with-knowledge">
-      Client memory and knowledge that ground better answers.
-    </Card>
-    <Card title="Magic Analytics" icon="chart-line" href="/analytics/getting-started-with-magic-analytics">
-      Explore your service desk data, dashboards, and alerts.
-    </Card>
-    <Card title="Messenger" icon="comments" href="/messenger/add-chat-now-button-email">
-      Branded chat and service apps for your customers.
-    </Card>
-    <Card title="Automagically" icon="bolt" href="/automagically/automagically-getting-started">
-      No-code runbooks that automate repetitive service work.
-    </Card>
-  </Columns>
-</div>
-
-<div className="thread-section">
-  <h2 className="thread-section-title">Popular integrations</h2>
-  <div className="thread-chips">
-    <a className="thread-chip" href="/integrations/connectwise-permissions-overview">ConnectWise PSA</a>
-    <a className="thread-chip" href="/integrations/creating-a-autotask-api-user">Autotask PSA</a>
-    <a className="thread-chip" href="/integrations/how-to-setup-halo-psa-integration">Halo PSA</a>
-    <a className="thread-chip" href="/integrations/setting-up-it-glue">IT Glue</a>
-    <a className="thread-chip" href="/integrations/hudu-integration">Hudu</a>
-    <a className="thread-chip" href="/super-magic/connecting-ninja-one-to-super-magic">NinjaOne</a>
-    <a className="thread-chip" href="/integrations/thread-rewst-integration">Rewst</a>
-    <a className="thread-chip" href="/integrations/integrating-time-zest-with-thread">TimeZest</a>
-    <a className="thread-chip" href="/integrations/auvik-integration">Auvik</a>
-    <a className="thread-chip" href="/integrations/how-to-integrate-cloud-radial">CloudRadial</a>
-  </div>
-</div>
-
-<div className="thread-section">
-  <h2 className="thread-section-title">Stay updated</h2>
-  <Columns cols={2}>
-    <Card title="Changelog" icon="clock-rotate-left" href="/changelog">
-      The latest releases, features, and improvements to Thread.
-    </Card>
-    <Card title="Book a demo" icon="calendar" href="https://www.getthread.com/demo">
-      See Thread in action with our team.
-    </Card>
-  </Columns>
-</div>
+<Columns cols={2}>
+  <Card title="Changelog" href="/changelog">
+    The latest releases, features, and improvements to Thread.
+  </Card>
+  <Card title="Book a demo" href="https://www.getthread.com/demo">
+    See Thread in action with our team.
+  </Card>
+</Columns>

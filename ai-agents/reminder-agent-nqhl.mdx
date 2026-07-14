@@ -36,11 +36,11 @@ If any of these checks fail, the Reminder Agent stays quiet and does nothing.
 
 If the ticket passes all checks, the Reminder Agent calculates **when** to send the first reminder message.
 
-### **⏰ Two Ways to Schedule Reminders**
+### **Two Ways to Schedule Reminders**
 
 You can choose one of two scheduling methods. Each method handles **timezones** and **messenger working hours** differently.
 
-### **📅 Option A: Daily Reminders**
+### **Option A: Daily Reminders**
 
 Send reminders at the **same time every day** — perfect for consistent, predictable follow-ups.
 
@@ -56,14 +56,14 @@ Send reminders at the **same time every day** — perfect for consistent, pred
 2. If that time has already passed today, it schedules for tomorrow
 3. If "Weekdays only" is selected, weekends are automatically skipped
 
-### **🌍 Timezone Behavior**
+### **Timezone Behavior**
 
 Daily reminders use your **company's configured timezone**:
 
 - If your company is set to "America/New_York" and you set reminders for 9:00 AM
 - The reminder fires at 9:00 AM Eastern Time, regardless of where the customer is located
 
-### **⏱️ Option B: Custom Delay**
+### **Option B: Custom Delay**
 
 Send reminders after a **specific number of hours** — perfect for urgent follow-ups or SLA-based timing.
 
@@ -78,14 +78,14 @@ Send reminders after a **specific number of hours** — perfect for urgent fol
 2. Adds your configured number of hours
 3. That's when the reminder fires
 
-### **🌍 Timezone Behavior**
+### **Timezone Behavior**
 
 Custom delay is timezone-agnostic — it simply adds hours to the current moment:
 
 - If it's 2:00 PM anywhere and you have a 4-hour delay
 - The reminder fires at 6:00 PM (in UTC internally, displayed in local time)
 
-### **🏢 Integration with Messenger Working Hours**
+### **Integration with Messenger Working Hours**
 
 When the **Working Hours feature** is enabled, the Reminder Agent respects your business schedule. This prevents reminders from being sent when your team isn't available.
 
@@ -104,17 +104,17 @@ When the **Working Hours feature** is enabled, the Reminder Agent respects you
 
 The system **validates** that your reminder time falls within working hours:
 
-### **✅ Valid Configuration**
+### **Valid Configuration**
 
 - Working Hours: 8:00 AM - 6:00 PM
 - Reminder Time: 9:00 AM
-- ✓ 9:00 AM is within working hours — reminder will fire
+- 9:00 AM is within working hours — reminder will fire
 
-### **❌ Invalid Configuration**
+### **Invalid Configuration**
 
 - Working Hours: 9:00 AM - 5:00 PM
 - Reminder Time: 8:00 AM
-- ✗ 8:00 AM is BEFORE working hours start
+- 8:00 AM is BEFORE working hours start
 - **Result:** Error message, reminder skipped
 
 ### **Working Hours + Custom Delay**
@@ -128,7 +128,7 @@ The system **adjusts** the calculated time to fit within working hours:
 | After working hours end | Moves to start of next working day |
 | On a non-working day | Moves to start of next working day |
 
-### **⚠️ Edge Cases & Limits**
+### **Edge Cases & Limits**
 
 | Situation | Behavior |
 | --- | --- |
@@ -137,7 +137,7 @@ The system **adjusts** the calculated time to fit within working hours:
 | No working hours found in 8 days | Error: "No available working hours" — reminder skipped |
 | Reminder time outside all working hours | Error with details — reminder skipped |
 
-### **🔄 Quick Comparison**
+### **Quick Comparison**
 
 | Aspect | Daily Reminder | Custom Delay |
 | --- | --- | --- |
@@ -236,14 +236,14 @@ This is configured in your **Status Mapping** settings.
 
 To use the Reminder Agent, make sure you have configured:
 
-1. ☐ **Enabled** the Reminder Agent for your company
-2. ☐ **Selected customers** (all or specific ones)
-3. ☐ **Selected boards** where reminders should apply
-4. ☐ **Selected sources** (email, chat, etc.)
-5. ☐ **Mapped statuses** - which statuses trigger reminders and what status to apply at the end
-6. ☐ **Set timing** - daily time OR custom delay hours
-7. ☐ **Written reminder instructions** - what the AI should say in each reminder message (up to 5)
-8. ☐ Configured working hours if you want time-aware scheduling
+1.  **Enabled** the Reminder Agent for your company
+2.  **Selected customers** (all or specific ones)
+3.  **Selected boards** where reminders should apply
+4.  **Selected sources** (email, chat, etc.)
+5.  **Mapped statuses** - which statuses trigger reminders and what status to apply at the end
+6.  **Set timing** - daily time OR custom delay hours
+7.  **Written reminder instructions** - what the AI should say in each reminder message (up to 5)
+8. Configured working hours if you want time-aware scheduling
 
 ## **FAQ**
 
