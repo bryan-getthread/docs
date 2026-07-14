@@ -5,8 +5,28 @@
   var BTN_ID = "thread-ask-ai-nav";
 
   function openAssistant() {
-    // Open Mintlify's search / Ask-AI modal — the same mechanism the internal
-    // docs site uses. On Pro this modal is the unified search + AI assistant.
+    // 1) Native Mintlify assistant toggle — opens the right-hand assistant
+    //    panel. This is the control docs.omni.co uses:
+    //    button#assistant-entry -> #chat-assistant-sheet.
+    var toggle =
+      document.getElementById("assistant-entry") ||
+      document.getElementById("assistant-entry-mobile");
+    if (toggle) {
+      toggle.click();
+      return;
+    }
+
+    // 2) Fallback: if the assistant renders as a floating input bar instead of
+    //    a panel, focus it so the user can type straight away.
+    var ta = document.getElementById("chat-assistant-textarea");
+    if (ta) {
+      var bar = ta.closest(".chat-assistant-floating-input") || ta;
+      if (bar.scrollIntoView) bar.scrollIntoView({ block: "center" });
+      ta.focus();
+      return;
+    }
+
+    // 3) Last resort: open the search / Ask-AI modal.
     var s =
       document.getElementById("search-bar-entry") ||
       document.getElementById("search-bar-entry-mobile");
@@ -14,7 +34,6 @@
       s.click();
       return;
     }
-    // Fallback: dispatch Cmd/Ctrl+K if the search button isn't found.
     document.dispatchEvent(
       new KeyboardEvent("keydown", {
         key: "k",
@@ -30,6 +49,10 @@
 
   function inject() {
     if (document.getElementById(BTN_ID)) return;
+    // If Mintlify's native "Ask AI" button (the assistant-panel toggle) is
+    // present, don't inject a duplicate — the native one already opens the
+    // right-hand panel.
+    if (document.getElementById("assistant-entry")) return;
     var search = document.getElementById("search-bar-entry");
     if (!search) return;
     var wrap = search.closest(".flex-1") || search.parentElement;
