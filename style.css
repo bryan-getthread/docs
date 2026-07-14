@@ -1,201 +1,102 @@
-/* "Book a demo" navbar link — render as the solid mint CTA (like getthread.com),
-   sitting next to the translucent "Thread Inbox" button. */
-#navbar a[href="https://www.getthread.com/demo"],
-a[href="https://www.getthread.com/demo"] {
-  background-color: #00B398 !important;
-  color: #06281c !important;
-  font-weight: 600 !important;
+/* ============================================================
+   Top-right navbar action system — one consistent pill language:
+   • secondary actions  → mint OUTLINE pill  (Ask AI, Community)
+   • primary action     → mint FILLED  pill  (Thread Inbox)
+   ============================================================ */
+
+/* "Community" navbar link — mint outline pill (secondary), matching the
+   "Ask AI" button next to search. */
+#navbar a[href="https://www.getthread.com/aisu-community"],
+a[href="https://www.getthread.com/aisu-community"] {
+  color: #00B398 !important;
+  background-color: rgba(0, 179, 152, 0.08) !important;
+  border: 1px solid rgba(0, 179, 152, 0.35);
+  font-weight: 500 !important;
   padding: 0.4rem 0.95rem !important;
   border-radius: 0.6rem !important;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+#navbar a[href="https://www.getthread.com/aisu-community"]:hover,
+a[href="https://www.getthread.com/aisu-community"]:hover {
+  background-color: rgba(0, 179, 152, 0.16) !important;
+  border-color: rgba(0, 179, 152, 0.6);
+  color: #00B398 !important;
+}
+
+/* Primary "Thread Inbox" CTA — solid mint filled pill (matches getthread.com). */
+#topbar-cta-button a > span:first-child {
+  background-color: #00B398 !important;
+  background-image: none !important;
+  border: 1px solid #00B398 !important;
   transition: filter 0.15s ease;
 }
-#navbar a[href="https://www.getthread.com/demo"]:hover,
-a[href="https://www.getthread.com/demo"]:hover {
-  filter: brightness(0.94);
-  color: #06281c !important;
-}
-
-/* "Go to Thread" / Inbox CTA — match the active sidebar item:
-   translucent mint background + mint text (instead of a solid pill). */
-/* Light mode: darker brand green for contrast on the white navbar */
-#topbar-cta-button a > span:first-child {
-  background-color: rgba(0, 179, 152, 0.10) !important;
-  border: 1px solid rgba(0, 179, 152, 0.40);
-  background-image: none !important;
-}
 #topbar-cta-button a:hover > span:first-child {
-  background-color: rgba(0, 179, 152, 0.18) !important;
+  filter: brightness(0.94);
   opacity: 1 !important;
 }
-#topbar-cta-button a span.z-10,
+#topbar-cta-button a span.z-10 {
+  color: #06281c !important;
+}
+/* No arrow in the CTA — hide the chevron AND clear the spacing that was
+   reserved for it (Tailwind space-x / mr-0.5) so the label sits centered. */
 #topbar-cta-button a svg {
-  color: #00B398 !important;
+  display: none !important;
+}
+#topbar-cta-button a > div {
+  margin: 0 !important;
+}
+#topbar-cta-button a > div > span {
+  margin: 0 !important;
 }
 
-/* Dark mode: mint on the black navbar */
-.dark #topbar-cta-button a > span:first-child {
-  background-color: rgba(0, 179, 152, 0.12) !important;
-  border: 1px solid rgba(0, 179, 152, 0.30);
+/* Hide the "Powered by Mintlify" footer badge. */
+a[href*="utm_campaign=poweredBy"] {
+  display: none !important;
 }
-.dark #topbar-cta-button a:hover > span:first-child {
-  background-color: rgba(0, 179, 152, 0.20) !important;
+
+/* "Ask AI" button injected next to the search bar (see ask-ai.js).
+   Desktop-only, matching the mint navbar treatment. */
+.thread-ask-ai-nav {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  height: 2.25rem;
+  padding: 0 0.85rem;
+  margin-left: 0.5rem;
+  border-radius: 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  color: #00B398;
+  background: rgba(0, 179, 152, 0.08);
+  border: 1px solid rgba(0, 179, 152, 0.35);
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
-.dark #topbar-cta-button a span.z-10,
-.dark #topbar-cta-button a svg {
-  color: #00B398 !important;
+@media (min-width: 1024px) {
+  .thread-ask-ai-nav {
+    display: inline-flex;
+  }
+}
+.thread-ask-ai-nav:hover {
+  background: rgba(0, 179, 152, 0.16);
+  border-color: rgba(0, 179, 152, 0.6);
+}
+.thread-ask-ai-nav svg {
+  flex: none;
 }
 
 /* ============================================================
-   Landing page hero (mode: "custom") — TRANSPARENT bg + mint/green
-   gradient glow. Blends into white (light) or black (dark); text is
-   theme-aware so it stays readable on whichever background shows through.
+   Landing page — standard Mintlify doc layout (no custom hero).
+   Only the integration chips carry custom styling now.
    ============================================================ */
-.thread-hero {
-  position: relative;
-  margin: -1.5rem -1.5rem 0;
-  padding: 7rem 1.5rem 5rem;
-  text-align: center;
-  overflow: hidden;
-  background-color: transparent;
-  background-image:
-    radial-gradient(60rem 32rem at 50% -8rem, rgba(0, 179, 152, 0.22), transparent 60%),
-    radial-gradient(42rem 28rem at 18% 12%, rgba(0, 179, 152, 0.18), transparent 55%),
-    radial-gradient(46rem 30rem at 88% 4%, rgba(0, 179, 152, 0.14), transparent 55%);
-}
-/* a touch more saturated glow on dark, where it reads as light */
-.dark .thread-hero {
-  background-image:
-    radial-gradient(60rem 32rem at 50% -8rem, rgba(0, 179, 152, 0.30), transparent 60%),
-    radial-gradient(42rem 28rem at 18% 12%, rgba(0, 179, 152, 0.22), transparent 55%),
-    radial-gradient(46rem 30rem at 88% 4%, rgba(0, 179, 152, 0.18), transparent 55%);
-}
-
-.thread-hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 46rem;
-  margin: 0 auto;
-}
-
-/* ---- Eyebrow ---- */
-.thread-eyebrow {
-  font-family: Poppins, sans-serif;
-  letter-spacing: 0.18em;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #00B398;               /* light mode: dark green */
-  margin: 0 0 1rem;
-}
-.dark .thread-eyebrow { color: #00B398; }   /* dark mode: mint */
-
-/* ---- Title (solid color, theme-aware) ---- */
-.thread-hero-title {
-  font-family: Poppins, sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  line-height: 1.05;
-  font-weight: 700;
-  margin: 0 0 1.25rem;
-  color: #00B398;          /* light mode: brand green */
-}
-.dark .thread-hero-title { color: #ffffff; }   /* dark mode: white */
-
-/* ---- Subhead (force over Mintlify prose color) ---- */
-.thread-hero-sub,
-.thread-hero-sub * { color: rgba(0, 0, 0, 0.66) !important; }
-.dark .thread-hero-sub,
-.dark .thread-hero-sub * { color: rgba(255, 255, 255, 0.72) !important; }
-.thread-hero-sub {
-  font-size: 1.12rem;
-  line-height: 1.6;
-  margin: 0 auto 2.25rem;
-  max-width: 36rem;
-}
-
-/* ---- Ask AI search-style bar ---- */
-.thread-ask {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  width: 100%;
-  max-width: 34rem;
-  margin: 0 auto;
-  padding: 0.95rem 1.1rem;
-  border-radius: 0.9rem;
-  cursor: pointer;
-  background: rgba(0, 179, 152, 0.06);
-  border: 1px solid rgba(0, 179, 152, 0.35);
-  transition: background 0.15s ease, box-shadow 0.2s ease, border-color 0.15s ease;
-}
-.thread-ask:hover {
-  background: rgba(0, 179, 152, 0.12);
-  border-color: rgba(0, 179, 152, 0.6);
-  box-shadow: 0 0 2.5rem -0.5rem rgba(0, 179, 152, 0.4);
-}
-.dark .thread-ask {
-  background: rgba(0, 179, 152, 0.08);
-  border-color: rgba(0, 179, 152, 0.35);
-}
-.dark .thread-ask:hover {
-  background: rgba(0, 179, 152, 0.14);
-  border-color: rgba(0, 179, 152, 0.6);
-  box-shadow: 0 0 2.5rem -0.5rem rgba(0, 179, 152, 0.55);
-}
-.thread-ask-icon { color: #00B398; font-size: 1.1rem; }
-.dark .thread-ask-icon { color: #00B398; }
-.thread-ask-text { flex: 1; text-align: left; font-size: 1rem; }
-.thread-ask-text,
-.thread-ask-text * { color: rgba(0, 0, 0, 0.78) !important; }
-.dark .thread-ask-text,
-.dark .thread-ask-text * { color: rgba(255, 255, 255, 0.85) !important; }
-.thread-ask-kbd {
-  font-size: 0.75rem;
-  color: #00B398;
-  border: 1px solid rgba(0, 179, 152, 0.4);
-  border-radius: 0.4rem;
-  padding: 0.15rem 0.45rem;
-}
-.dark .thread-ask-kbd {
-  color: #00B398;
-  border-color: rgba(0, 179, 152, 0.4);
-}
-
-/* ---- Hint (fine print) ---- */
-.thread-ask-hint,
-.thread-ask-hint * { color: rgba(0, 0, 0, 0.5) !important; }
-.dark .thread-ask-hint,
-.dark .thread-ask-hint * { color: rgba(255, 255, 255, 0.45) !important; }
-.thread-ask-hint {
-  margin: 0.9rem auto 0;
-  font-size: 0.72rem;
-  line-height: 1.5;
-  max-width: 28rem;
-}
-
-/* Card sections below the hero */
-.thread-section { max-width: 64rem; margin: 3.5rem auto 0; padding: 0 0.5rem; }
-.thread-section:last-of-type { margin-bottom: 2rem; }
-.thread-section-title {
-  font-family: Poppins, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 1.25rem;
-}
-
-/* Card hover micro-interaction (lift + mint glow), like top Mintlify docs.
-   Scoped to the landing sections; excludes the integration chips. */
-.thread-section a:not(.thread-chip) {
-  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.15s ease;
-}
-.thread-section a:not(.thread-chip):hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0.65rem 1.6rem -0.8rem rgba(0, 179, 152, 0.45);
-}
 
 /* Popular integrations — pill chips */
 .thread-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
+  margin: 0.5rem 0 0.5rem;
 }
 .thread-chip {
   display: inline-flex;

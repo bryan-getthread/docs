@@ -7,63 +7,63 @@ The Thread → ConnectWise Manage integration requires specific permissions to r
 
 Thread only requests the **minimum permissions necessary for current functionality**, plus a few additional items reserved for **upcoming feature releases**. These future-ready permissions prevent the need to adjust your ConnectWise security role as new capabilities are added. No destructive actions (like bulk deletes) are performed, and all access occurs through secure, authenticated API connections.
 
-### 🔹 Companies
+### Companies
 
 | Permission | Access | Status | Why it’s needed |
 | --- | --- | --- | --- |
-| Company Maintenance | Add: AllEdit: AllDelete:NoneInquire: All | ✅ Currently Used | Creates or updates company records when new customers reach out; keeps ConnectWise data synchronized. |
-| Configurations | Add: AllEdit: AllDelete: NoneInquire: All | ✅ Currently Used | Links device configurations and IT assets to tickets, giving technicians visibility into customer equipment. Edit needed for linking. |
-| Contacts | Add: AllEdit: AllDelete: NoneInquire: All | ✅ Currently Used | Automatically creates contact records and links them to tickets for unified communication. |
-| CRM/Sales Activities | Add: AllEdit: AllDelete: NoneInquire: All | 📜 Legacy | May support future sales-activity tracking and customer lifecycle visibility. |
-| Manage Attachments | Add: AllEdit: AllDelete: NoneInquire: All | ✅ Currently Used | Uploads files (screenshots, documents, etc.) from customer conversations directly to tickets. |
-| Team Members | Add: AllEdit: AllDelete: NoneInquire: All | ✅ Currently Used | Used by work roles and work types |
+| Company Maintenance | Add: AllEdit: AllDelete:NoneInquire: All | Currently Used | Creates or updates company records when new customers reach out; keeps ConnectWise data synchronized. |
+| Configurations | Add: AllEdit: AllDelete: NoneInquire: All | Currently Used | Links device configurations and IT assets to tickets, giving technicians visibility into customer equipment. Edit needed for linking. |
+| Contacts | Add: AllEdit: AllDelete: NoneInquire: All | Currently Used | Automatically creates contact records and links them to tickets for unified communication. |
+| CRM/Sales Activities | Add: AllEdit: AllDelete: NoneInquire: All | Legacy | May support future sales-activity tracking and customer lifecycle visibility. |
+| Manage Attachments | Add: AllEdit: AllDelete: NoneInquire: All | Currently Used | Uploads files (screenshots, documents, etc.) from customer conversations directly to tickets. |
+| Team Members | Add: AllEdit: AllDelete: NoneInquire: All | Currently Used | Used by work roles and work types |
 
-### 💰 Finance
-
-| Permission | Access | Status | Why it’s needed |
-| --- | --- | --- | --- |
-| Billing View Time | Add: AllEdit: AllDelete: NoneInquire: All | ✅ Currently Used | Supports billable time tracking and billing reconciliation through Thread’s Timepad. |
-| Agreements | Add: NoneEdit: NoneDelete: NoneInquire: All | ✅ Currently Used | Reads service agreement data to display SLA info and route tickets appropriately. |
-
-### 📈 Sales
+### Finance
 
 | Permission | Access | Status | Why it’s needed |
 | --- | --- | --- | --- |
-| Opportunity | Add: AllEdit: AllDelete: NoneInquire: All | 📜 Legacy | May connect sales and support data for smoother hand-offs and full customer visibility. |
+| Billing View Time | Add: AllEdit: AllDelete: NoneInquire: All | Currently Used | Supports billable time tracking and billing reconciliation through Thread’s Timepad. |
+| Agreements | Add: NoneEdit: NoneDelete: NoneInquire: All | Currently Used | Reads service agreement data to display SLA info and route tickets appropriately. |
 
-### 🛠 Service Desk
+### Sales
 
 | Permission | Access | Status | Why it’s needed |
 | --- | --- | --- | --- |
-| Service Tickets | Add: All Edit: All Delete: None Inquire: All | ✅ Currently Used | Core integration—Thread creates, reads, and updates tickets directly in ConnectWise. |
-| Close Service Tickets | Add: All Edit: All Delete: None Inquire: All | ✅ Currently Used | Allows ticket closure directly within Thread’s interface. |
-| Merge Tickets | Add: All Edit: All Delete: None Inquire: All | ✅ Currently Used | Will allow merging duplicate tickets from multiple channels. |
-| Resource Scheduling | Add: All Edit: All Delete: None Inquire: All | ✅ Currently Used | Enables scheduling and rescheduling of technician appointments via Planner. |
+| Opportunity | Add: AllEdit: AllDelete: NoneInquire: All | Legacy | May connect sales and support data for smoother hand-offs and full customer visibility. |
 
-### ⚙️ System (Tables & Setup)
+### Service Desk
+
+| Permission | Access | Status | Why it’s needed |
+| --- | --- | --- | --- |
+| Service Tickets | Add: All Edit: All Delete: None Inquire: All | Currently Used | Core integration—Thread creates, reads, and updates tickets directly in ConnectWise. |
+| Close Service Tickets | Add: All Edit: All Delete: None Inquire: All | Currently Used | Allows ticket closure directly within Thread’s interface. |
+| Merge Tickets | Add: All Edit: All Delete: None Inquire: All | Currently Used | Will allow merging duplicate tickets from multiple channels. |
+| Resource Scheduling | Add: All Edit: All Delete: None Inquire: All | Currently Used | Enables scheduling and rescheduling of technician appointments via Planner. |
+
+### System (Tables & Setup)
 
 | Table | Status | Why it’s needed | Notes |
 | --- | --- | --- | --- |
-| Agreements / Agreement Type | ✅ Currently Used | Reads agreement types for routing and categorization. | ✅ Verified, Required |
-| Company / Company Status | ✅ Currently Used | Reads company status to drive company-level workflows. | ✅ Verified, Required |
-| Contacts / Contact Type | ✅ Currently Used | Reads contact types for ticket routing and contact categorization. | ✅ Verified, Required Technically not needed because we use /info endpoint |
-| General / Manage Hosted API | ✅ Currently Used | Required to configure and maintain Thread Pods configuration in the service ticket view. | ✅ Verified, Required |
-| Scheduling / Location | ✅ Currently Used | Reads location data for scheduling and routing. | ✅ Verified, Required |
-| Service / Email Formats | ✅ Currently Used | Ensures emails from Thread follow CW formatting rules. | ✅ Verified, Required |
-| Service / Priority | ✅ Currently Used | Supports priority syncing and auto-prioritization logic. | ✅ Verified, Required |
-| Service / Service Board | ✅ Currently Used | Powers ticket routing, multi-board workflows, and filtering. | ✅ Verified, Required |
-| Service / SLA | ✅ Currently Used | Tracks SLA targets and metrics within Thread. | ✅ Verified, Required |
-| Service / Source | ✅ Currently Used | Identifies where tickets originate (chat, email, Teams). Add/Edit needed to create & manage ticket source for Thread. | ✅ Verified, Required |
-| Time / Work Role | ✅ Currently Used | Links time entries to the correct billing role. | ✅ Verified, Required |
+| Agreements / Agreement Type | Currently Used | Reads agreement types for routing and categorization. | Verified, Required |
+| Company / Company Status | Currently Used | Reads company status to drive company-level workflows. | Verified, Required |
+| Contacts / Contact Type | Currently Used | Reads contact types for ticket routing and contact categorization. | Verified, Required Technically not needed because we use /info endpoint |
+| General / Manage Hosted API | Currently Used | Required to configure and maintain Thread Pods configuration in the service ticket view. | Verified, Required |
+| Scheduling / Location | Currently Used | Reads location data for scheduling and routing. | Verified, Required |
+| Service / Email Formats | Currently Used | Ensures emails from Thread follow CW formatting rules. | Verified, Required |
+| Service / Priority | Currently Used | Supports priority syncing and auto-prioritization logic. | Verified, Required |
+| Service / Service Board | Currently Used | Powers ticket routing, multi-board workflows, and filtering. | Verified, Required |
+| Service / SLA | Currently Used | Tracks SLA targets and metrics within Thread. | Verified, Required |
+| Service / Source | Currently Used | Identifies where tickets originate (chat, email, Teams). Add/Edit needed to create & manage ticket source for Thread. | Verified, Required |
+| Time / Work Role | Currently Used | Links time entries to the correct billing role. | Verified, Required |
 
-### ⏱ Time & Expense
+### Time & Expense
 
 | Permission | Access | Status | Why it’s needed | Notes |
 | --- | --- | --- | --- | --- |
-| Time Entry | Add: AllEdit: AllDelete: NoneInquire: All | ✅ Currently Used | Core permission for Timepad—creates, edits, and deletes time entries. | ✅ Verified, Required |
-| Time Entry Billable Option | Add: AllEdit: AllDelete: NoneInquire: All | ✅ Currently Used | Controls billable vs. non-billable time entries. Add & Inquire permission scopes can be safely revoked. | ❌ Revoke Add & Inquire✅ Keep Edit: AllVerify time entries work in Inbox |
-| Expense Report Entry | Add: AllEdit: AllDelete: NoneInquire: All | 📜 Legacy | Enables expense tracking tied to tickets (future functionality). | ❌ we don’t touch expenses today, can likely be revoked |
-| Expense Billable Option | Add: AllEdit: AllDelete: NoneInquire: All | 📜 Legacy | Support marking expenses as billable or non-billable. | ❌ we don’t touch expenses today, can likely be revoked |
+| Time Entry | Add: AllEdit: AllDelete: NoneInquire: All | Currently Used | Core permission for Timepad—creates, edits, and deletes time entries. | Verified, Required |
+| Time Entry Billable Option | Add: AllEdit: AllDelete: NoneInquire: All | Currently Used | Controls billable vs. non-billable time entries. Add & Inquire permission scopes can be safely revoked. | Revoke Add & Inquire Keep Edit: AllVerify time entries work in Inbox |
+| Expense Report Entry | Add: AllEdit: AllDelete: NoneInquire: All | Legacy | Enables expense tracking tied to tickets (future functionality). | we don’t touch expenses today, can likely be revoked |
+| Expense Billable Option | Add: AllEdit: AllDelete: NoneInquire: All | Legacy | Support marking expenses as billable or non-billable. | we don’t touch expenses today, can likely be revoked |
 
 ## Need Help?
 

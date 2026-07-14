@@ -5,17 +5,17 @@ description: "Use a Power Automate flow to sync Microsoft Bookings appointments 
 
 
 - [Overview](#overview)
-- [🔧 What This Power Automate Flow Does](#what_this_power_automate_flow_does)
-- [🧠 Why This Matters](#why_this_matters)
-  - [✅ Business Value](#business_value)
-  - [🎯 Best Use Cases](#best_use_cases)
-- [⚙️ How to Set It Up](#how_to_set_it_up)
+- [What This Power Automate Flow Does](#what_this_power_automate_flow_does)
+- [Why This Matters](#why_this_matters)
+  - [Business Value](#business_value)
+  - [Best Use Cases](#best_use_cases)
+- [How to Set It Up](#how_to_set_it_up)
   - [1. Download and Import the Power Automate Flow](#1_download_and_import_the_power_automate_flow)
     - [How to Import It](#how_to_import_it)- [1. Shared Booking Page Requirements](#1_shared_booking_page_requirements)
     - [2. Power Automate Flow Structure](#2_power_automate_flow_structure)
     - [3. Required Connections](#3_required_connections)
-- [🛠️ Example Booking Flow](#example_booking_flow)
-- [🔍 FAQs](#fa_qs)
+- [Example Booking Flow](#example_booking_flow)
+- [FAQs](#fa_qs)
 
 ### **Overview**
 
@@ -25,42 +25,42 @@ This guide shows you how to connect **Microsoft Bookings** with your PSA platfor
 
 By integrating these systems, you create a seamless workflow that connects end-user appointment bookings to internal service operations. Specifically, this setup enables you to:
 
-- 🔍 **Extract ticket context** directly from booking form responses.
-- 🗓️ **Enrich calendar events** with structured ticket details in the subject line.
-- 📥 **Update PSA tickets** in real time to reflect a scheduled appointment.
-- 🤖 **Trigger meeting recap tools** like Fireflies or other AI notetakers by embedding ticket identifiers into meeting titles.
+- **Extract ticket context** directly from booking form responses.
+- **Enrich calendar events** with structured ticket details in the subject line.
+- **Update PSA tickets** in real time to reflect a scheduled appointment.
+- **Trigger meeting recap tools** like Fireflies or other AI notetakers by embedding ticket identifiers into meeting titles.
 
-**Pro Tip** pair this automation with a Snippets shortcut in Thread Inbox to make sharing your calendar effortless. Create a pre-written snippet that inserts your Microsoft Bookings link into chats, so you can instantly offer customers a way to book time with you. 👉 [Learn how to create a Snippet](https://docs.getthread.com/article/a4p1i5wiz6-save-time-answering-chats-with-snippets)
+**Pro Tip** pair this automation with a Snippets shortcut in Thread Inbox to make sharing your calendar effortless. Create a pre-written snippet that inserts your Microsoft Bookings link into chats, so you can instantly offer customers a way to book time with you. [Learn how to create a Snippet](https://docs.getthread.com/article/a4p1i5wiz6-save-time-answering-chats-with-snippets)
 
-### 🔧 What this Power Automate flow does
+### What this Power Automate flow does
 
 This solution is built entirely within **Power Automate** and acts as a smart bridge between Microsoft Bookings and your PSA platform (e.g. ConnectWise, Autotask, Halo).
 
 When a customer schedules an appointment using your Microsoft Bookings page, the **Power Automate flow** is triggered and performs the following steps:
 
-1. 🔍 **Extracts the ticket number** from the customer’s booking form response.
-2. 📋 **Calls your PSA’s API** to fetch ticket details like summary and owner.
-3. 🗓️ **Updates the calendar event title** with the ticket number and summary (e.g., `[12345] - Printer not working`).
-4. 📥 **Updates the ticket status** to "Scheduled" in your PSA system.
-5. 👤 **Adds a scheduled resource/technician** to the ticket based on the booking info.
-6. 🤖 **Triggers AI Notetakers** (e.g. Fireflies AI) by embedding ticket metadata in the event title.
+1. **Extracts the ticket number** from the customer’s booking form response.
+2. **Calls your PSA’s API** to fetch ticket details like summary and owner.
+3. **Updates the calendar event title** with the ticket number and summary (e.g., `[12345] - Printer not working`).
+4. **Updates the ticket status** to "Scheduled" in your PSA system.
+5. **Adds a scheduled resource/technician** to the ticket based on the booking info.
+6. **Triggers AI Notetakers** (e.g. Fireflies AI) by embedding ticket metadata in the event title.
 
-### 🧠 Why this matters
+### Why this matters
 
-#### ✅ Business value
+#### Business value
 
 - **Reduces technician coordination overhead**: No need to manually update calendars or ticket statuses.
 - **Improves recap accuracy**: Fireflies or Copilot recap tools can pick up the ticket number from meeting titles.
 - **Syncs calendars**: Automatically connects Bookings and O365 calendars with CW schedules.
 - **Protects SLA compliance**: Ensures that scheduled tickets are statused appropriately and assigned.
 
-#### 🎯 Best use cases
+#### Best use cases
 
 - MSPs with multiple engineers booking their own time.
 - Partners using Fireflies AI or other AI notetakers for meeting recaps.
 - Teams aiming to reduce manual triage and improve customer experience.
 
-### ⚙️ How to set it up
+### How to set it up
 
 #### 1. Download and import the Power Automate flow
 
@@ -78,7 +78,7 @@ Coming soon!
 - You must include a shared booking page and custom form questions in Microsoft Bookings that collects the **ticket number** (e.g., "Enter your Thread ticket number").
 - Ensure staff members are mapped to the right Office 365 calendars.
 
-**Need help creating your booking page and custom form fields?** Refer to Microsoft’s official guide 👉 [Create a Bookings calendar and add custom questions](https://learn.microsoft.com/en-us/microsoft-365/bookings/add-questions?view=o365-worldwide)
+**Need help creating your booking page and custom form fields?** Refer to Microsoft’s official guide [Create a Bookings calendar and add custom questions](https://learn.microsoft.com/en-us/microsoft-365/bookings/add-questions?view=o365-worldwide)
 
 #### 3. Power Automate flow structure
 
@@ -101,9 +101,9 @@ Ensure these connectors are active in Power Automate:
 | **Connector** | **Use** |
 | Microsoft Bookings | Receive appointments |
 | Office 365 Outlook | Update calendar events |
-| ConnectWise (via HTTP) | Fetch and modify ticket data. Authentication is handled using an HTTP header containing your **Basic Auth** token and `ClientID` from ConnectWise API credentials. You can obtain your `ClientID` here: 👉 [ConnectWise Developer Portal](https://developer.connectwise.com/ClientID) |
+| ConnectWise (via HTTP) | Fetch and modify ticket data. Authentication is handled using an HTTP header containing your **Basic Auth** token and `ClientID` from ConnectWise API credentials. You can obtain your `ClientID` here: [ConnectWise Developer Portal](https://developer.connectwise.com/ClientID) |
 
-### 🛠️ Example booking flow
+### Example booking flow
 
 1. **Technicians use snippets** in Thread Inbox to quickly share your team’s Microsoft Bookings link, making it easy for customers to book time with you.
 2. **User Books** a time via your public Microsoft Bookings page.
@@ -113,7 +113,7 @@ Ensure these connectors are active in Power Automate:
 6. **Changes Ticket Status** → “Scheduled”
 7. **Adds Scheduled Resource** in CW so SLA timers and escalations reflect reality.
 
-### **🔍 FAQs**
+### **FAQs**
 
 - **What if the ticket number is wrong?** The flow includes a basic numeric validation step and will fail silently if a non-ticket value is entered.
 - **Can I extend this to other boards or engineers?** Yes—just expand the `Switch` block and calendar logic with the engineer’s name and calendar ID.

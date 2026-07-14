@@ -111,9 +111,9 @@ When Ask Magic responds to a technician on a specific ticket:
 
 | Article type | Included in results? |
 | --- | --- |
-| Articles attached to the thread's company | ✅ Yes |
-| Global articles (SOPs, runbooks, cross-company docs) | ❌ No |
-| Articles attached to a different company | ❌ No — cross-client leakage is blocked |
+| Articles attached to the thread's company | Yes |
+| Global articles (SOPs, runbooks, cross-company docs) | No |
+| Articles attached to a different company | No — cross-client leakage is blocked |
 
 Up to **3 IT Glue article links** are returned per response. Ask Magic links to your articles — it does not summarize or modify their content.
 
@@ -121,9 +121,9 @@ Up to **3 IT Glue article links** are returned per response. Ask Magic links to 
 
 | PSA | Matching Method | How It Works | Name Differences Tolerated? |
 | --- | --- | --- | --- |
-| ConnectWise | PSA Company ID | Native ITG integration — ITG already stores the ConnectWise company ID, so Thread matches by ID directly. | ✅ Yes — names in CW and ITG can differ freely without breaking the match. |
-| Autotask | PSA Company ID | Native ITG integration — ITG already stores the Autotask company ID, so Thread matches by ID directly. | ✅ Yes — names in Autotask and ITG can differ freely without breaking the match. |
-| HaloPSA | Name match (fallback) | There is no ID link. Thread falls back to name matching: 1. ITG short name vs Halo company code (exact match)2. ITG organization name vs Halo company name (case-insensitive, otherwise exact) | ❌ No — no fuzzy matching, no whitespace trimming, no Inc/LLC normalization. Names must match exactly (aside from case). |
+| ConnectWise | PSA Company ID | Native ITG integration — ITG already stores the ConnectWise company ID, so Thread matches by ID directly. | Yes — names in CW and ITG can differ freely without breaking the match. |
+| Autotask | PSA Company ID | Native ITG integration — ITG already stores the Autotask company ID, so Thread matches by ID directly. | Yes — names in Autotask and ITG can differ freely without breaking the match. |
+| HaloPSA | Name match (fallback) | There is no ID link. Thread falls back to name matching: 1. ITG short name vs Halo company code (exact match)2. ITG organization name vs Halo company name (case-insensitive, otherwise exact) | No — no fuzzy matching, no whitespace trimming, no Inc/LLC normalization. Names must match exactly (aside from case). |
 
 #### **Permissions and data handling**
 

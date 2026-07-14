@@ -17,11 +17,11 @@ Magic AI never sees `{{contact_name}}`—it sees “Jane Doe". It doesn’t see 
 
 You should **never reference the variable name inside a prompt**. Always write as if the value has already been substituted.
 
-**✅ Correct:**
+**Correct:**
 
 > If the contact company name is Contoso, and the request mentions SharePoint, escalate immediately.
 
-**❌ Incorrect:**
+**Incorrect:**
 
 > If `{{contact_company_name}}` is Contoso, and the request mentions SharePoint, escalate...
 
@@ -36,11 +36,11 @@ Below are working examples. Notice how the logic refers to concepts like "ticket
 This prompt module enables the AI triage agent to identify when a ticket arrives outside of standard business hours or on recognized U.S. holidays. It dynamically generates natural, non-repetitive first responses depending on the source (email vs. chat/portal), informing clients of delay while capturing initial details for later handling. It enforces time-based gating logic before any triage or troubleshooting occurs, ensuring proper tone and SLA alignment.
 
 ```
-# ⚠️ Pre-Triage Business Hours & Holiday Rule
+# Pre-Triage Business Hours & Holiday Rule
 
 Before initiating any triage, issue identification, or response logic—including generic requests like “I need help” or “password reset”—the AI must first evaluate the current time in **Eastern Time (server default)**.
 
-## ⏰ Mandatory Business Hours and Holiday Check
+## Mandatory Business Hours and Holiday Check
 
 Proceed only if:
 - The current time falls **within** Open business hours, AND
@@ -48,7 +48,7 @@ Proceed only if:
 
 If either condition is false, trigger the following behavior.
 
-## 🔁 Trigger Condition (After-Hours or Holiday)
+## Trigger Condition (After-Hours or Holiday)
 
 **When the request is received outside of business hours or on a holiday:**
 
@@ -103,7 +103,7 @@ This rule instructs the AI triage agent to generate appropriate follow-up messag
 A strict triage agent prompt designed to detect and immediately escalate requests from specific high-priority clients (`Contoso`, `ACME CORP`) when sensitive terms are present. This logic bypasses all troubleshooting, clarification, and standard triage. It ensures zero interaction and immediate handoff. The agent is instructed to follow this flow without deviation, emphasizing precision and compliance.
 
 ```
-# 🚨 MANDATORY RULES FOR TRIAGE AGENT – FOLLOW EXACTLY
+# MANDATORY RULES FOR TRIAGE AGENT – FOLLOW EXACTLY
 You are a triage agent. You must follow the instructions below precisely and without exception. Do not skip or re-order any logic.
 
 ---
@@ -129,7 +129,7 @@ MSP, Phone, SiteStacker, SharePoint, Workday, Virtuous, Expensify, Navigator, Re
 
 ---
 
-## ☑️ IF ESCALATION IS TRIGGERED
+## IF ESCALATION IS TRIGGERED
 
 - DO NOT:
   - Ask clarifying questions
@@ -144,13 +144,13 @@ MSP, Phone, SiteStacker, SharePoint, Workday, Virtuous, Expensify, Navigator, Re
 
 ---
 
-## ❌ IF ESCALATION IS NOT TRIGGERED
+## IF ESCALATION IS NOT TRIGGERED
 
 Proceed with standard triage workflow.
 
 ---
 
-## 🔁 REPEAT THIS PRINCIPLE:
+## REPEAT THIS PRINCIPLE:
 
 > If user's company is `Contoso` or `ACME CORP`,  
 > AND the request contains **any** matching keyword,  
@@ -160,7 +160,7 @@ Proceed with standard triage workflow.
 
 ---
 
-🛑 **Noncompliance is a failure. Obey these rules exactly.**
+**Noncompliance is a failure. Obey these rules exactly.**
 ```
 
 ### **4. Triage Agent Workflow with Priority-Based Escalation**
@@ -212,8 +212,8 @@ You MUST respond with an SLA statement based on the exact value of {{ priority }
 ## Always follow your response with this sentence:
 “If this feels more urgent than what we've set, please let us know and we’ll prioritize accordingly.”
 
-⚠️ You must never guess or skip the SLA message if a recognized priority is present.
-⚠️ If {{ priority }} does not match any of the above exactly, do not include SLA timing—just escalate.
+You must never guess or skip the SLA message if a recognized priority is present.
+If {{ priority }} does not match any of the above exactly, do not include SLA timing—just escalate.
 ```
 
 ## **Available Variables by Feature**

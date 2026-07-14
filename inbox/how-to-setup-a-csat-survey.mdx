@@ -23,9 +23,9 @@ Use the **\{Ticket ID\}** variable in your snippet to ensure each rating is tied
 
 *Choose from the options below to rate your service experience:*
 
-1. *[Service magic ✨](*[*https://feedback.smileback.io/r/7/YOUR_SMILEBACK_SURVEY_URL/*](https://feedback.smileback.io/r/7/BleO3kGDsgX_J2ViiZknEQ/)*\{Ticket ID\}/1)*
-2. *[Good service 😃](*[*https://feedback.smileback.io/r/7/YOUR_SMILEBACK_SURVEY_URL/*](https://feedback.smileback.io/r/7/BleO3kGDsgX_J2ViiZknEQ/)*\{Ticket ID\}/0)*
-3. *["I'm not mad; just disappointed" ☹️](*[*https://feedback.smileback.io/r/7/YOUR_SMILEBACK_SURVEY_URL/*](https://feedback.smileback.io/r/7/BleO3kGDsgX_J2ViiZknEQ/)*\{Ticket ID\}/-1)*
+1. *[Service magic](*[*https://feedback.smileback.io/r/7/YOUR_SMILEBACK_SURVEY_URL/*](https://feedback.smileback.io/r/7/BleO3kGDsgX_J2ViiZknEQ/)*\{Ticket ID\}/1)*
+2. *[Good service](*[*https://feedback.smileback.io/r/7/YOUR_SMILEBACK_SURVEY_URL/*](https://feedback.smileback.io/r/7/BleO3kGDsgX_J2ViiZknEQ/)*\{Ticket ID\}/0)*
+3. *["I'm not mad; just disappointed"](*[*https://feedback.smileback.io/r/7/YOUR_SMILEBACK_SURVEY_URL/*](https://feedback.smileback.io/r/7/BleO3kGDsgX_J2ViiZknEQ/)*\{Ticket ID\}/-1)*
 
 **And here is the output presented to the user in-thread:**
 
@@ -59,11 +59,11 @@ This flow will automatically send the CSAT survey once you change the status of 
 
 The survey itself is made up of Markdown, which is slightly different than how we set it up using a snippet. The code looks like this:
 
-`[Service magic ✨](https://feedback.smileback.io/r/7/YOUR_SMILEBACK_SURVEY_URL/{Ticket ID}/1/)`
+`[Service magic](https://feedback.smileback.io/r/7/YOUR_SMILEBACK_SURVEY_URL/{Ticket ID}/1/)`
 
-`[Good service 🙂](https://feedback.smileback.io/r/7/YOUR_SMILEBACK_SURVEY_URL/{Ticket ID}/0/`
+`[Good service](https://feedback.smileback.io/r/7/YOUR_SMILEBACK_SURVEY_URL/{Ticket ID}/0/`
 
-`["I'm not mad; just disappointed" 🫤](https://feedback.smileback.io/r/7/YOUR_SMILEBACK_SURVEY_URL/{Ticket ID}/-1/)`
+`["I'm not mad; just disappointed"](https://feedback.smileback.io/r/7/YOUR_SMILEBACK_SURVEY_URL/{Ticket ID}/-1/)`
 
 You can change the text to say whatever you'd like and be sure to change the custom links to your own. Once you paste this into the survey, create a test thread to ensure that it works, and everything is formatted correctly.
 

@@ -17,7 +17,7 @@
     "default": "dark"
   },
   "banner": {
-    "content": "📚 Our help docs have a new home! Looking for the old help center? Visit [docs.getthread.com](https://docs.getthread.com).",
+    "content": "Our help docs have a new home! Looking for the old help center? Visit [docs.getthread.com](https://docs.getthread.com).",
     "dismissible": true
   },
   "fonts": {
@@ -41,6 +41,7 @@
         "groups": [
           {
             "group": "Get Started",
+            "icon": "rocket",
             "pages": [
               "get-started/what-is-thread-an-overview",
               "get-started/thread-product-overview-your-guide-to-the-ai-powered-msp-service-desk",
@@ -50,6 +51,7 @@
           },
           {
             "group": "Thread Inbox",
+            "icon": "inbox",
             "pages": [
               "inbox/service-team-structure",
               "inbox/inbox-teams",
@@ -126,6 +128,7 @@
           },
           {
             "group": "Magic AI",
+            "icon": "wand-magic-sparkles",
             "pages": [
               "assistive-ai/proactive-suggestions-in-ask-magic-partner-guide",
               {
@@ -168,6 +171,7 @@
           },
           {
             "group": "Magic Agents",
+            "icon": "robot",
             "pages": [
               "ai-agents/getting-started-with-magic-agents",
               "ai-agents/agent-driven-resolutions",
@@ -198,6 +202,7 @@
           },
           {
             "group": "Super Magic",
+            "icon": "sparkles",
             "pages": [
               "super-magic/meet-super-magic-your-ai-assistant-in-the-inbox",
               "ai-agents/super-magic",
@@ -223,6 +228,7 @@
           },
           {
             "group": "Voice AI",
+            "icon": "phone",
             "pages": [
               "ai-agents/voice-ai-setup-phase-1-initial-configuration",
               "ai-agents/voice-ai-setup-phase-2-overflow-after-hours",
@@ -243,6 +249,7 @@
           },
           {
             "group": "Service Intelligence",
+            "icon": "brain",
             "pages": [
               "ai-agents/getting-started-with-knowledge",
               "ai-agents/contact-intelligence",
@@ -251,14 +258,8 @@
             ]
           },
           {
-            "group": "Automagically",
-            "pages": [
-              "automagically/automagically-getting-started",
-              "automagically/automagically-running-runbooks"
-            ]
-          },
-          {
             "group": "Magic Analytics",
+            "icon": "chart-line",
             "pages": [
               "analytics/getting-started-with-magic-analytics",
               "analytics/topics-you-can-explore",
@@ -270,6 +271,7 @@
           },
           {
             "group": "Messenger",
+            "icon": "comments",
             "pages": [
               "messenger/add-chat-now-button-email",
               "messenger/show-all-tickets-in-chat-and-excluded-board-source",
@@ -310,6 +312,7 @@
           },
           {
             "group": "Companion Apps",
+            "icon": "puzzle-piece",
             "pages": [
               "companion-apps/choose-which-ticket-updates-post-to-channel",
               {
@@ -328,6 +331,7 @@
         "groups": [
           {
             "group": "Integrations",
+            "icon": "plug",
             "pages": [
               "integrations/hudu-integration",
               "integrations/it-glue-ask-magic",
@@ -381,6 +385,7 @@
           },
           {
             "group": "Security & Billing",
+            "icon": "shield-halved",
             "pages": [
               "security-billing/data-encryption",
               "security-billing/data-encryption-cub",
@@ -394,6 +399,7 @@
           },
           {
             "group": "Notifications",
+            "icon": "bell",
             "pages": [
               {
                 "group": "For your Team",
@@ -465,12 +471,8 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "https://help.getthread.com"
-      },
-      {
-        "label": "Book a demo",
-        "href": "https://www.getthread.com/demo"
+        "label": "Community",
+        "href": "https://www.getthread.com/aisu-community"
       }
     ],
     "primary": {
